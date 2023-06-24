@@ -19,11 +19,11 @@
         <link rel="next" href="../../news/news-2023-07/">
       
       <link rel="icon" href="../../assets/favicon.png">
-      <meta name="generator" content="mkdocs-1.4.3, mkdocs-material-9.1.16">
+      <meta name="generator" content="mkdocs-1.4.3, mkdocs-material-9.1.17">
     
     
       
-        <title>Android 性能优化·筑基篇·Elf 文件格式详解 - Android 性能优化</title>
+        <title>Elf 文件格式详解 - Android 性能优化</title>
       
     
     
@@ -75,7 +75,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#android-elf" class="md-skip">
+        <a href="#elf" class="md-skip">
           跳转至
         </a>
       
@@ -113,7 +113,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Android 性能优化·筑基篇·Elf 文件格式详解
+              Elf 文件格式详解
             
           </span>
         </div>
@@ -456,7 +456,7 @@
       
       
       <a href="./" class="md-nav__link md-nav__link--active">
-        Android 性能优化·筑基篇·Elf 文件格式详解
+        Elf 文件格式详解
       </a>
       
     </li>
@@ -559,14 +559,15 @@
   
 
 
-<h1 id="android-elf">Android 性能优化·筑基篇·Elf 文件格式详解</h1>
+<h1 id="elf">Elf 文件格式详解</h1>
+<p>最近在读《程序员的自我修养：链接，装载与库》，其实这本书跟 Android 开发的联系还挺紧密的，无论是 NDK 开发，或者是性能优化中一些常用的 Native Hoook 手段，都需要了解一些链接，装载相关的知识点。本文为读书笔记。</p>
 
   <hr>
 <div class="md-source-file">
   <small>
     
       最后更新:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">June 23, 2023</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">June 24, 2023</span>
       
     
   </small>
@@ -654,7 +655,7 @@
     <script id="__config" type="application/json">{"base": "../..", "features": ["announce.dismiss", "content.code.annotate", "content.code.copy", "content.tooltips", "navigation.footer", "navigation.indexes", "navigation.sections", "navigation.tabs", "navigation.top", "navigation.tracking", "search.highlight", "search.share", "search.suggest", "toc.follow"], "search": "../../assets/javascripts/workers/search.208ed371.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}}</script>
     
     
-      <script src="../../assets/javascripts/bundle.a51614de.min.js"></script>
+      <script src="../../assets/javascripts/bundle.b425cdc4.min.js"></script>
       
     
   </body>
