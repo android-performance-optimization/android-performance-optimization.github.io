@@ -1148,12 +1148,14 @@ SYMBOL TABLE:
 <p>链接过程的本质是把多个目标文件按照一定的规则拼接起来，在链接过程中，目标文件的拼接其实就是目标文件之间对地址的引用，即对函数和变量的地址的引用。</p>
 <p>每个函数或变量都有自己独特的名字，才能避免链接过程中不同变量和函数之间的混淆。在链接中，我们将函数和变量统称为符号（Symbol），函数名或变量名就是符号名（Symbol Name）。</p>
 <p>整个链接过程正是基于符号才能够正确完成。链接过程中很关键的一部分就是符号的管理，每一个目标文件都会有一个相应的符号表（Symbol Table），这个表里面记录了目标文件中所用到的所有符号。每个定义的符号有一个对应的值，叫做符号值（Symbol Value），对于变量和函数来说，符号值就是它们的地址</p>
-<p>我们将符号表中的符号分为以下几类:
-- 定义在本目标文件的全局符号，可以被其他目标文件引用。比如<code>SimpleSection.o</code>里面的<code>func1</code>、<code>main</code>和<code>global_init_var</code>。
-- 在本目标文件中引用的全局符号，却没有定义在本目标文件，这一般叫做外部符号（External Symbol），也就是我们前面所讲的符号引用。比如<code>SimpleSection.o</code>里面的<code>printf</code>。
-- 段名，这种符号往往由编译器产生，它的值就是该段的起始地址。比如<code>SimpleSection.o</code>里面的<code>.text</code>、<code>.data</code>等。
-- 局部符号，这类符号只在编译单元内部可见。比如<code>SimpleSection.o</code>里面的<code>static_var</code>和<code>static_var2</code>。调试器可以使用这些符号来分析程序或崩溃时的核心转储文件。这些局部符号对于链接过程没有作用，链接器往往也忽略它们。
-- 行号信息，即目标文件指令与源代码中代码行的对应关系，它也是可选的。”</p>
+<p>我们将符号表中的符号分为以下几类:</p>
+<ul>
+<li>定义在本目标文件的全局符号，可以被其他目标文件引用。比如<code>SimpleSection.o</code>里面的<code>func1</code>、<code>main</code>和<code>global_init_var</code>。</li>
+<li>在本目标文件中引用的全局符号，却没有定义在本目标文件，这一般叫做外部符号（External Symbol），也就是我们前面所讲的符号引用。比如<code>SimpleSection.o</code>里面的<code>printf</code>。</li>
+<li>段名，这种符号往往由编译器产生，它的值就是该段的起始地址。比如<code>SimpleSection.o</code>里面的<code>.text</code>、<code>.data</code>等。</li>
+<li>局部符号，这类符号只在编译单元内部可见。比如<code>SimpleSection.o</code>里面的<code>static_var</code>和<code>static_var2</code>。调试器可以使用这些符号来分析程序或崩溃时的核心转储文件。这些局部符号对于链接过程没有作用，链接器往往也忽略它们。</li>
+<li>行号信息，即目标文件指令与源代码中代码行的对应关系，它也是可选的。”</li>
+</ul>
 <p>其中最值得关注的就是全局符号，因为链接过程只关心全局符号的相互拼接，局部符号、段名、行号等都是次要的，它们对于其他目标文件来说是“不可见”的，在链接过程中也是无关紧要的</p>
 <h3 id="elf_6">ELF 符号表的结构</h3>
 <p>首先我们通过 readelf 命令来查看<code>SimpleSection.o</code> 的符号表</p>
