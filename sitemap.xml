@@ -6,12 +6,17 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://android-performance-optimization.github.io/foundation/elf-file-detail/</loc>
+         <loc>https://android-performance-optimization.github.io/foundation/framework/activity-start/</loc>
          <lastmod>2023-07-02</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://android-performance-optimization.github.io/foundation/static-link/</loc>
+         <loc>https://android-performance-optimization.github.io/foundation/self-cultivation/elf-file-detail/</loc>
+         <lastmod>2023-07-02</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://android-performance-optimization.github.io/foundation/self-cultivation/static-link/</loc>
          <lastmod>2023-07-02</lastmod>
          <changefreq>daily</changefreq>
     </url>
