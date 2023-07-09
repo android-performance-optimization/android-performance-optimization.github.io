@@ -544,6 +544,20 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    静态链接的过程
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    重定位过程
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -704,6 +718,20 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    静态链接的过程
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    重定位过程
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -742,13 +770,26 @@ void swap(int *a, int *b){
 </code></pre>
 <p>比如上面的两个文件，文件 a 中引用了 文件 b 中的两个全局符号:<code>shared</code>变量与<code>swap</code>函数，在 a 文件编译后生成的目标文件 <code>a.o</code> 中，两个外部符号在符号表中的 value 都为 0。</p>
 <p>而静态链接的作用简单来说，就是把符号替换为地址，并将<code>a.o</code>与<code>b.o</code>文件最终打包成一个可执行的文件</p>
+<h2 id="_3">静态链接的过程</h2>
+<p>上面说到，静态链接主要有两个作用</p>
+<ol>
+<li>将多个中间文件合并成一个可执行文件</li>
+<li>把程序中的符号转换成 CPU 执行时的内存地址</li>
+</ol>
+<p>因此，链接的过程一般也分为两步，称为两步链接</p>
+<p><strong>第一步 空间与地址分配</strong>：合并编译器生成的多个目标（.o）文件，通常通过相似段合并的方式(如下图所示)，最终生成共享文件（.so）或可执行文件。在这个过程中，链接器扫描输入的目标文件，获取各段大小，并收集符号定义和引用信息，构建全局符号表。当链接器构造好了最终的文件布局以及虚拟内存布局后，可根据符号表确定每个符号的虚拟地址。</p>
+<p><img alt="" src="https://raw.gitmirror.com/RicardoJiang/resource/main/2023/july/p4.png" /></p>
+<p><strong>第二步 符号解析与重定位</strong>：链接器会对整个文件再进行第二遍扫描，这一阶段，会利用第一遍扫描得到的符号表信息，依次对文件中每个符号引用的地方进行地址替换</p>
+<p>这就是链接器常用的两步链接 (Two-pass linking) 的步骤，简而言之，第一步完成文件合并、虚拟内存布局分配以及符号信息收集；第二步完成符号的重定位过程。</p>
+<p>重定位步骤是静态链接的核心内容，下面我们重点看下重定位的具体过程</p>
+<h2 id="_4">重定位过程</h2>
 
   <hr>
 <div class="md-source-file">
   <small>
     
       最后更新:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">July 5, 2023</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">July 9, 2023</span>
       
     
   </small>
