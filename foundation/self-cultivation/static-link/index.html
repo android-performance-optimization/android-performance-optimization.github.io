@@ -546,14 +546,55 @@
       
         <li class="md-nav__item">
   <a href="#_3" class="md-nav__link">
-    静态链接的过程
+    源码编译与链接
   </a>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#_4" class="md-nav__link">
-    重定位过程
+    静态链接的过程
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    空间与地址分配
+  </a>
+  
+    <nav class="md-nav" aria-label="空间与地址分配">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    目标文件分析
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    可执行文件分析
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    前后对比
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    符号解析与重定位
   </a>
   
 </li>
@@ -720,14 +761,55 @@
       
         <li class="md-nav__item">
   <a href="#_3" class="md-nav__link">
-    静态链接的过程
+    源码编译与链接
   </a>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#_4" class="md-nav__link">
-    重定位过程
+    静态链接的过程
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    空间与地址分配
+  </a>
+  
+    <nav class="md-nav" aria-label="空间与地址分配">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    目标文件分析
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    可执行文件分析
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    前后对比
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    符号解析与重定位
   </a>
   
 </li>
@@ -756,21 +838,37 @@
 <p>前面我们介绍了 ELF 文件的具体格式，接下来的问题是，如果我们有两个或者多个目标文件时，如何把他们链接起来，组成一个可执行文件？</p>
 <pre><code class="language-c"># a.c
 extern int shared;
+extern void swap(int *a, int* b);
 
-int main() {
+int main(void)
+{
     int a = 100;
     swap(&amp;a, &amp;shared);
 }
 
+
 # b.c
 int shared = 1;
 
-void swap(int *a, int *b){
+void swap(int *a, int* b)
+{
+    *a ^= *b ^= *a ^= *b;
 }
 </code></pre>
 <p>比如上面的两个文件，文件 a 中引用了 文件 b 中的两个全局符号:<code>shared</code>变量与<code>swap</code>函数，在 a 文件编译后生成的目标文件 <code>a.o</code> 中，两个外部符号在符号表中的 value 都为 0。</p>
 <p>而静态链接的作用简单来说，就是把符号替换为地址，并将<code>a.o</code>与<code>b.o</code>文件最终打包成一个可执行的文件</p>
-<h2 id="_3">静态链接的过程</h2>
+<h2 id="_3">源码编译与链接</h2>
+<p>接下来我们实操一下编译链接过程</p>
+<p>首先我们通过以下命令将 a.c 与 b.c 文件分别编译成目标文件 a.o 与 b.o</p>
+<pre><code># 必须在编译时加入参数-fno-stack-protector，不然链接报错
+$ gcc -c a.c -fno-stack-protector -o a.o
+$ gcc -c b.c -fno-stack-protector -o b.o
+</code></pre>
+<p>接下来我们就可以利用 ld 链接器将 a.o 与 b.o 链接成可执行文件 ab</p>
+<pre><code>$ ld a.o b.o -e main -o ab
+</code></pre>
+<p>现在我们已经得到了可执行文件</p>
+<h2 id="_4">静态链接的过程</h2>
 <p>上面说到，静态链接主要有两个作用</p>
 <ol>
 <li>将多个中间文件合并成一个可执行文件</li>
@@ -781,8 +879,78 @@ void swap(int *a, int *b){
 <p><img alt="" src="https://raw.gitmirror.com/RicardoJiang/resource/main/2023/july/p4.png" /></p>
 <p><strong>第二步 符号解析与重定位</strong>：链接器会对整个文件再进行第二遍扫描，这一阶段，会利用第一遍扫描得到的符号表信息，依次对文件中每个符号引用的地方进行地址替换</p>
 <p>这就是链接器常用的两步链接 (Two-pass linking) 的步骤，简而言之，第一步完成文件合并、虚拟内存布局分配以及符号信息收集；第二步完成符号的重定位过程。</p>
-<p>其中重定位步骤是静态链接的核心内容，下面我们重点看下重定位的具体过程</p>
-<h2 id="_4">重定位过程</h2>
+<h2 id="_5">空间与地址分配</h2>
+<p>空间与地址分配的工作就是扫描所有目标文件，获取目标文件的段长度，并将他们合并，计算出输出文件中各个段合并后的长度与位置，并确定虚拟地址</p>
+<p>接下来我们利用 objdump 工具，看看链接前后的地址变化</p>
+<h3 id="_6">目标文件分析</h3>
+<pre><code>$ objdump -h a.o
+
+a.o:     file format elf64-x86-64
+
+Sections:
+Idx Name          Size      VMA               LMA               File off  Algn
+  0 .text         0000002d  0000000000000000  0000000000000000  00000040  2**0
+                  CONTENTS, ALLOC, LOAD, RELOC, READONLY, CODE
+  1 .data         00000000  0000000000000000  0000000000000000  0000006d  2**0
+                  CONTENTS, ALLOC, LOAD, DATA
+  2 .bss          00000000  0000000000000000  0000000000000000  0000006d  2**0
+                  ALLOC
+  3 .comment      0000002c  0000000000000000  0000000000000000  0000006d  2**0
+                  CONTENTS, READONLY
+  4 .note.GNU-stack 00000000  0000000000000000  0000000000000000  00000099  2**0
+                  CONTENTS, READONLY
+  5 .note.gnu.property 00000020  0000000000000000  0000000000000000  000000a0  2**3
+                  CONTENTS, ALLOC, LOAD, READONLY, DATA
+  6 .eh_frame     00000038  0000000000000000  0000000000000000  000000c0  2**3
+                  CONTENTS, ALLOC, LOAD, RELOC, READONLY, DATA
+
+$ objdump -h b.o
+
+b.o:     file format elf64-x86-64
+
+Sections:
+Idx Name          Size      VMA               LMA               File off  Algn
+  0 .text         0000004f  0000000000000000  0000000000000000  00000040  2**0
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+  1 .data         00000004  0000000000000000  0000000000000000  00000090  2**2
+                  CONTENTS, ALLOC, LOAD, DATA
+  2 .bss          00000000  0000000000000000  0000000000000000  00000094  2**0
+                  ALLOC
+  3 .comment      0000002c  0000000000000000  0000000000000000  00000094  2**0
+                  CONTENTS, READONLY
+  4 .note.GNU-stack 00000000  0000000000000000  0000000000000000  000000c0  2**0
+                  CONTENTS, READONLY
+  5 .note.gnu.property 00000020  0000000000000000  0000000000000000  000000c0  2**3
+                  CONTENTS, ALLOC, LOAD, READONLY, DATA
+  6 .eh_frame     00000038  0000000000000000  0000000000000000  000000e0  2**3
+                  CONTENTS, ALLOC, LOAD, RELOC, READONLY, DATA
+</code></pre>
+<h3 id="_7">可执行文件分析</h3>
+<pre><code>$ objdump -h ab
+
+ab:     file format elf64-x86-64
+
+Sections:
+Idx Name          Size      VMA               LMA               File off  Algn
+  0 .note.gnu.property 00000020  00000000004001c8  00000000004001c8  000001c8  2**3
+                  CONTENTS, ALLOC, LOAD, READONLY, DATA
+  1 .text         0000007c  0000000000401000  0000000000401000  00001000  2**0
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+  2 .eh_frame     00000058  0000000000402000  0000000000402000  00002000  2**3
+                  CONTENTS, ALLOC, LOAD, READONLY, DATA
+  3 .data         00000004  0000000000404000  0000000000404000  00003000  2**2
+                  CONTENTS, ALLOC, LOAD, DATA
+  4 .comment      0000002b  0000000000000000  0000000000000000  00003004  2**0
+                  CONTENTS, READONLY
+</code></pre>
+<h3 id="_8">前后对比</h3>
+<ol>
+<li>a.o 与 b.o 的段通过相似段合并的方式打包到 ab 中，比如 a.o 的代码段长度为 0x2d，b.o 的代码段长度为 0x4f，而合并之后的 ab 的代码段长度就是 0x7C = 0x2d + 0x 4f</li>
+<li>链接前，a.o 和 b.o 的所有段的 VMA 都是 0，因为虚拟空间还没有分配，默认为 0</li>
+<li>链接后，ab 的各个段都被分配到相应的虚拟地址  </li>
+<li>需要注意的是，在 linux 中 elf 文件的虚拟地址并不是从 0 开始分配的，i386 ELF 默认从地址 0x08048000 开始分配， 而 x64 是 0x400000</li>
+</ol>
+<h2 id="_9">符号解析与重定位</h2>
 
   <hr>
 <div class="md-source-file">
