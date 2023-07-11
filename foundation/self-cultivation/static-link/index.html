@@ -597,6 +597,19 @@
     符号解析与重定位
   </a>
   
+    <nav class="md-nav" aria-label="符号解析与重定位">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    重定位表
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
     </ul>
@@ -812,6 +825,19 @@
     符号解析与重定位
   </a>
   
+    <nav class="md-nav" aria-label="符号解析与重定位">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    重定位表
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
     </ul>
@@ -949,8 +975,69 @@ Idx Name          Size      VMA               LMA               File off  Algn
 <li>链接前，a.o 和 b.o 的所有段的 VMA 都是 0，因为虚拟空间还没有分配，默认为 0</li>
 <li>链接后，ab 的各个段都被分配到相应的虚拟地址  </li>
 <li>需要注意的是，在 linux 中 elf 文件的虚拟地址并不是从 0 开始分配的，i386 ELF 默认从地址 0x08048000 开始分配， 而 x64 是 0x400000</li>
+<li>在段的虚拟地址确认之后，段内的符号根据其在段内的偏移，其虚拟地址也可以确认了</li>
 </ol>
 <h2 id="_9">符号解析与重定位</h2>
+<pre><code>$ objdump -d a.o
+
+a.o:     file format elf64-x86-64
+
+Disassembly of section .text:
+
+0000000000000000 &lt;main&gt;:
+   0:   f3 0f 1e fa             endbr64 
+   4:   55                      push   %rbp
+   5:   48 89 e5                mov    %rsp,%rbp
+   8:   48 83 ec 10             sub    $0x10,%rsp
+   c:   c7 45 fc 64 00 00 00    movl   $0x64,-0x4(%rbp)
+  13:   48 8d 45 fc             lea    -0x4(%rbp),%rax
+  17:   48 8d 35 00 00 00 00    lea    0x0(%rip),%rsi        # 1e &lt;main+0x1e&gt;
+  1e:   48 89 c7                mov    %rax,%rdi
+  21:   e8 00 00 00 00          callq  26 &lt;main+0x26&gt;
+  26:   b8 00 00 00 00          mov    $0x0,%eax
+  2b:   c9                      leaveq 
+  2c:   c3                      retq   
+
+$ objdump -d ab
+
+ab:     file format elf64-x86-64
+
+Disassembly of section .text:
+
+0000000000401000 &lt;main&gt;:
+  401000:       f3 0f 1e fa             endbr64 
+  401004:       55                      push   %rbp
+  401005:       48 89 e5                mov    %rsp,%rbp
+  401008:       48 83 ec 10             sub    $0x10,%rsp
+  40100c:       c7 45 fc 64 00 00 00    movl   $0x64,-0x4(%rbp)
+  401013:       48 8d 45 fc             lea    -0x4(%rbp),%rax
+  401017:       48 8d 35 e2 2f 00 00    lea    0x2fe2(%rip),%rsi        # 404000 &lt;shared&gt;
+  40101e:       48 89 c7                mov    %rax,%rdi
+  401021:       e8 07 00 00 00          callq  40102d &lt;swap&gt;
+  401026:       b8 00 00 00 00          mov    $0x0,%eax
+  40102b:       c9                      leaveq 
+  40102c:       c3                      retq   
+
+000000000040102d &lt;swap&gt;:
+  40102d:       f3 0f 1e fa             endbr64 
+  401031:       55                      push   %rbp
+  // ...
+</code></pre>
+<h3 id="_10">重定位表</h3>
+<pre><code>$ objdump -r a.o 
+
+a.o:     file format elf64-x86-64
+
+RELOCATION RECORDS FOR [.text]:
+OFFSET           TYPE              VALUE 
+000000000000001a R_X86_64_PC32     shared-0x0000000000000004
+0000000000000022 R_X86_64_PLT32    swap-0x0000000000000004
+
+
+RELOCATION RECORDS FOR [.eh_frame]:
+OFFSET           TYPE              VALUE 
+0000000000000020 R_X86_64_PC32     .text
+</code></pre>
 
   <hr>
 <div class="md-source-file">
