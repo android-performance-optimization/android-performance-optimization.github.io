@@ -13,6 +13,10 @@
         <link rel="canonical" href="https://android-performance-optimization.github.io/practical/compile/now-in-android/">
       
       
+        <link rel="prev" href="../compile-acceleration/">
+      
+      
+        <link rel="next" href="../../code-quality/kotlin-detekt/">
       
       <link rel="icon" href="../../../assets/favicon.png">
       <meta name="generator" content="mkdocs-1.4.3, mkdocs-material-9.1.16">
@@ -264,6 +268,8 @@
         
   
   
+    
+  
 
 
   
@@ -275,7 +281,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="../compile-acceleration/" class="md-tabs__link">
+      <a href="../compile-acceleration/" class="md-tabs__link md-tabs__link--active">
         实战手册
       </a>
     </li>
@@ -666,14 +672,16 @@
 
   
   
+    
+  
   
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
       
       
       
-      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" checked>
       
       
         
@@ -690,7 +698,7 @@
           <span class="md-nav__icon md-icon"></span>
         </label>
       
-      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="true">
         <label class="md-nav__title" for="__nav_4">
           <span class="md-nav__icon md-icon"></span>
           实战手册
@@ -701,16 +709,20 @@
               
   
   
+    
+  
   
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
       
       
       
-      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_1" >
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_1" checked>
       
       
+        
+          
         
           
         
@@ -721,7 +733,7 @@
           <span class="md-nav__icon md-icon"></span>
         </label>
       
-      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_1_label" aria-expanded="false">
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_1_label" aria-expanded="true">
         <label class="md-nav__title" for="__nav_4_1">
           <span class="md-nav__icon md-icon"></span>
           编译优化
@@ -737,6 +749,130 @@
       <a href="../compile-acceleration/" class="md-nav__link">
         编译加速的8个实用技巧
       </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          学习一下 nowinandroid 的构建脚本
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        学习一下 nowinandroid 的构建脚本
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    前言
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#gradleproperties" class="md-nav__link">
+    gradle.properties 中的配置
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#git-hook" class="md-nav__link">
+    自动安装 git hook
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#includebuild-buildsrc" class="md-nav__link">
+    使用 includeBuild 而不是 buildSrc
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#buildgradle" class="md-nav__link">
+    如何复用 build.gradle 代码
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#version-catalog" class="md-nav__link">
+    使用 Version Catalog
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    代码格式检查
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#lint" class="md-nav__link">
+    自定义 lint 检查
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    总结
+  </a>
+  
+    <nav class="md-nav" aria-label="总结">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    项目地址
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -1294,6 +1430,42 @@ rootProject {
       
         <footer class="md-footer">
   
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="页脚" >
+        
+          
+          <a href="../compile-acceleration/" class="md-footer__link md-footer__link--prev" aria-label="上一页: 编译加速的8个实用技巧" rel="prev">
+            <div class="md-footer__button md-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                上一页
+              </span>
+              <div class="md-ellipsis">
+                编译加速的8个实用技巧
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../../code-quality/kotlin-detekt/" class="md-footer__link md-footer__link--next" aria-label="下一页: 落地 Kotlin 代码规范，DeteKt 了解一下" rel="next">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                下一页
+              </span>
+              <div class="md-ellipsis">
+                落地 Kotlin 代码规范，DeteKt 了解一下
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
     
   
   <div class="md-footer-meta md-typeset">
