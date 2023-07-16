@@ -607,8 +607,22 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#_11" class="md-nav__link">
+    指令修正方式
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_12" class="md-nav__link">
+    总结
+  </a>
   
 </li>
       
@@ -835,8 +849,22 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#_11" class="md-nav__link">
+    指令修正方式
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_12" class="md-nav__link">
+    总结
+  </a>
   
 </li>
       
@@ -992,19 +1020,20 @@ Disassembly of section .text:
    8:   48 83 ec 10             sub    $0x10,%rsp
    c:   c7 45 fc 64 00 00 00    movl   $0x64,-0x4(%rbp)
   13:   48 8d 45 fc             lea    -0x4(%rbp),%rax
-  17:   48 8d 35 00 00 00 00    lea    0x0(%rip),%rsi        # 1e &lt;main+0x1e&gt;
+  17:   48 8d 35 00 00 00 00    lea    0x0(%rip),%rsi        # 1e &lt;main+0x1e&gt;  shared 的引用
   1e:   48 89 c7                mov    %rax,%rdi
-  21:   e8 00 00 00 00          callq  26 &lt;main+0x26&gt;
+  21:   e8 00 00 00 00          callq  26 &lt;main+0x26&gt; # swap 的引用
   26:   b8 00 00 00 00          mov    $0x0,%eax
   2b:   c9                      leaveq 
   2c:   c3                      retq   
 </code></pre>
-<p>可以看出：</p>
+<p>从输出的结果中可以看出：</p>
 <ol>
 <li>在此时 main 函数的地址还是 0，因为此时还没有进行空间分配，目标文件代码段中的地址还是以 0x000000 开始</li>
-<li></li>
+<li>a.o 中定义了一个<code>main</code>函数，这个函数占用 2c 个字节，共 12 条指令。最左边那列是每条指令的偏移量，一行代表一条指令</li>
+<li>此时编译器并不知道 shared 符号与 swap 符号的地址，因为定义在其他文件中，因此暂时还是用 0 表示</li>
 </ol>
-<p>接下来再看看 ab 反汇编的结果</p>
+<p>链接器在完成地址和空间分配之后就可以确定所有符号的虚拟地址了，那么链接器就可以根据符号的地址对需要重定位的指令进行地址修正，接下来再看看 ab 反汇编的结果</p>
 <pre><code>$ objdump -d ab
 
 ab:     file format elf64-x86-64
@@ -1030,21 +1059,42 @@ Disassembly of section .text:
   401031:       55                      push   %rbp
   // ...
 </code></pre>
+<p>如上所示，<code>swap</code>的值被替换成了<code>0x07</code>，这是因为<code>call</code>指令是一条近址相对位移调用指令，它后面跟的是调用指令的下一条指令的偏移量</p>
+<p>比如上面偏移量为<code>0x07</code>，下一条指令的地址为<code>0x401026</code>，而<code>0x401026+0x07=0x40102d</code>，正好是<code>swap</code>符号的地址</p>
 <h3 id="_10">重定位表</h3>
-<pre><code>$ objdump -r a.o 
+<p>我们前面说到，链接器会对指令进行重定位。那么问题来了，链接器怎么知道哪些指令需要调整？这些指令的哪些部分需要调整，具体如何调整？比如上面介绍的<code>shared</code>符号与<code>swap</code>符号调整的方式就不一样</p>
+<p>这些重定位相关的信息都是保存在 ELF 中的重定位表中的，对于每一个需要重定位的 ELF 段都有一个重定位表。比如 .text 段对应的 .rel.text 重定位表，.data 段对应的 .rel.data 重定位表</p>
+<p>下面我们看下目标文件的重定位表</p>
+<pre><code>$ readelf -r a.o 
 
-a.o:     file format elf64-x86-64
-
-RELOCATION RECORDS FOR [.text]:
-OFFSET           TYPE              VALUE 
-000000000000001a R_X86_64_PC32     shared-0x0000000000000004
-0000000000000022 R_X86_64_PLT32    swap-0x0000000000000004
-
-
-RELOCATION RECORDS FOR [.eh_frame]:
-OFFSET           TYPE              VALUE 
-0000000000000020 R_X86_64_PC32     .text
+Relocation section '.rela.text' at offset 0x260 contains 2 entries:
+  Offset          Info           Type           Sym. Value    Sym. Name + Addend
+00000000001a  000a00000002 R_X86_64_PC32     0000000000000000 shared - 4
+000000000022  000c00000004 R_X86_64_PLT32    0000000000000000 swap - 4
 </code></pre>
+<p>可以看出，在<code>a.o</code>中有两个重定位入口</p>
+<ol>
+<li><code>OFFSET</code>表示该重定位入口在该段中的位置，对照前面的反汇编结果，也可以看到<code>0x1a</code>与<code>0x22</code>就是对应指令的地址部分</li>
+<li><code>Type</code>表示重定位入口的类型，因为各种处理器的指令格式不一样，所以重定位修正的指令地址格式也不一样，每种处理器都有一套自己的重定位入口类型</li>
+<li><code>Addend</code>表示占位符的长度，重定位过程中需要的辅助信息</li>
+</ol>
+<p>可以看出，重定位过程中，每一个重定位入口都是对一个符号的引用，那么当链接器需要要对某个符号进行引用和重定位时，他就要确定这个符号的目标地址，这时候链接器就会去查找由所有输入目标文件的符号表组成的全局符号表，找到相应的符号后进行重定位。</p>
+<h3 id="_11">指令修正方式</h3>
+<p>不同的处理器指令对于地址的格式和方式都不一样。比如对于 32 位 Intel x86 处理器来说，转移跳转指令（jmp 指令）、子程序调用指令（call 指令）和数据传送指令（mov 指令）寻址方式千差万别。直至 2006 年为止，Intel x86 系列 CPU 的 jmp 指令有 11 种寻址模式；call 指令有10种；mov 指令则有多达 34 种寻址模式</p>
+<p>我们示例中的重定位入口类型分别为<code>R_X86_64_PC32</code>与<code>R_X86_64_PLT32</code>，它们的指令修正方式都是相对寻址修正，指令计算公式为：S + A – P</p>
+<ul>
+<li>这里的 S 表示完成链接后该符号的实际地址。在链接器将多个中间文件的段合并以后，每个符号就按先后顺序依次都会分配到一个地址，这就是它的最终地址 S。</li>
+<li>A 表示 Addend 的值，它代表了占位符的长度。</li>
+<li>P 表示要进行重定位位置的地址或偏移，这是引用符号的地方，也就是我们要回填地址的地方，简单说，它就是我们上文提到的用 0 填充的占位符的地址。</li>
+</ul>
+<p>其中 P - A = PC 值 = 下一条指令地址，因此其指令计算公式也可以简化为 S - 下一条指令地址，之所以这么设计是因为程序运行到这条指令的时候，能够拿到的地址就只有 PC 的值。通过这种方式，在运行时通过获取 PC 值与指令偏移值，就可以计算出符号真正的虚拟地址</p>
+<p>比如上面<code>swap</code>符号偏移量为<code>0x07</code>，下一条指令的地址为<code>0x401026</code>，而<code>0x401026+0x07=0x40102d</code>，正好是<code>swap</code>符号的地址</p>
+<h2 id="_12">总结</h2>
+<ul>
+<li>静态链接的步骤分为两步，第一步是空间与地址分配，第二步是符号解析与重定位</li>
+<li>空间与地址分配阶段：通过相似段合并的方式将多个中间文件合并成一个可执行文件，在这个过程中，链接器会扫描输入的目标文件，获取各段大小，并收集符号定义和引用信息，构建全局符号表，并确定每个符号的虚拟地址</li>
+<li>重定位阶段：链接器会把各个输入目标文件对于外部符号的引用进行解析，把每个段中须重定位的指令和数据进行修正，使其指向正确的位置</li>
+</ul>
 
   <hr>
 <div class="md-source-file">
