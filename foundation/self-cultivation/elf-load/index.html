@@ -10,25 +10,27 @@
       
       
       
-        <link rel="canonical" href="https://android-performance-optimization.github.io/news/news-2023-07/">
+        <link rel="canonical" href="https://android-performance-optimization.github.io/foundation/self-cultivation/elf-load/">
       
       
-        <link rel="prev" href="../../foundation/framework/activity-start/">
+        <link rel="prev" href="../static-link/">
       
       
-      <link rel="icon" href="../../assets/favicon.png">
+        <link rel="next" href="../../framework/activity-start/">
+      
+      <link rel="icon" href="../../../assets/favicon.png">
       <meta name="generator" content="mkdocs-1.4.3, mkdocs-material-9.1.16">
     
     
       
-        <title>Android 性能优化技术月报 | 2023 年 7 月 - Android 性能优化</title>
+        <title>可执行文件的装载与进程 - Android 性能优化</title>
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.26e3688c.min.css">
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.26e3688c.min.css">
       
         
-        <link rel="stylesheet" href="../../assets/stylesheets/palette.ecc896b0.min.css">
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.ecc896b0.min.css">
       
       
 
@@ -44,7 +46,7 @@
       
     
     
-    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
 
@@ -73,7 +75,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#android-2023-7" class="md-skip">
+        <a href="#_1" class="md-skip">
           跳转至
         </a>
       
@@ -87,7 +89,7 @@
 
 <header class="md-header" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="页眉">
-    <a href="../.." title="Android 性能优化" class="md-header__button md-logo" aria-label="Android 性能优化" data-md-component="logo">
+    <a href="../../.." title="Android 性能优化" class="md-header__button md-logo" aria-label="Android 性能优化" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 89 89">
@@ -111,7 +113,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Android 性能优化技术月报 | 2023 年 7 月
+              可执行文件的装载与进程
             
           </span>
         </div>
@@ -221,7 +223,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="../.." class="md-tabs__link">
+      <a href="../../.." class="md-tabs__link">
         首页
       </a>
     </li>
@@ -234,7 +236,7 @@
 
 
   <li class="md-tabs__item">
-    <a href="../../resource/" class="md-tabs__link">
+    <a href="../../../resource/" class="md-tabs__link">
       学习资源
     </a>
   </li>
@@ -242,6 +244,8 @@
       
         
   
+  
+    
   
 
 
@@ -254,7 +258,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="../../foundation/self-cultivation/elf-file-detail/" class="md-tabs__link">
+      <a href="../elf-file-detail/" class="md-tabs__link md-tabs__link--active">
         筑基手册
       </a>
     </li>
@@ -266,15 +270,13 @@
         
   
   
-    
-  
 
 
   
   
   
     <li class="md-tabs__item">
-      <a href="./" class="md-tabs__link md-tabs__link--active">
+      <a href="../../../news/news-2023-07/" class="md-tabs__link">
         技术月报
       </a>
     </li>
@@ -302,7 +304,7 @@
 
 <nav class="md-nav md-nav--primary md-nav--lifted" aria-label="导航栏" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="../.." title="Android 性能优化" class="md-nav__button md-logo" aria-label="Android 性能优化" data-md-component="logo">
+    <a href="../../.." title="Android 性能优化" class="md-nav__button md-logo" aria-label="Android 性能优化" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 89 89">
@@ -358,7 +360,7 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../..">首页</a>
+          <a href="../../..">首页</a>
           
             <label for="__nav_1">
               <span class="md-nav__icon md-icon"></span>
@@ -381,7 +383,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../intro/htc/" class="md-nav__link">
+      <a href="../../../intro/htc/" class="md-nav__link">
         如何参与
       </a>
     </li>
@@ -403,7 +405,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../resource/" class="md-nav__link">
+      <a href="../../../resource/" class="md-nav__link">
         学习资源
       </a>
     </li>
@@ -416,14 +418,16 @@
 
   
   
+    
+  
   
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
       
       
       
-      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
       
       
         
@@ -438,7 +442,7 @@
           <span class="md-nav__icon md-icon"></span>
         </label>
       
-      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
         <label class="md-nav__title" for="__nav_3">
           <span class="md-nav__icon md-icon"></span>
           筑基手册
@@ -449,14 +453,16 @@
               
   
   
+    
+  
   
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
       
       
       
-      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_1" >
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_1" checked>
       
       
         
@@ -473,7 +479,7 @@
           <span class="md-nav__icon md-icon"></span>
         </label>
       
-      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_1_label" aria-expanded="false">
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_1_label" aria-expanded="true">
         <label class="md-nav__title" for="__nav_3_1">
           <span class="md-nav__icon md-icon"></span>
           程序员的自我修养
@@ -486,7 +492,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../foundation/self-cultivation/elf-file-detail/" class="md-nav__link">
+      <a href="../elf-file-detail/" class="md-nav__link">
         Elf 文件格式详解
       </a>
     </li>
@@ -500,7 +506,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../foundation/self-cultivation/static-link/" class="md-nav__link">
+      <a href="../static-link/" class="md-nav__link">
         静态链接
       </a>
     </li>
@@ -512,11 +518,21 @@
               
   
   
+    
   
-    <li class="md-nav__item">
-      <a href="../../foundation/self-cultivation/elf-load/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         可执行文件的装载与进程
       </a>
+      
     </li>
   
 
@@ -566,7 +582,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../foundation/framework/activity-start/" class="md-nav__link">
+      <a href="../../framework/activity-start/" class="md-nav__link">
         Activity 启动流程分析
       </a>
     </li>
@@ -593,16 +609,14 @@
 
   
   
-    
-  
   
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
       
       
       
-      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" checked>
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
       
       
         
@@ -615,7 +629,7 @@
           <span class="md-nav__icon md-icon"></span>
         </label>
       
-      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="true">
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
         <label class="md-nav__title" for="__nav_4">
           <span class="md-nav__icon md-icon"></span>
           技术月报
@@ -626,126 +640,11 @@
               
   
   
-    
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          Android 性能优化技术月报 | 2023 年 7 月
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../../../news/news-2023-07/" class="md-nav__link">
         Android 性能优化技术月报 | 2023 年 7 月
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="目录">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      目录
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#_1" class="md-nav__link">
-    最新动态
-  </a>
-  
-    <nav class="md-nav" aria-label="最新动态">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#btrace-20" class="md-nav__link">
-    btrace 2.0 发布
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
-    精选博客
-  </a>
-  
-    <nav class="md-nav" aria-label="精选博客">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#app" class="md-nav__link">
-    百度App启动性能优化实践篇
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#android-bazel-gradle" class="md-nav__link">
-    Android 视角谈 Bazel 与 Gradle 构建系统
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#android-cpu" class="md-nav__link">
-    Android CPU 性能优化的一些思路
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#android" class="md-nav__link">
-    Android 内存优化之极致清理
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
-    精选视频
-  </a>
-  
-    <nav class="md-nav" aria-label="精选视频">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#android-art" class="md-nav__link">
-    理解 Android ART 虚拟机
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -777,95 +676,6 @@
     
   
   
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      目录
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#_1" class="md-nav__link">
-    最新动态
-  </a>
-  
-    <nav class="md-nav" aria-label="最新动态">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#btrace-20" class="md-nav__link">
-    btrace 2.0 发布
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
-    精选博客
-  </a>
-  
-    <nav class="md-nav" aria-label="精选博客">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#app" class="md-nav__link">
-    百度App启动性能优化实践篇
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#android-bazel-gradle" class="md-nav__link">
-    Android 视角谈 Bazel 与 Gradle 构建系统
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#android-cpu" class="md-nav__link">
-    Android CPU 性能优化的一些思路
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#android" class="md-nav__link">
-    Android 内存优化之极致清理
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
-    精选视频
-  </a>
-  
-    <nav class="md-nav" aria-label="精选视频">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#android-art" class="md-nav__link">
-    理解 Android ART 虚拟机
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-    </ul>
-  
 </nav>
                   </div>
                 </div>
@@ -882,37 +692,14 @@
   
 
 
-<h1 id="android-2023-7">Android 性能优化技术月报 | 2023 年 7 月</h1>
-<p>每个月都会有一些 Android 性能优化相关的优质内容发布，然而，碎片化阅读使得这些知识难以形成完整体系，且容易被遗忘。为解决这些问题，我决定尝试使用技术月报的形式，总结我在最近一个月内查阅的 Android 性能优化相关的优质内容。</p>
-<p>月报的主要内容包括：整理展示我在最近一个月所查阅的 Android 性能优化领域的最新技术动态、精选博客，精选视频等内容。</p>
-<h2 id="_1">最新动态</h2>
-<h3 id="btrace-20">btrace 2.0 发布</h3>
-<p><a href="https://mp.weixin.qq.com/s/WZ5JxCFv_FSOLqR-sRremA">重要升级！btrace 2.0 技术原理大揭秘</a></p>
-<p>btrace 是字节开源的高性能 Trace 工具，比起 systrace 或者 profile 要好用很多，目前 btrace 2.0 版本已发布，主要包括以下升级</p>
-<ul>
-<li>使用体验：支持 Windows 啦！此外将脚本实现从 Python 切至 Java 并去除各种权限要求，因脚本工具可用性问题引起的用户使用打断次数几乎降为 0，同时还将 Trace 产物切至 PB 协议，产物体积减小 70%，网页打开速度提升 7 倍！</li>
-<li>性能体验：通过大规模改造方法 Trace 逻辑，将 App 方法 Trace 底层结构由字符串切换为整数，实现内存占用减少 80%，存储改为 mmap 方式、优化无锁队列逻辑、提供精准插桩策略等，百万量级方法全插桩下性能损耗进一步降低至 15%！</li>
-<li>监控数据：新增 4 项数据监控能力，重磅推出渲染详情采集能力！同时还新增 Binder、线程启动、Wait/Notify/Park/Unpark 等详情数据！</li>
-</ul>
-<h2 id="_2">精选博客</h2>
-<h3 id="app">百度App启动性能优化实践篇</h3>
-<p><a href="https://mp.weixin.qq.com/s/Q6Z3pQpYWtQ_X9bk-KJdzw">百度App启动性能优化实践篇</a></p>
-<h3 id="android-bazel-gradle">Android 视角谈 Bazel 与 Gradle 构建系统</h3>
-<p><a href="https://mp.weixin.qq.com/s/4AI7H428oSc4fWgcK3KOpQ">Android 视角谈 Bazel 与 Gradle 构建系统</a></p>
-<h3 id="android-cpu">Android CPU 性能优化的一些思路</h3>
-<p><a href="https://juejin.cn/post/7249623814149013562">手把手教女朋友做 Android CPU性能优化</a></p>
-<h3 id="android">Android 内存优化之极致清理</h3>
-<p><a href="https://juejin.cn/post/7200376545243349050">Android 内存优化之极致清理</a></p>
-<h2 id="_3">精选视频</h2>
-<h3 id="android-art">理解 Android ART 虚拟机</h3>
-<p><a href="https://www.bilibili.com/video/BV1zM4y1j7yB/">社区说｜理解 Android ART 虚拟机</a></p>
+<h1 id="_1">可执行文件的装载与进程</h1>
 
   <hr>
 <div class="md-source-file">
   <small>
     
       最后更新:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">July 9, 2023</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">July 16, 2023</span>
       
     
   </small>
@@ -943,7 +730,7 @@
       <nav class="md-footer__inner md-grid" aria-label="页脚" >
         
           
-          <a href="../../foundation/framework/activity-start/" class="md-footer__link md-footer__link--prev" aria-label="上一页: Activity 启动流程分析" rel="prev">
+          <a href="../static-link/" class="md-footer__link md-footer__link--prev" aria-label="上一页: 静态链接" rel="prev">
             <div class="md-footer__button md-icon">
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
             </div>
@@ -952,11 +739,26 @@
                 上一页
               </span>
               <div class="md-ellipsis">
-                Activity 启动流程分析
+                静态链接
               </div>
             </div>
           </a>
         
+        
+          
+          <a href="../../framework/activity-start/" class="md-footer__link md-footer__link--next" aria-label="下一页: Activity 启动流程分析" rel="next">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                下一页
+              </span>
+              <div class="md-ellipsis">
+                Activity 启动流程分析
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"/></svg>
+            </div>
+          </a>
         
       </nav>
     
@@ -982,10 +784,10 @@
       <div class="md-dialog__inner md-typeset"></div>
     </div>
     
-    <script id="__config" type="application/json">{"base": "../..", "features": ["announce.dismiss", "content.code.annotate", "content.code.copy", "content.tooltips", "navigation.footer", "navigation.indexes", "navigation.tabs", "navigation.top", "navigation.tracking", "search.highlight", "search.share", "search.suggest", "toc.follow"], "search": "../../assets/javascripts/workers/search.208ed371.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}}</script>
+    <script id="__config" type="application/json">{"base": "../../..", "features": ["announce.dismiss", "content.code.annotate", "content.code.copy", "content.tooltips", "navigation.footer", "navigation.indexes", "navigation.tabs", "navigation.top", "navigation.tracking", "search.highlight", "search.share", "search.suggest", "toc.follow"], "search": "../../../assets/javascripts/workers/search.208ed371.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}}</script>
     
     
-      <script src="../../assets/javascripts/bundle.a51614de.min.js"></script>
+      <script src="../../../assets/javascripts/bundle.a51614de.min.js"></script>
       
     
   </body>
