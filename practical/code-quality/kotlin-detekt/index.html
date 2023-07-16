@@ -1297,7 +1297,7 @@
 <p>同时<code>Detekt</code>支持<code>CLI</code>命令行方式接入与<code>Gradle</code>方式接入，支持只检查新增代码，在检查速度上比起<code>lint</code>也有一定的优势</p>
 <h2 id="idedetekt"><code>IDE</code>接入<code>DeteKt</code>插件</h2>
 <p>如果能在<code>IDE</code>中提示代码中存在的问题，应该是最快发现问题的方式，<code>DeteKt</code>也贴心的为我们准备了插件，如下所示：</p>
-<p><img alt="" src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/bb73044ade2540cd91eb77cb39d680dd~tplv-k3u1fbpfcp-zoom-1.image" /></p>
+<p><img alt="" src="https://raw.gitmirror.com/RicardoJiang/resource/main/2023/july/p14.webp" /></p>
 <p>主要可以配置以下内容：  <br />
 1. <code>DeteKt</code>开关
 2. 格式化开关，<code>DeteKt</code>直接使用了<code>ktlint</code>的规则
@@ -1305,9 +1305,9 @@
 4. <code>Baseline file</code>：基线文件，跳过旧代码问题，有了这个基线文件，下次扫描时，就会绕过文件中列出的基线问题，而只提示新增问题。
 5. <code>Plugin jar</code>: 自定义规则<code>jar</code>包，在自定义规则后打出<code>jar</code>包，在扫描时就可以使用自定义规则了</p>
 <p><code>DeteKt IDE</code>插件可以实时提示问题(包括自定义规则)，如下图所示，我们添加了自定义禁止使用<code>kae</code>的规则：  </p>
-<p><img alt="" src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/64ab452fbdab4122be9729c87469071f~tplv-k3u1fbpfcp-zoom-1.image" /></p>
+<p><img alt="" src="https://raw.gitmirror.com/RicardoJiang/resource/main/2023/july/p15.webp" /></p>
 <p>对于一些支持自动修复的格式问题，<code>DeteKt</code>插件支持自动格式化，同时也可以配置快捷键，一键自动格式化，如下所示：</p>
-<p><img alt="" src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/adc92211090f4ab0b42bdcdb51f64bfd~tplv-k3u1fbpfcp-zoom-1.image" /></p>
+<p><img alt="" src="https://raw.gitmirror.com/RicardoJiang/resource/main/2023/july/p16.webp" /></p>
 <h2 id="clidetekt"><code>CLI</code>命令行方式接入<code>DeteKt</code></h2>
 <p><code>DeteKt</code>支持通过<code>CLI</code>命令行方式接入，支持只检测几个文件，比如本次<code>commit</code>提交的文件</p>
 <p>我们可以通过如下方式，下载<code>DeteKt</code>的<code>jar</code>然后使用</p>
@@ -1406,7 +1406,7 @@ tasks.withType&lt;io.gitlab.arturbosch.detekt.Detekt&gt;().configureEach {
 <li>除了<code>baseline</code>之外，也可以通过<code>include</code>与<code>exclude</code>的方式指定只扫描指定文件的方式来实现增量检测</li>
 </ol>
 <p>通过以上方式就接入成功了，运行<code>./gradlew detektDebug</code>就可以开始检测了，扫描结果可在终端直接查看，并可以直接定位到问题代码处，也可以在<code>build/reprots/</code>路径下查看输出的报告文件：</p>
-<p><img alt="" src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/86350619f937491e8695b9b9b1ca5054~tplv-k3u1fbpfcp-zoom-1.image" /></p>
+<p><img alt="" src="https://raw.gitmirror.com/RicardoJiang/resource/main/2023/july/p17.webp" /></p>
 <h2 id="detekt_1">自定义<code>Detekt</code>检测规则</h2>
 <p>要落地自己制定的代码规范，不可避免的需要自定义规则，当然我们首先要看下<code>DeteKt</code>自带的规则，是否已经有我们需要的，只需把开关打开即可.</p>
 <h3 id="detekt_2"><code>DeteKt</code>自带规则</h3>
@@ -1578,9 +1578,9 @@ jobs:
       run: ./gradlew detektDebug
 </code></pre>
 <p>这样在每次提交<code>PR</code>的时候，就都会自动调用该<code>workflow</code>进行检测了，检测不通过则不允许合并，如下所示：  </p>
-<p><img alt="" src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/1b47fe23c59545a79f85a0f4e63a0e1c~tplv-k3u1fbpfcp-zoom-1.image" /></p>
+<p><img alt="" src="https://raw.gitmirror.com/RicardoJiang/resource/main/2023/july/p18.webp" /></p>
 <p>点进去也可以看到详细的报错，具体是哪一行代码检测不通过，如图所示：</p>
-<p><img alt="" src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/a39a667b6af44652850148a2cb9c3096~tplv-k3u1fbpfcp-zoom-1.image" /></p>
+<p><img alt="" src="https://raw.gitmirror.com/RicardoJiang/resource/main/2023/july/p19.webp" /></p>
 <h2 id="_6">总结</h2>
 <p>本文主要介绍了<code>DeteKt</code>的接入与如何自定义规则，通过<code>IDE</code>集成，<code>CLI</code>命令行方式与<code>Gradle</code>插件方式接入，以及<code>CI</code>自动检测，可以保证代码规范，<code>IDE</code>提示，<code>CI</code>检测三者的统一，方便提前暴露问题，提高代码质量。</p>
 <p>如果本文对你有所帮助，欢迎点赞~</p>
