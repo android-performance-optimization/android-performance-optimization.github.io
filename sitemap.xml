@@ -51,6 +51,16 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://android-performance-optimization.github.io/practical/compile/now-in-android/</loc>
+         <lastmod>2023-07-16</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://android-performance-optimization.github.io/practical/stability/airbag/</loc>
+         <lastmod>2023-07-16</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://android-performance-optimization.github.io/resource/</loc>
          <lastmod>2023-07-16</lastmod>
          <changefreq>daily</changefreq>
