@@ -41,6 +41,11 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://android-performance-optimization.github.io/practical/code-quality/kotlin-detekt/</loc>
+         <lastmod>2023-07-16</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://android-performance-optimization.github.io/practical/compile/compile-acceleration/</loc>
          <lastmod>2023-07-16</lastmod>
          <changefreq>daily</changefreq>

@@ -10,20 +10,20 @@
       
       
       
-        <link rel="canonical" href="https://android-performance-optimization.github.io/foundation/tools/native-hook/">
+        <link rel="canonical" href="https://android-performance-optimization.github.io/practical/code-quality/kotlin-detekt/">
       
       
-        <link rel="prev" href="../../framework/activity-start/">
+        <link rel="prev" href="../../compile/compile-acceleration/">
       
       
-        <link rel="next" href="../../../practical/compile/compile-acceleration/">
+        <link rel="next" href="../../../news/news-2023-07/">
       
       <link rel="icon" href="../../../assets/favicon.png">
       <meta name="generator" content="mkdocs-1.4.3, mkdocs-material-9.1.16">
     
     
       
-        <title>Native Hook 快速上手 - Android 性能优化</title>
+        <title>落地 Kotlin 代码规范，DeteKt 了解一下 - Android 性能优化</title>
       
     
     
@@ -75,7 +75,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#native-hook" class="md-skip">
+        <a href="#kotlin-detekt" class="md-skip">
           跳转至
         </a>
       
@@ -113,7 +113,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Native Hook 快速上手
+              落地 Kotlin 代码规范，DeteKt 了解一下
             
           </span>
         </div>
@@ -245,8 +245,6 @@
         
   
   
-    
-  
 
 
   
@@ -258,7 +256,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="../../self-cultivation/elf-file-detail/" class="md-tabs__link md-tabs__link--active">
+      <a href="../../../foundation/self-cultivation/elf-file-detail/" class="md-tabs__link">
         筑基手册
       </a>
     </li>
@@ -270,6 +268,8 @@
         
   
   
+    
+  
 
 
   
@@ -281,7 +281,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="../../../practical/compile/compile-acceleration/" class="md-tabs__link">
+      <a href="../../compile/compile-acceleration/" class="md-tabs__link md-tabs__link--active">
         实战手册
       </a>
     </li>
@@ -441,16 +441,14 @@
 
   
   
-    
-  
   
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
       
       
       
-      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
       
       
         
@@ -467,7 +465,7 @@
           <span class="md-nav__icon md-icon"></span>
         </label>
       
-      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
         <label class="md-nav__title" for="__nav_3">
           <span class="md-nav__icon md-icon"></span>
           筑基手册
@@ -515,7 +513,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../self-cultivation/elf-file-detail/" class="md-nav__link">
+      <a href="../../../foundation/self-cultivation/elf-file-detail/" class="md-nav__link">
         Elf 文件格式详解
       </a>
     </li>
@@ -529,7 +527,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../self-cultivation/static-link/" class="md-nav__link">
+      <a href="../../../foundation/self-cultivation/static-link/" class="md-nav__link">
         静态链接
       </a>
     </li>
@@ -543,7 +541,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../self-cultivation/elf-load/" class="md-nav__link">
+      <a href="../../../foundation/self-cultivation/elf-load/" class="md-nav__link">
         ELF 文件的装载与进程
       </a>
     </li>
@@ -595,7 +593,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../framework/activity-start/" class="md-nav__link">
+      <a href="../../../foundation/framework/activity-start/" class="md-nav__link">
         Activity 启动流程分析
       </a>
     </li>
@@ -614,16 +612,14 @@
               
   
   
-    
-  
   
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
       
       
       
-      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_3" checked>
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_3" >
       
       
         
@@ -636,7 +632,7 @@
           <span class="md-nav__icon md-icon"></span>
         </label>
       
-      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_3_label" aria-expanded="true">
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_3_label" aria-expanded="false">
         <label class="md-nav__title" for="__nav_3_3">
           <span class="md-nav__icon md-icon"></span>
           实用工具系列
@@ -647,174 +643,11 @@
               
   
   
-    
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          Native Hook 快速上手
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../../../foundation/tools/native-hook/" class="md-nav__link">
         Native Hook 快速上手
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="目录">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      目录
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#_1" class="md-nav__link">
-    前言
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#native-hook_1" class="md-nav__link">
-    Native Hook 是什么？
-  </a>
-  
-    <nav class="md-nav" aria-label="Native Hook 是什么？">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#plt-hook" class="md-nav__link">
-    PLT Hook
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#inline-hook" class="md-nav__link">
-    Inline Hook
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
-    小结
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#native-hook_2" class="md-nav__link">
-    Native Hook 实战
-  </a>
-  
-    <nav class="md-nav" aria-label="Native Hook 实战">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#hook" class="md-nav__link">
-    Hook 函数
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#native" class="md-nav__link">
-    获取 native 堆栈
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
-    还原堆栈信息
-  </a>
-  
-    <nav class="md-nav" aria-label="还原堆栈信息">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#so" class="md-nav__link">
-    确认 so 文件名称
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_4" class="md-nav__link">
-    计算函数偏移地址
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_5" class="md-nav__link">
-    还原函数名及行号
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_6" class="md-nav__link">
-    总结
-  </a>
-  
-    <nav class="md-nav" aria-label="总结">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#_7" class="md-nav__link">
-    参考资料
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_8" class="md-nav__link">
-    源码
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -839,14 +672,16 @@
 
   
   
+    
+  
   
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
       
       
       
-      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" checked>
       
       
         
@@ -861,7 +696,7 @@
           <span class="md-nav__icon md-icon"></span>
         </label>
       
-      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="true">
         <label class="md-nav__title" for="__nav_4">
           <span class="md-nav__icon md-icon"></span>
           实战手册
@@ -905,7 +740,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../practical/compile/compile-acceleration/" class="md-nav__link">
+      <a href="../../compile/compile-acceleration/" class="md-nav__link">
         编译加速的8个实用技巧
       </a>
     </li>
@@ -924,14 +759,16 @@
               
   
   
+    
+  
   
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
       
       
       
-      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_2" >
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_2" checked>
       
       
         
@@ -944,7 +781,7 @@
           <span class="md-nav__icon md-icon"></span>
         </label>
       
-      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_2_label" aria-expanded="false">
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_2_label" aria-expanded="true">
         <label class="md-nav__title" for="__nav_4_2">
           <span class="md-nav__icon md-icon"></span>
           代码质量优化
@@ -955,11 +792,174 @@
               
   
   
+    
   
-    <li class="md-nav__item">
-      <a href="../../../practical/code-quality/kotlin-detekt/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          落地 Kotlin 代码规范，DeteKt 了解一下
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         落地 Kotlin 代码规范，DeteKt 了解一下
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    前言
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#detekt" class="md-nav__link">
+    为什么使用DeteKt?
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#idedetekt" class="md-nav__link">
+    IDE接入DeteKt插件
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#clidetekt" class="md-nav__link">
+    CLI命令行方式接入DeteKt
+  </a>
+  
+    <nav class="md-nav" aria-label="CLI命令行方式接入DeteKt">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    类型解析
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#gradledetekt" class="md-nav__link">
+    Gradle方式接入DeteKt
+  </a>
+  
+    <nav class="md-nav" aria-label="Gradle方式接入DeteKt">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    接入步骤
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#detekt_1" class="md-nav__link">
+    自定义Detekt检测规则
+  </a>
+  
+    <nav class="md-nav" aria-label="自定义Detekt检测规则">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#detekt_2" class="md-nav__link">
+    DeteKt自带规则
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    自定义规则
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    支持类型解析的自定义规则
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#github-actiondetekt" class="md-nav__link">
+    Github Action集成Detekt检测
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    总结
+  </a>
+  
+    <nav class="md-nav" aria-label="总结">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    示例代码
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    参考资料
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -1065,30 +1065,30 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#native-hook_1" class="md-nav__link">
-    Native Hook 是什么？
+  <a href="#detekt" class="md-nav__link">
+    为什么使用DeteKt?
   </a>
   
-    <nav class="md-nav" aria-label="Native Hook 是什么？">
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#idedetekt" class="md-nav__link">
+    IDE接入DeteKt插件
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#clidetekt" class="md-nav__link">
+    CLI命令行方式接入DeteKt
+  </a>
+  
+    <nav class="md-nav" aria-label="CLI命令行方式接入DeteKt">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#plt-hook" class="md-nav__link">
-    PLT Hook
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#inline-hook" class="md-nav__link">
-    Inline Hook
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
   <a href="#_2" class="md-nav__link">
-    小结
+    类型解析
   </a>
   
 </li>
@@ -1099,38 +1099,16 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#native-hook_2" class="md-nav__link">
-    Native Hook 实战
+  <a href="#gradledetekt" class="md-nav__link">
+    Gradle方式接入DeteKt
   </a>
   
-    <nav class="md-nav" aria-label="Native Hook 实战">
+    <nav class="md-nav" aria-label="Gradle方式接入DeteKt">
       <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#hook" class="md-nav__link">
-    Hook 函数
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#native" class="md-nav__link">
-    获取 native 堆栈
-  </a>
-  
-</li>
         
           <li class="md-nav__item">
   <a href="#_3" class="md-nav__link">
-    还原堆栈信息
-  </a>
-  
-    <nav class="md-nav" aria-label="还原堆栈信息">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#so" class="md-nav__link">
-    确认 so 文件名称
+    接入步骤
   </a>
   
 </li>
@@ -1139,23 +1117,45 @@
     </nav>
   
 </li>
+      
+        <li class="md-nav__item">
+  <a href="#detekt_1" class="md-nav__link">
+    自定义Detekt检测规则
+  </a>
+  
+    <nav class="md-nav" aria-label="自定义Detekt检测规则">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#detekt_2" class="md-nav__link">
+    DeteKt自带规则
+  </a>
+  
+</li>
         
           <li class="md-nav__item">
   <a href="#_4" class="md-nav__link">
-    计算函数偏移地址
+    自定义规则
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#_5" class="md-nav__link">
-    还原函数名及行号
+    支持类型解析的自定义规则
   </a>
   
 </li>
         
       </ul>
     </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#github-actiondetekt" class="md-nav__link">
+    Github Action集成Detekt检测
+  </a>
   
 </li>
       
@@ -1169,14 +1169,14 @@
         
           <li class="md-nav__item">
   <a href="#_7" class="md-nav__link">
-    参考资料
+    示例代码
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#_8" class="md-nav__link">
-    源码
+    参考资料
   </a>
   
 </li>
@@ -1204,252 +1204,321 @@
   
 
 
-<h1 id="native-hook">Native Hook 快速上手</h1>
+<h1 id="kotlin-detekt">落地 Kotlin 代码规范，DeteKt 了解一下</h1>
 <h2 id="_1">前言</h2>
-<p>Hook 原意是指钩子，它表示的就是在某个函数的上下文做自定义的处理来实现我们想要的黑科技</p>
-<p>大家可能比较熟悉 Java 层的一些 Hook 技术，比如反射，动态代理，或者 ASM 字节码插桩</p>
-<p>在 Java 层之外，Android 系统还有很大一部分属于 Native 层，有时不可避免的需要用到 Native Hook 技术</p>
-<p>本文主要介绍 Native Hook 是什么，以及如何通过一个例子快速上手</p>
-<h2 id="native-hook_1">Native Hook 是什么？</h2>
-<p>Native Hook 技术通常有以下两种实现方式</p>
-<ul>
-<li>PLT Hook：通过修改 GOT 表，将目标函数的地址指向自定义的 Hook 函数的地址，从而拦截和修改目标函数的行为。</li>
-<li>Inline Hook：直接将函数开始处的指令更替为跳转指令，使得原函数直接跳转到 Hook 的目标函数函数</li>
-</ul>
-<p>我们下面来分别介绍一下</p>
-<h3 id="plt-hook">PLT Hook</h3>
-<p>PLT Hook 用一句描述就是：通过修改 GOT 表，将目标函数的地址指向自定义的 Hook 函数的地址，从而拦截和修改目标函数的行为。那么 GOT 表是什么呢？这需要我们对 SO 库文件的 ELF 文件格式和动态链接过程有所了解。</p>
-<p>ELF(Executable and Linkable Format) 文件格式是一种可执行文件和可链接文件格式，它是现代Unix和Linux系统上最常见的二进制文件格式之一，so 库其实就是一个 ELF 文件</p>
-<p><img alt="" src="https://raw.gitmirror.com/RicardoJiang/resource/main/2023/march/p1.png" /></p>
-<p>ELF 文件格式也比较复杂，我们这里主要关心<code>.plt</code>与<code>.got</code>两个表</p>
-<ul>
-<li>The Global Offset Table/全局偏移量表 (GOT)。简单来说就是在数据段的地址表，假定我们有一些代码段的指令引用一些地址变量，编译器会引用 GOT 表来替代直接引用绝对地址，因为绝对地址在编译期是无法知道的，只有重定位后才会得到 ，GOT 自己本身将会包含函数引用的绝对地址。</li>
-<li>The Procedure Linkage Table/过程链接表 (PLT)。PLT 不同于 GOT，它位于代码段，动态库的每一个外部函数都会在 PLT 中有一条记录，每一条 PLT 记录都是一小段可执行代码。一般来说，外部代码都是在调用 PLT 表里的记录，然后 PLT 的相应记录会负责调用实际的函数。我们一般把这种设定叫作“蹦床”（Trampoline）。</li>
-</ul>
-<p>简单来说，对于其它 so 中的函数，在编译期无法确定其地址，只有在运行时才能获取，因此需要查询 GOT 表来查询外部函数的绝对地址。外部库函数的绝对地址在 got 表中的初始值都是 0 ，只有当实际调用这个函数时，Linker 程序才会写入实际的地址。</p>
-<p>因此如果我们想要实现 native hook，只需要把 got 表中的目标函数的地址修改为我们自定义的地址即可。</p>
-<p>那么在这个过程中，PLT 表的作用又是什么呢？</p>
-<p>实际上，在函数调用的过程中，会先跳转到 PLT 表，它位于代码段，每一条 PLT 记录都是一小段可执行代码，这段代码会查询 GOT 表，获取真实地址然后跳转对应的函数</p>
-<p>听起来有些多此一举，实际上 PLT 表可以起到延迟绑定的作用，只有当真正调用目标函数时，got 表中才会去绑定真实地址，如果没有调用则不绑定。因为很多函数可能在程序执行完时都不会被用到，那么一开始把所有函数都链接好实际是一种浪费。这就是 PLT 表起到的作用</p>
-<p>因此在 So 中调用外部函数的实际过程如下所示:</p>
-<p><img alt="" src="https://raw.gitmirror.com/RicardoJiang/resource/main/2023/march/p2.jpg" /></p>
-<p>在了解了 PLT HOOK 的基本原理之后，其实我们可以自己解析 got 表然后替换为自定义的函数地址实现 hook，也可以使用一些已经比较成熟的库</p>
-<ul>
-<li><a href="https://github.com/bytedance/bhook">https://github.com/bytedance/bhook</a>    </li>
-<li><a href="https://github.com/iqiyi/xHook">https://github.com/iqiyi/xHook</a></li>
-</ul>
-<p>本文后面的实战都是使用 bhook 实现 hook的</p>
-<h3 id="inline-hook">Inline Hook</h3>
-<p>从上面的介绍我们可以看出，PLT Hook 存在一定的局限性，它只能 hook 外部 so 的调用，但如果要 hook 当前的 so 呢？</p>
-<p>Hook so 内部调用可以通过 Inline Hook 实现</p>
-<p>Inline Hook 是通过在程序运行时动态修改内存中的汇编指令，来改变程序执行流程的一种 Hook 方式，它的基本原理是直接将函数开始处的指令更替为跳转指令，使得原函数直接跳转到 Hook 的目标函数函数，并保留被覆盖的原指令以完成后续再调用回来的目的。</p>
-<p><img alt="" src="https://raw.gitmirror.com/RicardoJiang/resource/main/2023/march/p3.png" /></p>
-<p>Inline Hook 的基本流程如上所示，主要分为以下几步</p>
+<p>各个团队多少都有一些自己的代码规范，但制定代码规范简单，困难的是如何落地。如果完全依赖人力<code>Code Review</code>难免有所遗漏。</p>
+<p>这个时候就需要通过静态代码检查工具在每次提交代码时自动检查，本文主要介绍如何使用<code>DeteKt</code>落地<code>Kotlin</code>代码规范，主要包括以下内容</p>
 <ol>
-<li>拷贝原函数的头部两条汇编指令，并覆盖成跳转到自定义函数的指令</li>
-<li>执行自定义函数，再执行前面被覆盖的两条指令</li>
-<li>执行后续指令</li>
+<li>为什么使用<code>DeteKt</code>?</li>
+<li><code>IDE</code>接入<code>DeteKt</code>插件</li>
+<li><code>CLI</code>命令行方式接入<code>DeteKt</code></li>
+<li><code>Gradle</code>方式接入<code>DeteKt</code></li>
+<li>自定义<code>Detekt</code>检测规则</li>
+<li><code>Github Action</code>集成<code>Detekt</code>检测</li>
 </ol>
-<p>与 PLT Hook 方式相比，Inline Hook 更加强大，几乎可以 Hook 任何函数，但由于其实现十分复杂，需要直接修改汇编指令，因此会有很多兼容性问题，不太稳定，因此如果想要使用的话推荐直接使用相应的开源库，比如字节开源的：<a href="https://github.com/bytedance/android-inline-hook">https://github.com/bytedance/android-inline-hook</a></p>
-<h3 id="_2">小结</h3>
-<p>总得来说，两种 Native Hook 方式各有优劣，可根据实际情况使用</p>
-<ul>
-<li>PLT HooK的优点在于稳定，缺点则在于只能 Hook 外部函数的调用</li>
-<li>Inline Hook的优点在于可以 hook so 内部调用，缺点则在于不够稳定，存在一定的兼容问题</li>
-</ul>
-<h2 id="native-hook_2">Native Hook 实战</h2>
-<p>接下来我们通过 Native Hook 技术来实现对 Native 内存申请的监控，主要支持以下功能</p>
+<h2 id="detekt">为什么使用<code>DeteKt</code>?</h2>
+<p>说起静态代码检查，大家首先想起来的可能是<code>lint</code>，相比<code>DeteKt</code>只支持<code>Kotlin</code>代码，<code>lint</code>不仅支持<code>Kotlin</code>，<code>Java</code>代码，也支持资源文件规范检查，那么我们为什么不使用<code>Lint</code>呢？</p>
+<p>在我看来，<code>Lint</code>在使用上主要有两个问题：   </p>
 <ol>
-<li>添加对 malloc, free 函数的 hook，支持统计 so 的内存申请与释放情况</li>
-<li>当申请超大内存时，支持获取 native 堆栈以定位问题</li>
-<li>直接获取的 native 堆栈是个 16 进制数组，无法看出有效信息，因此还需要将解析堆栈还原出 so 名与函数信息</li>
+<li>与<code>IDE</code>集成不够好，自定义<code>lint</code>规则的警告只有在运行<code>./gradlew lint</code>后才会在<code>IDE</code>上展示出来，在<code>clean</code>之后又会消失</li>
+<li><code>lint</code>检查速度较慢，尤其是大型项目，只对增量代码进行检查的逻辑需要自定义</li>
 </ol>
-<h3 id="hook">Hook 函数</h3>
-<p>我们这里通过 bhook 库来实现对 malloc, free 函数的 hook，如下所示</p>
-<pre><code class="language-c++">void *malloc_proxy(size_t len) {
-    BYTEHOOK_STACK_SCOPE();
-    Dl_info callerInfo = {};
-    if (dladdr(__builtin_return_address(0), &amp;callerInfo)) {
-        // 统计分配的内存
-        onMalloc(callerInfo.dli_fname, len);
-    }
-    // ...
-    void *object = BYTEHOOK_CALL_PREV(malloc_proxy, len);
-    objMap[object] = len;
-    return object;
-}
-
-void free_proxy(void *__ptr) {
-    BYTEHOOK_STACK_SCOPE();
-    Dl_info callerInfo = {};
-    if (dladdr(__builtin_return_address(0), &amp;callerInfo)) {
-        auto len = objMap.find(__ptr);
-        // 统计 free的内存
-        onFree(callerInfo.dli_fname, len-&gt;second);
-    }
-    return BYTEHOOK_CALL_PREV(free_proxy, __ptr);
-}
-
-void hookMemory() {
-    bytehook_hook_all(nullptr, &quot;malloc&quot;, (void *) malloc_proxy,
-                      nullptr,
-                      nullptr);
-    bytehook_hook_all(nullptr, &quot;free&quot;, (void *) free_proxy,
-                      nullptr,
-                      nullptr);
-}
+<p>而<code>DeteKt</code>提供了<code>IDE</code>插件，开启后可直接在<code>IDE</code>中查看警告，这样可以在第一时间发现问题，避免后续检查发现问题后再修改流程过长的问题</p>
+<p>同时<code>Detekt</code>支持<code>CLI</code>命令行方式接入与<code>Gradle</code>方式接入，支持只检查新增代码，在检查速度上比起<code>lint</code>也有一定的优势</p>
+<h2 id="idedetekt"><code>IDE</code>接入<code>DeteKt</code>插件</h2>
+<p>如果能在<code>IDE</code>中提示代码中存在的问题，应该是最快发现问题的方式，<code>DeteKt</code>也贴心的为我们准备了插件，如下所示：</p>
+<p><img alt="" src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/bb73044ade2540cd91eb77cb39d680dd~tplv-k3u1fbpfcp-zoom-1.image" /></p>
+<p>主要可以配置以下内容：  <br />
+1. <code>DeteKt</code>开关
+2. 格式化开关，<code>DeteKt</code>直接使用了<code>ktlint</code>的规则
+3. <code>Configuration file</code>：规则配置文件，可以在其中配置各种规则的开关与参数，默认配置可见：<a href="https://github.com/detekt/detekt/blob/main/detekt-core/src/main/resources/default-detekt-config.yml">default-detekt-config.yml</a>
+4. <code>Baseline file</code>：基线文件，跳过旧代码问题，有了这个基线文件，下次扫描时，就会绕过文件中列出的基线问题，而只提示新增问题。
+5. <code>Plugin jar</code>: 自定义规则<code>jar</code>包，在自定义规则后打出<code>jar</code>包，在扫描时就可以使用自定义规则了</p>
+<p><code>DeteKt IDE</code>插件可以实时提示问题(包括自定义规则)，如下图所示，我们添加了自定义禁止使用<code>kae</code>的规则：  </p>
+<p><img alt="" src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/64ab452fbdab4122be9729c87469071f~tplv-k3u1fbpfcp-zoom-1.image" /></p>
+<p>对于一些支持自动修复的格式问题，<code>DeteKt</code>插件支持自动格式化，同时也可以配置快捷键，一键自动格式化，如下所示：</p>
+<p><img alt="" src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/adc92211090f4ab0b42bdcdb51f64bfd~tplv-k3u1fbpfcp-zoom-1.image" /></p>
+<h2 id="clidetekt"><code>CLI</code>命令行方式接入<code>DeteKt</code></h2>
+<p><code>DeteKt</code>支持通过<code>CLI</code>命令行方式接入，支持只检测几个文件，比如本次<code>commit</code>提交的文件</p>
+<p>我们可以通过如下方式，下载<code>DeteKt</code>的<code>jar</code>然后使用</p>
+<pre><code>curl -sSLO https://github.com/detekt/detekt/releases/download/v1.22.0-RC1/detekt-cli-1.22.0-RC1.zip
+unzip detekt-cli-1.22.0-RC1.zip
+./detekt-cli-1.22.0-RC1/bin/detekt-cli --help
 </code></pre>
-<p>hook 的逻辑非常简单，通过调用<code>bytehook_hook_all</code>，指定要<code>hook</code>的方法与代理方法，所有的<code>malloc</code>方法调用都会被代理到<code>malloc_proxy</code>方法，所有的<code>free</code>方法调用也会被代理到<code>free_proxy</code>方法中</p>
-<p>然后我们在代理方法中加入 so 分配与回收内存的监控，就可以统计出一个 so 库一共申请了多少内存，释放了多少内存，打印出来的日志如下所示</p>
-<pre><code>So /apex/com.android.art/lib64/libart-compiler.so allocated 581632 bytes, freed 2883686 bytes
-So /apex/com.android.art/lib64/libc++.so allocated 2779694 bytes, freed 2640 bytes
-So /apex/com.android.art/lib64/liblzma.so allocated 9071256 bytes, freed 9071256 bytes
-So /apex/com.android.i18n/lib64/libicuuc.so allocated 36428 bytes, freed 1164 bytes
-So /apex/com.android.runtime/lib64/bionic/libc.so allocated 33360 bytes, freed 0 bytes
-So /apex/com.android.vndk.v30/lib64/libc++.so allocated 10944 bytes, freed 0 bytes
-So /data/app/~~6Mf4VQY4K16aFji1rZ4dkg==/com.zj.android.performance-XHR75TrkIVbXU9GfDYgZGg==/lib/arm64/libandroid-performance.so allocated 184549424 bytes, freed 184549424 bytes
-So /data/app/~~6Mf4VQY4K16aFji1rZ4dkg==/com.zj.android.performance-XHR75TrkIVbXU9GfDYgZGg==/lib/arm64/libmemory-hook.so allocated 3310960 bytes, freed 2776978 bytes
-So /system/lib64/libbinder.so allocated 129408 bytes, freed 462200 bytes
-So /system/lib64/libc++.so allocated 14428072 bytes, freed 864 bytes
-So /system/lib64/libhwui.so allocated 725687 bytes, freed 11980415 bytes
-So /system/lib64/libutils.so allocated 1896281 bytes, freed 2132345 bytes
-So /system/lib64/libz.so allocated 565024 bytes, freed 565024 bytes
+<p><code>DeteKt CLI</code>支持很多参数，下面列出一些常用的，其他可以参见：<a href="https://detekt.dev/docs/gettingstarted/cli">Run detekt using Command Line Interface</a></p>
+<pre><code>Usage: detekt [options]
+  Options:
+    --auto-correct, -ac
+      支持自动格式化的规则自动格式化，默认为false
+      Default: false
+    --baseline, -b
+      如果传入了baseline文件，只有不在baseline文件中的问题才会掘出来
+    --classpath, -cp
+      实验特性：传入依赖的class路径和jar的路径，用于类型解析
+    --config, -c
+      规则配置文件，可以配置规则开关及参数
+    --create-baseline, -cb
+      创建baseline，默认false，如果开启会创建出一个baseline文件，供后续使用
+    --input, -i
+      输入文件路径，多个路径之间用逗号连接
+    --jvm-target
+      EXPERIMENTAL: Target version of the generated JVM bytecode that was 
+      generated during compilation and is now being used for type resolution 
+      (1.6, 1.8, 9, 10, 11, 12, 13, 14, 15, 16 or 17)
+      Default: 1.8
+    --language-version
+      为支持类型解析，需要传入java版本
+    --plugins, -p
+      自定义规则jar路径，多个路径之间用,或者;连接
 </code></pre>
-<h3 id="native">获取 native 堆栈</h3>
-<p>除了统计 So 内存使用情况之外，在申请超大内存时，我们也可以获取 native 堆栈以方便定位问题</p>
-<p>目前，在 Android 中获取 Native 堆栈的方法基本上都是通过 CFI 来实现的。CFI 代表 Call Frame Information，即帧调用信息。在程序运行时，当 Native 函数执行进入栈指令时，它会将对应指令的信息（即 CFI ）写入 so 文件中的 .eh_frame 和 .eh_frame_hdr 段中，这两个段是 so 文件中的段之一。因此，要获取 Native 堆栈，只需要读取这两个段中的数据即可。</p>
-<p>在 Android 系统中，我们可以使用 libunwind 库来直接获取 Native 堆栈信息，其底层原理实际上也是通过读取 CFI 来实现的</p>
-<pre><code class="language-c++">#include &lt;unwind.h&gt; //引入 unwind 库
+<p>在命令行可以直接通过如下方式检查</p>
+<pre><code>java -jar /path/to/detekt-cli-1.21.0-all.jar # detekt-cli-1.21.0-all.jar所在路径
+-c /path/to/detekt_1.21.0_format.yml # 规则配置文件所在路径
+--plugins /path/to/detekt-formatting-1.21.0.jar # 格式化规则jar，主要基于ktlint封装
+-ac # 开启自动格式化
+-i $FilePath$ # 需要扫描的源文件，多个路径之间用,或者;连接
+</code></pre>
+<p>通过如上方式进行代码检查速度是非常快的，根据经验来说一般就是几秒之内可以完成，因此我们完成可以将<code>DeteKt</code>与<code>git hook</code>结合起来，在每次提交<code>commit</code>的时候进行检测，而如果是一些比较耗时的工具比如<code>lint</code>，应该是做不到这一点的</p>
+<h3 id="_2">类型解析</h3>
+<p>上面我们提到了，<code>DeteKt</code>的<code>--classpth</code>参数与<code>--language-version</code>参数，这些是用于类型解析的。</p>
+<p>类型解析是<code>DeteKt</code>的一项功能，它允许 <code>Detekt</code> 对您的 <code>Kotlin</code> 源代码执行更高级的静态分析。</p>
+<p>通常，<code>Detekt</code> 在编译期间无法访问编译器语义分析的结果，我们只能获取<code>Kotlin</code>源代码的抽象语法树，却无法知道语法树上符号的语义，这限制了我们的检查能力，比如我们无法判断符号的类型，两个符号究竟是不是同一个对象等</p>
+<p>通过启用类型解析，<code>Detekt</code> 可以获取<code>Kotlin</code>编译器语义分析的结果，这让我们可以自定义一些更高级的检查。</p>
+<p>而要获取类型与语义，当然要传入依赖的<code>class</code>，也就是<code>classpath</code>，比如<code>android</code>项目中常常需要传入<code>android.jar</code>与<code>kotlin-stdlib.jar</code></p>
+<h2 id="gradledetekt"><code>Gradle</code>方式接入<code>DeteKt</code></h2>
+<p><code>CLI</code>方式检测虽然快，但是需要手动传入<code>classpath</code>，比较麻烦，尤其是有时候自定义规则需要解析我们自己的类而不是<code>kotlin-stdlib.jar</code>中的类时，那么就需要将项目中的代码的编译结果传入作为<code>classpath</code>了，这样就更麻烦了</p>
+<p><code>DeteKt</code>同样支持<code>Gradle</code>插件方式接入，这种方式不需要我们另外再配置<code>classpath</code>，我们可以将<code>CLI</code>命令行方式与<code>Gradle</code>方式结合起来，在本地通过<code>CLI</code>方式快速检测，在<code>CI</code>上通过<code>Gradle</code>插件进行完整的检测</p>
+<h3 id="_3">接入步骤</h3>
+<pre><code>// 1. 引入插件
+plugins {
+    id(&quot;io.gitlab.arturbosch.detekt&quot;).version(&quot;[version]&quot;)
+}
 
-struct backtrace_stack {
-    void **current;
-    void **end;
-};
+repositories {
+    mavenCentral()
+}
 
-static _Unwind_Reason_Code unwind_callback(struct _Unwind_Context *context, void *data) {
-    auto *state = (struct backtrace_stack *) (data);
-    uintptr_t pc = _Unwind_GetIP(context);  // 获取 pc 值，即绝对地址
-    if (pc) {
-        if (state-&gt;current == state-&gt;end) {
-            return _URC_END_OF_STACK;
-        } else {
-            *state-&gt;current++ = (void *) (pc);
+// 2. 配置插件
+detekt {
+    config = files(&quot;$projectDir/config/detekt.yml&quot;) // 规则配置
+    baseline = file(&quot;$projectDir/config/baseline.xml&quot;) // baseline配置
+    parallel = true
+}
+
+// 3. 自定义规则
+dependencies {
+    detektPlugins &quot;io.gitlab.arturbosch.detekt:detekt-formatting:1.21.0&quot;
+    detektPlugins project(&quot;:customRules&quot;)
+}
+
+// 4. 配置 jvmTarget
+tasks.withType(Detekt).configureEach {
+    jvmTarget = &quot;1.8&quot;
+}
+// DeteKt Task用于检测，DetektCreateBaselineTask用于创建Baseline
+tasks.withType(DetektCreateBaselineTask).configureEach {
+    jvmTarget = &quot;1.8&quot;
+}
+
+// 5. 只分析指定文件
+tasks.withType&lt;io.gitlab.arturbosch.detekt.Detekt&gt;().configureEach {
+    // include(&quot;**/special/package/**&quot;) //  只分析 src/main/kotlin 下面的指定目录文件
+    exclude(&quot;**/special/package/internal/**&quot;) // 过滤指定目录
+}
+
+</code></pre>
+<p>如上所示，接入主要需要做这么几件事：  </p>
+<ol>
+<li>引入插件</li>
+<li>配置插件，主要是配置<code>config</code>与<code>baseline</code>，即规则开关与老代码过滤</li>
+<li>引入<code>detekt-formatting</code>与自定义规则的依赖</li>
+<li>配置<code>JvmTarget</code>，用于类型解析，但不用再配置<code>classpath</code>了。</li>
+<li>除了<code>baseline</code>之外，也可以通过<code>include</code>与<code>exclude</code>的方式指定只扫描指定文件的方式来实现增量检测</li>
+</ol>
+<p>通过以上方式就接入成功了，运行<code>./gradlew detektDebug</code>就可以开始检测了，扫描结果可在终端直接查看，并可以直接定位到问题代码处，也可以在<code>build/reprots/</code>路径下查看输出的报告文件：</p>
+<p><img alt="" src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/86350619f937491e8695b9b9b1ca5054~tplv-k3u1fbpfcp-zoom-1.image" /></p>
+<h2 id="detekt_1">自定义<code>Detekt</code>检测规则</h2>
+<p>要落地自己制定的代码规范，不可避免的需要自定义规则，当然我们首先要看下<code>DeteKt</code>自带的规则，是否已经有我们需要的，只需把开关打开即可.</p>
+<h3 id="detekt_2"><code>DeteKt</code>自带规则</h3>
+<p><code>DeteKt</code>自带的规则都可以通过开关配置，如果没有在 <code>Detekt</code> 闭包中指定 <code>config</code> 属性，<code>detekt</code> 会使用默认的规则。这些规则采用 <code>yaml</code> 文件描述，运行 <code>./gradlew detektGenerateConfig</code> 会生成 <code>config/detekt/detekt.yml</code> 文件，我们可以在这个文件的基础上制定代码规范准则。</p>
+<p><code>detekt.yml</code> 中的每条规则形如：</p>
+<pre><code>complexity: # 大类
+  active: true
+  ComplexCondition: # 规则名
+    active: true  # 是否启用
+    threshold: 4  # 有些规则，可以设定一个阈值
+# ...
+</code></pre>
+<p>更多关于配置文件的修改方式，请参考<a href="https://detekt.dev/docs/introduction/configurations">官方文档-配置文件</a></p>
+<p><code>Detekt</code> 的规则集划分为 9 个大类，每个大类下有具体的规则：</p>
+<table>
+<thead>
+<tr>
+<th>规则大类</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>comments</td>
+<td>与注释、文档有关的规范检查</td>
+</tr>
+<tr>
+<td>complexity</td>
+<td>检查代码复杂度，复杂度过高的代码不利于维护</td>
+</tr>
+<tr>
+<td>coroutines</td>
+<td>与协程有关的规范检查</td>
+</tr>
+<tr>
+<td>empty-blocks</td>
+<td>空代码块检查，空代码应该尽量避免</td>
+</tr>
+<tr>
+<td>exceptions</td>
+<td>与异常抛出和捕获有关的规范检查</td>
+</tr>
+<tr>
+<td>formatting</td>
+<td>格式化问题，detekt直接引用的 ktlint 的格式化规则集</td>
+</tr>
+<tr>
+<td>naming</td>
+<td>类名、变量命名相关的规范检查</td>
+</tr>
+<tr>
+<td>performance</td>
+<td>检查潜在的性能问题</td>
+</tr>
+<tr>
+<td>potentail-bugs</td>
+<td>检查潜在的BUG</td>
+</tr>
+<tr>
+<td>style</td>
+<td>统一团队的代码风格，也包括一些由 Detekt 定义的格式化问题</td>
+</tr>
+</tbody>
+</table>
+<p>表格引用自：<a href="https://cloud.tencent.com/developer/article/1811025">https://cloud.tencent.com/developer/article/1811025</a></p>
+<p>更细节的规则说明，请参考：<a href="https://detekt.dev/docs/rules/comments">官方文档-规则集说明</a></p>
+<h3 id="_4">自定义规则</h3>
+<p>接下来我们自定义一个检测<code>KAE</code>使用的规则，如下所示： </p>
+<pre><code class="language-kotlin">//  入口
+class CustomRuleSetProvider : RuleSetProvider {
+    override val ruleSetId: String = &quot;detekt-custom-rules&quot;
+    override fun instance(config: Config): RuleSet = RuleSet(
+        ruleSetId,
+        listOf(
+            NoSyntheticImportRule(),
+        )
+    )
+}
+
+// 自定义规则
+class NoSyntheticImportRule : Rule() {
+    override val issue = Issue(
+        &quot;NoSyntheticImport&quot;,
+        Severity.Maintainability,
+        &quot;Don’t import Kotlin Synthetics as it is already deprecated.&quot;,
+        Debt.TWENTY_MINS
+    )
+
+    override fun visitImportDirective(importDirective: KtImportDirective) {
+        val import = importDirective.importPath?.pathStr
+        if (import?.contains(&quot;kotlinx.android.synthetic&quot;) == true) {
+            report(
+                CodeSmell(
+                    issue,
+                    Entity.from(importDirective),
+                    &quot;'$import' 不要使用kae，推荐使用viewbinding&quot;
+                )
+            )
         }
     }
-    return _URC_NO_REASON;
-}
-
-static size_t fill_backtraces_buffer(void **buffer, int max) {
-    struct backtrace_stack stack = {buffer, buffer + max};
-    _Unwind_Backtrace(unwind_callback, &amp;stack);
-    return stack.current - buffer;
-}
-
-void *malloc_proxy(size_t len) {
-    // ...
-    if (len &gt; 80 * 1024 * 1024) {
-        // 当申请内存大小大于 80M 时获取堆栈
-        int maxStackSize = 30;
-        void *buffer[maxStackSize];
-        int count = fill_backtraces_buffer(buffer, maxStackSize);
-        dumpBacktrace(buffer, count);
-    }
-    // ...
-    return object;
 }
 </code></pre>
-<p>如上所示，当申请内存大小大于 80M 时，我们通过 unwind 来获取堆栈，将将获取的堆栈放入 buffer 数组中</p>
-<p>但是我们获得的 buffer 数组只是 16 进制的地址，根本看不出有效信息，如下所示：</p>
-<p><img alt="" src="https://raw.gitmirror.com/RicardoJiang/resource/main/2023/march/p4.jpg" /></p>
-<p>因此我们还要进行下一步，还原堆栈信息</p>
-<h3 id="_3">还原堆栈信息</h3>
-<p>要将16进制的地址堆栈还原成带有效信息的堆栈，通常需要完成以下三个步骤：</p>
-<ol>
-<li>首先要确认相关的 so 文件名称；</li>
-<li>接下来需要计算相应的偏移地址；</li>
-<li>最后，基于带符号表（ELF文件中的一张表，存放了函数、方法、变量等名称符号信息）的so文件，还原指针对应的函数名和行数。</li>
-</ol>
-<h4 id="so">确认 so 文件名称</h4>
-<p>我们可以通过<code>dladdr</code>函数来查询 so 文件名，函数定义如下</p>
-<pre><code class="language-c++">int  dladdr ( void * addr , Dl_info * info ) ;
+<p>代码其实并不复杂，主要做了这么几件事： <br />
+1. 添加<code>CustomRuleSetProvider</code>作为自定义规则的入口，并将<code>NoSyntheticImportRule</code>添加进去
+2. 实现<code>NoSyntheticImportRule</code>类，主要包括<code>issue</code>与各种<code>visitXXX</code>方法
+3. <code>issue</code>属性用于定义在控制台或任何其他输出格式上打印的<code>ID</code>、严重性和提示信息
+4. <code>visitImportDirective</code>即通过访问者模式访问语法树的回调，当访问到<code>import</code>时会回调，我们在这里检测有没有添加<code>kotlinx.android.synthetic</code>，发现存在则报告异常</p>
+<h3 id="_5">支持类型解析的自定义规则</h3>
+<p>上面的规则没有用到类型解析，也就是说不传入<code>classpath</code>也能使用，我们现在来看一个需要使用类型解析的自定义规则</p>
+<p>比如我们需要在项目中禁止直接使用<code>android.widget.Toast.show</code>，而是使用我们统一封装的工具类，那么我们可以自定义如下规则：   </p>
+<pre><code class="language-kotlin">class AvoidToUseToastRule : Rule() {
+    override val issue = Issue(
+        &quot;AvoidUseToastRule&quot;,
+        Severity.Maintainability,
+        &quot;Don’t use android.widget.Toast.show&quot;,
+        Debt.TWENTY_MINS
+    )
 
-typedef struct {
-    const char *dli_fname;   //地址对应的 so 名
-    void       *dli_fbase;   //对应so库的基地址
-    const char *dli_sname;   //如果so库有符号表，这会显示离地址最近的函数名
-    void       *dli_saddr;   //符号表中，离地址最近的函数的地址
-} Dl_info;
-</code></pre>
-<p>我们将函数地址传入<code>dladdr</code>函数，就可以获取相应的 so 库名称与基地址，如下所示： </p>
-<pre><code class="language-c++">void dumpBacktrace(void **buffer, size_t count) {
-    for (int i = 0; i &lt; count; ++i) {
-        void *addr = buffer[i];
-        Dl_info info = {};
-        if (dladdr(addr, &amp;info)) {
-            LOG(&quot;# %d : %p : %s(%s)(%p)&quot;, i, addr, info.dli_fname,
-                info.dli_sname, info.dli_saddr);
+    override fun visitReferenceExpression(expression: KtReferenceExpression) {
+        super.visitReferenceExpression(expression)
+        if (expression.text == &quot;makeText&quot;) {
+            // 通过bindingContext获取语义
+            val referenceDescriptor = bindingContext.get(BindingContext.REFERENCE_TARGET, expression)
+            val packageName = referenceDescriptor?.containingPackage()?.asString()
+            val className = referenceDescriptor?.containingDeclaration?.name?.asString()
+            if (packageName == &quot;android.widget&quot; &amp;&amp; className == &quot;Toast&quot;) {
+                report(
+                    CodeSmell(
+                        issue, Entity.from(expression), &quot;禁止直接使用Toast，建议使用xxxUtils&quot;
+                    )
+                )
+            }
         }
     }
 }
 </code></pre>
-<p>通过<code>dladdr</code>函数获取的堆栈打印如下所示：</p>
-<pre><code># 0 : 0x767174309c : /data/app/~~6Mf4VQY4K16aFji1rZ4dkg==/com.zj.android.performance-XHR75TrkIVbXU9GfDYgZGg==/lib/arm64/libmemory-hook.so(0x2609c)((null))(0x0)
-# 1 : 0x7671742ec8 : /data/app/~~6Mf4VQY4K16aFji1rZ4dkg==/com.zj.android.performance-XHR75TrkIVbXU9GfDYgZGg==/lib/arm64/libmemory-hook.so(0x25ec8)(_Z12malloc_proxym)(0x7671742dbc)
-# 2 : 0x76712f23d8 : /data/app/~~6Mf4VQY4K16aFji1rZ4dkg==/com.zj.android.performance-XHR75TrkIVbXU9GfDYgZGg==/lib/arm64/libandroid-performance.so(0x203d8)(Java_com_zj_android_performance_jni_NativeLibTest_testMalloc)(0x76712f23a8)
-# 3 : 0x7691222248 : /apex/com.android.art/lib64/libart.so(0x222248)((null))(0x0)
-# 4 : 0x7691218968 : /apex/com.android.art/lib64/libart.so(0x218968)((null))(0x0)
-# 5 : 0x7691285ff4 : /apex/com.android.art/lib64/libart.so(0x285ff4)(_ZN3art9ArtMethod6InvokeEPNS_6ThreadEPjjPNS_6JValueEPKc)(0x7691285f30)
-# 6 : 0x76913ea3ec : /apex/com.android.art/lib64/libart.so(0x3ea3ec)(_ZN3art11interpreter34ArtInterpreterToCompiledCodeBridgeEPNS_6ThreadEPNS_9ArtMethodEPNS_11ShadowFrameEtPNS_6JValueE)(0x76913ea254)
-# 7 : 0x76913e4f88 : /apex/com.android.art/lib64/libart.so(0x3e4f88)(_ZN3art11interpreter6DoCallILb0ELb0EEEbPNS_9ArtMethodEPNS_6ThreadERNS_11ShadowFrameEPKNS_11InstructionEtPNS_6JValueE)(0x76913e4c48)
-# 8 : 0x769175fd10 : /apex/com.android.art/lib64/libart.so(0x75fd10)(MterpInvokeVirtual)(0x769175f878)
-# 9 : 0x7691203818 : /apex/com.android.art/lib64/libart.so(0x203818)((null))(0x0)
-# 10 : 0x769176b3f4 : /apex/com.android.art/lib64/libart.so(
-# 11 : 0x7691203998 : /apex/com.android.art/lib64/libart.so(0x203998)((null))(0x0)
-# 12 : 0x769176b3f4 : /apex/com.android.art/lib64/libart.so(
-# 13 : 0x7691203998 : /apex/com.android.art/lib64/libart.so(0x203998)((null))(0x0)
-# 14 : 0x76913dcd30 : /apex/com.android.art/lib64/libart.so(0x3dcd30)((null))(0x0)
+<p>可以看出，我们在<code>visitReferenceExpression</code>回调中检测表达式，我们不仅需要判断是否存在<code>Toast.makeTest</code>表达式，因为可能存在同名类，更需要判断<code>Toast</code>类的具体类型，而这就需要获取语义信息</p>
+<p>我们这里通过<code>bindingContext</code>来获取表达式的语义，这里的<code>bindingContext</code>其实就是<code>Kotlin</code>编译器存储语义信息的表，详细的可以参阅：<a href="https://juejin.cn/post/7143207967775522823#heading-8">K2 编译器是什么？世界第二高峰又是哪座？</a></p>
+<p>当我们获取了语义信息之后，就可以获取<code>Toast</code>的具体类型，就可以判断出这个<code>Toast</code>是不是<code>android.widget.Toast</code>，也就可以完成检测了</p>
+<h2 id="github-actiondetekt"><code>Github Action</code>集成<code>Detekt</code>检测</h2>
+<p>在完成了<code>DeteKt</code>接入与自定义规则之后，接下来就是每次提交代码时在<code>CI</code>上进行检测了</p>
+<p>一些大的开源项目每次提交<code>PR</code>都会进行一系列的检测，我们也用<code>Github Action</code>来实现一个</p>
+<p>我们在<code>.github/workflows</code>目录添加如下代码</p>
+<pre><code>name: Android CI
 
-malloc 92274688 byte success
-</code></pre>
-<p>可以看出，在有符号表的情况下，so 名与函数名都正确的打印出来了，而对于 libart，由于已经移除了符号表，则显示为 null ，地址也为 0 </p>
-<h3 id="_4">计算函数偏移地址</h3>
-<p>通过<code>dladdr</code>函数，我们已经获取了堆栈的 so 名与函数名，那可不可以具体定位到到底是函数的哪一行出现了问题吗？</p>
-<p>我们可以通过 NDK 的 addr2line 工具，根据函数偏移地址，获取地址对应的函数名、行号等信息</p>
-<pre><code>addr2line -C -f -e xxx.so 函数偏移地址
+on:
+  push:
+    branches: [ &quot;main&quot; ]
+  pull_request:
+    branches: [ &quot;main&quot; ]
 
--C:将低级别的符号名解码为用户级别的名字。
--e:指定需要转换地址的可执行文件名
--f:在显示文件名、行号信息的同时显示函数名。
+jobs:
+  detekt-code-check:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v3
+    - name: set up JDK 11
+      uses: actions/setup-java@v3
+      with:
+        java-version: '11'
+        distribution: 'temurin'
+        cache: gradle
+
+    - name: Grant execute permission for gradlew
+      run: chmod +x gradlew
+    - name: DeteKt Code Check
+      run: ./gradlew detektDebug
 </code></pre>
-<p>我们在堆栈中获取的地址是函数的绝对地址，要获取偏移地址减去 so 的基地址就可以了</p>
-<p>偏移地址 = 函数的绝对地址 - 库文件的基地址</p>
-<pre><code class="language-c++">void dumpBacktrace(void **buffer, size_t count) {
-    for (int i = 0; i &lt; count; ++i) {
-        if (dladdr(addr, &amp;info)) {
-            // 计算偏移地址
-            const uintptr_t address_relative = (uintptr_t) addr - (uintptr_t) info.dli_fbase;
-            LOG(&quot;# %d : %p : %s(%p)(%s)(%p)&quot;, i, addr, info.dli_fname, address_relative,
-                info.dli_sname, info.dli_saddr);
-        }
-    }
-}
-</code></pre>
-<p>从上面的日志也可以看出，有问题的<code>Java_com_zj_android_performance_jni_NativeLibTest_testMalloc</code>函数的偏移地址是<code>0x203d8</code></p>
-<h3 id="_5">还原函数名及行号</h3>
-<p>现在，我们已经得知了函数的偏移地址，接下来就可以使用 addr2line 工具来获取行号了。在 Android 的 NDK 中已经提供了这个工具，位于 /ndk/xxx/toolchains/aarch64-linux-android-4.9/prebuilt/darwin-x86_64/bin 目录中。如果您使用的是 M1 电脑，可以选择 aarch64 目录。</p>
-<pre><code>arm-linux-androideabi-addr2line   -C -f -e libandroid_performance.so  0x203d8
-</code></pre>
-<p>需要注意的是，这里的 so 必须是带符号表的，因此需要在编译产物中的 native_libs 目录去找(注意不是 stripped_native_libs 目录)</p>
-<p>运行以上命令后，得到的结果如下</p>
-<p><img alt="" src="https://raw.gitmirror.com/RicardoJiang/resource/main/2023/march/p5.jpg" /></p>
-<p>可以看出，已经定位到了具体的函数名与行号</p>
+<p>这样在每次提交<code>PR</code>的时候，就都会自动调用该<code>workflow</code>进行检测了，检测不通过则不允许合并，如下所示：  </p>
+<p><img alt="" src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/1b47fe23c59545a79f85a0f4e63a0e1c~tplv-k3u1fbpfcp-zoom-1.image" /></p>
+<p>点进去也可以看到详细的报错，具体是哪一行代码检测不通过，如图所示：</p>
+<p><img alt="" src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/a39a667b6af44652850148a2cb9c3096~tplv-k3u1fbpfcp-zoom-1.image" /></p>
 <h2 id="_6">总结</h2>
-<p>本文主要介绍了 Native Hook 是什么以及常见实现方案，同时通过一个监控 native 内存的例子进行了实践</p>
-<p>在 Android 应用性能优化中，Native Hook 技术广泛应用于内存优化、启动优化等方面，如 bitmap hook、pthread hook、GC 抑制等。因此，如果您希望在相关领域进行技术优化，掌握 Native Hook 技术将是非常有必要的。</p>
-<h3 id="_7">参考资料</h3>
-<p>本文主要是对<a href="https://juejin.cn/book/7153836660768292878">Android 性能优化小册</a>相关内容的学习实践，感兴趣的同学可以点击查看</p>
-<h3 id="_8">源码</h3>
-<p>本文所有源码可见：<a href="https://github.com/RicardoJiang/android-performance">https://github.com/RicardoJiang/android-performance</a></p>
+<p>本文主要介绍了<code>DeteKt</code>的接入与如何自定义规则，通过<code>IDE</code>集成，<code>CLI</code>命令行方式与<code>Gradle</code>插件方式接入，以及<code>CI</code>自动检测，可以保证代码规范，<code>IDE</code>提示，<code>CI</code>检测三者的统一，方便提前暴露问题，提高代码质量。</p>
+<p>如果本文对你有所帮助，欢迎点赞~</p>
+<h3 id="_7">示例代码</h3>
+<p>本文所有代码可见：<a href="https://github.com/RicardoJiang/android-workflow">https://github.com/RicardoJiang/android-workflow</a></p>
+<h3 id="_8">参考资料</h3>
+<p><a href="https://detekt.dev/docs/intro">https://detekt.dev/docs/intro</a>         <br />
+<a href="https://cloud.tencent.com/developer/article/1811025">代码质量堪忧？用 detekt 呀，拿捏得死死的~</a></p>
 
   <hr>
 <div class="md-source-file">
@@ -1487,7 +1556,7 @@ malloc 92274688 byte success
       <nav class="md-footer__inner md-grid" aria-label="页脚" >
         
           
-          <a href="../../framework/activity-start/" class="md-footer__link md-footer__link--prev" aria-label="上一页: Activity 启动流程分析" rel="prev">
+          <a href="../../compile/compile-acceleration/" class="md-footer__link md-footer__link--prev" aria-label="上一页: 编译加速的8个实用技巧" rel="prev">
             <div class="md-footer__button md-icon">
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
             </div>
@@ -1496,20 +1565,20 @@ malloc 92274688 byte success
                 上一页
               </span>
               <div class="md-ellipsis">
-                Activity 启动流程分析
+                编译加速的8个实用技巧
               </div>
             </div>
           </a>
         
         
           
-          <a href="../../../practical/compile/compile-acceleration/" class="md-footer__link md-footer__link--next" aria-label="下一页: 编译加速的8个实用技巧" rel="next">
+          <a href="../../../news/news-2023-07/" class="md-footer__link md-footer__link--next" aria-label="下一页: Android 性能优化技术月报 | 2023 年 7 月" rel="next">
             <div class="md-footer__title">
               <span class="md-footer__direction">
                 下一页
               </span>
               <div class="md-ellipsis">
-                编译加速的8个实用技巧
+                Android 性能优化技术月报 | 2023 年 7 月
               </div>
             </div>
             <div class="md-footer__button md-icon">
