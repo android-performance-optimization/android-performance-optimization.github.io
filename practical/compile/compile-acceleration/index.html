@@ -1,0 +1,1455 @@
+
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="专注于 Android 性能优化领域，分享基础知识，实战方案，学习路线，技术动态等资源">
+      
+      
+      
+        <link rel="canonical" href="https://android-performance-optimization.github.io/practical/compile/compile-acceleration/">
+      
+      
+        <link rel="prev" href="../../../foundation/tools/native-hook/">
+      
+      
+        <link rel="next" href="../../../news/news-2023-07/">
+      
+      <link rel="icon" href="../../../assets/favicon.png">
+      <meta name="generator" content="mkdocs-1.4.3, mkdocs-material-9.1.16">
+    
+    
+      
+        <title>编译加速的8个实用技巧 - Android 性能优化</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.26e3688c.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.ecc896b0.min.css">
+      
+      
+
+    
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Fira+Sans:300,300i,400,400i,700,700i%7CFira+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Fira Sans";--md-code-font:"Fira Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&"object"==typeof palette.color)for(var key of Object.keys(palette.color))document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#8" class="md-skip">
+          跳转至
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="页眉">
+    <a href="../../.." title="Android 性能优化" class="md-header__button md-logo" aria-label="Android 性能优化" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 89 89">
+  <path d="M3.136,17.387l0,42.932l42.932,21.467l-42.932,-64.399Z" />
+  <path d="M21.91,8l42.933,64.398l-18.775,9.388l-42.932,-64.399l18.774,-9.387Z" style="fill-opacity: 0.5" />
+  <path d="M67.535,17.387l-27.262,18.156l21.878,32.818l5.384,2.691l0,-53.665Z" />
+  <path d="M67.535,17.387l0,53.666l18.774,-9.388l0,-53.665l-18.774,9.387Z" style="fill-opacity: 0.25" />
+</svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Android 性能优化
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              编译加速的8个实用技巧
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+          
+            
+            
+            
+            <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_1">
+            
+              <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_2" hidden>
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69Z"/></svg>
+              </label>
+            
+          
+            
+            
+            
+            <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_2">
+            
+              <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_1" hidden>
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12c0-2.42-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69Z"/></svg>
+              </label>
+            
+          
+        </form>
+      
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="搜索" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="查找">
+        
+          <a href="javascript:void(0)" class="md-search__icon md-icon" title="分享" aria-label="分享" data-clipboard data-clipboard-text="" data-md-component="search-share" tabindex="-1">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7 0-.24-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.15c-.05.21-.08.43-.08.66 0 1.61 1.31 2.91 2.92 2.91 1.61 0 2.92-1.3 2.92-2.91A2.92 2.92 0 0 0 18 16.08Z"/></svg>
+          </a>
+        
+        <button type="reset" class="md-search__icon md-icon" title="清空当前内容" aria-label="清空当前内容" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            正在初始化搜索引擎
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/android-performance-optimization/homepage" title="前往仓库" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    android-performance-optimization
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="标签" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../.." class="md-tabs__link">
+        首页
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  <li class="md-tabs__item">
+    <a href="../../../resource/" class="md-tabs__link">
+      学习资源
+    </a>
+  </li>
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../foundation/self-cultivation/elf-file-detail/" class="md-tabs__link">
+        筑基手册
+      </a>
+    </li>
+  
+
+  
+
+      
+        
+  
+  
+    
+  
+
+
+  
+  
+  
+    
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="./" class="md-tabs__link md-tabs__link--active">
+        实战手册
+      </a>
+    </li>
+  
+
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../news/news-2023-07/" class="md-tabs__link">
+        技术月报
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="导航栏" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="Android 性能优化" class="md-nav__button md-logo" aria-label="Android 性能优化" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 89 89">
+  <path d="M3.136,17.387l0,42.932l42.932,21.467l-42.932,-64.399Z" />
+  <path d="M21.91,8l42.933,64.398l-18.775,9.388l-42.932,-64.399l18.774,-9.387Z" style="fill-opacity: 0.5" />
+  <path d="M67.535,17.387l-27.262,18.156l21.878,32.818l5.384,2.691l0,-53.665Z" />
+  <path d="M67.535,17.387l0,53.666l18.774,-9.388l0,-53.665l-18.774,9.387Z" style="fill-opacity: 0.25" />
+</svg>
+
+    </a>
+    Android 性能优化
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/android-performance-optimization/homepage" title="前往仓库" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    android-performance-optimization
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1" >
+      
+      
+        
+          
+            
+          
+        
+          
+        
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="../../..">首页</a>
+          
+            <label for="__nav_1">
+              <span class="md-nav__icon md-icon"></span>
+            </label>
+          
+        </div>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_1_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_1">
+          <span class="md-nav__icon md-icon"></span>
+          首页
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../intro/htc/" class="md-nav__link">
+        如何参与
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../resource/" class="md-nav__link">
+        学习资源
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+      
+      
+        
+          
+        
+          
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+          筑基手册
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_3">
+          <span class="md-nav__icon md-icon"></span>
+          筑基手册
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_1" >
+      
+      
+        
+          
+        
+          
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_3_1" id="__nav_3_1_label" tabindex="0">
+          程序员的自我修养
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_1_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_3_1">
+          <span class="md-nav__icon md-icon"></span>
+          程序员的自我修养
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../foundation/self-cultivation/elf-file-detail/" class="md-nav__link">
+        Elf 文件格式详解
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../foundation/self-cultivation/static-link/" class="md-nav__link">
+        静态链接
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../foundation/self-cultivation/elf-load/" class="md-nav__link">
+        ELF 文件的装载与进程
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2" >
+      
+      
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_3_2" id="__nav_3_2_label" tabindex="0">
+          Android 系统基础
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_2_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_3_2">
+          <span class="md-nav__icon md-icon"></span>
+          Android 系统基础
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../foundation/framework/activity-start/" class="md-nav__link">
+        Activity 启动流程分析
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_3" >
+      
+      
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_3_3" id="__nav_3_3_label" tabindex="0">
+          实用工具系列
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_3_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_3_3">
+          <span class="md-nav__icon md-icon"></span>
+          实用工具系列
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../foundation/tools/native-hook/" class="md-nav__link">
+        Native Hook 快速上手
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" checked>
+      
+      
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+          实战手册
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="true">
+        <label class="md-nav__title" for="__nav_4">
+          <span class="md-nav__icon md-icon"></span>
+          实战手册
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_1" checked>
+      
+      
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_4_1" id="__nav_4_1_label" tabindex="0">
+          编译优化
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_1_label" aria-expanded="true">
+        <label class="md-nav__title" for="__nav_4_1">
+          <span class="md-nav__icon md-icon"></span>
+          编译优化
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          编译加速的8个实用技巧
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        编译加速的8个实用技巧
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    前言
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    使用最新版本编译工具链
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#transformasmclassvisitorfactory" class="md-nav__link">
+    Transform迁移到AsmClassVisitorFactory
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#kapt-ksp" class="md-nav__link">
+    KAPT 迁移到 KSP
+  </a>
+  
+    <nav class="md-nav" aria-label="KAPT 迁移到 KSP">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    迁移方案
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#configuration-cache" class="md-nav__link">
+    开启Configuration Cache
+  </a>
+  
+    <nav class="md-nav" aria-label="开启Configuration Cache">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#configuration-cache_1" class="md-nav__link">
+    Configuration Cache适配
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#jetifier" class="md-nav__link">
+    移除Jetifier
+  </a>
+  
+    <nav class="md-nav" aria-label="移除Jetifier">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#jetifier_1" class="md-nav__link">
+    检测不支持Jetifier的库
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    迁移方案
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#r" class="md-nav__link">
+    关闭R文件传递
+  </a>
+  
+    <nav class="md-nav" aria-label="关闭R文件传递">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    迁移方案
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#kotlin" class="md-nav__link">
+    开启Kotlin跨模块增量编译
+  </a>
+  
+    <nav class="md-nav" aria-label="开启Kotlin跨模块增量编译">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    优化效果
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    如何开启
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    升级你的电脑配置
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    总结
+  </a>
+  
+    <nav class="md-nav" aria-label="总结">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    更多
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+      
+      
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+          技术月报
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_5">
+          <span class="md-nav__icon md-icon"></span>
+          技术月报
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../news/news-2023-07/" class="md-nav__link">
+        Android 性能优化技术月报 | 2023 年 7 月
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    前言
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    使用最新版本编译工具链
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#transformasmclassvisitorfactory" class="md-nav__link">
+    Transform迁移到AsmClassVisitorFactory
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#kapt-ksp" class="md-nav__link">
+    KAPT 迁移到 KSP
+  </a>
+  
+    <nav class="md-nav" aria-label="KAPT 迁移到 KSP">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    迁移方案
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#configuration-cache" class="md-nav__link">
+    开启Configuration Cache
+  </a>
+  
+    <nav class="md-nav" aria-label="开启Configuration Cache">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#configuration-cache_1" class="md-nav__link">
+    Configuration Cache适配
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#jetifier" class="md-nav__link">
+    移除Jetifier
+  </a>
+  
+    <nav class="md-nav" aria-label="移除Jetifier">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#jetifier_1" class="md-nav__link">
+    检测不支持Jetifier的库
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    迁移方案
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#r" class="md-nav__link">
+    关闭R文件传递
+  </a>
+  
+    <nav class="md-nav" aria-label="关闭R文件传递">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    迁移方案
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#kotlin" class="md-nav__link">
+    开启Kotlin跨模块增量编译
+  </a>
+  
+    <nav class="md-nav" aria-label="开启Kotlin跨模块增量编译">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    优化效果
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    如何开启
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    升级你的电脑配置
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    总结
+  </a>
+  
+    <nav class="md-nav" aria-label="总结">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    更多
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+  
+  
+
+
+<h1 id="8">编译加速的8个实用技巧</h1>
+<h2 id="_1">前言</h2>
+<p>关于 <code>Android</code> 编译加速的文章相信大家都看过不少，但常常要么是好几年前写的，目前看来有些过时；要么介绍了一大堆配置，最后一实践发现并没有多大效果；要么就是大厂黑科技，但是没有开源。</p>
+<p>今天我们就一起来看看，在2022年<code>AGP7.0</code>时代，除了传统的开启<code>build-cache</code>，打开并行编译，调整<code>Gradle</code>堆内存大小等常用手段之外，还有哪些可以落地的编译加速实用技巧</p>
+<h2 id="_2">使用最新版本编译工具链</h2>
+<p>既然是2022年编译加速的实用技巧，首先就是要求编译工具链的版本比较新，后面介绍的技巧大部分也是新引入的特性</p>
+<p>几乎每次更新时，<code>Android</code> 编译工具链都会得到一定性能上的优化或者是引入新的功能，因此我们应该及时跟进<code>Gradle</code>，<code>Android Gradle Plugin</code>和<code>Kotlin Gradle Plugin</code>等工具的更新，才能及时获得到相应的性能提升</p>
+<h2 id="transformasmclassvisitorfactory"><code>Transform</code>迁移到<code>AsmClassVisitorFactory</code></h2>
+<p><code>Transform API</code>是<code>AGP1.5</code>就引入的特性，主要用于在<code>Android</code>构建过程中，在<code>Class</code>转<code>Dex</code>的过程中修改<code>Class</code>字节码。利用<code>Transform API</code>，我们可以拿到所有参与构建的<code>Class</code>文件，然后可以借助<code>ASM</code> 等字节码编辑工具进行修改，插入自定义逻辑。</p>
+<p>国内很多团队都或多或少的用<code>AGP</code>的<code>Transform API</code>来搞点儿黑科技，比如无痕埋点，耗时统计，方法替换等。但是在<code>AGP7.0</code>中<code>Transform</code>已经被标记为废弃了，并且将在<code>AGP8.0</code>中移除</p>
+<p>在<code>AGP7.0</code>之后，可以使用<code>AsmClassVisitorFactory</code>来做插桩，根据官方的说法，<code>AsmClassVisitoFactory</code>会带来约18%的性能提升，同时可以减少约5倍代码</p>
+<p><img alt="" src="https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/44e2f3d80f7847c1803c90f66a8c2bb5~tplv-k3u1fbpfcp-zoom-in-crop-mark:3024:0:0:0.awebp?" /></p>
+<p><code>AsmClassVisitorFactory</code>之所以比<code>Transform</code>在性能上有优势，主要在于节省了<code>IO</code>的时间。</p>
+<p><img alt="" src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/ffdf99e3bf5d4d3181f68684aa415b88~tplv-k3u1fbpfcp-zoom-1.image" /></p>
+<p>如上图所示，多个<code>Transform</code>相互独立，都需要通过<code>IO</code>读取输入，修改字节码后将结果通过<code>IO</code>输出，供下一个<code>Transform</code>使用，如果每个<code>Transform</code>操作<code>IO</code>耗时+10s的话，各个<code>Transform</code>叠在一起，编译耗时就会呈线性增长</p>
+<p><img alt="p19.png" src="https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/9cd65289e3164051abac00f6c3129b01~tplv-k3u1fbpfcp-watermark.image?" /></p>
+<p>而使用<code>AsmClassVisitorFactory</code>则不需要我们手动进行<code>IO</code>操作，这是因为<code>AsmInstrumentationManager</code>中已经做了统一处理，只需要进行一次<code>IO</code>操作，然后交给<code>ClassVisitor</code>列表处理，完成后统一输出</p>
+<p>通过这种方式，可以有效地减少<code>IO</code>操作，减少耗时。其实国内之前滴滴开源的<code>Booster</code>与字节开源的<code>Bytex</code>，都是通过这种思路来优化<code>Transform</code>性能的，现在官方终于跟进了</p>
+<p>总得来说，<code>AsmClassVisitorFactory</code>在性能上与易用性上都有一定的提升，具体用法可参见：<a href="https://juejin.cn/post/7105925343680135198">Transform 被废弃，ASM 如何适配?</a></p>
+<h2 id="kapt-ksp">KAPT 迁移到 KSP</h2>
+<p>注解处理器是<code>Android</code>开发中一种常用的技术，很多常用的框架比如<code>ButterKnife</code>，<code>ARouter</code>，<code>Glide</code>中都使用到了注解处理器相关技术</p>
+<p>但是如果项目比较大的话，会很容易发现<code>KAPT</code>是拖慢编译速度的常见原因，这也是谷歌推出<code>KSP</code>取代<code>KAPT</code>的原因</p>
+<p><img alt="" src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/89dfc2753281437eb9e4b11fef7c9214~tplv-k3u1fbpfcp-zoom-1.image" /></p>
+<p>从上面这张图其实就可以看出<code>KAPT</code>慢的原因了，<code>KAPT</code> 通过与 <code>Java</code> 注解处理基础架构相结合，让大部分<code>Java</code>语言注解处理器能够在<code>Kotlin</code>中开箱即用。</p>
+<p>为此，<code>KAPT</code> 首先需要将 <code>Kotlin</code> 代码编译成 <code>JavaStubs</code>，这些<code>JavaStubs</code>中保留了<code>Java</code>注释处理器关注的信息。</p>
+<p>这意味着编译器必须多次解析程序中的所有符号 (一次生成<code>JavaStubs</code>，另一次完成实际编译)，但是生成<code>JavaStubs</code>的过程是非常耗时的，往往生成<code>Java Stubs</code>的时间比<code>APT</code>真正处理注解的时间要长</p>
+<p>而<code>KSP</code>不需要生成<code>JavaStubs</code>，而是作为<code>Kotlin</code>编译器插件运行。它可以直接处理<code>Kotlin</code>符号，而不需要依赖<code>Java</code>注解处理基础架构。</p>
+<p>因为<code>KSP</code>相比<code>KAPT</code>少了生成<code>JavaStubs</code>的过程，因此通常可以得到100%以上的速度提升。关于<code>KSP</code>的具体使用方法可参见：<a href="https://mp.weixin.qq.com/s/9WVWvyEj7YE6QAvIgyAF_Q">使用 Kotlin Symbol Processing 1.0 缩短 Kotlin 构建时间</a></p>
+<h3 id="_3">迁移方案</h3>
+<p>目前<code>KSP</code>已经发布了稳定版了，像<code>Room</code>，<code>Moshi</code>等库也已经做了适配，对于这些已经适配了的库，我们可以直接迁移。</p>
+<p>但还是有一些常用的库比如<code>Glide</code>，<code>ARouter</code>还没有做适配，这些库是我们移除<code>KAPT</code>最大的障碍。</p>
+<p>下面给出一些还不支持<code>KSP</code>的库的过渡迁移方法</p>
+<ol>
+<li><code>KAPT</code>一般就是用来生成代码，像<code>Glide</code>这种生成的代码比较稳定的库(通常只有几个<code>@GlideModule</code>)，可以直接把生成的代码从<code>build</code>目录拷贝到项目中来，然后移除<code>KAPT</code>，后续如果有新的<code>@GlideModule</code>再更新下生成的文件（当然这样可能不太方便，只是一种过渡的方式，等待<code>Glide</code>官方更新）</li>
+<li>对于<code>ARouter</code>这种生成代码不断增加的库(不断有新的<code>@ARouter</code>注解)，上面的方式就不太适用了。考虑到<code>ARoutr</code>已经很久没有更新了，可以考虑迁移到一个不使用<code>KAPT</code>的新的路由库</li>
+</ol>
+<p><strong>更新：</strong> <code>Glide</code>最新版本已经支持了<code>KSP</code>，可以直接升级接入了</p>
+<h2 id="configuration-cache">开启<code>Configuration Cache</code></h2>
+<p>我们知道，<code>Gradle</code> 的生命周期可以分为大的三个部分：初始化阶段（<code>Initialization Phase</code>)，配置阶段（<code>Configuration Phase</code>），执行阶段（<code>Execution Phase</code>），如下图所示：</p>
+<p><img alt="" src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/469d5e3631c641d4a3ff884a2a7f84ca~tplv-k3u1fbpfcp-zoom-in-crop-mark:3024:0:0:0.awebp" /></p>
+<p>在任务执行阶段，<code>Gradle</code>提供了多种方式实现<code>Task</code>的缓存与重用（如<code>up-to-date</code>检测，增量编译，<code>build-cache</code>等）</p>
+<p>除了任务执行阶段，任务配置阶段有时也比较耗时，目前<code>AGP</code>也支持了配置阶段缓存<code>Configuration Cache</code>,它可以缓存配置阶段的结果，当脚本没有发生改变时可以重用之前的结果</p>
+<p>在越大的项目中配置阶段缓存的收益越大，<code>module</code>比较多的项目可能每次执行都要先配置20到30秒，尤其是增量编译时，配置的耗时可能都跟执行的耗时差不多了，而这正是<code>configuration-cache</code>的用武之地</p>
+<p>目前<code>Configuration-cache</code>还是实验特性，如果你想要开启的话可以在<code>gradle.properties</code>中添加以下代码</p>
+<pre><code># configuration cache
+org.gradle.unsafe.configuration-cache=true
+org.gradle.unsafe.configuration-cache-problems=warn
+</code></pre>
+<p>开启了<code>Configuration cache</code>之后效果还是比较明显的，如果构建脚本没有发生变化可以直接跳过配置阶段</p>
+<p><img alt="" src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/86dede94fc0c44dbb4de8ca6f0e448ad~tplv-k3u1fbpfcp-zoom-1.image" /></p>
+<p><code>Android</code>官方给出了一个开启<code>Configuration cache</code>前后的对比，可以看出在这个<code>benchmark</code>中可以得到约30%的提升(当然是在配置阶段耗时占比越高的时候效果越明显，全量编译时应该不会有这样的比例)</p>
+<h3 id="configuration-cache_1"><code>Configuration Cache</code>适配</h3>
+<p>当然打开<code>Configuration Cache</code>之后可能会有一些适配问题，如果是第三方插件，发现常用插件出现不支持的情况，可先搜索是否有相同的问题已经出现并修复</p>
+<p>如果是项目中自定义<code>Task</code>不支持的话，还需要适配一下<code>Configuration Cache</code>，适配<code>Configuration Cache</code>的核心思路其实很简单：不要在<code>Task</code>执行阶段调用外部不可序列化的对象(比如<code>Project</code>与<code>Variant</code>)</p>
+<p>不过如果你的项目中自定义<code>Task</code>比较多的话，适配<code>Configuration Cache</code>可能是个体力活，比如 <code>AGP</code> 兼容 <code>Configuration Cache</code> 就修了 400 多个 <code>ISSUE</code></p>
+<p>如需详细了解配置缓存，请参阅<a href="https://medium.com/androiddevelopers/configuration-caching-deep-dive-bcb304698070">配置缓存深度解析</a>和<a href="https://docs.gradle.org/current/userguide/configuration_cache.html">有关配置缓存的 Gradle 文档</a></p>
+<h2 id="jetifier">移除<code>Jetifier</code></h2>
+<p><code>Jetifier</code>是<code>android support</code>包迁移到<code>androidX</code>的工具，当你在项目中启动用<code>Jetifier</code>时 ，<code>Gradle</code>插件会在构建时将三方库里的<code>Support</code>转换成<code>AndroidX</code>，因此会对构建速度产生影响。</p>
+<p>同时<code>Jetfier</code>也会对<code>sync</code>耗时产生比较大的影响，详情可见B站大佬的分析：<a href="https://mp.weixin.qq.com/s/EExWHagW8f1s2hDIjYmjKg">哔哩哔哩 Android 同步优化•Jetifier</a></p>
+<p><code>Jetifier</code>在<code>AndroidX</code>刚出现时是一个非常实用的工具，可以帮助我们快速的迁移到<code>AndroidX</code>。但是到了2022年，相信绝大多数库都已经迁移到了<code>AndroidX</code>，<code>Jetifier</code>的历史使命可以说已经完成了，因此是时候移除<code>Jetifier</code>了</p>
+<h3 id="jetifier_1">检测不支持<code>Jetifier</code>的库</h3>
+<p><code>AGP7.0</code>已经提供了工具供我们检查每个<code>module</code>能否移除<code>Jetifier</code>，直接运行<code>./gradlew checkJetifier</code>即可，通过以下命令检查所有<code>module</code>的<code>Jetifier</code>使用情况</p>
+<pre><code>task checkJetifierAll(group: &quot;verification&quot;) { }
+
+subprojects { project -&gt;
+    project.tasks.whenTaskAdded { task -&gt;
+        if (task.name == &quot;checkJetifier&quot;) {
+            checkJetifierAll.dependsOn(task)
+        }
+    }
+}
+</code></pre>
+<p>通过运行<code>./gradlew checkJetifierAll</code>就可以打印出所有<code>module</code>的<code>Jetifier</code>使用情况</p>
+<h3 id="_4">迁移方案</h3>
+<p>在明确了哪些库还不支持<code>Jetifier</code>之后，可以一步步开始迁移了</p>
+<ol>
+<li>检测库有没有已经支持了<code>androidX</code>的最新版本， 如果有直接升级即可</li>
+<li>如果有源码，添加<code>android.useAndroidX = true</code>，迁移到<code>AndroidX</code>，然后升级所有的依赖，发布个新版本就可以了。     </li>
+<li>如果你没有源码，或对于你的项目来说，它太老了。你可以用<a href="https://developer.android.com/studio/command-line/jetifier">jetifier-standalone</a>命令行工具把<code>AAR/JAR</code>转成<code>jetified</code>之后的<code>AAR/JAR</code>。这个命令行的转换效果和你在代码里开启<code>android.enableJetifier</code>的效果是一样的。命令行如下：</li>
+</ol>
+<pre><code>// https://developer.android.com/studio/command-line/jetifier    
+./jetifier-standalone -i &lt;source-library&gt; -o &lt;output-library&gt;  
+</code></pre>
+<h2 id="r">关闭<code>R</code>文件传递</h2>
+<p>在 <code>apk</code> 打包的过程中，<code>module</code> 中的 <code>R</code> 文件采用对依赖库的<code>R</code>进行累计叠加的方式生成。如果我们的 <code>app</code> 架构如下：</p>
+<p><img alt="" src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/7d2e41baa9a846b1a37132ac94580fba~tplv-k3u1fbpfcp-zoom-1.image" /></p>
+<p>编译打包时每个模块生成的<code>R</code>文件如下：</p>
+<pre><code>1. R_lib1 = R_lib1;
+2. R_lib2 = R_lib2;
+3. R_lib3 = R_lib3;
+4. R_biz1 = R_lib1 + R_lib2 + R_lib3 + R_biz1(biz1本身的R)
+5. R_biz2 = R_lib2 + R_lib3 + R_biz2(biz2本身的R)
+6. R_app = R_lib1 + R_lib2 + R_lib3 + R_biz1 + R_biz2 + R_app(app本身R)
+</code></pre>
+<p>可以看出各个模块的R文件都会包含上层组件的<code>R</code>文件内容，这不仅会带来包体积问题，也会给编译速度带来一定的影响。比如我们在<code>R_lib1</code>中添加了资源，所有下游模块的<code>R</code>文件都需要重新编译。</p>
+<ol>
+<li>关闭<code>R</code>文件传递可以通过编译避免的方式获得更快的编译速度</li>
+<li>关闭<code>R</code>文件传递有助于确保每个模块的<code>R</code>类仅包含对其自身资源的引用，避免无意中引用其他模块资源，明确模块边界。</li>
+<li>关闭<code>R</code>文件传递也可以减少很大一部分包体积与<code>dex</code>数量</li>
+</ol>
+<h3 id="_5">迁移方案</h3>
+<p>从 <code>Android Studio Bumblebee</code> 开始，新项目的非传递 <code>R</code> 类默认处于开启状态。即<code>gradle.properties</code>文件中都开启了如下标记</p>
+<pre><code>android.nonTransitiveRClass=true
+</code></pre>
+<p>对于使用早期版本的 <code>Studio</code> 创建的项目，您可以依次前往 <code>Refactor &gt; Migrate to Non-transitive R Classes</code>，将项目更新为使用非传递 <code>R</code> 类。</p>
+<h2 id="kotlin">开启<code>Kotlin</code>跨模块增量编译</h2>
+<p>使用组件化多模块开发的同学都有经验，当我们修改底层模块(比如<code>util</code>模块)时，所有依赖于这个模块的上层模块都需要重新编译，<code>Kotlin</code>的增量编译在这种情况往往是不生效的，这种时候的编译往往非常耗时</p>
+<p>在<code>Kotlin 1.7.0</code>中，<code>Kotlin</code>编译器对于跨模块增量编译也做了支持，并且与<code>Gradle</code>构建缓存兼容，对编译避免的支持也得到了改进。这些改进减少了模块和文件重新编译的次数，让整体编译更加迅速</p>
+<h3 id="_6">优化效果</h3>
+<p>首先来看下<code>Kotlin</code>官方的数据，以下基准测试结果是在<code>Kotlin</code>项目中的<code>kotlin-gradle-plugin</code>模块上测得：</p>
+<p><img alt="" src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/212c9ce13bd44959b006316a34912df1~tplv-k3u1fbpfcp-zoom-in-crop-mark:3024:0:0:0.awebp" /></p>
+<p>可以看出，当缓存命中时有86%到96%的加速效果，当缓存没有命中时也有26%的加速效果</p>
+<p>我在项目中开启后实测效果也很不错，修改一个底层模块，在特性开启前需要耗时4分钟左右，开启后增量编译耗时减少到30到40s，加速约85%</p>
+<h3 id="_7">如何开启</h3>
+<p>在 <code>gradle.properties</code> 文件中设置以下选项即可使用新方式进行增量编译：</p>
+<pre><code>kotlin.incremental.useClasspathSnapshot=true // 开启跨模块增量编译
+kotlin.build.report.output=file // 可选，启用构建报告
+</code></pre>
+<p>可以看出，开启步骤还是非常简单的，关于<code>Kotlin</code>跨模块增量编译的原理可参见：<a href="https://blog.jetbrains.com/zh-hans/kotlin/2022/07/a-new-approach-to-incremental-compilation-in-kotlin/">Kotlin 增量编译的新方式</a></p>
+<p>对于增量编译，稳定性和可靠性至关重要。有时增量编译总会失效，<code>Kotlin 1.7</code>同样支持为编译任务创建编译报告，报告包含不同编译阶段的持续时间以及无法使用增量编译的原因，可以帮助你定位为什么增量编译失效了</p>
+<p>关于编译报告的启用与使用可见：<a href="https://blog.jetbrains.com/zh-hans/kotlin/2022/07/introducing-kotlin-build-reports/">隆重推出 Kotlin 构建报告</a></p>
+<h2 id="_8">升级你的电脑配置</h2>
+<p>除了上述的软件方向的一系列优化，也可以从硬件方向进行优化，也就是升级你的电脑配置</p>
+<p>个人感觉影响编译速度的关键基本配置如下：</p>
+<ul>
+<li><code>CPU</code>：2022年了，最好直接上<code>M1</code>吧，的确要快不少，相信大家应该看到过一些说换<code>M1</code>后编译速度变快的帖子</li>
+<li>内存：至少要16G，有条件建议上32G，对于一些大型项目，内存甚至比<code>CPU</code>更重要，因为<code>Gradle</code>守护进程占用的内存可以非常大</li>
+<li>硬盘：必须是<code>SSD</code>固态硬盘，256G勉强够用，最好是512G，<code>Gradle</code>构建缓存(<code>build-cache</code>)占用的空间也挺大的</li>
+</ul>
+<p>从硬件方向入手，有时也可以得到不错的优化效果，<strong>充钱是真的可以变强的</strong></p>
+<h2 id="_9">总结</h2>
+<p>本文主要介绍了编译加速的8个实用技巧，有的接入起来非常简单，有的则需要一定的适配成本，但都是可以落地的并且有一定效果的编译加速技巧</p>
+<p>总得来说，为了充分利用最新的优化技巧与各种新功能，我们应该及时跟进<code>android</code>编译工具链的更新</p>
+<p>如果本文对你有所帮助，欢迎点赞收藏~</p>
+<h3 id="_10">更多</h3>
+<p><a href="https://developer.android.com/studio/build/optimize-your-build?hl=zh-cn">Android官方文档 - 优化构建速度</a>      <br />
+<a href="https://proandroiddev.com/how-we-reduced-our-gradle-build-times-by-over-80-51f2b6d6b05b">How we reduced our Gradle build times by over 80%</a>       <br />
+<a href="https://blog.dipien.com/10-great-ideas-to-improve-your-gradle-build-times-2a6b281c69c6">10 ideas to improve your Gradle build times</a></p>
+
+  <hr>
+<div class="md-source-file">
+  <small>
+    
+      最后更新:
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">July 16, 2023</span>
+      
+    
+  </small>
+</div>
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12Z"/></svg>
+            回到页面顶部
+          </button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="页脚" >
+        
+          
+          <a href="../../../foundation/tools/native-hook/" class="md-footer__link md-footer__link--prev" aria-label="上一页: Native Hook 快速上手" rel="prev">
+            <div class="md-footer__button md-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                上一页
+              </span>
+              <div class="md-ellipsis">
+                Native Hook 快速上手
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../../../news/news-2023-07/" class="md-footer__link md-footer__link--next" aria-label="下一页: Android 性能优化技术月报 | 2023 年 7 月" rel="next">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                下一页
+              </span>
+              <div class="md-ellipsis">
+                Android 性能优化技术月报 | 2023 年 7 月
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    <script id="__config" type="application/json">{"base": "../../..", "features": ["announce.dismiss", "content.code.annotate", "content.code.copy", "content.tooltips", "navigation.footer", "navigation.indexes", "navigation.tabs", "navigation.top", "navigation.tracking", "search.highlight", "search.share", "search.suggest", "toc.follow"], "search": "../../../assets/javascripts/workers/search.208ed371.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.a51614de.min.js"></script>
+      
+    
+  </body>
+</html>
