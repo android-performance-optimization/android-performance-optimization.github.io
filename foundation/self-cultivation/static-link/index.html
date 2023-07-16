@@ -978,6 +978,7 @@ Idx Name          Size      VMA               LMA               File off  Algn
 <li>在段的虚拟地址确认之后，段内的符号根据其在段内的偏移，其虚拟地址也可以确认了</li>
 </ol>
 <h2 id="_9">符号解析与重定位</h2>
+<p>首页我们通过 objdump 来看看 a.o 反汇编的结果</p>
 <pre><code>$ objdump -d a.o
 
 a.o:     file format elf64-x86-64
@@ -997,8 +998,14 @@ Disassembly of section .text:
   26:   b8 00 00 00 00          mov    $0x0,%eax
   2b:   c9                      leaveq 
   2c:   c3                      retq   
-
-$ objdump -d ab
+</code></pre>
+<p>可以看出：</p>
+<ol>
+<li>在此时 main 函数的地址还是 0，因为此时还没有进行空间分配，目标文件代码段中的地址还是以 0x000000 开始</li>
+<li></li>
+</ol>
+<p>接下来再看看 ab 反汇编的结果</p>
+<pre><code>$ objdump -d ab
 
 ab:     file format elf64-x86-64
 
