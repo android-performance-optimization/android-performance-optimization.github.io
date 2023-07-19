@@ -1364,7 +1364,7 @@
 <p>但是如果项目比较大的话，会很容易发现<code>KAPT</code>是拖慢编译速度的常见原因，这也是谷歌推出<code>KSP</code>取代<code>KAPT</code>的原因</p>
 <p><img alt="" src="https://raw.gitmirror.com/RicardoJiang/resource/main/2023/july/p9.webp" /></p>
 <p>从上面这张图其实就可以看出<code>KAPT</code>慢的原因了，<code>KAPT</code> 通过与 <code>Java</code> 注解处理基础架构相结合，让大部分<code>Java</code>语言注解处理器能够在<code>Kotlin</code>中开箱即用。</p>
-<p>为此，<code>KAPT</code> 首先需要将 <code>Kotlin</code> 代码编译成 <code>JavaStubs</code>，这些<code>JavaStubs</code>中保留了<code>Java</code>注释处理器关注的信息。</p>
+<p>为此，<code>KAPT</code> 首先需要将 <code>Kotlin</code> 代码编译成 <code>JavaStubs</code>，这些<code>JavaStubs</code>中保留了<code>Java</code>注解处理器关注的信息。</p>
 <p>这意味着编译器必须多次解析程序中的所有符号 (一次生成<code>JavaStubs</code>，另一次完成实际编译)，但是生成<code>JavaStubs</code>的过程是非常耗时的，往往生成<code>Java Stubs</code>的时间比<code>APT</code>真正处理注解的时间要长</p>
 <p>而<code>KSP</code>不需要生成<code>JavaStubs</code>，而是作为<code>Kotlin</code>编译器插件运行。它可以直接处理<code>Kotlin</code>符号，而不需要依赖<code>Java</code>注解处理基础架构。</p>
 <p>因为<code>KSP</code>相比<code>KAPT</code>少了生成<code>JavaStubs</code>的过程，因此通常可以得到100%以上的速度提升。关于<code>KSP</code>的具体使用方法可参见：<a href="https://mp.weixin.qq.com/s/9WVWvyEj7YE6QAvIgyAF_Q">使用 Kotlin Symbol Processing 1.0 缩短 Kotlin 构建时间</a></p>
@@ -1484,7 +1484,7 @@ kotlin.build.report.output=file // 可选，启用构建报告
   <small>
     
       最后更新:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">July 16, 2023</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">July 19, 2023</span>
       
     
   </small>
