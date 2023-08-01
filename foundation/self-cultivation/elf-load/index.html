@@ -664,6 +664,19 @@
     进程虚存空间分布
   </a>
   
+    <nav class="md-nav" aria-label="进程虚存空间分布">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_11" class="md-nav__link">
+    链接视图与执行视图
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
     </ul>
@@ -1188,6 +1201,19 @@
     进程虚存空间分布
   </a>
   
+    <nav class="md-nav" aria-label="进程虚存空间分布">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_11" class="md-nav__link">
+    链接视图与执行视图
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
     </ul>
@@ -1258,6 +1284,31 @@
 <p>假设在上面的例子中，程序的入口地址为 0x08048000，即刚好是 .text 段的起始地址。当 CPU 开始打算执行这个地址的指令时，发现页面 0x08048000～0x08049000 是个空页面，于是它就认为这是一个页错误（Page Fault）。CPU将控制权交给操作系统，操作系统有专门的页错误处理例程来处理这种情况。</p>
 <p>这时候我们前面提到的装载过程的第二步建立的数据结构起到了很关键的作用，操作系统将查询这个数据结构，然后找到空页面所在的 VMA，计算出相应的页面在可执行文件中的偏移，然后在物理内存中分配一个物理页面，将进程中该虚拟页与分配的物理页之间建立映射关系，然后把控制权再还回给进程，进程从刚才页错误的位置重新开始执行</p>
 <h2 id="_10">进程虚存空间分布</h2>
+<h3 id="_11">链接视图与执行视图</h3>
+<p>我们前面的例子只有一个代码段，因此被加载后相对应的也只有一个 VMA，但实际情况，一个 ELF 文件中往往有多个段，比如数据段，bss 等</p>
+<p>因为 ELF 文件被映射时是以页为单位的，因此每个段在映射时的长度都是页的整数倍，如果不足一页也将占用一页。因此随着段数量的增多，也会导致更多的空间浪费问题</p>
+<p><strong>那么该如何减少这种内存浪费呢？</strong></p>
+<p>实际上，当操作系统装载可执行文件时，它实际上并不关心可执行文件各个段所包含的实际内容，操作系统只关心一些跟装载相关的问题，最主要的是段的权限(可读、可写、可执行)
+，在 ELF 文件中，段的权限主要可以组合为以下几种：</p>
+<ul>
+<li>以代码段为代表的权限为可读可执行的段。</li>
+<li>以数据段和 BSS 段为代表的权限为可读可写的段。</li>
+<li>以只读数据段为代表的权限为只读的段。</li>
+</ul>
+<p>因此最简单的思路：<strong>对于相同权限的段，把它们合并到一起当作一个段进行映射</strong></p>
+<p>上面我们把链接视图与执行视图中的内容都称为段，实际上它们是两个东西，只是翻译成了一样的词，在英文中，链接视图中的段是<code>Section</code>，而执行视图的段是<code>Segment</code></p>
+<p><code>Segment</code>实际上就是多个属性类似的<code>Section</code>合并的结果，将多个<code>Section</code>合并成一个<code>Segment</code>整体映射，可以减少页面内部的内存碎片，减少内存占用。而正因为此，操作系统在执行阶段是以<code>Segment</code>来映射可执行文件的。</p>
+<p>所以总的来说，<code>Segment</code>和<code>Section</code>是从不同的角度来划分同一个 ELF 文件。这个在 ELF 中被称为不同的视图，从<code>Section</code>的角度来看 ELF 文件就是链接视图，从<code>Segment</code>的角度来看就是执行视图。当我们在谈到 ELF 装载时，“段”专门指<code>Segment</code>；而在其他的情况下，“段”指的是<code>Section</code>。</p>
+<p>我们可以通过 readelf 命令来打印链接视图与执行视图的不同，比如我们有一个名为<code>SectionMapping.elf</code>的可执行文件</p>
+<pre><code># 链接视图
+readelf -S SectionMapping.elf
+
+# 执行视视图
+readelf -l SectionMapping.elf
+</code></pre>
+<p>这里就不打印结果了，我们来看下 ELF 文件与进程虚拟空间的映射关系如下</p>
+<p><img alt="" src="https://raw.gitmirror.com/RicardoJiang/resource/main/2023/augest/p1.png" /></p>
+<p>其实就是我们上面说的，多个属性类似的<code>Section</code>合并为一个<code>Segment</code>，作为一个整体被映射到一个 VMA 中 </p>
 
   <hr>
 <div class="md-source-file">
