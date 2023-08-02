@@ -19,7 +19,7 @@
         <link rel="next" href="../../framework/activity-start/">
       
       <link rel="icon" href="../../../assets/favicon.png">
-      <meta name="generator" content="mkdocs-1.5.1, mkdocs-material-9.1.16">
+      <meta name="generator" content="mkdocs-1.5.2, mkdocs-material-9.1.16">
     
     
       
@@ -683,13 +683,27 @@
         
           <li class="md-nav__item">
   <a href="#_13" class="md-nav__link">
-    堆的最大申请数量
+    段地址对齐
   </a>
   
 </li>
         
       </ul>
     </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#linux-elf" class="md-nav__link">
+    Linux 内核装载 ELF 过程简介
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_14" class="md-nav__link">
+    总结
+  </a>
   
 </li>
       
@@ -1234,13 +1248,27 @@
         
           <li class="md-nav__item">
   <a href="#_13" class="md-nav__link">
-    堆的最大申请数量
+    段地址对齐
   </a>
   
 </li>
         
       </ul>
     </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#linux-elf" class="md-nav__link">
+    Linux 内核装载 ELF 过程简介
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_14" class="md-nav__link">
+    总结
+  </a>
   
 </li>
       
@@ -1375,7 +1403,73 @@ ffffffffff600000-ffffffffff601000 --xp 00000000 00:00 0                  [vsysca
 </ul>
 <p>一个常见进程的虚拟空间如下图所示：</p>
 <p><img alt="" src="https://raw.gitmirror.com/RicardoJiang/resource/main/2023/augest/p2.png" /></p>
-<h3 id="_13">堆的最大申请数量</h3>
+<h3 id="_13">段地址对齐</h3>
+<p>可执行文件最终是要被操作系统装载运行的，这个装载的过程一般是通过虚拟内存的页映射机制完成的。在映射过程中，页是映射的最小单位，而页大小一般为 4096 字节</p>
+<p>也就是说，我们要映射将一段物理内存和进程虚拟地址空间之间建立映射关系，这段内存空间的长度必须是 4096 的整数倍，并且这段空间在物理内存和进程虚拟地址空间中的起始地址必须是 4096 的整数倍。</p>
+<p>很明显这会导致严重的内存浪费问题，比如我们 ELF 文件中有如下 3 个 Segment 需要装载</p>
+<table>
+<thead>
+<tr>
+<th>段</th>
+<th>起始虚拟地址</th>
+<th>大小</th>
+<th>有效字节</th>
+<th>偏移</th>
+<th>权限</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>SEG0</td>
+<td>0x08048000</td>
+<td>0x1000</td>
+<td>127</td>
+<td>34</td>
+<td>可读可执行</td>
+</tr>
+<tr>
+<td>SEG1</td>
+<td>0x08049000</td>
+<td>0x3000</td>
+<td>9899</td>
+<td>164</td>
+<td>可读可写</td>
+</tr>
+<tr>
+<td>SEG2</td>
+<td>0x0804C000</td>
+<td>0x1000</td>
+<td>1988</td>
+<td></td>
+<td>只读</td>
+</tr>
+</tbody>
+</table>
+<p>整个可执行文件的三个段的总长度只有 12014 字节，却占据了 5 个页，即 20480 字节，空间使用率只有 58.6%</p>
+<p>为了解决这种问题，一种解决思路就是：让那些各个段接壤部分共享一个物理页面，然后将该物理页面分别映射两次</p>
+<p>比如段 A 的最后一页与段 B 的第一页接壤，将两个虚拟地址页与同一个物理页面关联起来，但是段 A 的最后一页虚拟地址只有前半部分有效，段 B 的第一页虚拟地址只有后半部分有效</p>
+<p>具体的计算规则就不在这里缀述了，可以看一篇很好的总结：<a href="https://juejin.cn/post/7068248103379271717">gcc编译时，链接器安排的【虚拟地址】是如何计算出来的？</a></p>
+<h2 id="linux-elf">Linux 内核装载 ELF 过程简介</h2>
+<p>下面我们简单总结一下 linux 内核装载静态链接 ELF 文件的过程</p>
+<p>当我们在Linux系统的 bash 下输入一个命令执行某个 ELF 程序时，Linux 系统是怎样装载这个ELF 文件并且执行它的呢？</p>
+<ul>
+<li>首先在用户层面， bash 进程会调用<code>fork()</code>系统调用创建一个新的进程，然后新的进程调用<code>execve()</code>系统调用执行指定的 ELF 文件，原先的 bash 进程继续返回等待刚才启动的新进程结束，然后继续等待用户输入命令。</li>
+<li>在进入<code>execve()</code>系统调用之后，Linux 内核就开始进行真正的装载工作。</li>
+<li>首先查找被执行的文件，如果找到文件，则读取文件的前 128 个字节，以获取文件开头的魔数。根据魔数确定文件格式，并且调用相应的装载处理过程。</li>
+<li>在 ELF 装载处理过程中，首先会检查 ELF 可执行文件格式的有效性，比如魔数、程序头表中段（Segment）的数量</li>
+<li>接下来根据 ELF 可执行文件的程序头表的描述，对 ELF 文件进行映射，比如代码、数据、只读数据等</li>
+<li>初始化 ELF 进程环境，在进程刚开始启动的时候，须知道一些进程运行的环境，最基本的就是系统环境变量和进程的运行参数</li>
+<li>将系统调用的返回地址修改成 ELF 可执行文件的入口点，对于静态链接就是 ELF 文件的文件头中 e_entry 所指的地址</li>
+<li>当<code>sys_execve()</code>系统调用结束，从内核态返回到用户态时，EIP 寄存器直接跳转到了 ELF 程序的入口地址，于是新的程序开始执行，ELF可执行文件装载完成</li>
+</ul>
+<h2 id="_14">总结</h2>
+<p>相比之前的链接视图，本节主要介绍了执行视图的 ELF 文件，主要包括以下内容</p>
+<ul>
+<li>ELF 文件是如何被装载到内存上的，为什么要使用页映射的方式将程序映射到进程地址空间</li>
+<li>从操作系统角度看 ELF 文件是如何装载的，当程序开始运行时发生页错误如何处理</li>
+<li>进程虚存空间具体是如何分布的，如何解决装载过程中的内存浪费问题，操作系统如何为程序的代码、数据、堆、栈在进程地址空间中分配，它们是如何分布的</li>
+<li>Linux 系统是怎样装载并运行 ELF 文件的</li>
+</ul>
 
   <hr>
 <div class="md-source-file">
