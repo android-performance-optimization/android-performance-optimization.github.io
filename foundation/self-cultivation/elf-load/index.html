@@ -681,6 +681,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#_13" class="md-nav__link">
+    堆的最大申请数量
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -1225,6 +1232,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#_13" class="md-nav__link">
+    堆的最大申请数量
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -1351,6 +1365,17 @@ ffffffffff600000-ffffffffff601000 --xp 00000000 00:00 0                  [vsysca
 <li>第五列表示映像文件的节点号。</li>
 <li>最后一列是映像文件的路径。</li>
 </ul>
+<p>我们可以看到进程中有 11 个 VMA，前 5 个是可以映射到 ELF 文件中的 Segment。其它段的文件所在设备主设备号和次设备号及文件节点号都是 0，则表示它们没有映射到文件中，这种VMA叫做匿名虚拟内存区域。我们可以看到其中有两个区域分别是堆（Heap）和栈（Stack），这两个 VMA 非常常见，几乎在所有的进程中存在。</p>
+<p>总得来说，操作系统通过给进程空间划分出一个个 VMA 来管理进程的虚拟空间；基本原则是将相同权限属性的、有相同映像文件的映射成一个 VMA；一个进程基本上可以分为如下几种 VMA 区域：</p>
+<ul>
+<li>代码 VMA，权限只读、可执行；有映像文件。</li>
+<li>数据 VMA，权限可读写、可执行；有映像文件。</li>
+<li>堆 VMA，权限可读写、可执行；无映像文件，匿名，可向上扩展。</li>
+<li>栈 VMA，权限可读写、不可执行；无映像文件，匿名，可向下扩展。</li>
+</ul>
+<p>一个常见进程的虚拟空间如下图所示：</p>
+<p><img alt="" src="https://raw.gitmirror.com/RicardoJiang/resource/main/2023/augest/p2.png" /></p>
+<h3 id="_13">堆的最大申请数量</h3>
 
   <hr>
 <div class="md-source-file">
