@@ -674,6 +674,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#_12" class="md-nav__link">
+    堆和栈
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -1211,6 +1218,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#_12" class="md-nav__link">
+    堆和栈
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -1308,7 +1322,35 @@ readelf -l SectionMapping.elf
 </code></pre>
 <p>这里就不打印结果了，我们来看下 ELF 文件与进程虚拟空间的映射关系如下</p>
 <p><img alt="" src="https://raw.gitmirror.com/RicardoJiang/resource/main/2023/augest/p1.png" /></p>
-<p>其实就是我们上面说的，多个属性类似的<code>Section</code>合并为一个<code>Segment</code>，作为一个整体被映射到一个 VMA 中 </p>
+<p>其实就是我们上面说的，多个属性类似的<code>Section</code>合并为一个<code>Segment</code>，作为一个整体映射到同一个 VMA 中 </p>
+<h3 id="_12">堆和栈</h3>
+<p>在操作系统中，VMA 不仅被用于映射 ELF 中的 <code>Segment</code>。实际上，进程执行过程中需要用到的栈（Stack）、堆（Heap）等空间，在进程虚拟空间中也是以 VMA 的形式存在的，很多情况下，一个进程中的栈和堆分别都有一个对应的 VMA。</p>
+<p>在 Linux 系统中，我们可以通过查看<code>/proc/$pid/maps</code>文件来查看进程的虚拟空间分布</p>
+<pre><code>$ ./SectionMapping.elf &amp;
+[1] 1686
+
+$ cat /proc/1686/maps
+00400000-00401000 r--p 00000000 07:03 126044                             /workspaces/programmer-training/SectionMapping.elf
+00401000-00495000 r-xp 00001000 07:03 126044                             /workspaces/programmer-training/SectionMapping.elf
+00495000-004bc000 r--p 00095000 07:03 126044                             /workspaces/programmer-training/SectionMapping.elf
+004bd000-004c0000 r--p 000bc000 07:03 126044                             /workspaces/programmer-training/SectionMapping.elf
+004c0000-004c3000 rw-p 000bf000 07:03 126044                             /workspaces/programmer-training/SectionMapping.elf
+004c3000-004c4000 rw-p 00000000 00:00 0 
+012f5000-01318000 rw-p 00000000 00:00 0                                  [heap]
+7ffe70214000-7ffe70236000 rw-p 00000000 00:00 0                          [stack]
+7ffe70296000-7ffe7029a000 r--p 00000000 00:00 0                          [vvar]
+7ffe7029a000-7ffe7029c000 r-xp 00000000 00:00 0                          [vdso]
+ffffffffff600000-ffffffffff601000 --xp 00000000 00:00 0                  [vsyscall]
+</code></pre>
+<p>由于可执行文件在装载时实际上是被映射的虚拟空间，所以可执行文件很多时候又被叫做映像文件（Image），上面的输出结果中，每列的含义如下</p>
+<ul>
+<li>第一列是VMA的地址范围，可以看到，堆在低地址，栈在高地址；</li>
+<li>第二列是VMA的权限，“r”表示可读，“w”表示可写，“x”表示可执行，“p”表示私有（COW, Copy on Write），“s”表示共享。</li>
+<li>第三列是偏移，表示 VMA 对应的Segment在映像文件中的偏移；</li>
+<li>第四列表示映像文件所在设备的主设备号和次设备号；</li>
+<li>第五列表示映像文件的节点号。</li>
+<li>最后一列是映像文件的路径。</li>
+</ul>
 
   <hr>
 <div class="md-source-file">
