@@ -985,10 +985,30 @@
     精选博客
   </a>
   
+    <nav class="md-nav" aria-label="精选博客">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#android" class="md-nav__link">
+    常见的 Android 卡顿监控方案
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    卡顿率如何计算
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
+  <a href="#_4" class="md-nav__link">
     精选视频
   </a>
   
@@ -1008,7 +1028,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_4" class="md-nav__link">
+  <a href="#_5" class="md-nav__link">
     社区活动
   </a>
   
@@ -1081,10 +1101,30 @@
     精选博客
   </a>
   
+    <nav class="md-nav" aria-label="精选博客">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#android" class="md-nav__link">
+    常见的 Android 卡顿监控方案
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    卡顿率如何计算
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
+  <a href="#_4" class="md-nav__link">
     精选视频
   </a>
   
@@ -1104,7 +1144,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_4" class="md-nav__link">
+  <a href="#_5" class="md-nav__link">
     社区活动
   </a>
   
@@ -1133,10 +1173,26 @@
 <p>月报的主要内容包括：整理展示我在最近一个月所查阅的 Android 性能优化领域的最新技术动态、精选博客，精选视频等内容。</p>
 <h2 id="_1">最新动态</h2>
 <h2 id="_2">精选博客</h2>
-<h2 id="_3">精选视频</h2>
+<h3 id="android">常见的 Android 卡顿监控方案</h3>
+<p><a href="https://juejin.cn/post/7239625431056662585">常见的Android应用卡顿监控方案原理和对比</a></p>
+<p>想要监控卡顿或者是监测 App 的流畅度，就必须通过代码手段来获取FPS或者每帧耗时，并转化成可以衡量应用卡顿程度的指标。本文介绍了三种常见的 Android 卡顿监控方案：</p>
+<ul>
+<li>Choreographer 的 FrameCallback 回调</li>
+<li>Choreographer + Looper Hook 方案</li>
+<li>官方 JankStats 方案</li>
+</ul>
+<h3 id="_3">卡顿率如何计算</h3>
+<p><a href="https://perfdog.qq.com/article_detail?id=10162&amp;issue_id=0&amp;plat_id=1">Jank卡顿及stutter卡顿率说明</a></p>
+<p>帧率高，未必流畅，因此不能简单用帧率来表示卡顿程度。PerfDog 提出了一种新的卡顿计算思路：</p>
+<blockquote>
+<p>考虑视觉惯性，假设以前三帧的平均帧耗时为参考，作为vsync时间间隔，连续两次vsync没有新渲染画面刷新，则认为是一次潜在卡顿，也就是说下一帧耗时大于前三帧平均帧耗时2倍，则认为一次潜在卡顿。同时单帧耗时满足大于两倍电影帧耗时1000ms/24*2 (由于人眼低于24帧才能辨别画面不连续性)，则认为是一次真正卡顿。同时若单帧耗时大于3倍电影帧耗时，则认为是一次严重卡顿。</p>
+</blockquote>
+<p>基于PerfDog Jank的基础上，一次Jank卡顿，会有一次卡顿时间Jank time。测试过程中可能有多次Jank卡顿，即有多次卡顿时间Jank time。测试总时长为Time。因此可通过以下方式计算出卡顿率：</p>
+<p>Stutter(卡顿率) = ∑Jank time / Time</p>
+<h2 id="_4">精选视频</h2>
 <h3 id="sentry-anr">Sentry 是如何检测 ANR 的</h3>
 <p><a href="https://www.droidcon.com/2023/08/01/revolutionizing-anr-detection-at-sentry/">Revolutionizing Anr Detection At Sentry</a></p>
-<h2 id="_4">社区活动</h2>
+<h2 id="_5">社区活动</h2>
 
   <hr>
 <div class="md-source-file">
