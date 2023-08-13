@@ -630,8 +630,21 @@
       
         <li class="md-nav__item">
   <a href="#_6" class="md-nav__link">
-    动态链接例子
+    动态链接简单示例
   </a>
+  
+    <nav class="md-nav" aria-label="动态链接简单示例">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    动态链接地址空间分布
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -1107,8 +1120,21 @@
       
         <li class="md-nav__item">
   <a href="#_6" class="md-nav__link">
-    动态链接例子
+    动态链接简单示例
   </a>
+  
+    <nav class="md-nav" aria-label="动态链接简单示例">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    动态链接地址空间分布
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -1145,10 +1171,127 @@
 <p>比如我们有 Program1 与 Program2 两个程序，它们都依赖于 lib.o。当开始加载 Program1 时，系统发现其依赖 lib.o，就会将 lib.o 加载到内存中，然后开始链接工作。这个链接过程与静态链接非常相似，包括符号解析，地址重定位等。完成这些步骤后，系统把控制权交给 Program1 的程序入口处，程序开始执行。此时，当我们开始运行 Program2 时，不需要再次加载 lib.o，因为内存中已经有一份了，系统要做的只是将 Program2 与 lib.o 链接起来。</p>
 <p>很明显，动态链接的方式解决了共享的目标文件多个副本浪费磁盘和内存空间的问题，磁盘和内存中只存在一份 lib.o，而不是两份。另外在内存中共享一个目标文件也可以减少物理页面的换入换出，同时增加CPU缓存的命中率，因为不同进程间的数据和指令访问都集中在了同一个共享模块上。</p>
 <p>动态链接方案也可以使程序的升级变得更加容易，当我们要升级程序库或程序共享的某个模块时，理论上只要简单地将旧的目标文件覆盖掉，而无须将所有的程序再重新链接一遍。当程序下一次运行的时候，新版本的目标文件会被自动装载到内存并且链接起来，程序就完成了升级的目标。</p>
-<p>在 Linux 系统中，ELF 动态链接文件被称为动态共享对象（DSO，Dynamic Shared Objects），简称共享对象，它们一般都是以“.so”为扩展名的一些文件。
-比如在Linux中，常用的 C 语言库的运行库 glibc，它的动态链接形式的版本保存在“/lib”目录下，文件名叫做“libc.so”。整个系统只保留一份C语言库的动态链接文件“libc.so”，而所有的 C 语言编写的、动态链接的程序都可以在运行时使用它。当程序被装载的时候，系统的动态链接器会将程序所需要的所有动态链接库装载到进程的地址空间，并且将程序中所有未决议的符号绑定到相应的动态链接库中，并进行重定位工作。</p>
 <p>动态链接将程序链接的过程由装载前推迟到了装载时，这当然会带来一些性能上的损失，但也可以通过延迟绑定(Lazy Binding)等方式进行优化，使性能损失达到最小。据估算，动态链接与静态链接相比，性能损失大约在5%以下。当然经过实践的证明，这点性能损失用来换取程序在空间上的节省和程序构建和升级时的灵活性，是相当值得的。</p>
-<h2 id="_6">动态链接例子</h2>
+<h2 id="_6">动态链接简单示例</h2>
+<p>接下来我们通过一个例子来看下动态链接的过程，它们的源代码如下所示</p>
+<pre><code class="language-c">/** Program1.c **/
+#include &quot;Lib.h&quot;
+
+int main()
+{
+    foobar(1);
+    return 0;
+}
+
+/** Program2.c **/
+#include &quot;Lib.h&quot;
+
+int main()
+{
+    foobar(2);
+    return 0;
+}
+
+/** Lib.c **/
+#include &lt;stdio.h&gt;
+
+void foobar(int i)
+{
+    printf(&quot;Printing from Lib.so %d\n&quot;, i);
+    sleep(-1);
+}
+
+/** Lib.h **/
+#ifndef LIB_H
+#define LIB_H
+
+void foobar(int i);
+
+#endif
+</code></pre>
+<p>程序很简单，两个程序的主要模块<code>Program1.c</code>和<code>Program2.c</code>分别调用了<code>Lib.c</code>里面的<code>foobar()</code>函数，传进去一个数字，<code>foobar()</code>函数的作用就是打印这个数字</p>
+<p>接下来我们开始编译链接这些代码</p>
+<pre><code>gcc -fPIC -shared -o Lib.so Lib.c // -shared 表示生成动态共享库，-fPIC 后面再解释
+gcc -o Program1 Program1.c ./Lib.so // 编译链接生成 Program1
+gcc -o Program2 Program2.c ./Lib.so // 编译链接生成 Program2
+</code></pre>
+<p>通过以上步骤，我们就得到了一个动态共享库<code>Lib.so</code>与两个程序：<code>Program1</code>与<code>Program2</code>。从<code>Program1</code>的角度看，整个编译链接过程如下图所示：</p>
+<p><img alt="" src="https://raw.gitmirror.com/RicardoJiang/resource/main/2023/august/p4.png" /></p>
+<h3 id="_7">动态链接地址空间分布</h3>
+<p>对于静态链接的可执行文件来说，整个进程只有一个文件要被映射，那就是可执行文件本身，我们在前面的章节已经介绍了静态链接下的进程虚拟地址空间的分布。但是对于动态链接来说，除了可执行文件本身之外，还有它所依赖的共享目标文件。那么这种情况下，进程的地址空间分布又会怎样呢？</p>
+<p>我们运行程序，然后查看进程 maps 文件获取进程的虚拟地址空间分布</p>
+<pre><code>$ ./Program1 &amp;
+[3] 11067
+Printing from Lib.so 1
+
+ $ cat /proc/11067/maps
+55b2e50da000-55b2e50db000 r--p 00000000 07:03 126060                     /workspaces/programmer-training/Program1
+55b2e50db000-55b2e50dc000 r-xp 00001000 07:03 126060                     /workspaces/programmer-training/Program1
+55b2e50dc000-55b2e50dd000 r--p 00002000 07:03 126060                     /workspaces/programmer-training/Program1
+55b2e50dd000-55b2e50de000 r--p 00002000 07:03 126060                     /workspaces/programmer-training/Program1
+55b2e50de000-55b2e50df000 rw-p 00003000 07:03 126060                     /workspaces/programmer-training/Program1
+55b2e558d000-55b2e55ae000 rw-p 00000000 00:00 0                          [heap]
+7f7d4f34a000-7f7d4f34d000 rw-p 00000000 00:00 0 
+7f7d4f34d000-7f7d4f36f000 r--p 00000000 00:2e 525226                     /usr/lib/x86_64-linux-gnu/libc-2.31.so
+7f7d4f36f000-7f7d4f4e7000 r-xp 00022000 00:2e 525226                     /usr/lib/x86_64-linux-gnu/libc-2.31.so
+7f7d4f4e7000-7f7d4f535000 r--p 0019a000 00:2e 525226                     /usr/lib/x86_64-linux-gnu/libc-2.31.so
+7f7d4f535000-7f7d4f539000 r--p 001e7000 00:2e 525226                     /usr/lib/x86_64-linux-gnu/libc-2.31.so
+7f7d4f539000-7f7d4f53b000 rw-p 001eb000 00:2e 525226                     /usr/lib/x86_64-linux-gnu/libc-2.31.so
+7f7d4f53b000-7f7d4f53f000 rw-p 00000000 00:00 0 
+7f7d4f549000-7f7d4f54a000 r--p 00000000 07:03 126046                     /workspaces/programmer-training/Lib.so
+7f7d4f54a000-7f7d4f54b000 r-xp 00001000 07:03 126046                     /workspaces/programmer-training/Lib.so
+7f7d4f54b000-7f7d4f54c000 r--p 00002000 07:03 126046                     /workspaces/programmer-training/Lib.so
+7f7d4f54c000-7f7d4f54d000 r--p 00002000 07:03 126046                     /workspaces/programmer-training/Lib.so
+7f7d4f54d000-7f7d4f54e000 rw-p 00003000 07:03 126046                     /workspaces/programmer-training/Lib.so
+7f7d4f54e000-7f7d4f550000 rw-p 00000000 00:00 0 
+7f7d4f550000-7f7d4f551000 r--p 00000000 00:2e 525204                     /usr/lib/x86_64-linux-gnu/ld-2.31.so
+7f7d4f551000-7f7d4f574000 r-xp 00001000 00:2e 525204                     /usr/lib/x86_64-linux-gnu/ld-2.31.so
+7f7d4f574000-7f7d4f57c000 r--p 00024000 00:2e 525204                     /usr/lib/x86_64-linux-gnu/ld-2.31.so
+7f7d4f57d000-7f7d4f57e000 r--p 0002c000 00:2e 525204                     /usr/lib/x86_64-linux-gnu/ld-2.31.so
+7f7d4f57e000-7f7d4f57f000 rw-p 0002d000 00:2e 525204                     /usr/lib/x86_64-linux-gnu/ld-2.31.so
+7f7d4f57f000-7f7d4f580000 rw-p 00000000 00:00 0 
+7ffc08748000-7ffc0876a000 rw-p 00000000 00:00 0                          [stack]
+7ffc087b5000-7ffc087b9000 r--p 00000000 00:00 0                          [vvar]
+7ffc087b9000-7ffc087bb000 r-xp 00000000 00:00 0                          [vdso]
+ffffffffff600000-ffffffffff601000 --xp 00000000 00:00 0                  [vsyscall]
+</code></pre>
+<p>可以看到，进程虚拟地址空间中多出了几个文件映射</p>
+<ul>
+<li>Lib.so 与 Program1 一样，它们都是被操作系统用同样的方法映射至进程的虚拟地址空间，只是它们占据的虚拟地址和长度不同。</li>
+<li>Program1 除了使用 Lib.so 以外，它还用到了动态链接形式的 C 语言运行库 libc-2.31.so。</li>
+<li>另外还有一个很值得关注的共享对象就是ld-2.31.so，它实际上是Linux下的动态链接器。动态链接器与普通共享对象一样被映射到了进程的地址空间，在系统开始运行Program1 之前，首先会把控制权交给动态链接器，由它完成所有的动态链接工作以后再把控制权交给 Program1，然后开始执行。</li>
+</ul>
+<p>同时我们也可以通过 readelf 命令查看 Lib.so 的装载属性</p>
+<pre><code>$ readelf -l Lib.so 
+
+Elf file type is DYN (Shared object file)
+Entry point 0x1080
+There are 11 program headers, starting at offset 64
+
+Program Headers:
+  Type           Offset             VirtAddr           PhysAddr
+                 FileSiz            MemSiz              Flags  Align
+  LOAD           0x0000000000000000 0x0000000000000000 0x0000000000000000
+                 0x0000000000000560 0x0000000000000560  R      0x1000
+  LOAD           0x0000000000001000 0x0000000000001000 0x0000000000001000
+                 0x000000000000017d 0x000000000000017d  R E    0x1000
+  LOAD           0x0000000000002000 0x0000000000002000 0x0000000000002000
+                 0x00000000000000dc 0x00000000000000dc  R      0x1000
+  LOAD           0x0000000000002e10 0x0000000000003e10 0x0000000000003e10
+                 0x0000000000000220 0x0000000000000228  RW     0x1000
+  DYNAMIC        0x0000000000002e20 0x0000000000003e20 0x0000000000003e20
+                 0x00000000000001c0 0x00000000000001c0  RW     0x8
+
+ Section to Segment mapping:
+  Segment Sections...
+   00     .note.gnu.property .note.gnu.build-id .gnu.hash .dynsym .dynstr .gnu.version .gnu.version_r .rela.dyn .rela.plt 
+   01     .init .plt .plt.got .plt.sec .text .fini 
+   02     .rodata .eh_frame_hdr .eh_frame 
+   03     .init_array .fini_array .dynamic .got .got.plt .data .bss 
+</code></pre>
+<p>除了文件的类型与普通程序不同以外，其他几乎与普通程序一样。还有有一点比较不同的是，动态链接模块的装载地址是从地址 0x00000000 开始的。我们知道这个地址是无效地址，并且从上面的进程虚拟空间分布看到，Lib.so 的最终装载地址并不是0x00000000。</p>
+<p>从这一点我们可以推断，共享对象的最终装载地址在编译时是不确定的，而是在装载时，装载器根据当前地址空间的空闲情况，动态分配一块足够大小的虚拟地址空间给相应的共享对象。</p>
+<p>那么问题来了，为什么要这样做，为什么不将每个共享对象在进程中的地址固定?</p>
 
   <hr>
 <div class="md-source-file">
