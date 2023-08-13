@@ -570,9 +570,74 @@
         
       
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          动态链接
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <a href="./" class="md-nav__link md-nav__link--active">
         动态链接
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    为什么要动态链接
+  </a>
+  
+    <nav class="md-nav" aria-label="为什么要动态链接">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    空间浪费问题
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    版本更新问题
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    动态链接是什么?
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    动态链接例子
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -1000,6 +1065,55 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    为什么要动态链接
+  </a>
+  
+    <nav class="md-nav" aria-label="为什么要动态链接">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    空间浪费问题
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    版本更新问题
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    动态链接是什么?
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    动态链接例子
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -1018,13 +1132,30 @@
 
 <h1 id="_1">动态链接</h1>
 <p>最近在读《程序员的自我修养：链接，装载与库》，其实这本书跟 Android 开发的联系还挺紧密的，无论是 NDK 开发，或者是性能优化中一些常用的 Native Hoook 手段，都需要了解一些链接，装载相关的知识点。本文为读书笔记。</p>
+<h2 id="_2">为什么要动态链接</h2>
+<p>前面我们介绍了静态链接，那么在已经有了静态链接的情况下，我们为什么还需要动态链接？</p>
+<h3 id="_3">空间浪费问题</h3>
+<p>静态链接会将依赖库的内容直接打包到可执行文件中，这很明显会带来来得的空间浪费问题。</p>
+<p>想象一下每个程序内部除了都保留着 printf() 函数、 scanf() 函数、 strlen() 等这样的公用库函数，还有数量相当可观的其他库函数及它们所需要的辅助数据结构。在现在的Linux系统中，一个普通程序会使用到的C语言静态库至少在1 MB以上，那么，如果我们的机器中运行着100个这样的程序，就要浪费近100 MB的内存。</p>
+<h3 id="_4">版本更新问题</h3>
+<p>静态链接的另一个问题是给程序的更新，部署和发布带来很多麻烦。一旦程序中有任何模块更新，整个程序就要重新链接、发布给用户。比如一个程序有20个模块，每个模块1 MB，那么每次更新任何一个模块，用户就得重新获取这个20 MB的程序。</p>
+<p>因此如果程序都使用静态链接，那么通过网络来更新程序将会非常不便，因为一旦程序任何位置的一个小改动，都会导致整个程序重新下载</p>
+<h3 id="_5">动态链接是什么?</h3>
+<p>要解决空间浪费和更新困难这两个问题最简单的办法就是把程序的模块相互分割开来，形成独立的文件，而不再将它们静态地链接在一起。简单地讲，就是不对那些组成程序的目标文件进行链接，等到程序要运行时才进行链接。也就是说，把链接这个过程推迟到了运行时再进行，这就是动态链接（Dynamic Linking）的基本思想。</p>
+<p>比如我们有 Program1 与 Program2 两个程序，它们都依赖于 lib.o。当开始加载 Program1 时，系统发现其依赖 lib.o，就会将 lib.o 加载到内存中，然后开始链接工作。这个链接过程与静态链接非常相似，包括符号解析，地址重定位等。完成这些步骤后，系统把控制权交给 Program1 的程序入口处，程序开始执行。此时，当我们开始运行 Program2 时，不需要再次加载 lib.o，因为内存中已经有一份了，系统要做的只是将 Program2 与 lib.o 链接起来。</p>
+<p>很明显，动态链接的方式解决了共享的目标文件多个副本浪费磁盘和内存空间的问题，磁盘和内存中只存在一份 lib.o，而不是两份。另外在内存中共享一个目标文件也可以减少物理页面的换入换出，同时增加CPU缓存的命中率，因为不同进程间的数据和指令访问都集中在了同一个共享模块上。</p>
+<p>动态链接方案也可以使程序的升级变得更加容易，当我们要升级程序库或程序共享的某个模块时，理论上只要简单地将旧的目标文件覆盖掉，而无须将所有的程序再重新链接一遍。当程序下一次运行的时候，新版本的目标文件会被自动装载到内存并且链接起来，程序就完成了升级的目标。</p>
+<p>在 Linux 系统中，ELF 动态链接文件被称为动态共享对象（DSO，Dynamic Shared Objects），简称共享对象，它们一般都是以“.so”为扩展名的一些文件。
+比如在Linux中，常用的 C 语言库的运行库 glibc，它的动态链接形式的版本保存在“/lib”目录下，文件名叫做“libc.so”。整个系统只保留一份C语言库的动态链接文件“libc.so”，而所有的 C 语言编写的、动态链接的程序都可以在运行时使用它。当程序被装载的时候，系统的动态链接器会将程序所需要的所有动态链接库装载到进程的地址空间，并且将程序中所有未决议的符号绑定到相应的动态链接库中，并进行重定位工作。</p>
+<p>动态链接将程序链接的过程由装载前推迟到了装载时，这当然会带来一些性能上的损失，但也可以通过延迟绑定(Lazy Binding)等方式进行优化，使性能损失达到最小。据估算，动态链接与静态链接相比，性能损失大约在5%以下。当然经过实践的证明，这点性能损失用来换取程序在空间上的节省和程序构建和升级时的灵活性，是相当值得的。</p>
+<h2 id="_6">动态链接例子</h2>
 
   <hr>
 <div class="md-source-file">
   <small>
     
       最后更新:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">August 5, 2023</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">August 13, 2023</span>
       
     
   </small>
