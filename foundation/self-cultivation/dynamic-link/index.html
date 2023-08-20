@@ -723,6 +723,40 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#plt" class="md-nav__link">
+    延迟绑定(PLT)
+  </a>
+  
+    <nav class="md-nav" aria-label="延迟绑定(PLT)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_17" class="md-nav__link">
+    延迟绑定
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#plt_1" class="md-nav__link">
+    PLT 基本原理
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#plt_2" class="md-nav__link">
+    PLT 具体实现
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -1288,6 +1322,40 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#plt" class="md-nav__link">
+    延迟绑定(PLT)
+  </a>
+  
+    <nav class="md-nav" aria-label="延迟绑定(PLT)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_17" class="md-nav__link">
+    延迟绑定
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#plt_1" class="md-nav__link">
+    PLT 基本原理
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#plt_2" class="md-nav__link">
+    PLT 具体实现
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -1499,6 +1567,55 @@ void main()
 <p><img alt="" src="https://raw.gitmirror.com/RicardoJiang/resource/main/2023/august/p8.png" /></p>
 <h4 id="_16">小结</h4>
 <p>总得来说，模块内部数据与指令通过相对地址访问或跳转，模块间数据与指令通过 GOT 表间接访问或跳转</p>
+<h2 id="plt">延迟绑定(PLT)</h2>
+<p>动态链接相比静态链接要更加灵活，但是会牺牲一部分性能。据统计 ELF 程序在静态链接下要比动态库稍微快点，大约为1%～5%。</p>
+<p>动态链接比静态链接慢的原因主要在于：  </p>
+<ol>
+<li>动态链接下对于全局和静态的数据访问都要进行复杂的 GOT 定位，然后间接寻址，对于模块间的调用也要先定位GOT，然后再进行间接跳转</li>
+<li>动态链接的链接工作在运行时完成，即程序开始执行时，动态链接器会寻找并装载所需要的共享对象，然后进行符号查找地址重定位等工作</li>
+</ol>
+<p>下面我们介绍一些优化动态链接性能的方法</p>
+<h3 id="_17">延迟绑定</h3>
+<p>在动态链接下，程序模块之间包含了大量的函数引用，所以在程序开始执行前，动态链接会耗费不少时间用于解决模块之间的函数引用的符号查找以及重定位</p>
+<p>不过可以想象，在一个程序运行过程中，可能很多函数在程序执行完时都不会被用到，比如一些错误处理函数或者是一些用户很少用到的功能模块等，如果一开始就把所有函数都链接好实际上是一种浪费。</p>
+<p>所有一种最直接的优化思路就是延迟绑定（Lazy Binding）：基本的思想就是当函数第一次被用到时才进行绑定（符号查找、重定位等），如果没有用到则不进行绑定。所以程序开始执行时，模块间的函数调用都没有进行绑定，而是需要用到时才由动态链接器来负责绑定。这样的做法可以大大加快程序的启动速度，特别有利于一些有大量函数引用和大量模块的程序。</p>
+<h3 id="plt_1">PLT 基本原理</h3>
+<p>ELF 使用 PLT（Procedure Linkage Table）来实现延迟绑定，当我们调用某个外部模块的函数时，如果按照通常的做法应该是通过 GOT 中相应的项进行间接跳转。PLT 为了实现延迟绑定，在这个过程中间又增加了一层间接跳转。调用函数并不直接通过 GOT 跳转，而是通过一个叫作 PLT 项的结构来进行跳转。每个外部函数在 PLT 中都有一个相应的项，比如我们要访问共享对象中的 bar() 函数， bar() 函数在 PLT 中的项的地址我们称之为 bar@plt。让我们来看看 bar@plt 的实现：</p>
+<pre><code>bar@plt: 
+jmp *(bar@GOT) 
+push n 
+push moduleID 
+jump _dl_runtime_resolve 
+</code></pre>
+<ol>
+<li>bar@plt 的第一条指令是一条通过 GOT 间接跳转的指令。bar@GOT 表示 GOT 中保存 bar() 这个函数相应的项。如果链接器在初始化阶段已经初始化该项，并且将 bar() 的地址填入该项，那么这个跳转指令就会跳转到 bar()， 实现函数正确调用。但是为了实现延迟绑定，链接器在初始化阶段并没有将 bar() 的地址填入到该项，那么这条指令相当于没有进行任何操作，继续下面的指令。</li>
+<li>第二条指令将一个数字 n 压入堆栈中，这个数字是 bar 这个符号引用在重定位表“.rel.plt”中的下标。</li>
+<li>接着又是一条push指令将模块的ID压入到堆栈</li>
+<li>最后跳转到 _dl_runtime_resolve：这条指令先将所需要决议符号的下标压入堆栈，再将模块 ID 压入堆栈，然后调用动态链接器的 _dl_runtime_resolve() 函数来完成符号解析和重定位工作 。_dl_runtime_resolve() 在进行一系列工作以后将 bar() 的真正地址填入到 bar@GOT 中</li>
+<li>一旦 bar() 这个函数被解析完毕，当我们再次调用 bar@plt 时，第一条jmp指令就能够跳转到真正的 bar() 函数中， bar() 函数返回的时候会根据堆栈里面保存的 EIP 直接返回到调用者，而不会再继续执行后面的指令</li>
+</ol>
+<h3 id="plt_2">PLT 具体实现</h3>
+<p>上面我们描述了 PLT 的基本原理，PLT 真正的实现要比它的结构稍微复杂一些。ELF 将 GOT 拆分成了两个表叫做“.got”和“.got.plt”。其中“.got”用来保存全局变量引用的地址，“.got.plt”用来保存函数引用的地址</p>
+<p><img alt="" src="https://raw.gitmirror.com/RicardoJiang/resource/main/2023/august/p9.png" /></p>
+<p>“.got.plt”还有一个特殊的地方是它的前三项是有特殊意义的，分别含义如下：</p>
+<ol>
+<li>第一项保存的是“.dynamic”段的地址，这个段描述了本模块动态链接相关的信息</li>
+<li>第二项保存的是本模块的ID。</li>
+<li>第三项保存的是 _dl_runtime_resolve() 的地址。</li>
+</ol>
+<p>其中第二项和第三项由动态链接器在装载共享模块的时候负责将它们初始化。“.got.plt”的其余项分别对应每个外部函数的引用。PLT的结构也与我们示例中的PLT稍有不同，为了减少代码的重复，ELF把上面例子中的最后两条指令放到PLT中的第一项。并且规定每一项的长度是 16 个字节，刚好用来存放 3 条指令</p>
+<p>实际的 PLT 基本结构如下所示：</p>
+<pre><code>PLT0: 
+push *(GOT + 4) 
+jump *(GOT + 8) 
+
+... 
+
+bar@plt: 
+jmp *(bar@GOT) 
+push n 
+jump PLT0 ”
+</code></pre>
 
   <hr>
 <div class="md-source-file">
