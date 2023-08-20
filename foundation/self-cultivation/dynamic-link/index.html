@@ -757,6 +757,101 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#_18" class="md-nav__link">
+    动态链接相关结构
+  </a>
+  
+    <nav class="md-nav" aria-label="动态链接相关结构">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#intrp" class="md-nav__link">
+    .intrp 段
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dynamic" class="md-nav__link">
+    .dynamic 段
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_19" class="md-nav__link">
+    动态符号表
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_20" class="md-nav__link">
+    动态链接重定位表
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_21" class="md-nav__link">
+    动态链接的步骤和实现
+  </a>
+  
+    <nav class="md-nav" aria-label="动态链接的步骤和实现">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_22" class="md-nav__link">
+    动态链接器自举
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_23" class="md-nav__link">
+    装载共享对象
+  </a>
+  
+    <nav class="md-nav" aria-label="装载共享对象">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_24" class="md-nav__link">
+    符号的优化级
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_25" class="md-nav__link">
+    全局符号介入与地址无关代码
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_26" class="md-nav__link">
+    重定位与初始化
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -1356,6 +1451,101 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#_18" class="md-nav__link">
+    动态链接相关结构
+  </a>
+  
+    <nav class="md-nav" aria-label="动态链接相关结构">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#intrp" class="md-nav__link">
+    .intrp 段
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dynamic" class="md-nav__link">
+    .dynamic 段
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_19" class="md-nav__link">
+    动态符号表
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_20" class="md-nav__link">
+    动态链接重定位表
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_21" class="md-nav__link">
+    动态链接的步骤和实现
+  </a>
+  
+    <nav class="md-nav" aria-label="动态链接的步骤和实现">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_22" class="md-nav__link">
+    动态链接器自举
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_23" class="md-nav__link">
+    装载共享对象
+  </a>
+  
+    <nav class="md-nav" aria-label="装载共享对象">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_24" class="md-nav__link">
+    符号的优化级
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_25" class="md-nav__link">
+    全局符号介入与地址无关代码
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_26" class="md-nav__link">
+    重定位与初始化
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -1616,6 +1806,167 @@ jmp *(bar@GOT)
 push n 
 jump PLT0 ”
 </code></pre>
+<h2 id="_18">动态链接相关结构</h2>
+<p>动态链接情况下，可执行文件的装载与静态链接情况基本一样。首先操作系统会读取可执行文件的头部，检查文件的合法性，然后从头部中的“Program Header”中读取每个“Segment”的虚拟地址、文件地址和属性，并将它们映射到进程虚拟空间的相应位置。在静态链接情况下，操作系统接着就可以把控制权转交给可执行文件的入口地址，然后程序开始执行，一切看起来非常直观。</p>
+<p>但是在动态链接情况下，操作系统还不能在装载完可执行文件之后就把控制权交给可执行文件，因为我们知道可执行文件依赖于很多共享对象。这时候，可执行文件里对于很多外部符号的引用还处于无效地址的状态，即还没有跟相应的共享对象中的实际位置链接起来。所以在映射完可执行文件之后，操作系统会先启动一个动态链接器（Dynamic Linker）。</p>
+<p>在 Linux 下，动态链接器ld.so实际上是一个共享对象，操作系统同样通过映射的方式将它加载到进程的地址空间中。操作系统在加载完动态链接器之后，就将控制权交给动态链接器的入口地址（与可执行文件一样，共享对象也有入口地址）。当动态链接器得到控制权之后，它开始执行一系列自身的初始化操作，然后根据当前的环境参数，开始对可执行文件进行动态链接工作。当所有动态链接工作完成以后，动态链接器会将控制权转交到可执行文件的入口地址，程序开始正式执行.</p>
+<h3 id="intrp">.intrp 段</h3>
+<p>那么动态链接器的位置在哪儿？由什么决定的呢？</p>
+<p>实际上，动态链接器的位置既不是由系统配置指定，也不是由环境参数决定，而是由ELF可执行文件决定。在动态链接的 ELF 可执行文件中，有一个专门的段叫做“.interp”段。</p>
+<p>我们可以使用 objdump 工具来查看“.interp”内容”</p>
+<pre><code>$ objdump -s PicTest
+
+PicTest:     file format elf64-x86-64
+
+Contents of section .interp:
+ 0318 2f6c6962 36342f6c 642d6c69 6e75782d  /lib64/ld-linux-
+ 0328 7838362d 36342e73 6f2e3200           x86-64.so.2.    
+</code></pre>
+<p>“.interp”的内容很简单，里面保存的就是一个字符串，这个字符串就是可执行文件所需要的动态链接器的路径</p>
+<h3 id="dynamic">.dynamic 段</h3>
+<p>动态链接 ELF 中最重要的结构应该就是“.dynamic”段，这个段里面保存了动态链接器所需要的基本信息，比如依赖于哪些共享对象、动态链接符号表的位置、动态链接重定位表的位置、共享对象初始化代码的地址等</p>
+<p>使用 readelf 工具可以查看“.dynamic”段的内容</p>
+<pre><code>$ readelf -d pic.so
+
+Dynamic section at offset 0x2e18 contains 24 entries:
+  Tag        Type                         Name/Value
+ 0x0000000000000001 (NEEDED)             Shared library: [libc.so.6]
+ 0x000000000000000c (INIT)               0x1000
+ 0x000000000000000d (FINI)               0x1140
+ 0x0000000000000019 (INIT_ARRAY)         0x3e08
+ 0x000000000000001b (INIT_ARRAYSZ)       8 (bytes)
+ 0x000000000000001a (FINI_ARRAY)         0x3e10
+ 0x000000000000001c (FINI_ARRAYSZ)       8 (bytes)
+ 0x000000006ffffef5 (GNU_HASH)           0x2f0
+ 0x0000000000000005 (STRTAB)             0x3d8
+ 0x0000000000000006 (SYMTAB)             0x318
+ 0x000000000000000a (STRSZ)              120 (bytes)
+ 0x000000000000000b (SYMENT)             24 (bytes)
+ 0x0000000000000003 (PLTGOT)             0x4000
+ 0x0000000000000002 (PLTRELSZ)           24 (bytes)
+ 0x0000000000000014 (PLTREL)             RELA
+ 0x0000000000000017 (JMPREL)             0x540
+ 0x0000000000000007 (RELA)               0x480
+ 0x0000000000000008 (RELASZ)             192 (bytes)
+ 0x0000000000000009 (RELAENT)            24 (bytes)
+ 0x000000006ffffffe (VERNEED)            0x460
+ 0x000000006fffffff (VERNEEDNUM)         1
+ 0x000000006ffffff0 (VERSYM)             0x450
+ 0x000000006ffffff9 (RELACOUNT)          3
+</code></pre>
+<p>另外Linux还提供了一个命令用来查看一个程序主模块或一个共享库依赖于哪些共享库：</p>
+<pre><code>$ ldd PicTest
+    linux-vdso.so.1 (0x00007ffcfc9bd000)
+    ./pic.so (0x00007f4fc64b5000)
+    libc.so.6 =&gt; /lib/x86_64-linux-gnu/libc.so.6 (0x00007f4fc62b9000)
+    /lib64/ld-linux-x86-64.so.2 (0x00007f4fc64c1000)
+</code></pre>
+<h3 id="_19">动态符号表</h3>
+<p>为了完成动态链接，最关键的还是所依赖的符号和相关文件的信息。我们知道在静态链接中，有一个专门的段叫做符号表“.symtab”（Symbol Table），里面保存了所有关于该目标文件的符号的定义和引用。动态链接的符号表示实际上它跟静态链接十分相似。</p>
+<p>为了表示动态链接这些模块之间的符号导入导出关系，ELF专门有一个叫做动态符号表（Dynamic Symbol Table）的段用来保存这些信息，这个段的段名通常叫做“.dynsym”（Dynamic Symbol）。与“.symtab”不同的是，“.dynsym”只保存了与动态链接相关的符号，对于那些模块内部的符号则不保存。很多时候动态链接的模块同时拥有“.dynsym”和“.symtab”两个表，“.symtab”中往往保存了所有符号，包括“.dynsym”中的符号。</p>
+<p>我们可以用 readelf 工具来查看 ELF 文件的动态符号表</p>
+<pre><code>$ readelf -s pic.so
+
+Symbol table '.dynsym' contains 8 entries:
+   Num:    Value          Size Type    Bind   Vis      Ndx Name
+     0: 0000000000000000     0 NOTYPE  LOCAL  DEFAULT  UND 
+     1: 0000000000000000     0 NOTYPE  WEAK   DEFAULT  UND _ITM_deregisterTMCloneTab
+     2: 0000000000000000     0 FUNC    GLOBAL DEFAULT  UND printf@GLIBC_2.2.5 (2)
+     3: 0000000000000000     0 NOTYPE  WEAK   DEFAULT  UND __gmon_start__
+     4: 0000000000000000     0 NOTYPE  WEAK   DEFAULT  UND _ITM_registerTMCloneTable
+     5: 0000000000000000     0 FUNC    WEAK   DEFAULT  UND __cxa_finalize@GLIBC_2.2.5 (2)
+     6: 0000000000001119    39 FUNC    GLOBAL DEFAULT   14 ext
+     7: 0000000000004028     4 OBJECT  GLOBAL DEFAULT   24 b
+</code></pre>
+<h3 id="_20">动态链接重定位表</h3>
+<p>共享对象在装载时需要重定位，动态链接的文件中，代码段与数据段的重定位表分别叫做“.rel.dyn”和“.rel.plt”，它们分别相当于 “.rel.text”和“.rel.data”。</p>
+<p>“.rel.dyn”实际上是对数据引用的修正，它所修正的位置位于“.got”以及数据段；而“.rel.plt”是对函数引用的修正，它所修正的位置位于“.got.plt”。我们可以使用readelf 来查看一个动态链接的文件的重定位表：</p>
+<pre><code>$ readelf -r Lib.so
+
+Relocation section '.rela.dyn' at offset 0x488 contains 7 entries:
+  Offset          Info           Type           Sym. Value    Sym. Name + Addend
+000000003e10  000000000008 R_X86_64_RELATIVE                    1130
+000000003e18  000000000008 R_X86_64_RELATIVE                    10f0
+000000004028  000000000008 R_X86_64_RELATIVE                    4028
+000000003fe0  000100000006 R_X86_64_GLOB_DAT 0000000000000000 _ITM_deregisterTMClone + 0
+000000003fe8  000300000006 R_X86_64_GLOB_DAT 0000000000000000 __gmon_start__ + 0
+000000003ff0  000400000006 R_X86_64_GLOB_DAT 0000000000000000 _ITM_registerTMCloneTa + 0
+000000003ff8  000600000006 R_X86_64_GLOB_DAT 0000000000000000 __cxa_finalize@GLIBC_2.2.5 + 0
+
+Relocation section '.rela.plt' at offset 0x530 contains 2 entries:
+  Offset          Info           Type           Sym. Value    Sym. Name + Addend
+000000004018  000200000007 R_X86_64_JUMP_SLO 0000000000000000 printf@GLIBC_2.2.5 + 0
+000000004020  000500000007 R_X86_64_JUMP_SLO 0000000000000000 sleep@GLIBC_2.2.5 + 0
+</code></pre>
+<p>在静态链接中我们已经碰到过两种类型的重定位入口 R_386_32 和 R_386_PC32，这里可以看到几种新的重定位入口类型：R_X86_64_RELATIVE、R_X86_64_GLOB_DAT和R_X86_64_JUMP_SLO</p>
+<ul>
+<li>R_X86_64_JUMP_SLO: 该类型表示被修正的位置只需要直接填入符号的地址即可，它所修正的位置位于“.got.plt”</li>
+<li>R_X86_64_GLOB_DAT: 与 R_X86_64_JUMP_SLO 类似，表示被修正的位置只需要直接填入符号的地址即可，但是它所修正的位置位于“.got”</li>
+<li>R_X86_64_RELATIVE: 这种类型的重定位实际上就是基址重置，适用于共享对象的数据段这种无法做到地址无关的符号，它可能会包含绝对地址的引用，对于这种绝对地址的引用，我们必须在装载时将其重定位。</li>
+</ul>
+<h2 id="_21">动态链接的步骤和实现</h2>
+<p>动态链接的步骤基本上分为3步：先是启动动态链接器本身，然后装载所有需要的共享对象，最后是重定位和初始化。</p>
+<h3 id="_22">动态链接器自举</h3>
+<p>我们知道动态链接器本身也是一个共享对象，但是事实上它有一些特殊性。对于普通共享对象文件来说，它的重定位工作由动态链接器来完成；它也可以依赖于其他共享对象，其中的被依赖的共享对象由动态链接器负责链接和装载。可是对于动态链接器本身来说，它的重定位工作由谁来完成？它是否可以依赖于其他的共享对象？</p>
+<p>这就要求动态链接器做到自举：动态链接器本身不可以依赖于其他任何共享对象；其次是动态链接器本身所需要的全局和静态变量的重定位工作由它本身完成。</p>
+<p>动态链接器入口地址即是自举代码的入口，当操作系统将进程控制权交给动态链接器时，动态链接器的自举代码即开始执行。自举代码首先会找到它自己的 GOT。而 GOT 的第一个入口保存的即是“.dynamic”段的偏移地址，由此找到了动态连接器本身的“.dynamic”段。通过“.dynamic”中的信息，自举代码便可以获得动态链接器本身的重定位表和符号表等，从而得到动态链接器本身的重定位入口，先将它们全部重定位。从这一步开始，动态链接器代码中才可以开始使用自己的全局变量和静态变量。</p>
+<h3 id="_23">装载共享对象</h3>
+<ol>
+<li>完成基本自举以后，动态链接器将可执行文件和链接器本身的符号表都合并到一个符号表当中，我们可以称它为全局符号表（Global Symbol Table）。</li>
+<li>“.dynamic”段中，有一种类型的入口是DT_NEEDED，它所指出的是该可执行文件（或共享对象）所依赖的共享对象，由此，链接器可以列出可执行文件所需要的所有共享对象，并将这些共享对象的名字放入到一个装载集合中</li>
+<li>链接器开始从集合里取出一个所需要的共享对象的名字，找到相应的文件后打开该文件，读取相应的ELF文件头和“.dynamic”段，然后将它相应的代码段和数据段映射到进程空间中。</li>
+<li>如果这个ELF共享对象还依赖于其他共享对象，那么将所依赖的共享对象的名字放到装载集合中。如此循环直到所有依赖的共享对象都被装载进来为止。</li>
+<li>这个装载顺序类似图的遍历过程，链接器可能会使用深度优先或者广度优先或者其他的顺序来遍历整个图</li>
+<li>当一个新的共享对象被装载进来的时候，它的符号表会被合并到全局符号表中，所以当所有的共享对象都被装载进来的时候，全局符号表里面将包含进程中所有的动态链接所需要的符号</li>
+</ol>
+<h4 id="_24">符号的优化级</h4>
+<p>在动态链接器按照各个模块之间的依赖关系，对它们进行装载并且将它们的符号并入到全局符号表时，会不会有这么一种情况发生，那就是有可能两个不同的模块定义了同一个符号？</p>
+<pre><code class="language-c">“/* a1.c */ 
+
+#include &lt;stdio.h&gt; 
+
+void a() 
+{ 
+   printf(&quot;a1.c\n&quot;); 
+} 
+
+/* a2.c */ 
+#include &lt;stdio.h&gt; 
+void a() 
+{ 
+   printf(&quot;a2.c\n&quot;); 
+
+}
+
+/* b1.c */ 
+void a(); 
+
+void b1() 
+{ 
+   a(); 
+} 
+
+/* b2.c */ 
+void a(); 
+
+void b2() 
+{ 
+   a(); 
+}
+</code></pre>
+<p>可以看到 a1.c 和 a2.c 中都定义了名字为“a”的函数。那么由于 b1.c 和 b2.c 都用到了外部函数“a”，我们假设 b1.so 依赖于 a1.so，b2.so 依赖于 a2.so，将 b1.so 与 a1.so 进行链接，b2.so 与 a2.so 进行链接。</p>
+<p>那么当有程序同时使用 b1.c 中的函数 b1 和 b2.c 中的函数 b2 会怎么样呢？</p>
+<p>关于全局符号冲突的问题，实际上 Linux 下的动态链接器是这样处理的：<strong>它定义了一个规则，那就是当一个符号需要被加入全局符号表时，如果相同的符号名已经存在，则后加入的符号被忽略</strong></p>
+<p>由于存在这种重名符号被直接忽略的问题，当程序使用大量共享对象时应该非常小心符号的重名问题</p>
+<h4 id="_25">全局符号介入与地址无关代码</h4>
+<p>前面介绍地址无关代码时，对于第一类模块内部调用或跳转的处理时，我们简单地将其当作是相对地址调用/跳转。</p>
+<p>但实际上这个问题比想象中要复杂，还是拿前面“pic.c”的例子来看，由于可能存在全局符号介入的问题，<code>foo</code>函数对于<code>bar</code>的调用不能够采用第一类模块内部调用的方法，因为一旦<code>bar</code>函数由于全局符号介入被其他模块中的同名函数覆盖，那么<code>foo</code>如果采用相对地址调用的话，那个相对地址部分就需要重定位，这又与共享对象的地址无关性矛盾。</p>
+<p>所以对于<code>bar()</code>函数的调用，编译器只能采用第三种，即当作模块外部符号处理，<code>bar()</code>函数被覆盖，动态链接器只需要重定位“.got.plt”，不影响共享对象的代码段。</p>
+<p>因此，实际上使用PIC模式编译的共享对象，对于模块内部的函数调用也是采用跟模块外部函数调用一样的方式，即使用 GOT/PLT 的方式，所以在 GOT/PLT 没有被重定位之前，自举代码不可以使用任何全局变量，也不可以调用函数。</p>
+<h3 id="_26">重定位与初始化</h3>
+<p>当上面的步骤完成之后，链接器开始重新遍历可执行文件和每个共享对象的重定位表，将它们的 GOT/PLT 中的每个需要重定位的位置进行修正。因为此时动态链接器已经拥有了进程的全局符号表，所以这个修正过程也显得比较容易，跟我们前面提到的地址重定位的原理基本相同。</p>
+<p>重定位完成之后，如果某个共享对象有“.init”段，那么动态链接器会执行“.init”段中的代码，用以实现共享对象特有的初始化过程，比如最常见的，共享对象中的C++的全局/静态对象的构造就需要通过“.init”来初始化。相应地，共享对象中还可能有“.finit”段，当进程退出时会执行“.finit”段中的代码，可以用来实现类似C++全局对象析构之类的操作。</p>
+<p>当完成了重定位和初始化之后，所有的准备工作就宣告完成了，所需要的共享对象也都已经装载并且链接完成了，这时候动态链接器的工作也就完成了，将进程的控制权转交给程序的入口并且开始执行。</p>
 
   <hr>
 <div class="md-source-file">
