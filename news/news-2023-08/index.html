@@ -975,13 +975,6 @@
       
         <li class="md-nav__item">
   <a href="#_1" class="md-nav__link">
-    最新动态
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
     精选博客
   </a>
   
@@ -996,7 +989,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
+  <a href="#_2" class="md-nav__link">
     卡顿率如何计算
   </a>
   
@@ -1016,13 +1009,20 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#perfetto" class="md-nav__link">
+    使用Perfetto定位应用启动性能的瓶颈
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#_4" class="md-nav__link">
+  <a href="#_3" class="md-nav__link">
     精选视频
   </a>
   
@@ -1098,13 +1098,6 @@
       
         <li class="md-nav__item">
   <a href="#_1" class="md-nav__link">
-    最新动态
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
     精选博客
   </a>
   
@@ -1119,7 +1112,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
+  <a href="#_2" class="md-nav__link">
     卡顿率如何计算
   </a>
   
@@ -1139,13 +1132,20 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#perfetto" class="md-nav__link">
+    使用Perfetto定位应用启动性能的瓶颈
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#_4" class="md-nav__link">
+  <a href="#_3" class="md-nav__link">
     精选视频
   </a>
   
@@ -1185,8 +1185,7 @@
 <h1 id="android-2023-8">Android 性能优化技术月报 | 2023 年 8 月</h1>
 <p>每个月都会有一些 Android 性能优化相关的优质内容发布，然而，碎片化阅读使得这些知识难以形成完整体系，且容易被遗忘。为解决这些问题，我决定尝试使用技术月报的形式，总结我在最近一个月内查阅的 Android 性能优化相关的优质内容。</p>
 <p>月报的主要内容包括：整理展示我在最近一个月所查阅的 Android 性能优化领域的最新技术动态、精选博客，精选视频等内容。</p>
-<h2 id="_1">最新动态</h2>
-<h2 id="_2">精选博客</h2>
+<h2 id="_1">精选博客</h2>
 <h3 id="android">常见的 Android 卡顿监控方案</h3>
 <p><a href="https://juejin.cn/post/7239625431056662585">常见的Android应用卡顿监控方案原理和对比</a></p>
 <p>想要监控卡顿或者是监测 App 的流畅度，就必须通过代码手段来获取FPS或者每帧耗时，并转化成可以衡量应用卡顿程度的指标。本文介绍了三种常见的 Android 卡顿监控方案：</p>
@@ -1195,7 +1194,7 @@
 <li>Choreographer + Looper Hook 方案</li>
 <li>官方 JankStats 方案</li>
 </ul>
-<h3 id="_3">卡顿率如何计算</h3>
+<h3 id="_2">卡顿率如何计算</h3>
 <p><a href="https://perfdog.qq.com/article_detail?id=10162&amp;issue_id=0&amp;plat_id=1">Jank卡顿及stutter卡顿率说明</a></p>
 <p>帧率高，未必流畅，因此不能简单用帧率来表示卡顿程度。PerfDog 提出了一种新的卡顿计算思路：</p>
 <blockquote>
@@ -1211,7 +1210,24 @@
 <li><a href="https://juejin.cn/post/6966292316684288007">另一种绕过Android系统库访问限制的方法</a></li>
 </ul>
 <h3 id="app-application"><a href="https://mp.weixin.qq.com/s/f9ng0wabLwwXNfCO00qtPQ">得物App安卓冷启动优化-Application篇</a></h3>
-<h2 id="_4">精选视频</h2>
+<p>本文介绍了得物 APP 的冷启动优化实践，得物技术团队通过对启动阶段的系统资源做统一管控，按需分配和错峰加载等手段将得物App的线上启动指标降低10%，线下指标降低34%，并在同类型的电商App中提升至Top3。本文具体介绍了如下的优化手段</p>
+<ul>
+<li>WebView 优化</li>
+<li>ARouter 优化</li>
+<li>锁优化</li>
+<li>启动框架优化</li>
+<li>首页优化</li>
+</ul>
+<h3 id="perfetto"><a href="https://juejin.cn/post/7261599630827765816">使用Perfetto定位应用启动性能的瓶颈</a></h3>
+<p>本文主要介绍了如何使用 Perfetto 定位启动性能问题，主要包括以下内容</p>
+<ul>
+<li>TTID 与 TTFD 的区别</li>
+<li>如何使用 FFmpeg 拆帧精准获取启动耗时</li>
+<li>Perfetto 是 Android 10 引入的系统级跟踪工具，支持 Android，Linux 和 Chrome，用于取代 Systrace</li>
+<li>如何使用 Perfetto 分析启动性能</li>
+<li>Perfetto 分析实践</li>
+</ul>
+<h2 id="_3">精选视频</h2>
 <h3 id="android_1">认识 Android 动态链接</h3>
 <p><a href="https://www.bilibili.com/video/BV1Gc411J73g/">社区说｜认识 Android 动态链接</a></p>
 <p>本视频主要介绍了什么是动态链接，动态链接实现细节，动态链接实例分析等内容。动态链接是 Android 性能优化中常用的 Native Hook 技术的基础，因此还是有必要了解一下的</p>
