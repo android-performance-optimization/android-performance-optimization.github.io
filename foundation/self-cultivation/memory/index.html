@@ -632,13 +632,20 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    函数调用的过程
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#_5" class="md-nav__link">
+  <a href="#_6" class="md-nav__link">
     堆与内存管理
   </a>
   
@@ -646,7 +653,7 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#_6" class="md-nav__link">
+  <a href="#_7" class="md-nav__link">
     什么是堆
   </a>
   
@@ -1138,13 +1145,20 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    函数调用的过程
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#_5" class="md-nav__link">
+  <a href="#_6" class="md-nav__link">
     堆与内存管理
   </a>
   
@@ -1152,7 +1166,7 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#_6" class="md-nav__link">
+  <a href="#_7" class="md-nav__link">
     什么是堆
   </a>
   
@@ -1221,8 +1235,28 @@
 <li>固定不变的ebp可以用来定位函数活动记录中的各个数据。在ebp之前首先是这个函数的返回地址，它的地址是ebp-4，再往前是压入栈中的参数，它们的地址分别是ebp-8、ebp-12等，视参数数量和大小而定。</li>
 <li>ebp所直接指向的数据是调用该函数前ebp的值，这样在函数返回的时候，ebp可以通过读取这个值恢复到调用前的值。</li>
 </ul>
-<h2 id="_5">堆与内存管理</h2>
-<h3 id="_6">什么是堆</h3>
+<h3 id="_5">函数调用的过程</h3>
+<p>之所以函数的活动记录会形成如上的结构，是因为函数调用本身是如此书写的：一个i386下的函数总是这样调用的：</p>
+<ul>
+<li>把所有或一部分参数压入栈中，如果有其他参数没有入栈，那么使用某些特定的寄存器传递。</li>
+<li>把当前指令的下一条指令的地址压入栈中。</li>
+<li>跳转到函数体执行。</li>
+</ul>
+<p>其中第 2 步和第 3 步由指令call一起执行。跳转到函数体之后即开始执行函数，而i386函数体的“标准”开头是这样的：</p>
+<ul>
+<li>push ebp：把 ebp 压入栈中（称为old ebp）。</li>
+<li>mov ebp, esp：ebp = esp（这时ebp指向栈顶，而此时栈顶就是old ebp）。</li>
+<li>【可选】sub esp, XXX：在栈上分配XXX字节的临时空间。</li>
+<li>【可选】push XXX：如有必要，保存名为XXX寄存器（可重复多个）。</li>
+</ul>
+<p>把 ebp 压入栈中，是为了在函数返回的时候便于恢复以前的 ebp 值。而之所以可能要保存一些寄存器，在于编译器可能要求某些寄存器在调用前后保持不变，那么函数就可以在调用开始时将这些寄存器的值压入栈中，在结束后再取出。而在函数返回时，所进行的“标准”结尾与“标准”开头正好相反</p>
+<p>-【可选】pop XXX：如有必要，恢复保存过的寄存器（可重复多个）
+- mov esp, ebp：恢复ESP同时回收局部变量空间。
+- pop ebp：从栈中恢复保存的ebp的值。
+- ret：从栈中取得返回地址，并跳转到该位置。</p>
+<p><img alt="" src="https://raw.gitmirror.com/RicardoJiang/resource/main/2023/september/p4.jpg" /></p>
+<h2 id="_6">堆与内存管理</h2>
+<h3 id="_7">什么是堆</h3>
 <p>光有栈对于面向过程的程序设计还远远不够，因为栈上的数据在函数返回的时候就会被释放掉，所以无法将数据传递至函数外部。而全局变量没有办法动态地产生，只能在编译的时候定义，有很多情况下缺乏表现力。在这种情况下，堆（Heap）是唯一的选择。</p>
 <p>堆是一块巨大的内存空间，常常占据整个虚拟空间的绝大部分。在这片空间里，程序可以请求一块连续内存，并自由地使用，这块内存在程序主动放弃之前都会一直保持有效。</p>
 <p>当程序使用 malloc 或 new 分配内存时，得到的内存来自堆里。那么malloc到底是怎么实现的呢？</p>
