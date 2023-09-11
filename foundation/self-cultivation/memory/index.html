@@ -586,9 +586,60 @@
         
       
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          内存
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <a href="./" class="md-nav__link md-nav__link--active">
         内存
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    程序的内存布局
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    栈
+  </a>
+  
+    <nav class="md-nav" aria-label="栈">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    什么是栈
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -1032,6 +1083,41 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    程序的内存布局
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    栈
+  </a>
+  
+    <nav class="md-nav" aria-label="栈">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    什么是栈
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -1050,6 +1136,20 @@
 
 <h1 id="_1">内存</h1>
 <p>最近在读《程序员的自我修养：链接，装载与库》，其实这本书跟 Android 开发的联系还挺紧密的，无论是 NDK 开发，或者是性能优化中一些常用的 Native Hoook 手段，都需要了解一些链接，装载相关的知识点。本文为读书笔记。</p>
+<h2 id="_2">程序的内存布局</h2>
+<p>现代的应用程序都运行在一个内存空间里，在 32 位的系统里，这个内存空间拥有 4GB（2的32次方）的寻址能力。</p>
+<p>大多数操作系统都会将 4GB 的内存空间中的一部分挪给内核使用，应用程序无法直接访问这一段内存，这一部分内存地址被称为内核空间。Linux 默认情况下会将高地址的 1GB 空间分配给内核，用户使用的剩下 3GB 的内存空间称为用户空间。</p>
+<p>一般来说，应用程序使用的内存空间里包括如下“默认”的区域：</p>
+<ul>
+<li>栈：栈用于维护函数调用的上下文，离开了栈函数调用就没法实现。栈通常在用户空间的最高地址处分配，通常有数兆字节的大小。</li>
+<li>堆：堆是用来容纳应用程序动态分配的内存区域，当程序使用 malloc 或 new 分配内存时，得到的内存来自堆里。堆通常存在于栈的下方（低地址方向），在某些时候，堆也可能没有固定统一的存储区域。堆一般比栈大很多，可以有几十至数百兆字节的容量。</li>
+<li>可执行文件映像：这里存储着可执行文件在内存里的映像，由装载器在装载时将可执行文件的内存读取或映射到这里。</li>
+<li>保留区：保留区并不是一个单一的内存区域，而是对内存中受到保护而禁止访问的内存区域的总称，例如，大多数操作系统里，极小的地址通常都是不允许访问的，如NULL。通常 C 语言将无效指针赋值为0也是出于这个考虑，因为0地址上正常情况下不可能有有效的可访问数据。</li>
+</ul>
+<p><img alt="" src="https://raw.gitmirror.com/RicardoJiang/resource/main/2023/september/p2.jpg" /></p>
+<p>如图所示，栈向低地址增长，堆向高地址增长。当栈或堆现有的大小不够用时，它将按照图中的增长方向扩大自身的尺寸，直到预留的空间被用完为止。</p>
+<h2 id="_3">栈</h2>
+<h3 id="_4">什么是栈</h3>
 
   <hr>
 <div class="md-source-file">
