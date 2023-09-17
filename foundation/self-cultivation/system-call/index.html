@@ -602,9 +602,87 @@
         
       
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          系统调用
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <a href="./" class="md-nav__link md-nav__link--active">
         系统调用
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    系统调用介绍
+  </a>
+  
+    <nav class="md-nav" aria-label="系统调用介绍">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    什么是系统调用
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#linux" class="md-nav__link">
+    Linux 系统调用
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    系统调用的弊端
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    系统调用原理
+  </a>
+  
+    <nav class="md-nav" aria-label="系统调用原理">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    特权级与中断
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -1048,6 +1126,68 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    系统调用介绍
+  </a>
+  
+    <nav class="md-nav" aria-label="系统调用介绍">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    什么是系统调用
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#linux" class="md-nav__link">
+    Linux 系统调用
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    系统调用的弊端
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    系统调用原理
+  </a>
+  
+    <nav class="md-nav" aria-label="系统调用原理">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    特权级与中断
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -1066,6 +1206,36 @@
 
 <h1 id="_1">系统调用</h1>
 <p>最近在读《程序员的自我修养：链接，装载与库》，其实这本书跟 Android 开发的联系还挺紧密的，无论是 NDK 开发，或者是性能优化中一些常用的 Native Hoook 手段，都需要了解一些链接，装载相关的知识点。本文为读书笔记。</p>
+<h2 id="_2">系统调用介绍</h2>
+<p>系统调用是应用程序（运行库也是应用程序的一部分）与操作系统内核之间的接口，它决定了应用程序是如何与内核打交道的。无论程序是直接进行系统调用，还是通过运行库，最终还是会到达系统调用这个层面上。</p>
+<h3 id="_3">什么是系统调用</h3>
+<p>在现代的操作系统里，程序运行的时候，本身是没有权利访问多少系统资源的。由于系统有限的资源有可能被多个不同的应用程序同时访问，因此，如果不加以保护，那么各个应用程序难免产生冲突。所以现代操作系统都将可能产生冲突的系统资源给保护起来，阻止应用程序直接访问。这些系统资源包括文件、网络、IO、各种设备等。</p>
+<p>举个例子，无论在 Windows 下还是 Linux 下，程序员都没有机会擅自去访问硬盘的某扇区上面的数据，而必须通过文件系统；也不能擅自修改任意文件，所有的这些操作都必须经由操作系统所规定的方式来进行，比如我们使用 fopen 去打开一个没有权限的文件就会发生失败。</p>
+<p>为了让应用程序有能力访问系统资源，也为了让程序借助操作系统做一些必须由操作系统支持的行为，每个操作系统都会提供一套接口，以供应用程序使用。这些接口往往通过中断来实现，比如 Linux 使用 0x80 号中断作为系统调用的入口，Windows 采用 0x2E 号中断作为系统调用入口。</p>
+<h3 id="linux">Linux 系统调用</h3>
+<p>下面让我们来看看 Linux 系统调用的定义：在 x86 下，系统调用由 0x80 中断完成，各个通用寄存器用于传递参数，EAX 寄存器用于表示系统调用的接口号，比如 EAX = 1 表示退出进程（exit）；EAX = 2表示创建进程（fork）；EAX = 3表示读取文件或IO（read）；EAX = 4表示写文件或 IO（write）等，每个系统调用都对应于内核源代码中的一个函数，它们都是以“sys_”开头的，比如 exit 调用对应内核中的 sys_exit 函数。当系统调用返回时，EAX 又作为调用结果的返回值。</p>
+<h3 id="_4">系统调用的弊端</h3>
+<p>系统调用完成了应用程序和内核交流的工作，因此理论上只需要系统调用就可以完成一些程序，但是其也有一些缺陷</p>
+<ul>
+<li>使用不便。操作系统提供的系统调用接口往往过于原始，程序员须要了解很多与操作系统相关的细节。如果没有进行很好的包装，使用起来不方便。</li>
+<li>各个操作系统之间系统调用不兼容。首先 Windows 系统和 Linux 系统之间的系统调用就基本上完全不同，虽然它们的内容很多都一样，但是定义和实现大不一样。即使是同系列的操作系统的系统调用都不一样，比如 Linux 和 UNIX 就不相同。</li>
+</ul>
+<p>为了解决这个问题，我们需要引入一个中间层：“解决计算机的问题可以通过增加层来实现”，于是运行库挺身而出，它作为系统调用与程序之间的一个抽象层具有以下特点：</p>
+<ul>
+<li>使用简便。因为运行库本身就是语言级别的，它一般都设计相对比较友好。</li>
+<li>形式统一。运行库有它的标准，叫做标准库，凡是所有遵循这个标准的运行库理论上都是相互兼容的，不会随着操作系统或编译器的变化而变化。</li>
+</ul>
+<p>这样，当我们使用运行库提供的接口写程序时，就不会面临这些问题，至少是可以很大程度上掩盖直接使用系统调用的弊端。</p>
+<p>运行时库将不同的操作系统的系统调用包装为统一固定的接口，使得同样的代码，在不同的操作系统下都可以直接编译，并产生一致的效果。这就是源代码级上的可移植性。</p>
+<p>但是运行库也有运行库的缺陷，比如 C 语言的运行库为了保证多个平台之间能够相互通用，于是它只能取各个平台之间功能的交集。比如 Windows 和 Linux 都支持文件读写，那么运行库就可以有文件读写的功能；但是 Windows 原生支持图形和用户交互系统，而 Linux 却不是原生支持的（通过 XWindows），那么 CRT 就只能把这部分功能省去。</p>
+<h2 id="_5">系统调用原理</h2>
+<h3 id="_6">特权级与中断</h3>
+<p>现代的 CPU 常常可以在多种截然不同的特权级别下执行指令，在现代操作系统中，通常也据此有两种特权级别，分别为用户模式（User Mode）和内核模式（Kernel Mode），也被称为用户态和内核态。由于有多种特权模式的存在，操作系统就可以让不同的代码运行在不同的模式上，以限制它们的权力，提高稳定性和安全性。普通应用程序运行在用户态的模式下，诸多操作将受到限制，这些操作包括访问硬件设备、开关中断、改变特权模式等。</p>
+<p>一般来说，运行在高特权级的代码将自己降至低特权级是允许的，但反过来低特权级的代码将自己提升至高特权级则不是轻易就能进行的，否则特权级的作用就有名无实了。在将低特权级的环境转为高特权级时，须要使用一种较为受控和安全的形式，以防止低特权模式的代码破坏高特权模式代码的执行。</p>
+<p>系统调用是运行在内核态的，而应用程序基本都是运行在用户态的。用户态的程序如何运行内核态的代码呢？</p>
+<p>操作系统一般是通过中断（Interrupt）来从用户态切换到内核态。什么是中断呢？中断是一个硬件或软件发出的请求，要求CPU暂停当前的工作转手去处理更加重要的事情。举一个例子，当你在编辑文本文件的时候，键盘上的键不断地被按下，CPU如何获知这一点的呢？一种方法称为轮询（Poll），即CPU每隔一小段时间（几十到几百毫秒）去询问键盘是否有键被按下，但除非用户是疯狂打字员，否则大部分的轮询行为得到的都是“没有键被按下”的回应，这样操作就被浪费掉了。另外一种方法是CPU不去理睬键盘，而当键盘上有键被按下时，键盘上的芯片发送一个信号给 CPU，CPU 接收到信号之后就知道键盘被按下了，然后再去询问键盘被按下的键是哪一个。 这样的信号就是一种中断。</p>
+<p>中断一般具有两个属性，一个称为中断号（从0开始），一个称为中断处理程序（Interrupt Service Routine, ISR）。不同的中断具有不同的中断号，而同时一个中断处理程序一一对应一个中断号。在内核中，有一个数组称为中断向量表（Interrupt Vector Table），这个数组的第 n 项包含了指向第 n 号中断的中断处理程序的指针。当中断到来时，CPU 会暂停当前执行的代码，根据中断的中断号，在中断向量表中找到对应的中断处理程序，并调用它。中断处理程序执行完成之后，CPU会继续执行之前的代码。</p>
+<p><img alt="" src="https://raw.gitmirror.com/RicardoJiang/resource/main/2023/september/p5.jpg" /></p>
 
   <hr>
 <div class="md-source-file">
