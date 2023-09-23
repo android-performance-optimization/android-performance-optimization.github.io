@@ -1178,6 +1178,14 @@
 <p>通过以上优化网易云音乐原来耗时几十秒到几分钟的 Transform 基本都能被压缩到1-2 s以内，dexMerge 耗时由 35-40 s 缩减到3 s 左右。</p>
 <p>可以看出对于大型应用进行，Transform 优化与 dexMerge 优化还是有很大收益的。</p>
 <h3 id="layout"><a href="https://mp.weixin.qq.com/s/MT2ZZoOCyTahVhoLUjBltA">包体积：Layout 二进制文件裁剪优化｜得物技术</a></h3>
+<p>本文主要介绍了得物通过 XML 二进制文件裁剪实现包体积优化的一些经验，主要包括以下内容：</p>
+<ol>
+<li>XML 解析流程</li>
+<li>XML 二进制文件格式</li>
+<li>XML 解析过程举例</li>
+<li>裁剪优化实现</li>
+</ol>
+<p>得物通过裁剪 Layout 二进制文件中的命名空间，属性字符串名称，可以获得 2.2 M 左右的优化效果，对于大型 APP 来说有一定收益。</p>
 <h2 id="_2">精选视频</h2>
 
   <hr>
