@@ -1043,6 +1043,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#retrofit" class="md-nav__link">
+    如何魔改 Retrofit
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -1160,6 +1167,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#retrofit" class="md-nav__link">
+    如何魔改 Retrofit
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -1229,6 +1243,14 @@
 <p>本文主要介绍了高德地图如何实现生产环境代码覆盖率的高性能采集，通过线上代码覆盖率数据的采集，不仅能为我们下线旧代码提供依据，同时还能反映某个功能的使用热度，可以为资源分配、调度决策等提供依据，是软件开发中一项不可或缺的重要工具。</p>
 <p>相比业界其它方案，高德方案少Hack，实现简单，兼顾稳定性和性能，同时也不会侵入打包流程，带来包体积影响等，值得借鉴。</p>
 <p><img alt="" src="https://raw.gitmirror.com/RicardoJiang/resource/main/2023/september/p10.jpg" /></p>
+<h3 id="retrofit"><a href="https://juejin.cn/post/7166064689179262989">如何魔改 Retrofit</a></h3>
+<p>本文主要介绍，网易云音乐冷启动优化的过程中发现，Retrofit loadServiceMethod 方法内部加了锁，锁+不可避免的耗时，引发的必然结果是：在冷启动过程中，通过 Retrofit 发起的网络请求，会部分劣化成一个串行过程。</p>
+<p>发现了问题之后，网易云音乐通过以下方式优化 Retrofit 的性能：</p>
+<ul>
+<li>使用 Moshi 原生就支持的 @JsonClass 注解</li>
+<li>修改 Retrofit 加锁逻辑</li>
+<li>Retrofit 支持缓存和预加载的封装</li>
+</ul>
 <h2 id="_3">精选视频</h2>
 
   <hr>
