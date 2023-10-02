@@ -1255,16 +1255,16 @@
 </thead>
 <tbody>
 <tr>
+<td>Kotlin Serialization</td>
+<td>165,936   ns</td>
+<td>997,228   ns</td>
+<td>2,933,098   ns</td>
+</tr>
+<tr>
 <td>JSONReader</td>
 <td>190,902   ns</td>
 <td>1,164,605   ns</td>
 <td>3,412,914   ns</td>
-</tr>
-<tr>
-<td>JSONObject</td>
-<td>258,789   ns</td>
-<td>1,690,190   ns</td>
-<td>4,788,937   ns</td>
 </tr>
 <tr>
 <td>FastJson</td>
@@ -1273,22 +1273,22 @@
 <td>4,218,987   ns</td>
 </tr>
 <tr>
-<td>Kotlin Serialization</td>
-<td>165,936   ns</td>
-<td>997,228   ns</td>
-<td>2,933,098   ns</td>
-</tr>
-<tr>
-<td>Gson</td>
-<td>412,421   ns</td>
-<td>1,356,564   ns</td>
-<td>3,557,943   ns</td>
+<td>JSONObject</td>
+<td>258,789   ns</td>
+<td>1,690,190   ns</td>
+<td>4,788,937   ns</td>
 </tr>
 <tr>
 <td>Moshi</td>
 <td>303,056   ns</td>
 <td>1,411,364   ns</td>
 <td>3,955,789   ns</td>
+</tr>
+<tr>
+<td>Gson</td>
+<td>412,421   ns</td>
+<td>1,356,564   ns</td>
+<td>3,557,943   ns</td>
 </tr>
 <tr>
 <td>Jackson</td>
@@ -1299,6 +1299,60 @@
 </tbody>
 </table>
 <h3 id="_5">一次运行测试结果</h3>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>small.json</th>
+<th>medium.json</th>
+<th>large.json</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>JSONReader</td>
+<td>627,865   ns</td>
+<td>1,618,281   ns</td>
+<td>12,914,479   ns</td>
+</tr>
+<tr>
+<td>JSONObject</td>
+<td>723,438   ns</td>
+<td>2,291,927   ns</td>
+<td>22,451,979   ns</td>
+</tr>
+<tr>
+<td>FastJson</td>
+<td>60,018,906   ns</td>
+<td>6,512,239   ns</td>
+<td>18,388,125   ns</td>
+</tr>
+<tr>
+<td>Kotlin Serialization</td>
+<td>4,874,427   ns</td>
+<td>15,850,416   ns</td>
+<td>26,132,188   ns</td>
+</tr>
+<tr>
+<td>Gson</td>
+<td>4,182,552   ns</td>
+<td>5,568,906   ns</td>
+<td>26,548,854   ns</td>
+</tr>
+<tr>
+<td>Moshi</td>
+<td>5,251,875   ns</td>
+<td>16,613,280   ns</td>
+<td>25,969,324   ns</td>
+</tr>
+<tr>
+<td>Jackson</td>
+<td>15,599,374   ns</td>
+<td>13,673,438   ns</td>
+<td>25,645,000   ns</td>
+</tr>
+</tbody>
+</table>
 
   <hr>
 <div class="md-source-file">
