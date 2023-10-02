@@ -86,6 +86,11 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://android-performance-optimization.github.io/practical/speeed/json-serializatiion-speed/</loc>
+         <lastmod>2023-10-02</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://android-performance-optimization.github.io/practical/stability/airbag/</loc>
          <lastmod>2023-10-02</lastmod>
          <changefreq>daily</changefreq>
