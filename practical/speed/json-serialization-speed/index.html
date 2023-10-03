@@ -23,7 +23,7 @@
     
     
       
-        <title>常用反序列化框架速度比较 - Android 性能优化手册</title>
+        <title>Android 常用 JSON 库性能对比 - Android 性能优化手册</title>
       
     
     
@@ -75,7 +75,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#_1" class="md-skip">
+        <a href="#android-json" class="md-skip">
           跳转至
         </a>
       
@@ -113,7 +113,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              常用反序列化框架速度比较
+              Android 常用 JSON 库性能对比
             
           </span>
         </div>
@@ -976,12 +976,12 @@
       
       
         <label class="md-nav__link md-nav__link--active" for="__toc">
-          常用反序列化框架速度比较
+          Android 常用 JSON 库性能对比
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <a href="./" class="md-nav__link md-nav__link--active">
-        常用反序列化框架速度比较
+        Android 常用 JSON 库性能对比
       </a>
       
         
@@ -1000,7 +1000,7 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
+  <a href="#_1" class="md-nav__link">
     测试方式
   </a>
   
@@ -1008,7 +1008,7 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
+  <a href="#_2" class="md-nav__link">
     测试代码
   </a>
   
@@ -1020,7 +1020,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_4" class="md-nav__link">
+  <a href="#_3" class="md-nav__link">
     测试结果
   </a>
   
@@ -1028,14 +1028,14 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#_5" class="md-nav__link">
+  <a href="#_4" class="md-nav__link">
     多次运行测试结果
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#_6" class="md-nav__link">
+  <a href="#_5" class="md-nav__link">
     一次运行测试结果
   </a>
   
@@ -1055,14 +1055,14 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#_7" class="md-nav__link">
+  <a href="#_6" class="md-nav__link">
     多次运行测试结果
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#_8" class="md-nav__link">
+  <a href="#_7" class="md-nav__link">
     一次运行测试结果
   </a>
   
@@ -1074,7 +1074,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_9" class="md-nav__link">
+  <a href="#_8" class="md-nav__link">
     总结
   </a>
   
@@ -1082,7 +1082,7 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#_10" class="md-nav__link">
+  <a href="#_9" class="md-nav__link">
     测试代码
   </a>
   
@@ -1243,7 +1243,7 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
+  <a href="#_1" class="md-nav__link">
     测试方式
   </a>
   
@@ -1251,7 +1251,7 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
+  <a href="#_2" class="md-nav__link">
     测试代码
   </a>
   
@@ -1263,7 +1263,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_4" class="md-nav__link">
+  <a href="#_3" class="md-nav__link">
     测试结果
   </a>
   
@@ -1271,14 +1271,14 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#_5" class="md-nav__link">
+  <a href="#_4" class="md-nav__link">
     多次运行测试结果
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#_6" class="md-nav__link">
+  <a href="#_5" class="md-nav__link">
     一次运行测试结果
   </a>
   
@@ -1298,14 +1298,14 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#_7" class="md-nav__link">
+  <a href="#_6" class="md-nav__link">
     多次运行测试结果
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#_8" class="md-nav__link">
+  <a href="#_7" class="md-nav__link">
     一次运行测试结果
   </a>
   
@@ -1317,7 +1317,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_9" class="md-nav__link">
+  <a href="#_8" class="md-nav__link">
     总结
   </a>
   
@@ -1325,7 +1325,7 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#_10" class="md-nav__link">
+  <a href="#_9" class="md-nav__link">
     测试代码
   </a>
   
@@ -1354,18 +1354,18 @@
   
 
 
-<h1 id="_1">常用反序列化框架速度比较</h1>
+<h1 id="android-json">Android 常用 JSON 库性能对比</h1>
 <p>反序列化是 Android 开发中必备且非常高频的需求，因此一个高性能的反序列化框架就非常重要了，那么在常用的 Gson, Moshi, Jackson, Kotlin Serialization, FastJson 等框架中，到底谁比较快?</p>
-<h2 id="_2">测试方式</h2>
+<h2 id="_1">测试方式</h2>
 <ul>
 <li>通过 Jetpack Microbenchmark 库进行基准测试，以避免 CPU 降频，JIT 优化对测试结果的影响</li>
 <li>测试用例输入包括 12kb, 78kb, 238kb 大小的三个 json 文件，以测试 json 大小对反序列化速度的影响</li>
 <li>测试结果分为多次运行充分预热与一次运行无预热两种情况，以测试在冷启动情况下反序列化速度的差异</li>
 </ul>
-<h3 id="_3">测试代码</h3>
+<h3 id="_2">测试代码</h3>
 <p>测试代码可见：<a href="https://github.com/RicardoJiang/json-benchmark">https://github.com/RicardoJiang/json-benchmark</a></p>
-<h2 id="_4">测试结果</h2>
-<h3 id="_5">多次运行测试结果</h3>
+<h2 id="_3">测试结果</h2>
+<h3 id="_4">多次运行测试结果</h3>
 <table>
 <thead>
 <tr>
@@ -1429,7 +1429,7 @@
 <li>Moshi 与 Gson 在反序列化速度上差距不大，基本上是一个量级</li>
 <li>Jackson 在小数据反序化速度相比其它框架明显较慢，在大数据情况下则相差不大</li>
 </ul>
-<h3 id="_6">一次运行测试结果</h3>
+<h3 id="_5">一次运行测试结果</h3>
 <table>
 <thead>
 <tr>
@@ -1496,7 +1496,7 @@
 <p>Protobuf 全称：Protocol Buffers，是 Google 推出的一种与平台无关、语言无关、可扩展的轻便高效的序列化数据存储格式。</p>
 <p>Protobuf 数据以二进制格式存储，相比 json 占用体积要小很多，比如我们将上面的 json 文件转化成 Protobuf 二进制文件之后，体积缩小了 50% 左右。</p>
 <p>接下来我们来看下 Protobuf 反序列化的速度相比 json 到底怎么样。</p>
-<h3 id="_7">多次运行测试结果</h3>
+<h3 id="_6">多次运行测试结果</h3>
 <table>
 <thead>
 <tr>
@@ -1528,7 +1528,7 @@
 </tbody>
 </table>
 <p>我们将 Protobuf 与之前表现比较优秀的 Kotlin Serialization 与 JSONReaderr 进行对比，可以看出 Protobuf 的反序列化速度相比之前表现最优秀的 Kotlin Serialization 也有 50% 左右的提升</p>
-<h3 id="_8">一次运行测试结果</h3>
+<h3 id="_7">一次运行测试结果</h3>
 <table>
 <thead>
 <tr>
@@ -1561,14 +1561,14 @@
 </table>
 <p>可以看出在冷启动时，JSONReader 的表现还是遥遥领先，而 Protobuf 的表现比 Kotlin Serialization 还是要好一些。</p>
 <p>当然使用 JSONReader 与 JSONObject 这些原生 API 需要写很多模板代码，可以使用类似<a href="https://tech.meituan.com/2018/01/09/mson.html"> MSON </a>的方式，通过代码生成的方式减少开发成本。</p>
-<h2 id="_9">总结</h2>
+<h2 id="_8">总结</h2>
 <ul>
 <li>Kotlin Serialization 是在纯 Kotlin 代码中反序列化 json 的最佳选择，速度最快</li>
 <li>如果可以牺牲可读性，使用 Protobuf 可以带来 50% 左右的体积与反序列化速度提升</li>
 <li>在冷启动场景中，使用 JSONReader 与 JSONObject 可以带来很大的性能提升。</li>
 </ul>
 <p>当然性能测试的结果可能因为机型和数据的不同有所差异，欢迎使用测试代码进行测试，如有不同意见，欢迎在评论区交流~</p>
-<h3 id="_10">测试代码</h3>
+<h3 id="_9">测试代码</h3>
 <p>测试代码可见：<a href="https://github.com/RicardoJiang/json-benchmark">https://github.com/RicardoJiang/json-benchmark</a></p>
 
   <hr>
