@@ -1461,7 +1461,7 @@
 <p><img alt="" src="https://raw.gitmirror.com/RicardoJiang/resource/main/2023/october/DeserializationSpeedRunOnce.png" /></p>
 <p>可以看出，一次运行测试结果与多次运行测试结果明显不同</p>
 <ul>
-<li>JSONReader 与 JSONObject 相比其它框架优势明显，在冷启动场景使用这些系统原生 API 应该会有一定优势，这也是美团<a href="https://tech.meituan.com/2018/01/09/mson.html"> MSON </a>框架提升反序列化速度的原理</li>
+<li>JSONReader 与 JSONObject 相比其它框架优势明显，在冷启动场景使用这些系统原生 API 应该会有一定优势，这也是<a href="https://tech.meituan.com/2018/01/09/mson.html"> MSON </a>框架提升反序列化速度的原理</li>
 <li>FastJson 在首次运行时显著慢于其它框架，后续则恢复正常速度，与 Gson 速度差不多，快于 Moshi</li>
 <li>在冷启动场景，Moshi 与 Kotlin Serialization 速度差不多，相比 Gson 则略慢</li>
 <li>Jackson 首次运行时较慢，后续与 Moshi 速度类似</li>
@@ -1534,7 +1534,7 @@
 </tbody>
 </table>
 <p>可以看出在冷启动时，Protobuf 的表现比 Kotlin Serialization 还是要好一些，JSONReader 的表现还是遥遥领先。</p>
-<p>当然使用 JSONReader 与 JSONObject 这些原生 API 需要写很多模板代码，可以通过类似美团<a href="https://tech.meituan.com/2018/01/09/mson.html"> MSON </a>框架使用代码生成的方式减少开发成本。</p>
+<p>当然使用 JSONReader 与 JSONObject 这些原生 API 需要写很多模板代码，可以使用类似<a href="https://tech.meituan.com/2018/01/09/mson.html"> MSON </a>的方式，通过代码生成的方式减少开发成本。</p>
 <h2 id="_9">总结</h2>
 <ul>
 <li>Kotlin Serialization 是在纯 Kotlin 代码中反序列化 json 的最佳选择，速度最快</li>
