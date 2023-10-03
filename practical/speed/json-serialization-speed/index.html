@@ -23,7 +23,7 @@
     
     
       
-        <title>反序列化框架速度比较 - Android 性能优化手册</title>
+        <title>常用反序列化框架比较，到底谁比较快? - Android 性能优化手册</title>
       
     
     
@@ -113,7 +113,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              反序列化框架速度比较
+              常用反序列化框架比较，到底谁比较快?
             
           </span>
         </div>
@@ -976,12 +976,12 @@
       
       
         <label class="md-nav__link md-nav__link--active" for="__toc">
-          反序列化框架速度比较
+          常用反序列化框架比较，到底谁比较快?
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <a href="./" class="md-nav__link md-nav__link--active">
-        反序列化框架速度比较
+        常用反序列化框架比较，到底谁比较快?
       </a>
       
         
@@ -1004,10 +1004,23 @@
     测试方式
   </a>
   
+    <nav class="md-nav" aria-label="测试方式">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    测试代码
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
+  <a href="#_4" class="md-nav__link">
     测试结果
   </a>
   
@@ -1015,14 +1028,14 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#_4" class="md-nav__link">
+  <a href="#_5" class="md-nav__link">
     多次运行测试结果
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#_5" class="md-nav__link">
+  <a href="#_6" class="md-nav__link">
     一次运行测试结果
   </a>
   
@@ -1034,22 +1047,36 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_6" class="md-nav__link">
-    总结
+  <a href="#protobuf" class="md-nav__link">
+    与 Protobuf 比较
   </a>
   
-    <nav class="md-nav" aria-label="总结">
+    <nav class="md-nav" aria-label="与 Protobuf 比较">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
   <a href="#_7" class="md-nav__link">
-    测试代码
+    多次运行测试结果
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    一次运行测试结果
   </a>
   
 </li>
         
       </ul>
     </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    总结
+  </a>
   
 </li>
       
@@ -1207,10 +1234,23 @@
     测试方式
   </a>
   
+    <nav class="md-nav" aria-label="测试方式">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    测试代码
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
+  <a href="#_4" class="md-nav__link">
     测试结果
   </a>
   
@@ -1218,14 +1258,14 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#_4" class="md-nav__link">
+  <a href="#_5" class="md-nav__link">
     多次运行测试结果
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#_5" class="md-nav__link">
+  <a href="#_6" class="md-nav__link">
     一次运行测试结果
   </a>
   
@@ -1237,22 +1277,36 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_6" class="md-nav__link">
-    总结
+  <a href="#protobuf" class="md-nav__link">
+    与 Protobuf 比较
   </a>
   
-    <nav class="md-nav" aria-label="总结">
+    <nav class="md-nav" aria-label="与 Protobuf 比较">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
   <a href="#_7" class="md-nav__link">
-    测试代码
+    多次运行测试结果
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    一次运行测试结果
   </a>
   
 </li>
         
       </ul>
     </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    总结
+  </a>
   
 </li>
       
@@ -1274,7 +1328,7 @@
   
 
 
-<h1 id="_1">反序列化框架速度比较</h1>
+<h1 id="_1">常用反序列化框架比较，到底谁比较快?</h1>
 <p>反序列化是 Android 开发中必备且非常高频的需求，因此一个高性能的反序列化框架就非常重要了，那么在常用的 Gson, Moshi, Jackson, Kotlin Serialization, FastJson 等框架中，到底谁比较快?</p>
 <h2 id="_2">测试方式</h2>
 <ul>
@@ -1282,8 +1336,10 @@
 <li>测试用例输入包括 12kb, 78kb, 238kb 大小的三个 json 文件，以测试 json 大小对反序列化速度的影响</li>
 <li>测试结果分为多次运行充分预热与一次运行无预热两种情况，以测试在冷启动情况下反序列化速度的差异</li>
 </ul>
-<h2 id="_3">测试结果</h2>
-<h3 id="_4">多次运行测试结果</h3>
+<h3 id="_3">测试代码</h3>
+<p>测试代码可见：<a href="https://github.com/RicardoJiang/json-benchmark">https://github.com/RicardoJiang/json-benchmark</a></p>
+<h2 id="_4">测试结果</h2>
+<h3 id="_5">多次运行测试结果</h3>
 <table>
 <thead>
 <tr>
@@ -1347,7 +1403,7 @@
 <li>Moshi 与 Gson 在反序列化速度上差距不大，基本上是一个量级</li>
 <li>Jackson 在小数据反序化速度相比其它框架明显较慢，在大数据情况下则相差不大</li>
 </ul>
-<h3 id="_5">一次运行测试结果</h3>
+<h3 id="_6">一次运行测试结果</h3>
 <table>
 <thead>
 <tr>
@@ -1405,14 +1461,86 @@
 <p><img alt="" src="https://raw.gitmirror.com/RicardoJiang/resource/main/2023/october/DeserializationSpeedRunOnce.png" /></p>
 <p>可以看出，一次运行测试结果与多次运行测试结果明显不同</p>
 <ul>
-<li>JSONReader 与 JSONObject 相比其它框架优势明显，在冷启动场景使用这些系统原生 API 应该会有一定优势，这也是美团<a href="https://tech.meituan.com/2018/01/09/mson.html">MSON</a>框架提升反序列化速度的原理</li>
+<li>JSONReader 与 JSONObject 相比其它框架优势明显，在冷启动场景使用这些系统原生 API 应该会有一定优势，这也是美团<a href="https://tech.meituan.com/2018/01/09/mson.html"> MSON </a>框架提升反序列化速度的原理</li>
 <li>FastJson 在首次运行时显著慢于其它框架，后续则恢复正常速度，与 Gson 速度差不多，快于 Moshi</li>
 <li>在冷启动场景，Moshi 与 Kotlin Serialization 速度差不多，相比 Gson 则略慢</li>
 <li>Jackson 首次运行时较慢，后续与 Moshi 速度类似</li>
 </ul>
-<h2 id="_6">总结</h2>
-<h3 id="_7">测试代码</h3>
-<p><a href="https://github.com/RicardoJiang/json-benchmark">https://github.com/RicardoJiang/json-benchmark</a></p>
+<h2 id="protobuf">与 Protobuf 比较</h2>
+<p>Protobuf 全称：Protocol Buffers，是 Google 推出的一种与平台无关、语言无关、可扩展的轻便高效的序列化数据存储格式。</p>
+<p>Protobuf 数据以二进制格式存储，相比 json 占用体积要小很多，比如我们将上面的 json 文件转化成 Protobuf 二进制文件之后，体积缩小了 50% 左右。</p>
+<p>接下来我们来看下 Protobuf 反序列化的速度相比 json 到底怎么样。</p>
+<h3 id="_7">多次运行测试结果</h3>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>small data</th>
+<th>medium  data</th>
+<th>large data</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Kotlin Serialization</td>
+<td>171,134   ns</td>
+<td>1,010,621   ns</td>
+<td>2,945,403   ns</td>
+</tr>
+<tr>
+<td>JSONReader</td>
+<td>191,611   ns</td>
+<td>1,165,174   ns</td>
+<td>3,426,443   ns</td>
+</tr>
+<tr>
+<td>Protobuf</td>
+<td>108,520   ns</td>
+<td>576,859   ns</td>
+<td>1,674,978   ns</td>
+</tr>
+</tbody>
+</table>
+<p>我们将 Protobuf 与之前表现比较优秀的 Kotlin Serialization 与 JSONReaderr 进行对比，可以看出 Protobuf 的反序列化速度相比之前表现最优秀的 Kotlin Serialization 也有 50% 左右的提升</p>
+<h3 id="_8">一次运行测试结果</h3>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>small data</th>
+<th>medium  data</th>
+<th>large data</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Kotlin Serialization</td>
+<td>5,033,698   ns</td>
+<td>15,217,709   ns</td>
+<td>17,278,021   ns</td>
+</tr>
+<tr>
+<td>JSONReader</td>
+<td>519,167   ns</td>
+<td>1,617,604   ns</td>
+<td>5,623,749   ns</td>
+</tr>
+<tr>
+<td>Protobuf</td>
+<td>3,605,313   ns</td>
+<td>6,869,480   ns</td>
+<td>11,330,886   ns</td>
+</tr>
+</tbody>
+</table>
+<p>可以看出在冷启动时，Protobuf 的表现比 Kotlin Serialization 还是要好一些，JSONReader 的表现还是遥遥领先。</p>
+<p>当然使用 JSONReader 与 JSONObject 这些原生 API 需要写很多模板代码，可以通过类似美团<a href="https://tech.meituan.com/2018/01/09/mson.html"> MSON </a>框架使用代码生成的方式减少开发成本。</p>
+<h2 id="_9">总结</h2>
+<ul>
+<li>Kotlin Serialization 是在纯 Kotlin 代码中反序列化 json 的最佳选择，速度最快</li>
+<li>如果可以牺牲可读性，使用 Protobuf 可以带来 50% 左右的体积与反序列化速度提升</li>
+<li>在冷启动场景中，使用 JSONReader 与 JSONObject 可以带来很大的性能提升。</li>
+</ul>
 
   <hr>
 <div class="md-source-file">
