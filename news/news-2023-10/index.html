@@ -1152,15 +1152,15 @@
   
 </li>
         
-      </ul>
-    </nav>
+          <li class="md-nav__item">
+  <a href="#android_2" class="md-nav__link">
+    得物 Android 包体积资源优化实践
+  </a>
   
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
-    精选视频
-  </a>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -1282,15 +1282,15 @@
   
 </li>
         
-      </ul>
-    </nav>
+          <li class="md-nav__item">
+  <a href="#android_2" class="md-nav__link">
+    得物 Android 包体积资源优化实践
+  </a>
   
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
-    精选视频
-  </a>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -1322,7 +1322,10 @@
 <p><img alt="" src="https://raw.gitmirror.com/RicardoJiang/resource/main/2023/october/p4.jpg" /></p>
 <h2 id="_2">精选博客</h2>
 <h3 id="android_1"><a href="https://juejin.cn/post/7282606413842612283">一种Android已加载类检测方法</a></h3>
-<h2 id="_3">精选视频</h2>
+<p>上个月介绍了高德复制ClassTable指针，通过标准 API 间接访问类加载状态，以统计线上代码覆盖率的方案，但是上文中并没有详细介绍该方案具体是如何实现的。</p>
+<p>本文介绍一种适用于线上的，低侵入的，无包体影响的 ,高效全面稳定的已加载类检测方法，仅需plt hook一处方法调用。具体方式是通过对<code>android::base::LogMessage::stream()</code>方法
+进行 hook ，拦截加载类的日志打印并上报。</p>
+<h3 id="android_2"><a href="https://mp.weixin.qq.com/s/mVauS73sNcejzMR9nmrFPg">得物 Android 包体积资源优化实践</a></h3>
 
   <hr>
 <div class="md-source-file">
