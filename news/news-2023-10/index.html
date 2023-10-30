@@ -1326,6 +1326,15 @@
 <p>本文介绍一种适用于线上的，低侵入的，无包体影响的 ,高效全面稳定的已加载类检测方法，仅需plt hook一处方法调用。具体方式是通过对<code>android::base::LogMessage::stream()</code>方法
 进行 hook ，拦截加载类的日志打印并上报。</p>
 <h3 id="android_2"><a href="https://mp.weixin.qq.com/s/mVauS73sNcejzMR9nmrFPg">得物 Android 包体积资源优化实践</a></h3>
+<p>得物包体积资源优化实践的一些方案，具体包括以下内容：</p>
+<ul>
+<li>图片压缩：使用 cwebp 对图片进行webp转换，使用 guetzli 对JPEG进行压缩，使用pngquant对PNG 进行压缩，使用 gifsicle 对gif进行压缩。</li>
+<li>资源去重：找到资源文件目录下不同名的相同的文件，然后删除掉重复的文件，最后到 arsc 中修改记录，将删除的文件索引名称进行替换。</li>
+<li>资源混淆：用长路径替换短路径，一来减小文件名大小，二来降低arsc中常量池中二进制文件大小。</li>
+<li>资源下发：资源下发的主体主要是 so 文件和图片，能下发的资源就下发是包体优化的一大利器。</li>
+<li>无用资源移除：及时清理无用资源，防止无用资源的持续恶化。</li>
+</ul>
+<p>相比于其他包体积优化方案，资源优化往往实现起来更加简单，效果也更加明显，还是非常实用的。</p>
 
   <hr>
 <div class="md-source-file">
