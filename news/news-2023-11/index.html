@@ -1124,10 +1124,23 @@
     精选博客
   </a>
   
+    <nav class="md-nav" aria-label="精选博客">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    抖音消息调度优化启动速度方案实践
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
+  <a href="#_3" class="md-nav__link">
     精选视频
   </a>
   
@@ -1255,10 +1268,23 @@
     精选博客
   </a>
   
+    <nav class="md-nav" aria-label="精选博客">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    抖音消息调度优化启动速度方案实践
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
+  <a href="#_3" class="md-nav__link">
     精选视频
   </a>
   
@@ -1306,7 +1332,15 @@
 <p>每个月都会有一些 Android 性能优化相关的优质内容发布，然而，碎片化阅读使得这些知识难以形成完整体系，且容易被遗忘。为解决这些问题，我决定尝试使用技术月报的形式，总结我在最近一个月内查阅的 Android 性能优化相关的优质内容。</p>
 <p>月报的主要内容包括：整理展示我在最近一个月所查阅的 Android 性能优化领域的最新技术动态、精选博客，精选视频等内容。</p>
 <h2 id="_1">精选博客</h2>
-<h2 id="_2">精选视频</h2>
+<h3 id="_2"><a href="https://juejin.cn/post/7217664665090080826">抖音消息调度优化启动速度方案实践</a></h3>
+<p>抖音的启动优化过程中发现一些被 post 在这些生命周期之间的主线程耗时消息也会对启动速度造成影响。比如 Application 和 Activity 之间、Activity 和 UI 渲染之间。这些主线程消息会导致我们后续的生命周期被延后执行，影响启动速度，我们需要对它们进行优化。</p>
+<ul>
+<li>通过在关键流程，如启动页面、页面首帧绘制阶段，优化相应消息的顺序, 可以提高相应流程的速度，避免因为其他消息阻塞了关键流程。</li>
+<li>消息顺序的修改只能优化局部问题，从整体上看，耗时问题并没有解决，只是将问题延后了。</li>
+<li>消息耗时的监控及治理是解决根本问题的方式</li>
+</ul>
+<p><img alt="" src="https://raw.gitmirror.com/RicardoJiang/resource/main/2023/december/p1.jpg" /></p>
+<h2 id="_3">精选视频</h2>
 <h3 id="android"><a href="https://www.bilibili.com/video/BV12G411U7yo/">抖音创作工具 Android 架构思考与实践</a></h3>
 <h3 id="app"><a href="https://www.bilibili.com/video/BV1nC4y127UW/">一款大型 APP 是如何进行性能优化的？</a></h3>
 
