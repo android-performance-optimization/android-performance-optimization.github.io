@@ -1134,6 +1134,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#gradle" class="md-nav__link">
+    Gradle 速度优化原理解析与性能对比
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -1278,6 +1285,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#gradle" class="md-nav__link">
+    Gradle 速度优化原理解析与性能对比
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -1340,6 +1354,10 @@
 <li>消息耗时的监控及治理是解决根本问题的方式</li>
 </ul>
 <p><img alt="" src="https://raw.gitmirror.com/RicardoJiang/resource/main/2023/december/p1.jpg" /></p>
+<h3 id="gradle">Gradle 速度优化原理解析与性能对比</h3>
+<p><a href="https://blog.gradle.org/our-approach-to-faster-compilation">An In-depth Look at Gradle's Approach to Faster Compilation</a></p>
+<p>本文介绍了 Gradle 是如何通过编译避免优化编译速度的，同时比较了 Bazel 和 Gradle 在处理 ABI 变化和非 ABI 变化的两种情况下的构建时间。结果显示，Gradle 在处理 ABI 变化的情况下比 Bazel 快得多，因为它不需要生成新的头 JAR。Gradle 在处理非ABI变化的情况下也比 Bazel 快，这得益于 Gradle 的一些最新优化，如配置缓存（Gradle 8.1中稳定）和持久化编译器守护进程（Gradle 8.3中默认启用）</p>
+<p><img alt="" src="https://raw.gitmirror.com/RicardoJiang/resource/main/2023/december/p2.png" /></p>
 <h2 id="_3">精选视频</h2>
 <h3 id="android"><a href="https://www.bilibili.com/video/BV12G411U7yo/">抖音创作工具 Android 架构思考与实践</a></h3>
 <h3 id="app"><a href="https://www.bilibili.com/video/BV1nC4y127UW/">一款大型 APP 是如何进行性能优化的？</a></h3>
