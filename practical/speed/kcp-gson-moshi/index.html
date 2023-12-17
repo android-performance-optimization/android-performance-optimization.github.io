@@ -1110,6 +1110,46 @@
     原理解析：前置知识
   </a>
   
+    <nav class="md-nav" aria-label="原理解析：前置知识">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    编译器插件是什么？
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#k2-k1" class="md-nav__link">
+    K2 编译器与 K1 编译器
+  </a>
+  
+    <nav class="md-nav" aria-label="K2 编译器与 K1 编译器">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    编译器前端
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    编译器后端
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
     </ul>
@@ -1422,6 +1462,46 @@
     原理解析：前置知识
   </a>
   
+    <nav class="md-nav" aria-label="原理解析：前置知识">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    编译器插件是什么？
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#k2-k1" class="md-nav__link">
+    K2 编译器与 K1 编译器
+  </a>
+  
+    <nav class="md-nav" aria-label="K2 编译器与 K1 编译器">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    编译器前端
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    编译器后端
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
     </ul>
@@ -1548,6 +1628,22 @@ data class User(
 <li><code>@Kudos</code>注解的类的功能默认与模块配置一致，也可以添加参数例如<code>@Kudos(KUDOS_GSON)</code>实现针对该类只开启特定功能</li>
 </ul>
 <h2 id="_7">原理解析：前置知识</h2>
+<h3 id="_8">编译器插件是什么？</h3>
+<p>Kotlin 的编译过程，简单来说就是将 Kotlin 源代码编译成目标产物的过程，具体步骤如下图所示：</p>
+<p><img alt="" src="https://raw.gitmirror.com/RicardoJiang/resource/main/2023/december/p7.png" /></p>
+<p>Kotlin 编译器插件，通过利用编译过程中提供的各种Hook时机，让我们可以在编译过程中插入自己的逻辑，以达到修改编译产物的目的</p>
+<p>Kotlin 编译器插件可以分为 Gradle 插件，编译器插件，IDE 插件三部分，如下图所示</p>
+<p><img alt="" src="https://raw.gitmirror.com/RicardoJiang/resource/main/2023/december/p8.png" /></p>
+<h3 id="k2-k1">K2 编译器与 K1 编译器</h3>
+<p><img alt="" src="https://raw.gitmirror.com/RicardoJiang/resource/main/2023/december/p9.png" /></p>
+<h4 id="_9">编译器前端</h4>
+<p>Kotlin 编译器可以分为编译器前端与编译器后端两部分，目前 Kotlin 编译器前端有两个版本，一个是老版本的 PSI 版本，一个是即将在 Kotlin 2.0 版本稳定的 FIR 版本。</p>
+<p>PSI 即 Program Structure Interface，PSI 原本是 Intellij 平台对各类编程语言语法树的统一抽象，为了快速实现需求，Kotlin 团队在开发初期复用了 Intellij 平台已经有的技术积累。而从 Kotlin 1.6 版本开始，为了实现更好的编译器性能，Kotlin团队开始开发一款全新的前端编译器，即 K2 编译器的 FIR 前端。</p>
+<p>因此当我们开发编译器插件时，在涉及编译器前端的修改时需要同时适配 K1 与 K2 两个版本。</p>
+<h4 id="_10">编译器后端</h4>
+<p>同时 Kotlin 作为一个多平台语言，可以将源代码编译成多个平台的目标代码，比如 Kotlin/Jvm 可以生成 Java 字节码，Kotlin/Js 可以生成 Javascript，Kotlin/Native 可以生成 .so 文件。</p>
+<p>不同的编译器后端之间必然有不少逻辑可以共享，因此为了在不同的后端之间共享逻辑，降低支持新的语言特性的成本，同时方便后续扩展支持新的平台，Kotlin 编译器后端引入了 IR 这一中间层。</p>
+<p>不过由于 Kotlin/Jvm 已经在 Kotlin 1.5 版本支持了 IR，Kotlin/Js 在 Kotlin 1.6 版本支持了 IR，而 Kotlin/Native 在一开始就支持 IR，因此我们在开发编译器插件时，涉及修改 IR 时不需要做什么额外的适配。</p>
 
   <hr>
 <div class="md-source-file">
