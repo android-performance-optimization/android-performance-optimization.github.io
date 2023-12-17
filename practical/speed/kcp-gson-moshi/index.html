@@ -1228,6 +1228,13 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#kotlin" class="md-nav__link">
+    如何学习 Kotlin 编译器插件
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#_16" class="md-nav__link">
     总结
   </a>
@@ -1675,6 +1682,13 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#kotlin" class="md-nav__link">
+    如何学习 Kotlin 编译器插件
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#_16" class="md-nav__link">
     总结
   </a>
@@ -2070,6 +2084,14 @@ data class User(
 </tr>
 </tbody>
 </table>
+<h2 id="kotlin">如何学习 Kotlin 编译器插件</h2>
+<p>Kotlin 编译器插件目前还没有稳定，没有稳定的 API 与文档，那么我们该如何学习 Kotlin 编译器插件呢？</p>
+<ul>
+<li>通过 Kotlin 源码学习：由于没有文档，Kotlin 源码实际上就是最新的文档，如果想要学习 KCP，可以先从 Kotlin 官方开发的插件，例如 Parcelize, NoArg 等开始</li>
+<li>通过 AI 学习：当我们在开发编译器插件时，往往是知道想要生成的代码的样式，却由于没有 API 不知道如何实现，这种场景正是 AI 的用武之地了，我们可以提供给 AI 想要生成的代码示例，返回编译器插件的实现。</li>
+<li>学习《深入实践 Kotlin 元编程》：这本书是目前少有的针对 Kotlin 编译器插件做了系统介绍的学习资料，除此之外，还介绍了反射，代码生成，程序静态分析，符号处理器等 Kotlin 元编程技术，想要深入学习 Kotlin 元编程的同学都可以了解下。</li>
+</ul>
+<p><img alt="" src="https://raw.gitmirror.com/RicardoJiang/resource/main/2023/august/p3.png" /></p>
 <h2 id="_16">总结</h2>
 <p>本文主要介绍了如何使用 Kudos ，以及 Kudos 到底是如何实现的，如果有任何问题，欢迎提出 Issue，如果对你有所帮助，欢迎点赞收藏 Star ~</p>
 <h3 id="_17">开源地址</h3>
