@@ -1147,6 +1147,101 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#_11" class="md-nav__link">
+    编译器扩展点
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#kudos_3" class="md-nav__link">
+    Kudos 原理解析
+  </a>
+  
+    <nav class="md-nav" aria-label="Kudos 原理解析">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_12" class="md-nav__link">
+    项目结构
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#kudos_4" class="md-nav__link">
+    Kudos 如何保证空安全与默认值？
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#kudos-jsonreader" class="md-nav__link">
+    Kudos 如何简化 JsonReader 的使用
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#kudos-compiler" class="md-nav__link">
+    kudos-compiler 的实现
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_13" class="md-nav__link">
+    性能数据
+  </a>
+  
+    <nav class="md-nav" aria-label="性能数据">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_14" class="md-nav__link">
+    多次运行测试结果
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_15" class="md-nav__link">
+    一次运行测试结果
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_16" class="md-nav__link">
+    总结
+  </a>
+  
+    <nav class="md-nav" aria-label="总结">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_17" class="md-nav__link">
+    开源地址
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -1499,6 +1594,101 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#_11" class="md-nav__link">
+    编译器扩展点
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#kudos_3" class="md-nav__link">
+    Kudos 原理解析
+  </a>
+  
+    <nav class="md-nav" aria-label="Kudos 原理解析">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_12" class="md-nav__link">
+    项目结构
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#kudos_4" class="md-nav__link">
+    Kudos 如何保证空安全与默认值？
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#kudos-jsonreader" class="md-nav__link">
+    Kudos 如何简化 JsonReader 的使用
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#kudos-compiler" class="md-nav__link">
+    kudos-compiler 的实现
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_13" class="md-nav__link">
+    性能数据
+  </a>
+  
+    <nav class="md-nav" aria-label="性能数据">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_14" class="md-nav__link">
+    多次运行测试结果
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_15" class="md-nav__link">
+    一次运行测试结果
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_16" class="md-nav__link">
+    总结
+  </a>
+  
+    <nav class="md-nav" aria-label="总结">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_17" class="md-nav__link">
+    开源地址
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -1631,7 +1821,7 @@ data class User(
 <h3 id="_8">编译器插件是什么？</h3>
 <p>Kotlin 的编译过程，简单来说就是将 Kotlin 源代码编译成目标产物的过程，具体步骤如下图所示：</p>
 <p><img alt="" src="https://raw.gitmirror.com/RicardoJiang/resource/main/2023/december/p7.png" /></p>
-<p>Kotlin 编译器插件，通过利用编译过程中提供的各种Hook时机，让我们可以在编译过程中插入自己的逻辑，以达到修改编译产物的目的</p>
+<p>Kotlin 编译器插件，通过利用编译过程中提供的各种 Hook 时机，让我们可以在编译过程中插入自己的逻辑，以达到修改编译产物的目的</p>
 <p>Kotlin 编译器插件可以分为 Gradle 插件，编译器插件，IDE 插件三部分，如下图所示</p>
 <p><img alt="" src="https://raw.gitmirror.com/RicardoJiang/resource/main/2023/december/p8.png" /></p>
 <h3 id="k2-k1">K2 编译器与 K1 编译器</h3>
@@ -1644,6 +1834,246 @@ data class User(
 <p>同时 Kotlin 作为一个多平台语言，可以将源代码编译成多个平台的目标代码，比如 Kotlin/Jvm 可以生成 Java 字节码，Kotlin/Js 可以生成 Javascript，Kotlin/Native 可以生成 .so 文件。</p>
 <p>不同的编译器后端之间必然有不少逻辑可以共享，因此为了在不同的后端之间共享逻辑，降低支持新的语言特性的成本，同时方便后续扩展支持新的平台，Kotlin 编译器后端引入了 IR 这一中间层。</p>
 <p>不过由于 Kotlin/Jvm 已经在 Kotlin 1.5 版本支持了 IR，Kotlin/Js 在 Kotlin 1.6 版本支持了 IR，而 Kotlin/Native 在一开始就支持 IR，因此我们在开发编译器插件时，涉及修改 IR 时不需要做什么额外的适配。</p>
+<h3 id="_11">编译器扩展点</h3>
+<p>前面提到 Kotlin 编译器插件，通过利用编译过程中提供的各种扩展点，让我们可以在编译过程中插入自己的逻辑，以达到修改编译产物的目的，下面就介绍一下 Kudos 中使用到的扩展点以及对应的 API</p>
+<table>
+<thead>
+<tr>
+<th>扩展的类名</th>
+<th>编译阶段</th>
+<th>功能说明</th>
+<th>用例</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>SyntheticResolveExtension</td>
+<td>前端</td>
+<td>解析生成的类，函数等，可用于给类添加接口或者方法</td>
+<td>Parcelize</td>
+</tr>
+<tr>
+<td>FirExtensionRegistrar</td>
+<td>前端</td>
+<td>FIR 扩展，可用于提供代码声明信息与代码检查</td>
+<td>Parcelize</td>
+</tr>
+<tr>
+<td>StorageComponentContainerContributor</td>
+<td>前端</td>
+<td>可用于编译期代码检查</td>
+<td>Compose</td>
+</tr>
+<tr>
+<td>IrGenerationExtension</td>
+<td>多平台 IR 后端</td>
+<td>生成与修改 IR</td>
+<td>Parcelize、Atomicfu、NoArg</td>
+</tr>
+</tbody>
+</table>
+<p>总得来说，在涉及到修改类或者函数的声明，例如函数的签名信息，给类添加接口等内容时，需要使用到编译器前端的扩展点；而当涉及到方法体的内部实现，类的私有属性等内容时，直接生成或修改 IR 即可。</p>
+<h2 id="kudos_3">Kudos 原理解析</h2>
+<h3 id="_12">项目结构</h3>
+<p><img alt="" src="https://raw.gitmirror.com/RicardoJiang/resource/main/2023/december/p10.png" /></p>
+<p>我们知道，Kudos 是一个 Kotlin 编译器插件，当然也可以分为 Gradle 插件，编译器插件，IDE 插件三部分，为了支持 Jackson，Kudos 也提供了 Maven 集成能力。</p>
+<p>同时 Kudos 添加了对 Gson, Jackson, JsonReader 等框架的增强，针对这些框架的定制化代码封装在特定的 runtime 模块中，只有开启了对应的功能开关才会引入。</p>
+<h3 id="kudos_4">Kudos 如何保证空安全与默认值？</h3>
+<p>前面介绍了 Kotlin 编译器插件相关的前置知识，那么 Kudos 到底是如何保证空安全与默认值的呢？</p>
+<pre><code class="language-kotlin">@Kudos
+data class User(
+    val id: Long, 
+    val name: String,
+    val age: Int = -1,
+    val tel: String = &quot;&quot;
+)
+</code></pre>
+<p>上面这段代码，在编译过后大致相当于</p>
+<pre><code class="language-kotlin">@Kudos
+// 如果启用了 com.kanyun.kudos.gson 插件，则生成 @JsonAdapter 注解
+@JsonAdapter(value = KudosReflectiveTypeAdapterFactory::class)
+data class User(
+    val id: Long, 
+    val name: String,
+    val age: Int = -1,
+    val tel: String = &quot;&quot;
+) : KudosValidator {
+    constructor() { // 生成的默认无参构造器
+        super() // 调用父类默认无参构造器
+        init&lt;User&gt;() // 调用 User 类内部的 init 块（包括定义在内部的属性初始化）
+        this.age = -1 // 使用主构造器的参数默认值初始化属性
+        this.tel = &quot;&quot; // 使用主构造器的参数默认值初始化属性
+    }
+
+    // 生成的用于校验字段空安全的函数
+    override fun validate(status: Map&lt;String, Boolean&gt;) {
+        validateField(&quot;id&quot;, status)
+        validateField(&quot;name&quot;, status)
+    }
+}
+</code></pre>
+<ul>
+<li>Kudos 插件会生成默认无参构造器，在其中使用主构造器的参数默认值初始化属性，因此可以避免默认值失效。</li>
+<li>当启用了 Kudos.gson 时，会给类添加<code>@JsonAdapter</code>注解，在自定义的<code>KudosReflectiveTypeAdapterFactory</code>中自定义反序列化逻辑</li>
+<li>Kudos 插件同样会给类添加<code>KudosValidator</code>接口与<code>validate</code>方法，在<code>validate</code>方法体中会给没有默认值的非空属性添加<code>validateField</code>调用</li>
+<li>在<code>KudosReflectiveTypeAdapterFactory</code>中在反序列化完成后会调用<code>KudosValidator</code>的<code>validate</code>方法，以验证声明非空的属性是否不为空，否则会抛出异常</li>
+</ul>
+<h3 id="kudos-jsonreader">Kudos 如何简化 JsonReader 的使用</h3>
+<p>JsonReader 使用起来麻烦的原因就在于要写很多模板代码，我们通过编译器插件来生成这些模板代码就可以解决 JsonReader 使用麻烦的问题。同时当我们开启 Kudos.AndroidJsonReader, 之前的保证默认值生效与空安全的代码也同样能生效。编译过后的代码如下所示：</p>
+<pre><code class="language-kotlin">@Kudos
+data class User(
+    val id: Long, 
+    val name: String,
+    val age: Int = -1,
+    val tel: String = &quot;&quot;
+) : KudosJsonAdapter {
+    private var kudosFieldStatusMap: Map&lt;String, Boolean&gt; = hashMapOf()
+
+    override fun fromJson(jsonReader: JsonReader): User {
+        jsonReader.beginObject()
+        while (jsonReader.hasNext()) {
+            val tmp0 = jsonReader.nextName()
+            if (jsonReader.peek() == JsonToken.NULL) {
+                jsonReader.skipValue()
+                continue
+            }
+            when {
+                tmp0 == &quot;id&quot; -&gt; {
+                    &lt;this&gt;.id = jsonReader.nextLong()
+                    &lt;this&gt;.kudosFieldStatusMap.put(&quot;id&quot;, &lt;this&gt;.id != null)
+                }
+                tmp0 == &quot;name&quot; -&gt; {
+                    &lt;this&gt;.name = jsonReader.nextString()
+                    &lt;this&gt;.kudosFieldStatusMap.put(&quot;name&quot;, &lt;this&gt;.name != null)
+                }
+                // ...
+                else -&gt; {
+                    jsonReader.skipValue()
+                }
+            }
+        }
+        jsonReader.endObject()
+        validate(&lt;this&gt;.kudosFieldStatusMap)
+        return this
+    }
+}
+</code></pre>
+<h3 id="kudos-compiler">kudos-compiler 的实现</h3>
+<p><img alt="" src="https://raw.gitmirror.com/RicardoJiang/resource/main/2023/december/p11.png" /></p>
+<p>前面我们介绍了 kudos-compiler 模块要实现的代码，那么作为提供核心能力的模块，kudos-compiler 具体又是如何实现的呢？</p>
+<ul>
+<li>KudosCommandLineProcessor 作为编译件插件的入口，注册 pluginId，同时接收命令行或者 gradle 插件传过来的参数</li>
+<li>KudosCompilerPluginRegistrar 的作用则是用于注册我们所需的各种扩展点</li>
+<li>KudosSyntheticResolveExtension 的作用是在符号引用解析时提供声明信息在符号引用解析时提供声明信息，比如给类添加<code>KudosValidator</code>接口与<code>validate</code>方法</li>
+<li>KudosFirExtensionRegistrar 的作用是在 K2 解析时提供声明信息与代码检查，与 KudosSyntheticResolveExtension 类似，区别在于两者适用的编译器前端版本不同</li>
+<li>KudosComponentContainerContributor 的作用是提供代码编译期检查</li>
+<li>KudosIrGenerationExtension 的作用是在编译产物中提供实现，比如<code>validate</code>与<code>fromJson</code>的方法体</li>
+</ul>
+<h2 id="_13">性能数据</h2>
+<p>基于 Kudos 的工作机制不难想到，Kudos 的运行耗时会略微多于对应的 JSON 序列化框架。</p>
+<p>使用 Jetpack Microbenchmark 库对 Kudos 与其对应的 JSON 序列化框架进行性能对比可以发现，Kudos.Gson 的耗时为 Gson 的 1.1-1.2 倍, Kudos.Jackson, KudosAndroidJsonReader 的情况类似，在可接受的范围之内。</p>
+<h3 id="_14">多次运行测试结果</h3>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>small json</th>
+<th>medium json</th>
+<th>large json</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Gson</td>
+<td>412,375   ns</td>
+<td>1,374,838   ns</td>
+<td>3,641,904   ns</td>
+</tr>
+<tr>
+<td>Kudos-Gson</td>
+<td>517,123   ns</td>
+<td>1,686,568   ns</td>
+<td>4,311,910   ns</td>
+</tr>
+<tr>
+<td>Jackson</td>
+<td>1,035,010   ns</td>
+<td>1,750,709   ns</td>
+<td>3,450,974   ns</td>
+</tr>
+<tr>
+<td>Kudos-Jackson</td>
+<td>1,261,026   ns</td>
+<td>2,030,874   ns</td>
+<td>3,939,600   ns</td>
+</tr>
+<tr>
+<td>JsonReader</td>
+<td>190,302   ns</td>
+<td>1,176,479   ns</td>
+<td>3,464,174   ns</td>
+</tr>
+<tr>
+<td>Kudos-JsonReader</td>
+<td>215,974   ns</td>
+<td>1,359,587   ns</td>
+<td>4,019,024   ns</td>
+</tr>
+</tbody>
+</table>
+<h3 id="_15">一次运行测试结果</h3>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>small json</th>
+<th>medium json</th>
+<th>large json</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Gson</td>
+<td>3,974,219   ns</td>
+<td>4,666,927   ns</td>
+<td>8,271,355   ns</td>
+</tr>
+<tr>
+<td>Kudos-Gson</td>
+<td>4,531,718   ns</td>
+<td>6,244,479   ns</td>
+<td>11,160,782   ns</td>
+</tr>
+<tr>
+<td>Jackson</td>
+<td>12,821,094   ns</td>
+<td>13,930,625   ns</td>
+<td>15,989,791   ns</td>
+</tr>
+<tr>
+<td>Kudos-Jackson</td>
+<td>13,233,750   ns</td>
+<td>15,674,010   ns</td>
+<td>18,641,302   ns</td>
+</tr>
+<tr>
+<td>JsonReader</td>
+<td>662,032   ns</td>
+<td>2,056,666   ns</td>
+<td>4,624,687   ns</td>
+</tr>
+<tr>
+<td>Kudos-JsonReader</td>
+<td>734,907   ns</td>
+<td>2,362,010   ns</td>
+<td>6,212,917   ns</td>
+</tr>
+</tbody>
+</table>
+<h2 id="_16">总结</h2>
+<p>本文主要介绍了如何使用 Kudos ，以及 Kudos 到底是如何实现的，如果有任何问题，欢迎提出 Issue，如果对你有所帮助，欢迎点赞收藏 Star ~</p>
+<h3 id="_17">开源地址</h3>
+<p><a href="https://github.com/kanyun-inc/Kudos">https://github.com/kanyun-inc/Kudos</a></p>
 
   <hr>
 <div class="md-source-file">
