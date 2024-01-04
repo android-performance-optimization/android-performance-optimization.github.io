@@ -1173,6 +1173,13 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#android-gc" class="md-nav__link">
+    Android GC 抑制
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#_4" class="md-nav__link">
     一种鸿蒙应用网络数据监控方法
   </a>
@@ -1181,13 +1188,6 @@
         
       </ul>
     </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_5" class="md-nav__link">
-    精选视频
-  </a>
   
 </li>
       
@@ -1338,6 +1338,13 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#android-gc" class="md-nav__link">
+    Android GC 抑制
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#_4" class="md-nav__link">
     一种鸿蒙应用网络数据监控方法
   </a>
@@ -1346,13 +1353,6 @@
         
       </ul>
     </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_5" class="md-nav__link">
-    精选视频
-  </a>
   
 </li>
       
@@ -1397,11 +1397,21 @@
 <li>WebView 的<code>WebViewClient</code>,<code>WebChromeClient</code>中往往会包含很多自定义逻辑，很多项目都是直接封装一个 BaseWebViewClient，然后在里面做一堆逻辑处理，比如上面说的监控方法，或者 loading 操作等，BaseWebViewClient 往往会变得臃肿，可以使用用拦截器的思路优化。</li>
 </ul>
 <p><img alt="" src="https://raw.gitmirror.com/RicardoJiang/resource/main/2024/january/p2.jpg" /></p>
+<h3 id="android-gc"><a href="https://juejin.cn/post/7291834381314916404">Android GC 抑制</a></h3>
+<p>Android 2.3 引入了并发 GC。并发 GC 的好处，是减少了 GC 的停顿时间，减轻 GC 停顿导致用户感受到的卡顿。</p>
+<p>但是，并发 GC，有时候还是会抢占 CPU，导致主线程、RenderThread 等被迫切换到小核上，或者抢不到 CPU 时间片，导致页面卡顿。由此，为了优化一些核心场景的体验，坊间开始流行起 "GC 抑制"。</p>
+<p>GC 抑制的核心思想，是短时间内干扰，甚至停止并发 GC，避免并发 GC 带来的抢占 CPU 问题。而短时间内的 GC 抑制，通常不会导致 OOM 等问题。</p>
+<p>本文主要探讨 Android 5.0 以后的 GC 抑制。具体分三个方面：</p>
+<ul>
+<li>GC 抑制的收益</li>
+<li>GC 抑制的两种实现方案: 挂起 GC 线程与调大 heap 触发 GC 的阈值</li>
+<li>GC 抑制的应用场景</li>
+</ul>
+<p>总得来说，应用开发者实现 GC 抑制比较困难，无论是 inline hook 还是虚函数 hook，耗时都要几毫秒，甚至十几毫秒。而在应用启动的场景中，不一定会发生 GC。容易造成负优化，主要还是学习各种技术思路及方案实现为主。</p>
 <h3 id="_4"><a href="https://juejin.cn/post/7317104726767665206">一种鸿蒙应用网络数据监控方法</a></h3>
 <p>本文分析了鸿蒙的网络库请求逻辑在 libhttp.z.so 中,内部使用 curl 实现。如果我们想做接口性能监控比如 dns 解析耗时，建连耗，就可以利用curl提供的能力去做。</p>
 <p>同时由于鸿蒙模拟器及真机无法安装 CA 证书，抓包不便，本文也通过 hook curl 实现了打印网络请求内容，缓解了鸿蒙上调试接口时拿不到接口调试数据的困难。</p>
 <p><img alt="" src="https://raw.gitmirror.com/RicardoJiang/resource/main/2024/january/p1.jpg" /></p>
-<h2 id="_5">精选视频</h2>
 
   <hr>
 <div class="md-source-file">
