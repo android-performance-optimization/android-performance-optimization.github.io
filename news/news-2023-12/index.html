@@ -1166,6 +1166,13 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
+  <a href="#webview" class="md-nav__link">
+    这是你们项目中WebView的样子吗？
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#_4" class="md-nav__link">
     一种鸿蒙应用网络数据监控方法
   </a>
@@ -1324,6 +1331,13 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
+  <a href="#webview" class="md-nav__link">
+    这是你们项目中WebView的样子吗？
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#_4" class="md-nav__link">
     一种鸿蒙应用网络数据监控方法
   </a>
@@ -1375,6 +1389,14 @@
 <li>抖音Android厂商合作优化探索与实践</li>
 </ul>
 <h2 id="_3">精选博客</h2>
+<h3 id="webview"><a href="https://juejin.cn/post/7316202809383321609">这是你们项目中WebView的样子吗？</a></h3>
+<p>你们项目中或者理想中的WebView的使用姿势是如何的？有哪些规范、功能？本文介绍了作者对于一个WebView使用的一些理解</p>
+<ul>
+<li>可监控是 WebView 很重要的一个功能，包括耗时监控，错误监控等</li>
+<li>与前端的交互也是 WebView 一个很重要的功能，可以把前端调用安卓的入口收敛到一个，然后通过传入方法名来分发到不同方法上</li>
+<li>WebView 的<code>WebViewClient</code>,<code>WebChromeClient</code>中往往会包含很多自定义逻辑，很多项目都是直接封装一个 BaseWebViewClient，然后在里面做一堆逻辑处理，比如上面说的监控方法，或者 loading 操作等，BaseWebViewClient 往往会变得臃肿，可以使用用拦截器的思路优化。</li>
+</ul>
+<p><img alt="" src="https://raw.gitmirror.com/RicardoJiang/resource/main/2024/january/p2.jpg" /></p>
 <h3 id="_4"><a href="https://juejin.cn/post/7317104726767665206">一种鸿蒙应用网络数据监控方法</a></h3>
 <p>本文分析了鸿蒙的网络库请求逻辑在 libhttp.z.so 中,内部使用 curl 实现。如果我们想做接口性能监控比如 dns 解析耗时，建连耗，就可以利用curl提供的能力去做。</p>
 <p>同时由于鸿蒙模拟器及真机无法安装 CA 证书，抓包不便，本文也通过 hook curl 实现了打印网络请求内容，缓解了鸿蒙上调试接口时拿不到接口调试数据的困难。</p>
