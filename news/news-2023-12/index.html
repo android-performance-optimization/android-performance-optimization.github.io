@@ -1187,6 +1187,13 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#100io" class="md-nav__link">
+    100行代码搭建一个IO泄露监测框架
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#_4" class="md-nav__link">
     一种鸿蒙应用网络数据监控方法
   </a>
@@ -1359,6 +1366,13 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#100io" class="md-nav__link">
+    100行代码搭建一个IO泄露监测框架
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#_4" class="md-nav__link">
     一种鸿蒙应用网络数据监控方法
   </a>
@@ -1427,6 +1441,11 @@
 <p>过去的问题到底在哪里？本文作者对比了各种技术路线，分析这些跨平台开发框架和原生应用的差别具体在哪里。需要注意的是，本文作者是 DCloud 的架构师，也就是 uni-app 与 uni-app x
 的开发者，虽然难免有自卖自夸之嫌，但相信也可以为大家在技术选型时带来一些启发。</p>
 <p><img alt="" src="https://raw.gitmirror.com/RicardoJiang/resource/main/2024/january/p3.png" /></p>
+<h3 id="100io"><a href="https://juejin.cn/post/7217436082145558585">100行代码搭建一个IO泄露监测框架</a></h3>
+<p>IO 一般就是指的常见的文件流读写、数据库读写，相信每个人都知道，完成读写后都应该手动调用流的 close() 方法关闭，一旦忘记就引起了 io 泄漏了。</p>
+<p>如果项目中这种问题场景比较多，就会导致 fd 无节制的增加，导致应用内存紧张，严重甚至引发 OOM，非常影响用户体验。</p>
+<p>java 中的<code>AutoCloseable</code>搭配<code>try-with-resource</code>与 Kotlin 中的<code>use</code>都可以帮助我们实现自动化的关闭流。但是真正到写代码时有时还是会忘记；而且项目中还可能存在历史代码也忘记了关闭流，查找起来也是毫无头绪的。</p>
+<p>因此搭建一个 IO 泄漏监测框架还是很有必要的，本文就介绍了如何借助动态代理和反射，仅用100行代码来实现 IO 泄露的监控。</p>
 <h3 id="_4"><a href="https://juejin.cn/post/7317104726767665206">一种鸿蒙应用网络数据监控方法</a></h3>
 <p>本文分析了鸿蒙的网络库请求逻辑在 libhttp.z.so 中,内部使用 curl 实现。如果我们想做接口性能监控比如 dns 解析耗时，建连耗，就可以利用curl提供的能力去做。</p>
 <p>同时由于鸿蒙模拟器及真机无法安装 CA 证书，抓包不便，本文也通过 hook curl 实现了打印网络请求内容，缓解了鸿蒙上调试接口时拿不到接口调试数据的困难。</p>
