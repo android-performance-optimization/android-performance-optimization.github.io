@@ -1171,6 +1171,26 @@
       
         <li class="md-nav__item">
   <a href="#_1" class="md-nav__link">
+    精选博客
+  </a>
+  
+    <nav class="md-nav" aria-label="精选博客">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#javaandroid" class="md-nav__link">
+    掌握Java和Android虚拟机
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
     精选视频
   </a>
   
@@ -1385,6 +1405,26 @@
       
         <li class="md-nav__item">
   <a href="#_1" class="md-nav__link">
+    精选博客
+  </a>
+  
+    <nav class="md-nav" aria-label="精选博客">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#javaandroid" class="md-nav__link">
+    掌握Java和Android虚拟机
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
     精选视频
   </a>
   
@@ -1438,7 +1478,17 @@
 <h1 id="android-2024-1">Android 性能优化技术月报 | 2024 年 1 月</h1>
 <p>每个月都会有一些 Android 性能优化相关的优质内容发布，然而，碎片化阅读使得这些知识难以形成完整体系，且容易被遗忘。为解决这些问题，我决定尝试使用技术月报的形式，总结我在最近一个月内查阅的 Android 性能优化相关的优质内容。</p>
 <p>月报的主要内容包括：整理展示我在最近一个月所查阅的 Android 性能优化领域的最新技术动态、精选博客，精选视频等内容。</p>
-<h2 id="_1">精选视频</h2>
+<h2 id="_1">精选博客</h2>
+<h3 id="javaandroid"><a href="https://juejin.cn/post/6876046198466969607">掌握Java和Android虚拟机</a></h3>
+<p>​我们知道的虚拟机有很多，运行Java的JVM虚拟机，运行Android程序的Davlik和Art虚拟机等。本文以JVM，Davlik和Art三款虚拟机为例，介绍了一个虚拟机应该具备什么样的能力。</p>
+<ul>
+<li>基于字节码的编译模块：该模块主要是对源代码进行词法，语法，语义分析生成 AST，并将 AST 生成中间文件，jvm 的编译模块是 javac，Android 虚拟机的编译模块是 javac 和 dx 或d8</li>
+<li>加载器模块：加载字节码的二进制流，并解析映射至堆内存中</li>
+<li>解释器模块：解释执行函数字节码指令，虚拟机通过解释执行字节码的一种方式。具体可以分为基于栈的 JVM 和 Davlik 与基于寄存器的 Art</li>
+<li>基于机器码的编译器模块：是虚拟机执行字节码的另一种方式，将字节码转化为本地机器代码后执行，如 JIT 和 AOT。</li>
+<li>内存管理模块：虚拟机堆内存在运行时被划分为不同的内存区域(LargeObjSpace，MainAlloocSpace，NonMovingSpace等)以及垃圾回收机制</li>
+</ul>
+<h2 id="_2">精选视频</h2>
 <h3 id="anr"><a href="https://www.bilibili.com/video/BV1B64y1N7K2/">抖音 ANR 自动归因平台建设实践</a></h3>
 <p>相比于 Crash 问题，ANR 问题存在缺少信息归因困难，ANR 发生时堆栈抓取不准确等问题，本视频介绍了抖音 ANR 自动化归因平台建设的一些经验。</p>
 <p><img alt="" src="https://raw.gitmirror.com/RicardoJiang/resource/main/2024/february/p1.png" /></p>
