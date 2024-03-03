@@ -1193,6 +1193,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#android-gc" class="md-nav__link">
+    几行代码轻松监控Android GC 情况
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -1434,6 +1441,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#android-gc" class="md-nav__link">
+    几行代码轻松监控Android GC 情况
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -1504,6 +1518,31 @@
 <li>动态图片优化：根据 UI 稿限制用户与后台上传图片的宽高，同时使用 CDN 裁剪，减少不必要的像素渲染。</li>
 </ul>
 <p><img alt="" src="https://raw.gitmirror.com/RicardoJiang/resource/main/2024/march/p2.jpg" /></p>
+<h3 id="android-gc"><a href="https://juejin.cn/post/7337634165495463971">几行代码轻松监控Android GC 情况</a></h3>
+<p>gc 的频率是影响 app 流畅性的一个重要指标，那么 Android 如何监控 gc 次数呢？</p>
+<pre><code class="language-kotlin">object GcWatcher {
+    private var gcWatcher: WeakReference&lt;GcWatcherInternal&gt;? = null
+    // 在你application启动的时候 init就行
+    @JvmStatic
+    fun init() {
+        if (gcWatcher == null) {
+            gcWatcher = WeakReference(GcWatcherInternal())
+        } else {
+            Log.v(TAG, &quot;GCWatcher() is inited,dont need init again&quot;)
+        }
+    }
+
+    class GcWatcherInternal {
+        @kotlin.jvm.Throws(Throwable::class)
+        protected fun finalize() {
+            // 每次gc都会走这里 可以在这里统计你想要的次数/频率等信息
+            Log.v(TAG, &quot;GcWatcherInternal detect vm do gc !!!!!&quot;)
+            gcWatcher = WeakReference(GcWatcherInternal())
+
+        }
+    }
+}
+</code></pre>
 <h2 id="_2">精选视频</h2>
 <h3 id="_3"><a href="https://juejin.cn/post/7331607384932876326">拼多多冷启真的秒开</a></h3>
 <p>本视频对比了拼多多，淘宝，京东，闲鱼等购物 app 的启动速度，可以看出拼多多在启动速度方面遥遥领先，同时介绍了一些常见的启动速度优化方法：</p>
