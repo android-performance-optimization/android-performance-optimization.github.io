@@ -1176,6 +1176,19 @@
     精选博客
   </a>
   
+    <nav class="md-nav" aria-label="精选博客">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#sdk" class="md-nav__link">
+    开发一款 SDK 需要注意哪些问题
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
@@ -1397,6 +1410,19 @@
     精选博客
   </a>
   
+    <nav class="md-nav" aria-label="精选博客">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#sdk" class="md-nav__link">
+    开发一款 SDK 需要注意哪些问题
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
@@ -1441,6 +1467,21 @@
 <p>每个月都会有一些 Android 性能优化相关的优质内容发布，然而，碎片化阅读使得这些知识难以形成完整体系，且容易被遗忘。为解决这些问题，我决定尝试使用技术月报的形式，总结我在最近一个月内查阅的 Android 性能优化相关的优质内容。</p>
 <p>月报的主要内容包括：整理展示我在最近一个月所查阅的 Android 性能优化领域的最新技术动态、精选博客，精选视频等内容。</p>
 <h2 id="_1">精选博客</h2>
+<h3 id="sdk"><a href="https://mp.weixin.qq.com/s/SjTvYeffexCg0r3MiSvVow">开发一款 SDK 需要注意哪些问题</a></h3>
+<p>有时我们需要将代码封装成 SDK 以供业务方调用，本文介绍了当我们开发一款 SDK 时应该注意的内容：</p>
+<ul>
+<li>Java 版本问题</li>
+<li>kotlin 版本问题</li>
+<li>minSdkVersion 版本问题</li>
+<li>依赖混淆: 配置 proguard-rules.pro 混淆，keep 住对外的接口与方法，混淆实现类，SDK 发布时，不带上 sourceJar，外部只能查看 class 文件，进一步增加外部观摩 SDK 核心代码难度</li>
+<li>向下兼容: SDK 对外方法尽量向下兼容，如遇到必须要移除的，可提前几个版本将方法标注 @Deprecated 过期，并提供的新的调用方法</li>
+<li>非空处理: 对外接口必须标明入参与返回值的可空与非空，避免业务方发生 NPE 问题</li>
+<li>清晰的注释</li>
+<li>版本统一: 如果对外提供的 SDK 有多个依赖，并且不同版本可能会出现兼容性问题，则可以使用 Bom 来管理版本</li>
+<li>DIP 依赖倒置原则: SDK 提供抽象接口，业务方依赖接口调用</li>
+<li>系统兼容判断: 如果 SDK 有针对一些系统版本兼容的处理，则不仅仅通过 Build.VERSION.SDK_INT 来判断机型版本就够了，还要判断应用的 targetSdkVersion 版本，避免业务方使用的 targetSdkVersion 比系统兼容版本低而导致没有效果的现象。</li>
+<li>依赖冲突: 尽量减少三方库依赖, 如果三方库极其不稳定又不得不用，则可以下载其源码，更改包名，重新编译依赖。</li>
+</ul>
 <h2 id="_2">精选视频</h2>
 <h3 id="_3"><a href="https://juejin.cn/post/7331607384932876326">拼多多冷启真的秒开</a></h3>
 <p>本视频对比了拼多多，淘宝，京东，闲鱼等购物 app 的启动速度，可以看出拼多多在启动速度方面遥遥领先，同时介绍了一些常见的启动速度优化方法：</p>
