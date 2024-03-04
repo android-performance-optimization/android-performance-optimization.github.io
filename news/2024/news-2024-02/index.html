@@ -1200,6 +1200,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#clean-android" class="md-nav__link">
+    Clean 架构下的现代 Android 架构指南
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -1448,6 +1455,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#clean-android" class="md-nav__link">
+    Clean 架构下的现代 Android 架构指南
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -1543,6 +1557,20 @@
     }
 }
 </code></pre>
+<h3 id="clean-android"><a href="https://mp.weixin.qq.com/s/wDGUPkHQKrkKO3ZCX8aaMg">Clean 架构下的现代 Android 架构指南</a></h3>
+<p>Clean 架构是 Uncle Bob 提出的一种软件架构，但是对于 Android 开发来说略显复杂，本文介绍了针对 Android 单体应用开发更贴切更精确的 Clean 架构图</p>
+<p><img alt="" src="https://raw.gitmirror.com/RicardoJiang/resource/main/2024/march/p3.png" />
+<img alt="" src="https://raw.gitmirror.com/RicardoJiang/resource/main/2024/march/p4.png" /></p>
+<ul>
+<li>依赖关系: Clean 架构基本准则是源码级别的内层不依赖外层，依赖关系永远是单向的，外层向内层依赖。</li>
+<li>Model (领域模型): 业务模型，或者叫领域模型，是根据软件业务设计出来的具体模型，一般来说会是个 data class，其中不包含任何业务逻辑，只是个单纯的模型对象。</li>
+<li>Adapter (数据适配器)： 数据适配器层主要用来做数据转换，主要有两个职责：转换网络接口实体数据类和领域模型与领域模型之间的互相转换。</li>
+<li>Repo：对于我们 Android 开发来说，Repo 层应该是对网络接口或本地磁盘的数据读写的封装，对于 Repo 的使用者来说，不需要关注具体的实现，且 Repo 中一般不具备复杂的业务逻辑，只能包含简单的数据处理逻辑。</li>
+<li>UseCase (用例)：UseCase 一般是指特定应用场景下的业务逻辑，用例引导了数据在模型之间的输入输出，并且指挥着业务实体利用其中的关键业务逻辑来实现用例的设计目标。因此，一个 UseCase 往往只包含一段具体的业务逻辑，他的输入是基本类型或者领域模型，输出也是，并且是幂等函数，也就是纯函数，所以 Google 建议我们每个 UseCase 只包含一个公开的函数。</li>
+<li>UiState: UiState 是用来描述当前 UI 状态的集合类，一般来说应该是个 data class。</li>
+<li>ViewModel: ViewModel 负责管理 UI 状态，执行对应的业务逻辑。</li>
+<li>UI 层: UI 层应该完全是数据驱动的，UI 层的作用就是百分之百的将 UiState 渲染出来，UiState 发生变化，UI 也跟着变化，这一点声明式 UI 框架做的很好。</li>
+</ul>
 <h2 id="_2">精选视频</h2>
 <h3 id="_3"><a href="https://juejin.cn/post/7331607384932876326">拼多多冷启真的秒开</a></h3>
 <p>本视频对比了拼多多，淘宝，京东，闲鱼等购物 app 的启动速度，可以看出拼多多在启动速度方面遥遥领先，同时介绍了一些常见的启动速度优化方法：</p>
