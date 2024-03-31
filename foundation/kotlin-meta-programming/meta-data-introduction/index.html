@@ -679,9 +679,67 @@
         
       
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          元数据简介
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <a href="./" class="md-nav__link md-nav__link--active">
         元数据简介
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    基本概念
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    注解
+  </a>
+  
+    <nav class="md-nav" aria-label="注解">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    注解的概念
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    源代码可见的注解
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -1421,6 +1479,48 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    基本概念
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    注解
+  </a>
+  
+    <nav class="md-nav" aria-label="注解">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    注解的概念
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    源代码可见的注解
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -1438,6 +1538,22 @@
 
 
 <h1 id="_1">元数据简介</h1>
+<p>本文为《深入实践 kotlin 元编程》读书笔记，想要深入了解 kotlin 元编程的同学可以阅读原书。</p>
+<h2 id="_2">基本概念</h2>
+<p>元数据(Metadata)是指描述其他数据的信息的数据，不包含被描述的数据的内容。例如 一个字符串一共有 10 个字符，这里的 10 个字符的长度就是这个字符串的元数据。</p>
+<p>具体到我们讨论的 Kotlin 元编程的范畴，元数据可以理解为描述目标程序本身的信息，例如代码的行数、语法树，甚至编译后的产物等等。按照元数据的产生途径，我们可以简单将其分为两种类型，即语法结构和编译产物。</p>
+<h2 id="_3">注解</h2>
+<p>注解(Annotation)是一种可以在源码当中添加元数据的语法。注解在 Kotlin 元编程 中扮演了非常重要的角色。</p>
+<h3 id="_4">注解的概念</h3>
+<p>注解和注释是两个措辞和功能都比较接近的概念，不同之处在于注解是一种有着严格的语法定义和使用约束的结构化信息，是专门为元编程设计的语法结构。</p>
+<p>根据注解在程序不同阶段的可见性，我们可以将其分为三类：</p>
+<ul>
+<li>源代码可见的注解</li>
+<li>进制可见的注解</li>
+<li>运行时可见的注解</li>
+</ul>
+<h3 id="_5">源代码可见的注解</h3>
+<p>源代码可见的注解在定义时，需要将 @Retention 的参数设置为 AnnotationRetention.SOURCE。此类注解不会存在于编译产物当中，可以用来做代码提示， 编译配置，也可以在编译时使用 KAPT、KSP 或者编译器插件实现代码生成、代码检查等功能。</p>
 
   <hr>
 <div class="md-source-file">
