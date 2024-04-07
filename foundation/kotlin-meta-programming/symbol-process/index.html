@@ -10,20 +10,20 @@
       
       
       
-        <link rel="canonical" href="https://android-performance-optimization.github.io/news/2024/news-2024-04/">
+        <link rel="canonical" href="https://android-performance-optimization.github.io/foundation/kotlin-meta-programming/symbol-process/">
       
       
-        <link rel="prev" href="../../../practical/memory/memory-usage-analyse/">
+        <link rel="prev" href="../code-generate/">
       
       
-        <link rel="next" href="../news-2024-03/">
+        <link rel="next" href="../../framework/activity-start/">
       
       <link rel="icon" href="../../../assets/favicon.png">
       <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.1.16">
     
     
       
-        <title>Android 性能优化技术月报 | 2024 年 4 月 - Android 性能优化手册</title>
+        <title>编译时的符号处理 - Android 性能优化手册</title>
       
     
     
@@ -75,7 +75,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#android-2024-4" class="md-skip">
+        <a href="#_1" class="md-skip">
           跳转至
         </a>
       
@@ -113,7 +113,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Android 性能优化技术月报 | 2024 年 4 月
+              编译时的符号处理
             
           </span>
         </div>
@@ -245,6 +245,8 @@
         
   
   
+    
+  
 
 
   
@@ -256,7 +258,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="../../../foundation/self-cultivation/elf-file-detail/" class="md-tabs__link">
+      <a href="../../self-cultivation/elf-file-detail/" class="md-tabs__link md-tabs__link--active">
         筑基手册
       </a>
     </li>
@@ -291,8 +293,6 @@
         
   
   
-    
-  
 
 
   
@@ -304,7 +304,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="./" class="md-tabs__link md-tabs__link--active">
+      <a href="../../../news/2024/news-2024-03/" class="md-tabs__link">
         技术月报
       </a>
     </li>
@@ -448,14 +448,16 @@
 
   
   
+    
+  
   
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
       
       
       
-      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
       
       
         
@@ -474,7 +476,7 @@
           <span class="md-nav__icon md-icon"></span>
         </label>
       
-      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
         <label class="md-nav__title" for="__nav_3">
           <span class="md-nav__icon md-icon"></span>
           筑基手册
@@ -528,7 +530,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../foundation/self-cultivation/elf-file-detail/" class="md-nav__link">
+      <a href="../../self-cultivation/elf-file-detail/" class="md-nav__link">
         Elf 文件格式详解
       </a>
     </li>
@@ -542,7 +544,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../foundation/self-cultivation/static-link/" class="md-nav__link">
+      <a href="../../self-cultivation/static-link/" class="md-nav__link">
         静态链接
       </a>
     </li>
@@ -556,7 +558,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../foundation/self-cultivation/elf-load/" class="md-nav__link">
+      <a href="../../self-cultivation/elf-load/" class="md-nav__link">
         ELF 文件的装载与进程
       </a>
     </li>
@@ -570,7 +572,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../foundation/self-cultivation/dynamic-link/" class="md-nav__link">
+      <a href="../../self-cultivation/dynamic-link/" class="md-nav__link">
         动态链接
       </a>
     </li>
@@ -584,7 +586,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../foundation/self-cultivation/memory/" class="md-nav__link">
+      <a href="../../self-cultivation/memory/" class="md-nav__link">
         内存
       </a>
     </li>
@@ -598,7 +600,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../foundation/self-cultivation/system-call/" class="md-nav__link">
+      <a href="../../self-cultivation/system-call/" class="md-nav__link">
         系统调用
       </a>
     </li>
@@ -617,16 +619,22 @@
               
   
   
+    
+  
   
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
       
       
       
-      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2" >
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2" checked>
       
       
+        
+          
+        
+          
         
           
         
@@ -641,7 +649,7 @@
           <span class="md-nav__icon md-icon"></span>
         </label>
       
-      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_2_label" aria-expanded="false">
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_2_label" aria-expanded="true">
         <label class="md-nav__title" for="__nav_3_2">
           <span class="md-nav__icon md-icon"></span>
           深入实践 Kotlin 元编程
@@ -654,7 +662,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../foundation/kotlin-meta-programming/meta-programming-basic/" class="md-nav__link">
+      <a href="../meta-programming-basic/" class="md-nav__link">
         元编程概述
       </a>
     </li>
@@ -668,7 +676,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../foundation/kotlin-meta-programming/meta-data-introduction/" class="md-nav__link">
+      <a href="../meta-data-introduction/" class="md-nav__link">
         元数据简介
       </a>
     </li>
@@ -682,9 +690,228 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../foundation/kotlin-meta-programming/runtime-reflect/" class="md-nav__link">
+      <a href="../runtime-reflect/" class="md-nav__link">
         运行时的反射
       </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../code-generate/" class="md-nav__link">
+        源代码生成
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          编译时的符号处理
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        编译时的符号处理
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    符号的基本概念
+  </a>
+  
+    <nav class="md-nav" aria-label="符号的基本概念">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#java" class="md-nav__link">
+    Java 的符号
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#kotlin" class="md-nav__link">
+    Kotlin 的符号
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    符号与语法树节点的关系和区别
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    处理器的基本结构
+  </a>
+  
+    <nav class="md-nav" aria-label="处理器的基本结构">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#apt" class="md-nav__link">
+    APT 的基本结构
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ksp" class="md-nav__link">
+    KSP 的基本结构
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#apt-ksp" class="md-nav__link">
+    APT 与 KSP 的处理器的结构差异
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    处理器的配置文件
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    深入符号和类型
+  </a>
+  
+    <nav class="md-nav" aria-label="深入符号和类型">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    获取修饰符
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    通过名称获取相应的符号
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    获取符号的类型
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    通过类型获取符号
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_11" class="md-nav__link">
+    判断类型之间的关系
+  </a>
+  
+    <nav class="md-nav" aria-label="判断类型之间的关系">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_12" class="md-nav__link">
+    相同类型
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_13" class="md-nav__link">
+    可赋值类型和子类型
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_14" class="md-nav__link">
+    获取注解及其参数值
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_15" class="md-nav__link">
+    深入理解符号处理器
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -734,7 +961,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../foundation/framework/activity-start/" class="md-nav__link">
+      <a href="../../framework/activity-start/" class="md-nav__link">
         Activity 启动流程分析
       </a>
     </li>
@@ -786,7 +1013,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../foundation/tools/native-hook/" class="md-nav__link">
+      <a href="../../tools/native-hook/" class="md-nav__link">
         Native Hook 快速上手
       </a>
     </li>
@@ -1152,16 +1379,14 @@
 
   
   
-    
-  
   
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
       
       
       
-      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" checked>
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
       
       
         
@@ -1176,7 +1401,7 @@
           <span class="md-nav__icon md-icon"></span>
         </label>
       
-      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="true">
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
         <label class="md-nav__title" for="__nav_5">
           <span class="md-nav__icon md-icon"></span>
           技术月报
@@ -1187,20 +1412,16 @@
               
   
   
-    
-  
   
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
       
       
       
-      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_1" checked>
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_1" >
       
       
-        
-          
         
           
         
@@ -1215,7 +1436,7 @@
           <span class="md-nav__icon md-icon"></span>
         </label>
       
-      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_1_label" aria-expanded="true">
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_1_label" aria-expanded="false">
         <label class="md-nav__title" for="__nav_5_1">
           <span class="md-nav__icon md-icon"></span>
           2024
@@ -1226,78 +1447,9 @@
               
   
   
-    
-  
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          Android 性能优化技术月报 | 2024 年 4 月
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
-        Android 性能优化技术月报 | 2024 年 4 月
-      </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="目录">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      目录
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#_1" class="md-nav__link">
-    最新动态
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
-    精选博客
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
-    精选视频
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
   
     <li class="md-nav__item">
-      <a href="../news-2024-03/" class="md-nav__link">
+      <a href="../../../news/2024/news-2024-03/" class="md-nav__link">
         Android 性能优化技术月报 | 2024 年 3 月
       </a>
     </li>
@@ -1311,7 +1463,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../news-2024-02/" class="md-nav__link">
+      <a href="../../../news/2024/news-2024-02/" class="md-nav__link">
         Android 性能优化技术月报 | 2024 年 2 月
       </a>
     </li>
@@ -1325,7 +1477,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../news-2024-01/" class="md-nav__link">
+      <a href="../../../news/2024/news-2024-01/" class="md-nav__link">
         Android 性能优化技术月报 | 2024 年 1 月
       </a>
     </li>
@@ -1387,7 +1539,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../2023/news-2023-12/" class="md-nav__link">
+      <a href="../../../news/2023/news-2023-12/" class="md-nav__link">
         Android 性能优化技术月报 | 2023 年 12 月
       </a>
     </li>
@@ -1401,7 +1553,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../2023/news-2023-11/" class="md-nav__link">
+      <a href="../../../news/2023/news-2023-11/" class="md-nav__link">
         Android 性能优化技术月报 | 2023 年 11 月
       </a>
     </li>
@@ -1415,7 +1567,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../2023/news-2023-10/" class="md-nav__link">
+      <a href="../../../news/2023/news-2023-10/" class="md-nav__link">
         Android 性能优化技术月报 | 2023 年 10 月
       </a>
     </li>
@@ -1429,7 +1581,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../2023/news-2023-09/" class="md-nav__link">
+      <a href="../../../news/2023/news-2023-09/" class="md-nav__link">
         Android 性能优化技术月报 | 2023 年 9 月
       </a>
     </li>
@@ -1443,7 +1595,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../2023/news-2023-08/" class="md-nav__link">
+      <a href="../../../news/2023/news-2023-08/" class="md-nav__link">
         Android 性能优化技术月报 | 2023 年 8 月
       </a>
     </li>
@@ -1457,7 +1609,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../2023/news-2023-07/" class="md-nav__link">
+      <a href="../../../news/2023/news-2023-07/" class="md-nav__link">
         Android 性能优化技术月报 | 2023 年 7 月
       </a>
     </li>
@@ -1505,22 +1657,158 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#_1" class="md-nav__link">
-    最新动态
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#_2" class="md-nav__link">
-    精选博客
+    符号的基本概念
   </a>
+  
+    <nav class="md-nav" aria-label="符号的基本概念">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#java" class="md-nav__link">
+    Java 的符号
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#kotlin" class="md-nav__link">
+    Kotlin 的符号
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    符号与语法树节点的关系和区别
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
-    精选视频
+  <a href="#_4" class="md-nav__link">
+    处理器的基本结构
+  </a>
+  
+    <nav class="md-nav" aria-label="处理器的基本结构">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#apt" class="md-nav__link">
+    APT 的基本结构
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ksp" class="md-nav__link">
+    KSP 的基本结构
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#apt-ksp" class="md-nav__link">
+    APT 与 KSP 的处理器的结构差异
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    处理器的配置文件
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    深入符号和类型
+  </a>
+  
+    <nav class="md-nav" aria-label="深入符号和类型">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    获取修饰符
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    通过名称获取相应的符号
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    获取符号的类型
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    通过类型获取符号
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_11" class="md-nav__link">
+    判断类型之间的关系
+  </a>
+  
+    <nav class="md-nav" aria-label="判断类型之间的关系">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_12" class="md-nav__link">
+    相同类型
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_13" class="md-nav__link">
+    可赋值类型和子类型
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_14" class="md-nav__link">
+    获取注解及其参数值
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_15" class="md-nav__link">
+    深入理解符号处理器
   </a>
   
 </li>
@@ -1543,19 +1831,86 @@
   
 
 
-<h1 id="android-2024-4">Android 性能优化技术月报 | 2024 年 4 月</h1>
-<p>每个月都会有一些 Android 性能优化相关的优质内容发布，然而，碎片化阅读使得这些知识难以形成完整体系，且容易被遗忘。为解决这些问题，我决定尝试使用技术月报的形式，总结我在最近一个月内查阅的 Android 性能优化相关的优质内容。</p>
-<p>月报的主要内容包括：整理展示我在最近一个月所查阅的 Android 性能优化领域的最新技术动态、精选博客，精选视频等内容。</p>
-<h2 id="_1">最新动态</h2>
-<h2 id="_2">精选博客</h2>
-<h2 id="_3">精选视频</h2>
+<h1 id="_1">编译时的符号处理</h1>
+<p>本文为《深入实践 kotlin 元编程》读书笔记，想要深入了解 kotlin 元编程的同学可以阅读原书。</p>
+<p>除了直接生成源代码，我们有时还会面临一种更加复杂的场景，即如何基于人工编写的源代码来生成代码，甚至还可以让二者相互调用。</p>
+<p>为了应对这种需求场景，Java 和 Kotlin 编译器均提供了相应的扩展支持，允许我们编写一些特定的程序来访问源代码当中特定的语法结构，并完成代码的生成。这就是编译时的符号处理。</p>
+<p><img alt="" src="https://raw.gitmirror.com/RicardoJiang/resource/main/2024/april/p2.jpg" /></p>
+<h2 id="_2">符号的基本概念</h2>
+<h3 id="java">Java 的符号</h3>
+<p>Java 的符号包括变量(VarSymbol)、方法(MethodSymbol)、 类(ClassSymbol)、包(PackageSymbol)等等</p>
+<p>Java 编译器提供了一套完善的符号处理的机制，即APT(Annotation Processing Tool，注解处理器)。不过，APT 的公开 API 当中并没有提到 Symbol，这是怎么回事呢?</p>
+<p>这是因为 Java 编译器的设计者不希望暴露过多编译器内部的细节，基于符号的实现抽象出了以 Element 类型为基础的公开 API。</p>
+<p>需要注意的是，Java 符号并不等同于 Java 抽象语法树(Abstract Syntax Tree， 缩写为 AST)节点，Java 语法树的节点类都是 JCTree 的子类，其中 JC 代表 Javac。与 Symbol 和 Type 相同，JCTree 也是 Java 编译器的内部实现，我们只需要清楚 Java 符 号是基于 Java 语法树创建出来的，它只包含语法树结构当中的类、方法、变量等结构，但不包含函数体、表达式内容等信息即可。</p>
+<h3 id="kotlin">Kotlin 的符号</h3>
+<p>Kotlin 的符号在 Google 的开源项目 KSP(Kotlin Symbol Processing，Kotlin 符号处理)当中给出，该项目目前已经成为 Kotlin 官方推荐的符号处理方案。</p>
+<p>Kotlin 目前存在两套语法树实现，即 FE1.0 的 PSI 和 K2 编译器当 中的 FIR。与 Java 不同，Kotlin 的语法树的 API 并不算是严格意义的 内部 API，因为这些 API 已经被大量应用在编译器插件和 IntelliJ 插件的实现当中了。不过，由于 Kotlin 编译器还在不断地重写过程中，因此抽象出 Kotlin 符号的 概念来屏蔽 Kotlin 编译器的内部实现显然是一个更好的选择，这与 APT 的实现如出一辙。</p>
+<p>Kotlin 符号的实现依赖于语法树的实现，二者从命名和用法上也有着非常接近的地方。Kotlin 的符号类型都实现自 KSNode 接口，例如类符号 KSClassDeclaration，函数符号KSFunction，等等，这些对应于 APT 当中的 Element 接口及其实现类。</p>
+<p>与 Java 符号相同，Kotlin 的符号也是基于语法树节点构造出来的，只包含类、函数、 变量这样的符号信息，而不包含函数体、语句、表达式内容等等。</p>
+<h3 id="_3">符号与语法树节点的关系和区别</h3>
+<p>前面已经提到，符号是基于语法树构造出来的，它只包含语法树当中的部分信息。确切地说，符号只包含程序的 ABI(Application Binary Interface，二进制接口)信息。</p>
+<p>如果我们希望检查函数的命名是否符合代码规范，可以基于对符号的处理设计实现方案。但如果我们希望检查的是局部变量，那么只处理符号可能就有些力不从心了，因为符号当中只包含 类的成员变量而不包含局部变量。</p>
+<h2 id="_4">处理器的基本结构</h2>
+<h3 id="apt">APT 的基本结构</h3>
+<ul>
+<li>初始化</li>
+<li>声明和配置处理器参数</li>
+<li>声明处理器支持的注解类型</li>
+<li>声明处理器支持的 Java 源码版本</li>
+<li>核心处理方法</li>
+</ul>
+<h3 id="ksp">KSP 的基本结构</h3>
+<p>KSP 的处理器只有三个函数:</p>
+<ul>
+<li>finish: 在处理器执行完成时调用。如果有需要关闭的资源，可以在这里处理。</li>
+<li>onError: 处理器执行过程中遇到错误，在执行完毕之后调用。</li>
+<li>process: 提供处理器的核心实现，通过读取符号信息，处理代码分析或者文件生成等逻辑。</li>
+</ul>
+<h3 id="apt-ksp">APT 与 KSP 的处理器的结构差异</h3>
+<p>KSP 没有像 APT 那样要求处理器明确给出支持的源码版本、注解类型和参数。KSP 的版本是与 Kotlin 编译器的版本绑定的，其中隐含了支持的最新的 Kotlin 源码版本。</p>
+<p>APT 需要在处理器实现当中声明支持的注解类型，Java 编译器会在调用处理器之前根据源 码的实际情况来决定是否调用该处理器。相比之下，KSP 似乎并没有打算把自己限制于对注解的 处理范围之内。尽管它提供了很多与 APT 相似的 API，但在 KSP 当中直接获取所有的符号进行分析处理似乎是顺理成章的。</p>
+<p>APT 要求在处理器当中声明需要的参数，这样使用者就能更清楚地知道处理器需要哪些参数。 然而，APT 没有对参数的传递做强制要求，因此不能对使用者形成有效的引导和约束。KSP 干 脆不要求处理器对参数做声明，处理器的开发者只需要在文档当中对参数做好说明并在处理器当中处理好参数缺省的情况即可。</p>
+<h3 id="_5">处理器的配置文件</h3>
+<p>在了解了处理器的基本结构之后，我们还需要通过配置文件将处理器接入到编译流程当中， 让编译器在编译时可以加载并执行它们。由于 Java 和 Kotlin 编译器都是 JVM 程序，因此配置文件需要放到编译器运行时的 classpath 当中。</p>
+<h2 id="_6">深入符号和类型</h2>
+<p>本节介绍如何获取符号当中的信息，这也是符号处理过程当中最核心的内容。</p>
+<h3 id="_7">获取修饰符</h3>
+<p>获取符号的修饰符，在 APT 当中可以使用 Element#getModifiers()，这个方法适用于所有符号，因此如果我们希望判断一个类是不是公有的，只需要判断它的修 饰符集合当中是否包含 PUBLIC。</p>
+<p>在 KSP 当中同样有类似的 API，即 KSModifierListOwner#modifiers，用法与 APT 类似。</p>
+<h3 id="_8">通过名称获取相应的符号</h3>
+<p>在 APT 当中，我们可以使用 Elements#getTypeElement(CharSequence) 获取参数对应的符号，其中 Elements 的实例可以通过 ProcessingEnvironment 获取。</p>
+<p>在 KSP 当中，可以通过 Resolver#getClassDeclarationByName(String) 来获取类符号，参数也可以是 KSName 类型。</p>
+<p>我们还可以使用 Resolver#getFunctionDeclarationsByName(String, Boolean) 获取函数符号，使用Resolver#getPropertyDeclarationByName(String, Boolean) 来获取属性符号。</p>
+<h3 id="_9">获取符号的类型</h3>
+<p>在 APT 当中，任何符号都可以通过 Element#asType() 方法来获取它的类型，返回值类型为 TypeMirror。</p>
+<p>在 KSP 当中获取符号的类型也很容易。主要有两种情况，一种是通过类符号直接获取类型，另一种是通过类型引用符号解析类型。</p>
+<p>那么，KSP 为什么要这么设计呢?</p>
+<p>因为类型引用符号与其他符号一样，是源代码的直接表示，无需通过语义分析就可以获取到; 而解析类型引用符号是在所有类型中查找所引用的类型的过程，这个过程需要依赖语义分析的结果，有一定的开销。KSP 当中引入类型引用符号，使得类型的解析延迟到使用时，也是一种性能 上的优化。</p>
+<h3 id="_10">通过类型获取符号</h3>
+<p>一个类型只有在代码当中定义之后才会出现在类型系统当中，因而任何类型都可以找到它对应的符号。</p>
+<p>在 APT 当中，想要通过 TypeMirror 获取它对应的 Element，需要借助 Types#asElement() 方法，其中 Types 的实例可以在处理器的 init 方法当中通过 ProcessingEnvironment 获取。</p>
+<p>在 KSP 当中，获取类型对应的符号可以直接使用 KSType#declaration。</p>
+<h3 id="_11">判断类型之间的关系</h3>
+<p>类型之间存在相同(Same)、可赋值(Assignable)、子类型(Subtype)等关系。</p>
+<h4 id="_12">相同类型</h4>
+<p>相同类型很容易理解，在 APT 当中可以使用 Types#isSameType(TypeMirror,TypeMirror) 来判断两个 TypeMirror 实例是否是相同的类型。</p>
+<p>在 KSP 当中，判断两个类型是否相同非常直接，使用 equals 运算符即可。</p>
+<h4 id="_13">可赋值类型和子类型</h4>
+<p>可赋值类型和子类型的表述在 Kotlin 当中没有实质的区别，即在 Kotlin 当中如果类 型 A 的实例可以赋值给类型 B 的变量，那么 A 类型就是 B 类型的子类型。</p>
+<p>不过在 Java 当中，可赋值类型和子类型却不完全相同。尽管我们也经常通过两个类型是 否可赋值来判断二者之间是否存在子类型关系，不过在 Java 当中这并不是绝对的。</p>
+<p>因此，我们可以看到 APT 当中，Types 提供了 isAssignable 来判断类型的可赋值关 系，以及 isSubtype 来判断类型的父子关系。而在 KSP 当中就比较简单了，KSType 只有一个 isAssignableFrom 来判断类型的可赋值关系。</p>
+<h3 id="_14">获取注解及其参数值</h3>
+<p>我们可以通过符号获取到标注于它之上的注解，并进而获取到其中的值。</p>
+<p>如果使用 APT 来处理这段代码，我们可以通过 RoundEnvironment 和注解符号直接获取到被注解标注的符号，通过这些符号再获取注解的参数。如果注解处理器的运行时可见，我们可以直接使用 getElementsAnnotatedWith 来获取注解的参数。</p>
+<p>KSP 当中同样也存在这两种相似的做法。如果注解在处理器运行时不可见，我们同样需要通过处理符号来获取注解的信息。</p>
+<h2 id="_15">深入理解符号处理器</h2>
 
   <hr>
 <div class="md-source-file">
   <small>
     
       最后更新:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">April 2, 2024</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">April 3, 2024</span>
       
     
   </small>
@@ -1586,7 +1941,7 @@
       <nav class="md-footer__inner md-grid" aria-label="页脚" >
         
           
-          <a href="../../../practical/memory/memory-usage-analyse/" class="md-footer__link md-footer__link--prev" aria-label="上一页: App 内存占用分析" rel="prev">
+          <a href="../code-generate/" class="md-footer__link md-footer__link--prev" aria-label="上一页: 源代码生成" rel="prev">
             <div class="md-footer__button md-icon">
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
             </div>
@@ -1595,20 +1950,20 @@
                 上一页
               </span>
               <div class="md-ellipsis">
-                App 内存占用分析
+                源代码生成
               </div>
             </div>
           </a>
         
         
           
-          <a href="../news-2024-03/" class="md-footer__link md-footer__link--next" aria-label="下一页: Android 性能优化技术月报 | 2024 年 3 月" rel="next">
+          <a href="../../framework/activity-start/" class="md-footer__link md-footer__link--next" aria-label="下一页: Activity 启动流程分析" rel="next">
             <div class="md-footer__title">
               <span class="md-footer__direction">
                 下一页
               </span>
               <div class="md-ellipsis">
-                Android 性能优化技术月报 | 2024 年 3 月
+                Activity 启动流程分析
               </div>
             </div>
             <div class="md-footer__button md-icon">
