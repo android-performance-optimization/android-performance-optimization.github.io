@@ -36,6 +36,11 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://android-performance-optimization.github.io/foundation/kotlin-meta-programming/meta-programming-debug/</loc>
+         <lastmod>2024-04-11</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://android-performance-optimization.github.io/foundation/kotlin-meta-programming/runtime-reflect/</loc>
          <lastmod>2024-04-11</lastmod>
          <changefreq>daily</changefreq>

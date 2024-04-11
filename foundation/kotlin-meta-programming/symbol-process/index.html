@@ -646,6 +646,8 @@
         
           
         
+          
+        
       
       
         <label class="md-nav__link" for="__nav_3_2" id="__nav_3_2_label" tabindex="0">
@@ -977,6 +979,20 @@
     <li class="md-nav__item">
       <a href="../compiler-extension/" class="md-nav__link">
         编译器插件
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../meta-programming-debug/" class="md-nav__link">
+        元程序的开发和调试
       </a>
     </li>
   
@@ -1944,7 +1960,7 @@
 <p>需要注意的是，Java 符号并不等同于 Java 抽象语法树(Abstract Syntax Tree， 缩写为 AST)节点，Java 语法树的节点类都是 JCTree 的子类，其中 JC 代表 Javac。与 Symbol 和 Type 相同，JCTree 也是 Java 编译器的内部实现，我们只需要清楚 Java 符 号是基于 Java 语法树创建出来的，它只包含语法树结构当中的类、方法、变量等结构，但不包含函数体、表达式内容等信息即可。</p>
 <h3 id="kotlin">Kotlin 的符号</h3>
 <p>Kotlin 的符号在 Google 的开源项目 KSP(Kotlin Symbol Processing，Kotlin 符号处理)当中给出，该项目目前已经成为 Kotlin 官方推荐的符号处理方案。</p>
-<p>Kotlin 目前存在两套语法树实现，即 FE1.0 的 PSI 和 K2 编译器当 中的 FIR。与 Java 不同，Kotlin 的语法树的 API 并不算是严格意义的 内部 API，因为这些 API 已经被大量应用在编译器插件和 IntelliJ 插件的实现当中了。不过，由于 Kotlin 编译器还在不断地重写过程中，因此抽象出 Kotlin 符号的 概念来屏蔽 Kotlin 编译器的内部实现显然是一个更好的选择，这与 APT 的实现如出一辙。</p>
+<p>Kotlin 目前存在两套语法树实现，即 FE1.0 的 PSI 和 K2 编译器当 中的 FIR。与 Java 不同，Kotlin 的语法树的 API 并不算是严格意义的 内部 API，因为这些 API 已经被大量应用在编译器插件和 IntelliJ 插件的实现当中了。不过，由于 Kotlin 编译器还在不断地重写过程中，因此抽象出 Kotlin 符号的概念来屏蔽 Kotlin 编译器的内部实现显然是一个更好的选择，这与 APT 的实现如出一辙。</p>
 <p>Kotlin 符号的实现依赖于语法树的实现，二者从命名和用法上也有着非常接近的地方。Kotlin 的符号类型都实现自 KSNode 接口，例如类符号 KSClassDeclaration，函数符号KSFunction，等等，这些对应于 APT 当中的 Element 接口及其实现类。</p>
 <p>与 Java 符号相同，Kotlin 的符号也是基于语法树节点构造出来的，只包含类、函数、 变量这样的符号信息，而不包含函数体、语句、表达式内容等等。</p>
 <h3 id="_3">符号与语法树节点的关系和区别</h3>
@@ -2050,7 +2066,7 @@
   <small>
     
       最后更新:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">April 10, 2024</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">April 11, 2024</span>
       
     
   </small>

@@ -10,20 +10,20 @@
       
       
       
-        <link rel="canonical" href="https://android-performance-optimization.github.io/foundation/tools/native-hook/">
+        <link rel="canonical" href="https://android-performance-optimization.github.io/foundation/kotlin-meta-programming/meta-programming-debug/">
       
       
-        <link rel="prev" href="../../framework/activity-start/">
+        <link rel="prev" href="../compiler-extension/">
       
       
-        <link rel="next" href="../../../practical/compile/compile-acceleration/">
+        <link rel="next" href="../../framework/activity-start/">
       
       <link rel="icon" href="../../../assets/favicon.png">
       <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.1.16">
     
     
       
-        <title>Native Hook 快速上手 - Android 性能优化手册</title>
+        <title>元程序的开发和调试 - Android 性能优化手册</title>
       
     
     
@@ -75,7 +75,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#native-hook" class="md-skip">
+        <a href="#_1" class="md-skip">
           跳转至
         </a>
       
@@ -113,7 +113,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Native Hook 快速上手
+              元程序的开发和调试
             
           </span>
         </div>
@@ -619,14 +619,16 @@
               
   
   
+    
+  
   
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
       
       
       
-      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2" >
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2" checked>
       
       
         
@@ -653,7 +655,7 @@
           <span class="md-nav__icon md-icon"></span>
         </label>
       
-      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_2_label" aria-expanded="false">
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_2_label" aria-expanded="true">
         <label class="md-nav__title" for="__nav_3_2">
           <span class="md-nav__icon md-icon"></span>
           深入实践 Kotlin 元编程
@@ -666,7 +668,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../kotlin-meta-programming/meta-programming-basic/" class="md-nav__link">
+      <a href="../meta-programming-basic/" class="md-nav__link">
         元编程概述
       </a>
     </li>
@@ -680,7 +682,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../kotlin-meta-programming/meta-data-introduction/" class="md-nav__link">
+      <a href="../meta-data-introduction/" class="md-nav__link">
         元数据简介
       </a>
     </li>
@@ -694,7 +696,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../kotlin-meta-programming/runtime-reflect/" class="md-nav__link">
+      <a href="../runtime-reflect/" class="md-nav__link">
         运行时的反射
       </a>
     </li>
@@ -708,7 +710,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../kotlin-meta-programming/code-generate/" class="md-nav__link">
+      <a href="../code-generate/" class="md-nav__link">
         源代码生成
       </a>
     </li>
@@ -722,7 +724,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../kotlin-meta-programming/symbol-process/" class="md-nav__link">
+      <a href="../symbol-process/" class="md-nav__link">
         编译时的符号处理
       </a>
     </li>
@@ -736,7 +738,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../kotlin-meta-programming/code-static-analyse/" class="md-nav__link">
+      <a href="../code-static-analyse/" class="md-nav__link">
         程序静态分析
       </a>
     </li>
@@ -750,7 +752,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../kotlin-meta-programming/compiler-extension/" class="md-nav__link">
+      <a href="../compiler-extension/" class="md-nav__link">
         编译器插件
       </a>
     </li>
@@ -762,11 +764,93 @@
               
   
   
+    
   
-    <li class="md-nav__item">
-      <a href="../../kotlin-meta-programming/meta-programming-debug/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          元程序的开发和调试
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         元程序的开发和调试
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#kotlin-compile-testing" class="md-nav__link">
+    使用 kotlin-compile-testing 编写单元测试
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    在实际项目当中集成
+  </a>
+  
+    <nav class="md-nav" aria-label="在实际项目当中集成">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    工程的组织形式
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#kotlin" class="md-nav__link">
+    单步调试 Kotlin 编译器
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#kotlin_1" class="md-nav__link">
+    Kotlin 编译器的日志输出
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    本章小结
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -835,16 +919,14 @@
               
   
   
-    
-  
   
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
       
       
       
-      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_4" checked>
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_4" >
       
       
         
@@ -857,7 +939,7 @@
           <span class="md-nav__icon md-icon"></span>
         </label>
       
-      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_4_label" aria-expanded="true">
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_4_label" aria-expanded="false">
         <label class="md-nav__title" for="__nav_3_4">
           <span class="md-nav__icon md-icon"></span>
           实用工具系列
@@ -868,174 +950,11 @@
               
   
   
-    
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          Native Hook 快速上手
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../../tools/native-hook/" class="md-nav__link">
         Native Hook 快速上手
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="目录">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      目录
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#_1" class="md-nav__link">
-    前言
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#native-hook_1" class="md-nav__link">
-    Native Hook 是什么？
-  </a>
-  
-    <nav class="md-nav" aria-label="Native Hook 是什么？">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#plt-hook" class="md-nav__link">
-    PLT Hook
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#inline-hook" class="md-nav__link">
-    Inline Hook
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
-    小结
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#native-hook_2" class="md-nav__link">
-    Native Hook 实战
-  </a>
-  
-    <nav class="md-nav" aria-label="Native Hook 实战">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#hook" class="md-nav__link">
-    Hook 函数
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#native" class="md-nav__link">
-    获取 native 堆栈
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
-    还原堆栈信息
-  </a>
-  
-    <nav class="md-nav" aria-label="还原堆栈信息">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#so" class="md-nav__link">
-    确认 so 文件名称
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_4" class="md-nav__link">
-    计算函数偏移地址
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_5" class="md-nav__link">
-    还原函数名及行号
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_6" class="md-nav__link">
-    总结
-  </a>
-  
-    <nav class="md-nav" aria-label="总结">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#_7" class="md-nav__link">
-    参考资料
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_8" class="md-nav__link">
-    源码
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -1677,98 +1596,37 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#_1" class="md-nav__link">
-    前言
+  <a href="#kotlin-compile-testing" class="md-nav__link">
+    使用 kotlin-compile-testing 编写单元测试
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#native-hook_1" class="md-nav__link">
-    Native Hook 是什么？
-  </a>
-  
-    <nav class="md-nav" aria-label="Native Hook 是什么？">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#plt-hook" class="md-nav__link">
-    PLT Hook
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#inline-hook" class="md-nav__link">
-    Inline Hook
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
   <a href="#_2" class="md-nav__link">
-    小结
+    在实际项目当中集成
   </a>
   
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#native-hook_2" class="md-nav__link">
-    Native Hook 实战
-  </a>
-  
-    <nav class="md-nav" aria-label="Native Hook 实战">
+    <nav class="md-nav" aria-label="在实际项目当中集成">
       <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#hook" class="md-nav__link">
-    Hook 函数
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#native" class="md-nav__link">
-    获取 native 堆栈
-  </a>
-  
-</li>
         
           <li class="md-nav__item">
   <a href="#_3" class="md-nav__link">
-    还原堆栈信息
-  </a>
-  
-    <nav class="md-nav" aria-label="还原堆栈信息">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#so" class="md-nav__link">
-    确认 so 文件名称
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_4" class="md-nav__link">
-    计算函数偏移地址
+    工程的组织形式
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#_5" class="md-nav__link">
-    还原函数名及行号
+  <a href="#kotlin" class="md-nav__link">
+    单步调试 Kotlin 编译器
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#kotlin_1" class="md-nav__link">
+    Kotlin 编译器的日志输出
   </a>
   
 </li>
@@ -1779,29 +1637,9 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_6" class="md-nav__link">
-    总结
+  <a href="#_4" class="md-nav__link">
+    本章小结
   </a>
-  
-    <nav class="md-nav" aria-label="总结">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#_7" class="md-nav__link">
-    参考资料
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_8" class="md-nav__link">
-    源码
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
@@ -1823,259 +1661,46 @@
   
 
 
-<h1 id="native-hook">Native Hook 快速上手</h1>
-<h2 id="_1">前言</h2>
-<p>Hook 原意是指钩子，它表示的就是在某个函数的上下文做自定义的处理来实现我们想要的黑科技</p>
-<p>大家可能比较熟悉 Java 层的一些 Hook 技术，比如反射，动态代理，或者 ASM 字节码插桩</p>
-<p>在 Java 层之外，Android 系统还有很大一部分属于 Native 层，有时不可避免的需要用到 Native Hook 技术</p>
-<p>本文主要介绍 Native Hook 是什么，以及如何通过一个例子快速上手</p>
-<h2 id="native-hook_1">Native Hook 是什么？</h2>
-<p>Native Hook 技术通常有以下两种实现方式</p>
+<h1 id="_1">元程序的开发和调试</h1>
+<p>本文为《深入实践 kotlin 元编程》读书笔记，想要深入了解 kotlin 元编程的同学可以阅读原书。</p>
+<h2 id="kotlin-compile-testing">使用 kotlin-compile-testing 编写单元测试</h2>
+<p>元编程的逻辑通常较为抽象，我们可以通过单元测试将各种边界用例记录下来，并在功能迭代之时不断对元程序进行验证，为元程序提供可靠性保证。同时，我们也能在运行单元测试时通
+过断点调试、日志输出的方式对编译器内部的结构和逻辑进行深入分析，以加深对编译器内部细节的认识和理解，降低开发难度和成本。</p>
 <ul>
-<li>PLT Hook：通过修改 GOT 表，将目标函数的地址指向自定义的 Hook 函数的地址，从而拦截和修改目标函数的行为。</li>
-<li>Inline Hook：直接将函数开始处的指令更替为跳转指令，使得原函数直接跳转到 Hook 的目标函数函数</li>
+<li>编译器的调用和调试</li>
+<li>检查 KAPT 的输出</li>
+<li>添加对 KSP 的支持</li>
+<li>运行编译后的程序</li>
+<li>打印变换之后的 IR</li>
+<li>多模块编译</li>
 </ul>
-<p>我们下面来分别介绍一下</p>
-<h3 id="plt-hook">PLT Hook</h3>
-<p>PLT Hook 用一句描述就是：通过修改 GOT 表，将目标函数的地址指向自定义的 Hook 函数的地址，从而拦截和修改目标函数的行为。那么 GOT 表是什么呢？这需要我们对 SO 库文件的 ELF 文件格式和动态链接过程有所了解。</p>
-<p>ELF(Executable and Linkable Format) 文件格式是一种可执行文件和可链接文件格式，它是现代Unix和Linux系统上最常见的二进制文件格式之一，so 库其实就是一个 ELF 文件</p>
-<p><img alt="" src="https://raw.gitmirror.com/RicardoJiang/resource/main/2023/march/p1.png" /></p>
-<p>ELF 文件格式也比较复杂，我们这里主要关心<code>.plt</code>与<code>.got</code>两个表</p>
-<ul>
-<li>The Global Offset Table/全局偏移量表 (GOT)。简单来说就是在数据段的地址表，假定我们有一些代码段的指令引用一些地址变量，编译器会引用 GOT 表来替代直接引用绝对地址，因为绝对地址在编译期是无法知道的，只有重定位后才会得到 ，GOT 自己本身将会包含函数引用的绝对地址。</li>
-<li>The Procedure Linkage Table/过程链接表 (PLT)。PLT 不同于 GOT，它位于代码段，动态库的每一个外部函数都会在 PLT 中有一条记录，每一条 PLT 记录都是一小段可执行代码。一般来说，外部代码都是在调用 PLT 表里的记录，然后 PLT 的相应记录会负责调用实际的函数。我们一般把这种设定叫作“蹦床”（Trampoline）。</li>
-</ul>
-<p>简单来说，对于其它 so 中的函数，在编译期无法确定其地址，只有在运行时才能获取，因此需要查询 GOT 表来查询外部函数的绝对地址。外部库函数的绝对地址在 got 表中的初始值都是 0 ，只有当实际调用这个函数时，Linker 程序才会写入实际的地址。</p>
-<p>因此如果我们想要实现 native hook，只需要把 got 表中的目标函数的地址修改为我们自定义的地址即可。</p>
-<p>那么在这个过程中，PLT 表的作用又是什么呢？</p>
-<p>实际上，在函数调用的过程中，会先跳转到 PLT 表，它位于代码段，每一条 PLT 记录都是一小段可执行代码，这段代码会查询 GOT 表，获取真实地址然后跳转对应的函数</p>
-<p>听起来有些多此一举，实际上 PLT 表可以起到延迟绑定的作用，只有当真正调用目标函数时，got 表中才会去绑定真实地址，如果没有调用则不绑定。因为很多函数可能在程序执行完时都不会被用到，那么一开始把所有函数都链接好实际是一种浪费。这就是 PLT 表起到的作用</p>
-<p>因此在 So 中调用外部函数的实际过程如下所示:</p>
-<p><img alt="" src="https://raw.gitmirror.com/RicardoJiang/resource/main/2023/march/p2.jpg" /></p>
-<p>在了解了 PLT HOOK 的基本原理之后，其实我们可以自己解析 got 表然后替换为自定义的函数地址实现 hook，也可以使用一些已经比较成熟的库</p>
-<ul>
-<li><a href="https://github.com/bytedance/bhook">https://github.com/bytedance/bhook</a>    </li>
-<li><a href="https://github.com/iqiyi/xHook">https://github.com/iqiyi/xHook</a></li>
-</ul>
-<p>本文后面的实战都是使用 bhook 实现 hook的</p>
-<h3 id="inline-hook">Inline Hook</h3>
-<p>从上面的介绍我们可以看出，PLT Hook 存在一定的局限性，它只能 hook 外部 so 的调用，但如果要 hook 当前的 so 呢？</p>
-<p>Hook so 内部调用可以通过 Inline Hook 实现</p>
-<p>Inline Hook 是通过在程序运行时动态修改内存中的汇编指令，来改变程序执行流程的一种 Hook 方式，它的基本原理是直接将函数开始处的指令更替为跳转指令，使得原函数直接跳转到 Hook 的目标函数函数，并保留被覆盖的原指令以完成后续再调用回来的目的。</p>
-<p><img alt="" src="https://raw.gitmirror.com/RicardoJiang/resource/main/2023/march/p3.png" /></p>
-<p>Inline Hook 的基本流程如上所示，主要分为以下几步</p>
-<ol>
-<li>拷贝原函数的头部两条汇编指令，并覆盖成跳转到自定义函数的指令</li>
-<li>执行自定义函数，再执行前面被覆盖的两条指令</li>
-<li>执行后续指令</li>
-</ol>
-<p>与 PLT Hook 方式相比，Inline Hook 更加强大，几乎可以 Hook 任何函数，但由于其实现十分复杂，需要直接修改汇编指令，因此会有很多兼容性问题，不太稳定，因此如果想要使用的话推荐直接使用相应的开源库，比如字节开源的：<a href="https://github.com/bytedance/android-inline-hook">https://github.com/bytedance/android-inline-hook</a></p>
-<h3 id="_2">小结</h3>
-<p>总得来说，两种 Native Hook 方式各有优劣，可根据实际情况使用</p>
-<ul>
-<li>PLT HooK的优点在于稳定，缺点则在于只能 Hook 外部函数的调用</li>
-<li>Inline Hook的优点在于可以 hook so 内部调用，缺点则在于不够稳定，存在一定的兼容问题</li>
-</ul>
-<h2 id="native-hook_2">Native Hook 实战</h2>
-<p>接下来我们通过 Native Hook 技术来实现对 Native 内存申请的监控，主要支持以下功能</p>
-<ol>
-<li>添加对 malloc, free 函数的 hook，支持统计 so 的内存申请与释放情况</li>
-<li>当申请超大内存时，支持获取 native 堆栈以定位问题</li>
-<li>直接获取的 native 堆栈是个 16 进制数组，无法看出有效信息，因此还需要将解析堆栈还原出 so 名与函数信息</li>
-</ol>
-<h3 id="hook">Hook 函数</h3>
-<p>我们这里通过 bhook 库来实现对 malloc, free 函数的 hook，如下所示</p>
-<pre><code class="language-c++">void *malloc_proxy(size_t len) {
-    BYTEHOOK_STACK_SCOPE();
-    Dl_info callerInfo = {};
-    if (dladdr(__builtin_return_address(0), &amp;callerInfo)) {
-        // 统计分配的内存
-        onMalloc(callerInfo.dli_fname, len);
-    }
-    // ...
-    void *object = BYTEHOOK_CALL_PREV(malloc_proxy, len);
-    objMap[object] = len;
-    return object;
-}
-
-void free_proxy(void *__ptr) {
-    BYTEHOOK_STACK_SCOPE();
-    Dl_info callerInfo = {};
-    if (dladdr(__builtin_return_address(0), &amp;callerInfo)) {
-        auto len = objMap.find(__ptr);
-        // 统计 free的内存
-        onFree(callerInfo.dli_fname, len-&gt;second);
-    }
-    return BYTEHOOK_CALL_PREV(free_proxy, __ptr);
-}
-
-void hookMemory() {
-    bytehook_hook_all(nullptr, &quot;malloc&quot;, (void *) malloc_proxy,
-                      nullptr,
-                      nullptr);
-    bytehook_hook_all(nullptr, &quot;free&quot;, (void *) free_proxy,
-                      nullptr,
-                      nullptr);
-}
-</code></pre>
-<p>hook 的逻辑非常简单，通过调用<code>bytehook_hook_all</code>，指定要<code>hook</code>的方法与代理方法，所有的<code>malloc</code>方法调用都会被代理到<code>malloc_proxy</code>方法，所有的<code>free</code>方法调用也会被代理到<code>free_proxy</code>方法中</p>
-<p>然后我们在代理方法中加入 so 分配与回收内存的监控，就可以统计出一个 so 库一共申请了多少内存，释放了多少内存，打印出来的日志如下所示</p>
-<pre><code>So /apex/com.android.art/lib64/libart-compiler.so allocated 581632 bytes, freed 2883686 bytes
-So /apex/com.android.art/lib64/libc++.so allocated 2779694 bytes, freed 2640 bytes
-So /apex/com.android.art/lib64/liblzma.so allocated 9071256 bytes, freed 9071256 bytes
-So /apex/com.android.i18n/lib64/libicuuc.so allocated 36428 bytes, freed 1164 bytes
-So /apex/com.android.runtime/lib64/bionic/libc.so allocated 33360 bytes, freed 0 bytes
-So /apex/com.android.vndk.v30/lib64/libc++.so allocated 10944 bytes, freed 0 bytes
-So /data/app/~~6Mf4VQY4K16aFji1rZ4dkg==/com.zj.android.performance-XHR75TrkIVbXU9GfDYgZGg==/lib/arm64/libandroid-performance.so allocated 184549424 bytes, freed 184549424 bytes
-So /data/app/~~6Mf4VQY4K16aFji1rZ4dkg==/com.zj.android.performance-XHR75TrkIVbXU9GfDYgZGg==/lib/arm64/libmemory-hook.so allocated 3310960 bytes, freed 2776978 bytes
-So /system/lib64/libbinder.so allocated 129408 bytes, freed 462200 bytes
-So /system/lib64/libc++.so allocated 14428072 bytes, freed 864 bytes
-So /system/lib64/libhwui.so allocated 725687 bytes, freed 11980415 bytes
-So /system/lib64/libutils.so allocated 1896281 bytes, freed 2132345 bytes
-So /system/lib64/libz.so allocated 565024 bytes, freed 565024 bytes
-</code></pre>
-<h3 id="native">获取 native 堆栈</h3>
-<p>除了统计 So 内存使用情况之外，在申请超大内存时，我们也可以获取 native 堆栈以方便定位问题</p>
-<p>目前，在 Android 中获取 Native 堆栈的方法基本上都是通过 CFI 来实现的。CFI 代表 Call Frame Information，即帧调用信息。在程序运行时，当 Native 函数执行进入栈指令时，它会将对应指令的信息（即 CFI ）写入 so 文件中的 .eh_frame 和 .eh_frame_hdr 段中，这两个段是 so 文件中的段之一。因此，要获取 Native 堆栈，只需要读取这两个段中的数据即可。</p>
-<p>在 Android 系统中，我们可以使用 libunwind 库来直接获取 Native 堆栈信息，其底层原理实际上也是通过读取 CFI 来实现的</p>
-<pre><code class="language-c++">#include &lt;unwind.h&gt; //引入 unwind 库
-
-struct backtrace_stack {
-    void **current;
-    void **end;
-};
-
-static _Unwind_Reason_Code unwind_callback(struct _Unwind_Context *context, void *data) {
-    auto *state = (struct backtrace_stack *) (data);
-    uintptr_t pc = _Unwind_GetIP(context);  // 获取 pc 值，即绝对地址
-    if (pc) {
-        if (state-&gt;current == state-&gt;end) {
-            return _URC_END_OF_STACK;
-        } else {
-            *state-&gt;current++ = (void *) (pc);
-        }
-    }
-    return _URC_NO_REASON;
-}
-
-static size_t fill_backtraces_buffer(void **buffer, int max) {
-    struct backtrace_stack stack = {buffer, buffer + max};
-    _Unwind_Backtrace(unwind_callback, &amp;stack);
-    return stack.current - buffer;
-}
-
-void *malloc_proxy(size_t len) {
-    // ...
-    if (len &gt; 80 * 1024 * 1024) {
-        // 当申请内存大小大于 80M 时获取堆栈
-        int maxStackSize = 30;
-        void *buffer[maxStackSize];
-        int count = fill_backtraces_buffer(buffer, maxStackSize);
-        dumpBacktrace(buffer, count);
-    }
-    // ...
-    return object;
-}
-</code></pre>
-<p>如上所示，当申请内存大小大于 80M 时，我们通过 unwind 来获取堆栈，将将获取的堆栈放入 buffer 数组中</p>
-<p>但是我们获得的 buffer 数组只是 16 进制的地址，根本看不出有效信息，如下所示：</p>
-<p><img alt="" src="https://raw.gitmirror.com/RicardoJiang/resource/main/2023/march/p4.jpg" /></p>
-<p>因此我们还要进行下一步，还原堆栈信息</p>
-<h3 id="_3">还原堆栈信息</h3>
-<p>要将16进制的地址堆栈还原成带有效信息的堆栈，通常需要完成以下三个步骤：</p>
-<ol>
-<li>首先要确认相关的 so 文件名称；</li>
-<li>接下来需要计算相应的偏移地址；</li>
-<li>最后，基于带符号表（ELF文件中的一张表，存放了函数、方法、变量等名称符号信息）的so文件，还原指针对应的函数名和行数。</li>
-</ol>
-<h4 id="so">确认 so 文件名称</h4>
-<p>我们可以通过<code>dladdr</code>函数来查询 so 文件名，函数定义如下</p>
-<pre><code class="language-c++">int  dladdr ( void * addr , Dl_info * info ) ;
-
-typedef struct {
-    const char *dli_fname;   //地址对应的 so 名
-    void       *dli_fbase;   //对应so库的基地址
-    const char *dli_sname;   //如果so库有符号表，这会显示离地址最近的函数名
-    void       *dli_saddr;   //符号表中，离地址最近的函数的地址
-} Dl_info;
-</code></pre>
-<p>我们将函数地址传入<code>dladdr</code>函数，就可以获取相应的 so 库名称与基地址，如下所示： </p>
-<pre><code class="language-c++">void dumpBacktrace(void **buffer, size_t count) {
-    for (int i = 0; i &lt; count; ++i) {
-        void *addr = buffer[i];
-        Dl_info info = {};
-        if (dladdr(addr, &amp;info)) {
-            LOG(&quot;# %d : %p : %s(%s)(%p)&quot;, i, addr, info.dli_fname,
-                info.dli_sname, info.dli_saddr);
-        }
-    }
-}
-</code></pre>
-<p>通过<code>dladdr</code>函数获取的堆栈打印如下所示：</p>
-<pre><code># 0 : 0x767174309c : /data/app/~~6Mf4VQY4K16aFji1rZ4dkg==/com.zj.android.performance-XHR75TrkIVbXU9GfDYgZGg==/lib/arm64/libmemory-hook.so(0x2609c)((null))(0x0)
-# 1 : 0x7671742ec8 : /data/app/~~6Mf4VQY4K16aFji1rZ4dkg==/com.zj.android.performance-XHR75TrkIVbXU9GfDYgZGg==/lib/arm64/libmemory-hook.so(0x25ec8)(_Z12malloc_proxym)(0x7671742dbc)
-# 2 : 0x76712f23d8 : /data/app/~~6Mf4VQY4K16aFji1rZ4dkg==/com.zj.android.performance-XHR75TrkIVbXU9GfDYgZGg==/lib/arm64/libandroid-performance.so(0x203d8)(Java_com_zj_android_performance_jni_NativeLibTest_testMalloc)(0x76712f23a8)
-# 3 : 0x7691222248 : /apex/com.android.art/lib64/libart.so(0x222248)((null))(0x0)
-# 4 : 0x7691218968 : /apex/com.android.art/lib64/libart.so(0x218968)((null))(0x0)
-# 5 : 0x7691285ff4 : /apex/com.android.art/lib64/libart.so(0x285ff4)(_ZN3art9ArtMethod6InvokeEPNS_6ThreadEPjjPNS_6JValueEPKc)(0x7691285f30)
-# 6 : 0x76913ea3ec : /apex/com.android.art/lib64/libart.so(0x3ea3ec)(_ZN3art11interpreter34ArtInterpreterToCompiledCodeBridgeEPNS_6ThreadEPNS_9ArtMethodEPNS_11ShadowFrameEtPNS_6JValueE)(0x76913ea254)
-# 7 : 0x76913e4f88 : /apex/com.android.art/lib64/libart.so(0x3e4f88)(_ZN3art11interpreter6DoCallILb0ELb0EEEbPNS_9ArtMethodEPNS_6ThreadERNS_11ShadowFrameEPKNS_11InstructionEtPNS_6JValueE)(0x76913e4c48)
-# 8 : 0x769175fd10 : /apex/com.android.art/lib64/libart.so(0x75fd10)(MterpInvokeVirtual)(0x769175f878)
-# 9 : 0x7691203818 : /apex/com.android.art/lib64/libart.so(0x203818)((null))(0x0)
-# 10 : 0x769176b3f4 : /apex/com.android.art/lib64/libart.so(
-# 11 : 0x7691203998 : /apex/com.android.art/lib64/libart.so(0x203998)((null))(0x0)
-# 12 : 0x769176b3f4 : /apex/com.android.art/lib64/libart.so(
-# 13 : 0x7691203998 : /apex/com.android.art/lib64/libart.so(0x203998)((null))(0x0)
-# 14 : 0x76913dcd30 : /apex/com.android.art/lib64/libart.so(0x3dcd30)((null))(0x0)
-
-malloc 92274688 byte success
-</code></pre>
-<p>可以看出，在有符号表的情况下，so 名与函数名都正确的打印出来了，而对于 libart，由于已经移除了符号表，则显示为 null ，地址也为 0 </p>
-<h3 id="_4">计算函数偏移地址</h3>
-<p>通过<code>dladdr</code>函数，我们已经获取了堆栈的 so 名与函数名，那可不可以具体定位到到底是函数的哪一行出现了问题吗？</p>
-<p>我们可以通过 NDK 的 addr2line 工具，根据函数偏移地址，获取地址对应的函数名、行号等信息</p>
-<pre><code>addr2line -C -f -e xxx.so 函数偏移地址
-
--C:将低级别的符号名解码为用户级别的名字。
--e:指定需要转换地址的可执行文件名
--f:在显示文件名、行号信息的同时显示函数名。
-</code></pre>
-<p>我们在堆栈中获取的地址是函数的绝对地址，要获取偏移地址减去 so 的基地址就可以了</p>
-<p>偏移地址 = 函数的绝对地址 - 库文件的基地址</p>
-<pre><code class="language-c++">void dumpBacktrace(void **buffer, size_t count) {
-    for (int i = 0; i &lt; count; ++i) {
-        if (dladdr(addr, &amp;info)) {
-            // 计算偏移地址
-            const uintptr_t address_relative = (uintptr_t) addr - (uintptr_t) info.dli_fbase;
-            LOG(&quot;# %d : %p : %s(%p)(%s)(%p)&quot;, i, addr, info.dli_fname, address_relative,
-                info.dli_sname, info.dli_saddr);
-        }
-    }
-}
-</code></pre>
-<p>从上面的日志也可以看出，有问题的<code>Java_com_zj_android_performance_jni_NativeLibTest_testMalloc</code>函数的偏移地址是<code>0x203d8</code></p>
-<h3 id="_5">还原函数名及行号</h3>
-<p>现在，我们已经得知了函数的偏移地址，接下来就可以使用 addr2line 工具来获取行号了。在 Android 的 NDK 中已经提供了这个工具，位于 /ndk/xxx/toolchains/aarch64-linux-android-4.9/prebuilt/darwin-x86_64/bin 目录中。如果您使用的是 M1 电脑，可以选择 aarch64 目录。</p>
-<pre><code>arm-linux-androideabi-addr2line   -C -f -e libandroid_performance.so  0x203d8
-</code></pre>
-<p>需要注意的是，这里的 so 必须是带符号表的，因此需要在编译产物中的 native_libs 目录去找(注意不是 stripped_native_libs 目录)</p>
-<p>运行以上命令后，得到的结果如下</p>
-<p><img alt="" src="https://raw.gitmirror.com/RicardoJiang/resource/main/2023/march/p5.jpg" /></p>
-<p>可以看出，已经定位到了具体的函数名与行号</p>
-<h2 id="_6">总结</h2>
-<p>本文主要介绍了 Native Hook 是什么以及常见实现方案，同时通过一个监控 native 内存的例子进行了实践</p>
-<p>在 Android 应用性能优化中，Native Hook 技术广泛应用于内存优化、启动优化等方面，如 bitmap hook、pthread hook、GC 抑制等。因此，如果您希望在相关领域进行技术优化，掌握 Native Hook 技术将是非常有必要的。</p>
-<h3 id="_7">参考资料</h3>
-<p>本文主要是对<a href="https://juejin.cn/book/7153836660768292878">Android 性能优化小册</a>相关内容的学习实践，感兴趣的同学可以点击查看</p>
-<h3 id="_8">源码</h3>
-<p>本文所有源码可见：<a href="https://github.com/RicardoJiang/android-performance">https://github.com/RicardoJiang/android-performance</a></p>
+<h2 id="_2">在实际项目当中集成</h2>
+<p>在元编程项目的开发过程中，采用单元测试可以应对绝大多数的调试和测试场景。</p>
+<p>不过，在实际项目当中进行集成也是比较重要的开发和调试手段。有些时候我们希望能够快速结合实际项目完成一些想法的验证，直接集成开发甚至似乎是一个更好的办法。</p>
+<h3 id="_3">工程的组织形式</h3>
+<p>在本地开发时，为了实现集成调试，通常我们最容易想到的做法就是先将元程序发布到 Maven 的本地仓库，然后在业务项目引入。这种做法足够简单，但对于需要频繁修改元程序进
+行功能验证的场景又显得比较笨重。</p>
+<p>为了应对这样的开发场景，Gradle 提供了一套混合编译（CompositeBuild）机制，它使得我们无需修改业务代码当中的依赖配置即可实现与依赖项目的源码依赖。</p>
+<h3 id="kotlin">单步调试 Kotlin 编译器</h3>
+<p>集成开发的时候，通常我们会通过调试 Gradle 进程的方式来调试整个编译流程。调试 Gradle 时我们可以对 Gradle 自身和 Gradle 插件进行单步调试。</p>
+<p>在 IntelliJ IDEA 当中调试 Gradle 非常简单，我们只需要在相应的源码当中打好断点，然后选择好合适的 Gradle 任务，点击调试运行按钮即可。</p>
+<p>Java 编译器也运行在 Gradle 的进程当中，因此我们也可以在 Java 编译器的源码当中打断点对 Java 编译器进行单步调试</p>
+<p>不过，默认情况下我们不能直接对 Kotlin 编译器进行单步调试，因为 Kotlin 编译器默认运行在一个独立的进程当中。不过，我们只需要将 Kotlin 编译器的运行策略配置为 In process，问题就可以得到解决。</p>
+<h3 id="kotlin_1">Kotlin 编译器的日志输出</h3>
+<p>在默认的 Kotlin 编译器运行策略下，除了无法单步调试以外，通过 println(...) 打印到标准输出流的内容也不会出现在 Gradle 的运行输出当中。</p>
+<p>这其实也不难理解，默认情况下 println(...) 会将内容打印到 Kotlin 编译器守护进程的标准输出流，我们自然无法在 Gradle 的运行输出当中看到它们。在将 Kotlin 的编译
+器运行策略修改为 In process 之后，问题也就可以得到暂时的解决。</p>
+<p>不过，修改 Kotlin 编译器运行策略的方法只适用于开发调试时。当我们将符号处理器或者编译器插件发布之后，Kotlin 编译器的运行策略由接入方决定，如果我们希望输出一些日志
+方便接入方查看符号处理器或者编译器插件的运行状态，就需要使用对应的日志收集器了。</p>
+<h2 id="_4">本章小结</h2>
+<p>本章介绍了如何为元程序编写单元测试以及如何对元程序进行调试。元编程的场景通常较为抽象，掌握便捷的途径对程序的结果进行有效的验证，往往可以产生事半功倍的效果。</p>
 
   <hr>
 <div class="md-source-file">
   <small>
     
       最后更新:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">July 16, 2023</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">April 11, 2024</span>
       
     
   </small>
@@ -2106,7 +1731,7 @@ malloc 92274688 byte success
       <nav class="md-footer__inner md-grid" aria-label="页脚" >
         
           
-          <a href="../../framework/activity-start/" class="md-footer__link md-footer__link--prev" aria-label="上一页: Activity 启动流程分析" rel="prev">
+          <a href="../compiler-extension/" class="md-footer__link md-footer__link--prev" aria-label="上一页: 编译器插件" rel="prev">
             <div class="md-footer__button md-icon">
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
             </div>
@@ -2115,20 +1740,20 @@ malloc 92274688 byte success
                 上一页
               </span>
               <div class="md-ellipsis">
-                Activity 启动流程分析
+                编译器插件
               </div>
             </div>
           </a>
         
         
           
-          <a href="../../../practical/compile/compile-acceleration/" class="md-footer__link md-footer__link--next" aria-label="下一页: 编译加速的8个实用技巧" rel="next">
+          <a href="../../framework/activity-start/" class="md-footer__link md-footer__link--next" aria-label="下一页: Activity 启动流程分析" rel="next">
             <div class="md-footer__title">
               <span class="md-footer__direction">
                 下一页
               </span>
               <div class="md-ellipsis">
-                编译加速的8个实用技巧
+                Activity 启动流程分析
               </div>
             </div>
             <div class="md-footer__button md-icon">
