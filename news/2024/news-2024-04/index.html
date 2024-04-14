@@ -1363,6 +1363,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#agp80-transform" class="md-nav__link">
+    AGP8.0 时代的 Transform 实践
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -1612,6 +1619,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#agp80-transform" class="md-nav__link">
+    AGP8.0 时代的 Transform 实践
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -1666,6 +1680,26 @@
 </ul>
 <p><img alt="" src="https://raw.gitmirror.com/RicardoJiang/resource/main/2024/april/p7.jpg" /></p>
 <p>在使用接口预请求后，绝大部分页面有 200~600ms 的提升，主要使用的 CMS 活动页，安卓提升了 27%，iOS 提升了 43%，平均 FMP 在 900ms 左右(FMP 指的是从用户在 APP 点击 H5 链接到主内容渲染完成的时间)。</p>
+<h3 id="agp80-transform"><a href="https://juejin.cn/post/7240371866287407163">AGP8.0 时代的 Transform 实践</a></h3>
+<p>众所周知, Transform 接口在 AGP8.0 中已经被移除了, 而以往的大量工程实践都需要使用该接口结合 ASM 对字节码进行操作, 例如: 代码插桩, 代码替换等.那么在 AGP 8.0 中我们该如何适配呢？</p>
+<p>Instrumentation 作为 Google 首推的 Transform 替代方案, 只需要实现 AsmClassVisitorFactory 接口即实现对字节码处理.</p>
+<p><img alt="" src="https://raw.gitmirror.com/RicardoJiang/resource/main/2024/april/p8.png" /></p>
+<p>相较于 Transform 处理流程, Instrumentation 流程免去对中间产物的读写, 并且一定是以 Jar/classes 文件为单位的增量处理, 使得全量编译和增量编译速度都有较大的提升.</p>
+<p>通过 Instrumentation 确实能很方便的实现插桩与替换逻辑, 但是理想很丰满，现实很骨感, 很多时候并不能满足需求, 例如:</p>
+<ul>
+<li>先分析再操作: 在实现 hook 框架时, 通常需要先对工程中的所有 class 进行一次遍历分析后, 再对相关的 class 文件进行字节码操作.</li>
+<li>输出文件产物: 比如在插桩时在调用 Trace#beginSection 时传入了完整的类名与方法名, 这往往会导致生成的 trace 文件过大. 工程实践中一般会生成 methodId 与类名#方法名的映射, 在 Trace#beginSection 调用时仅仅传入 methodId, 这时就需要在插桩结束后保存当前的 methodId 与类名#方法名的映射文件。</li>
+</ul>
+<p>这种情况就需要通过 Artifacts API 处理，如下所示：</p>
+<pre><code>variant.artifacts.forScope(ScopedArtifacts.Scope.ALL)
+    .use(taskProvider)
+    .toTransform(
+        ScopedArtifact.CLASSES,
+        ModifyClassesTask::allJars,
+        ModifyClassesTask::allDirectories,
+        ModifyClassesTask::output,
+    )
+</code></pre>
 
   <hr>
 <div class="md-source-file">
