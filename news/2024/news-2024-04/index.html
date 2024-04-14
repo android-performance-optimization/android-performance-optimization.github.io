@@ -1346,6 +1346,19 @@
     精选博客
   </a>
   
+    <nav class="md-nav" aria-label="精选博客">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#android" class="md-nav__link">
+    Android 离线加载落地
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
     </ul>
@@ -1575,6 +1588,19 @@
     精选博客
   </a>
   
+    <nav class="md-nav" aria-label="精选博客">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#android" class="md-nav__link">
+    Android 离线加载落地
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
     </ul>
@@ -1599,6 +1625,21 @@
 <p>每个月都会有一些 Android 性能优化相关的优质内容发布，然而，碎片化阅读使得这些知识难以形成完整体系，且容易被遗忘。为解决这些问题，我决定尝试使用技术月报的形式，总结我在最近一个月内查阅的 Android 性能优化相关的优质内容。</p>
 <p>月报的主要内容包括：整理展示我在最近一个月所查阅的 Android 性能优化领域的最新技术动态、精选博客，精选视频等内容。</p>
 <h2 id="_1">精选博客</h2>
+<h3 id="android"><a href="https://juejin.cn/post/7349880999260553253">Android 离线加载落地</a></h3>
+<p>在使用WebView时，会有一个老生常谈的话题——“WebView加载优化”。那WebView加载优化，一般有几个方向：WebView的预创建和复用，WebView代理请求，WebView的离线加载</p>
+<p>离线加载的原理是，拦截WebView的请求，转而在端内构造对应的响应来进行返回。所以，离线加载节省的是请求资源的耗时，加速页面的渲染，主要通过<code>shouldInterceptRequest</code>方法来实现：</p>
+<pre><code>public class LocalH5WebHook extends SimpleWebHook {
+     //... 省略其他代码
+     public WebResourceResponse shouldInterceptRequest(WebView view, WebResourceRequest request) {
+        WebResourceResponse webResourceResponse = fetchResource(request);
+        if (webResourceResponse != null) {
+            return webResourceResponse;
+        }
+        return super.shouldInterceptRequest(view, request);
+    }
+}
+</code></pre>
+<p><img alt="" src="https://raw.gitmirror.com/RicardoJiang/resource/main/2024/april/p5.jpg" /></p>
 
   <hr>
 <div class="md-source-file">
