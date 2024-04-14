@@ -1356,6 +1356,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#h5-" class="md-nav__link">
+    低成本的 H5 秒开方案-接口预请求
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -1598,6 +1605,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#h5-" class="md-nav__link">
+    低成本的 H5 秒开方案-接口预请求
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -1640,6 +1654,18 @@
 }
 </code></pre>
 <p><img alt="" src="https://raw.gitmirror.com/RicardoJiang/resource/main/2024/april/p5.jpg" /></p>
+<h3 id="h5-"><a href="https://juejin.cn/post/7339846378125033523">低成本的 H5 秒开方案-接口预请求</a></h3>
+<p>当我们打开在 APP 内的 H5 页面时，一般会经过原生切页面动画、创建新页面、加载 webview、加载 HTML、请求静态资源并解析、获取首屏数据、渲染内容、下载图片等步骤。</p>
+<p>其实在加载的同时，可以利用 APP 在帮助 H5 获取首屏数据，这样在 H5 页面加载完成后，可以直接使用 APP 已请求的首屏数据进行渲染，这样就节省了获取首屏数据的时间。首屏数据接口越慢，该方案的价值就越大。</p>
+<p><img alt="" src="https://raw.gitmirror.com/RicardoJiang/resource/main/2024/april/p6.jpg" /></p>
+<ul>
+<li>既然我们要利用 APP 来帮助 H5 获取首屏数据，而我们的 H5 页面也不止一个，并且每个页面的参数都不一样。
+那第一个要解决的问题就是怎么告诉 APP 在打开那些页面时需要同步请求那些接口，这些接口的入参是什么样的？</li>
+<li>当 APP 请求完成后，要解决的第二个问题是怎么把请求结果及时通知给 H5 页面，并且防止 H5 页面自身发起重复请求，增加服务端负担？</li>
+<li>第三个要解决的是如果 H5 修改了代码，更新了参数，而告知 APP 入参的配置还未更新，怎么避免使用旧配置请求的结果？</li>
+</ul>
+<p><img alt="" src="https://raw.gitmirror.com/RicardoJiang/resource/main/2024/april/p7.jpg" /></p>
+<p>在使用接口预请求后，绝大部分页面有 200~600ms 的提升，主要使用的 CMS 活动页，安卓提升了 27%，iOS 提升了 43%，平均 FMP 在 900ms 左右(FMP 指的是从用户在 APP 点击 H5 链接到主内容渲染完成的时间)。</p>
 
   <hr>
 <div class="md-source-file">
