@@ -1798,6 +1798,7 @@ int read_column_numbers(int columns[], int max)
 
 /*
 ** 通过连接指定列的字符来处理一行输入。然后输出行以NUL结尾。
+** 当数组名作为实参时，传给函数的实际上是一个指向数组起始位置的指针，也就是数组在内存中的地址
 */
 void rearrange(char *output, char const *input, int n_columns, int const columns[])
 {
@@ -1841,13 +1842,14 @@ void rearrange(char *output, char const *input, int n_columns, int const columns
     output[output_col] = '\0';
 }
 </code></pre>
+<p>通过上面的例子，我们可以快速了解 C 语言的输入，输出，函数，传参，循环等知识点</p>
 
   <hr>
 <div class="md-source-file">
   <small>
     
       最后更新:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">April 26, 2024</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">April 27, 2024</span>
       
     
   </small>
