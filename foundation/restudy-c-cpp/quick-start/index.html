@@ -930,6 +930,47 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    编程练习
+  </a>
+  
+    <nav class="md-nav" aria-label="编程练习">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1" class="md-nav__link">
+    练习 1
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2" class="md-nav__link">
+    练习 2
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3" class="md-nav__link">
+    练习 3
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4" class="md-nav__link">
+    练习 4
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -1701,6 +1742,47 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    编程练习
+  </a>
+  
+    <nav class="md-nav" aria-label="编程练习">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1" class="md-nav__link">
+    练习 1
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2" class="md-nav__link">
+    练习 2
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3" class="md-nav__link">
+    练习 3
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4" class="md-nav__link">
+    练习 4
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -1799,6 +1881,7 @@ int read_column_numbers(int columns[], int max)
 /*
 ** 通过连接指定列的字符来处理一行输入。然后输出行以NUL结尾。
 ** 当数组名作为实参时，传给函数的实际上是一个指向数组起始位置的指针，也就是数组在内存中的地址
+** 因此当不希望原数据不被改别时，需要添加 const 修饰
 */
 void rearrange(char *output, char const *input, int n_columns, int const columns[])
 {
@@ -1842,7 +1925,105 @@ void rearrange(char *output, char const *input, int n_columns, int const columns
     output[output_col] = '\0';
 }
 </code></pre>
-<p>通过上面的例子，我们可以快速了解 C 语言的输入，输出，函数，传参，循环等知识点</p>
+<p>通过上面的例子，我们可以快速了解 C 语言的输入，输出，函数，传参，循环等知识点。</p>
+<p>所有的 C 程序必须有一个 main 函数，它是程序执行的起点。函数的标量参数通过传值的方式进行传递，而数组名参数则具有传址调用的语义。字符串是一串由 NULL 字节结尾的字符，并且有一组库函数以不同的方式专门用于操纵字符串。printf 函数执行格式化输出，scanf 函数用于格式化输入，getchar 和putchar 分别执行非格式化字符的输入和输出。if 和 while 语句在 C 语言中的用途跟它们在其他语言中的用途差不太多。</p>
+<h2 id="_2">编程练习</h2>
+<h3 id="1">练习 1</h3>
+<p>“Hello world!”程序常常是C编程新手所编写的第1个程序。它在标准输出中打印Hello world!，并在后面添加一个换行符。</p>
+<pre><code class="language-c">#include &lt;stdio.h&gt;
+
+int main()
+{
+    printf(&quot;Hello World\n&quot;);
+    return 0;
+}
+</code></pre>
+<h3 id="2">练习 2</h3>
+<p>编写一个程序，从标准输入读取几行输入。每行输入都要打印到标准输出上，前面要加上行号。在编写这个程序时要试图让程序能够处理的输入行的长度没有限制。</p>
+<pre><code class="language-c">#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+#include &lt;string.h&gt;
+
+#define BUFFER_SIZE 1024 // 定义缓冲区大小
+
+int main() {
+    char buffer[BUFFER_SIZE];
+    int line_number = 1;
+
+    printf(&quot;请输入文本（CTRL+D 或 CTRL+Z 以结束）:\n&quot;);
+
+    // 读取输入直到EOF
+    while (fgets(buffer, BUFFER_SIZE, stdin)) {
+        // 打印行号和输入行
+        printf(&quot;%d: %s&quot;, line_number++, buffer);
+
+        // 如果最后一个字符不是换行符，说明可能还有更多内容未读取完
+        if (buffer[strlen(buffer) - 1] != '\n') {
+            int ch;
+            // 消耗剩余的字符直到遇到换行符，以完成这一行的读取
+            while ((ch = getchar()) != '\n' &amp;&amp; ch != EOF);
+            if (ch == '\n') {
+                printf(&quot;\n...这一行超过了缓冲区长度，仅显示部分内容\n&quot;);
+            }
+        }
+    }
+
+    return 0;
+}
+</code></pre>
+<h3 id="3">练习 3</h3>
+<p>编写一个程序，从标准输入读取一些字符，并把它们写到标准输出上。它同时应该计算checksum值，并写在字符的后面。</p>
+<p>checksum(检验和)用一个singed char类型的变量进行计算，它初始为-1。当每个字符从标准输入读取时，它的值就被加到checksum中。如果checksum变量产出了溢出，那么这些溢出就会被忽略。当所有的字符均被写入后，程序以十进制整数的形式打印出checksum的值，它有可能是负值。注意在checksum后面要添加一个换行符。</p>
+<pre><code class="language-c">#include &lt;stdio.h&gt;
+
+int main() {
+    signed char checksum = -1; // checksum的初始值
+    int ch; // 用于存储输入的字符
+
+    printf(&quot;请输入字符，回车结束输入:\n&quot;);
+
+    // 使用getchar()从标准输入读取字符直到EOF
+    while ((ch = getchar()) != EOF &amp;&amp; ch != '\n') {
+        checksum += ch; // 将字符的值加到checksum中
+    }
+    checksum += '\n';
+    // 打印checksum的值
+    printf(&quot;\nChecksum: %d\n&quot;, checksum);
+
+    return 0;
+}
+</code></pre>
+<h3 id="4">练习 4</h3>
+<p>编写一个程序，一行行地读取输入行，直至到达文件尾。算出每行输入行的长度，然后把最长的那行打印出来。为了简单起见，你可以假定所有的输入行均不超过1000个字符。</p>
+<pre><code class="language-c">#include &lt;stdio.h&gt;
+#include &lt;string.h&gt;
+
+#define MAX_LINE_LENGTH 1000  // 假定的最大输入行长度
+
+int main() {
+    int len;  // 当前行长度
+    int max;  // 目前为止发现的最长行的长度
+    char line[MAX_LINE_LENGTH];    // 当前的输入行
+    char longest[MAX_LINE_LENGTH]; // 用于保存最长的行
+
+    max = 0;
+    while (fgets(line, MAX_LINE_LENGTH, stdin) != NULL) {
+        len = strlen(line);
+        // 如果当前行比之前记录的最长行要长，则更新最长行和最长长度
+        if (len &gt; max) {
+            max = len;
+            strcpy(longest, line);
+        }
+    }
+
+    if (max &gt; 0) {  // 如果有行被读取，则存在最长行
+        printf(&quot;The longest line is:\n%s&quot;, longest);
+        printf(&quot;The length of the longest line is: %d\n&quot;, max);
+    }
+
+    return 0;
+}
+</code></pre>
 
   <hr>
 <div class="md-source-file">
