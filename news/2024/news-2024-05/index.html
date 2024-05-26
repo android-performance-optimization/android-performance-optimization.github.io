@@ -1576,6 +1576,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#anr" class="md-nav__link">
+    稳定性优化：ANR监控方案
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -1846,6 +1853,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#anr" class="md-nav__link">
+    稳定性优化：ANR监控方案
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -1946,6 +1960,13 @@ int main() {
 <li>最后是“看山不如上山”，强调通过实践来深入理解源码，例如通过编写代码或参与开源项目。</li>
 </ul>
 <p>作者强调了源码学习的重要性，建议读者不仅要通过书籍和博客学习，还要深入源码以获得更深层次的理解。</p>
+<h3 id="anr"><a href="https://juejin.cn/post/7371779128477302823">稳定性优化：ANR监控方案</a></h3>
+<p>在程序发生 ANR 时，系统会弹出 ANR 的弹窗，并将 ANR 日志信息写入到 /data/anr/ 目录下的文件中，但是我们并没有直接的接口去感知到 ANR 发生了，也没有权限去读取 /data/anr/ 目录下的文件。本文介绍了如何实现一套 ANR 监控方案。</p>
+<ul>
+<li>信号捕获检测方案: ANR 发生时，系统会给对应的进程发送一个 SIGQUIT 信号，通常我们可以在 sigaction 函数中处理信号的捕获，但是系统屏蔽了 SIGQUIT 信号，不允许 sigaction 接收 SIGQUIT 信号，而是会启动一个 SignalCatcher 线程，该线程会通过 sigwait 函数阻塞监听 SIGQUIT 信号。解决方案是使用 pthread_sigmask 函数将 SIGQUIT 信号从当前线程的信号屏蔽集中移除，然后遍历 /proc/{pid}/task 目录下所记录的该进程下所有的线程数据，拿到名称为 “SignalCatcher” 线程对应的线程 id，往 SignalCatcher 线程发生一个 SIGQUIT 信号。</li>
+<li>ActivityManagerService（AMS）接口进行二次确认：当进程收到了 SIGQUIT 信号，只能说明当前进程有可能发生了 ANR ，但是并不能够百分百确定发生了 ANR，比如其他应用发生 ANR 时， CPU 使用率占用比较高的进程也会收到 SIGQUIT 信号，因此需要进行二次确认。通过 ActivityManager.getProcessesInErrorState 可以获取当前进程的错误状态，如果进程是 NOT_RESPONDING 状态，则说明进程发生了 ANR。</li>
+<li>抓取 Trace 文件：在明确了 ANR 发生后，接下来就是 /data/anr/traces.txt 文件的读取。SignalCatcher 线程在收到 SIGQUIT 信号后会获取各个线程的 Trace 信息，并且通过系统的 write 函数来把 Trace 的数据写入到 /data/anr/traces.txt 文件中。我们通过 PLT Hook 这个 write 方法，就可以获取写入到 traces.txt 文件中的 ANR Trace 数据了。</li>
+</ul>
 
   <hr>
 <div class="md-source-file">
