@@ -1569,6 +1569,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    【思考】学习源码的三重境界
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -1832,6 +1839,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    【思考】学习源码的三重境界
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -1924,6 +1938,14 @@ int main() {
 <p>_Unwind_Backtrace和_Unwind_GetIP函数是在libunwind库中定义的，这个库是GNU C Library（glibc）的一部分。然而，Android系统并不使用glibc，而是使用一个更轻量级的C库，叫做Bionic libc。因此，_Unwind_Backtrace和_Unwind_GetIP函数在Android系统中的可用性取决于Bionic libc的版本和Android系统的版本。</p>
 <p>在早期的Android版本中（例如Android 4.x），Bionic libc并未完全实现libunwind库的功能，因此_Unwind_Backtrace和_Unwind_GetIP函数可能无法正常工作。在这些版本中，我们通常需要使用其他方法来获取堆栈信息，例如手动遍历栈帧或者使用第三方的库。</p>
 <p>从Android 5.0（Lollipop）开始，Bionic libc开始提供更完整的libunwind库的支持，包括_Unwind_Backtrace和_Unwind_GetIP函数。因此，在Android 5.0及更高版本中，我们可以直接使用这两个函数来获取堆栈信息。</p>
+<h3 id="_3"><a href="https://juejin.cn/post/7366945260792299558">【思考】学习源码的三重境界</a></h3>
+<p>本文讲述了作者在学习源码过程中的三个阶段。</p>
+<ul>
+<li>首先是“看山是山”，指的是初学者专注于源码的细节，了解其表面知识。</li>
+<li>其次是“看山不是山”，在这一阶段，学习者开始从宏观角度理解源码，探索设计背后的意图，并考虑版本变化。</li>
+<li>最后是“看山不如上山”，强调通过实践来深入理解源码，例如通过编写代码或参与开源项目。</li>
+</ul>
+<p>作者强调了源码学习的重要性，建议读者不仅要通过书籍和博客学习，还要深入源码以获得更深层次的理解。</p>
 
   <hr>
 <div class="md-source-file">
