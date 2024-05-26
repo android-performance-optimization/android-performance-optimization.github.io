@@ -1562,6 +1562,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#androidsonative" class="md-nav__link">
+    Android崩在so里面，怎么定位Native堆栈呢？
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -1818,6 +1825,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#androidsonative" class="md-nav__link">
+    Android崩在so里面，怎么定位Native堆栈呢？
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -1846,13 +1860,77 @@
 <p>月报的主要内容包括：整理展示我在最近一个月所查阅的 Android 性能优化领域的最新技术动态、精选博客，精选视频等内容。</p>
 <h2 id="_1">精选博客</h2>
 <h3 id="_2"><a href="https://open.alipay.com/portal/forum/post/102701057">支付宝是如何监测、治理耗时类问题的？</a></h3>
+<p>支付宝介绍端内性能监控与治理的文章，比较有意思的是支付宝启动耗时的优化手段：支付宝首页贴图技术。</p>
+<p>首页贴图的原理，就是应用冷启动后，给用户展示上一次首展示的内容，其实就是图片，这些图片记录着各个区域的点击事件。用户可以直接点击页面任何区域。这样就减少了页面刷新等待的时间。极大提升了冷启动速度。</p>
+<p>贴图技术的原理就是把首页拆成几个部分，比如四大金刚、九宫格、消息提醒、腰封广告、首页推荐 feed 流。在用户使用完支付宝后，压后台的时机，把对应区域的图片截图，并保存。下一次冷启动的时候会判断是否截图成功，如果成功就直接贴图。</p>
+<p><img alt="" src="https://raw.gitmirror.com/RicardoJiang/resource/main/2024/may/p9.png" /></p>
+<h3 id="androidsonative"><a href="https://mp.weixin.qq.com/s/TLXLPhPOU6y3Z3FtDOEi9w">Android崩在so里面，怎么定位Native堆栈呢？</a></h3>
+<p>在Android系统中，我们有时需要获取Native层的堆栈信息，例如在进行性能分析、问题定位和调试等场景。</p>
+<p>Android NDK提供了unwind.h头文件，其中定义了unwind函数，可以用于获取任意线程的堆栈信息，示例代码如下：</p>
+<pre><code class="language-c++">#include &lt;unwind.h&gt;
+#include &lt;dlfcn.h&gt;
+#include &lt;stdio.h&gt;
+
+struct BacktraceState {
+    void** current;
+    void** end;
+};
+
+_Unwind_Reason_Code unwind_callback(struct _Unwind_Context* context, void* arg) {
+    BacktraceState* state = static_cast&lt;BacktraceState*&gt;(arg);
+    uintptr_t pc = _Unwind_GetIP(context);
+    if (pc) {
+        if (state-&gt;current == state-&gt;end) {
+            return _URC_END_OF_STACK;
+        } else {
+            *state-&gt;current++ = reinterpret_cast&lt;void*&gt;(pc);
+        }
+    }
+    return _URC_NO_REASON;
+}
+
+void capture_backtrace(void** buffer, int max) {
+    BacktraceState state = {buffer, buffer + max};
+    _Unwind_Backtrace(unwind_callback, &amp;state);
+}
+
+void print_backtrace(void** buffer, int count) {
+    for (int idx = 0; idx &lt; count; ++idx) {
+        const void* addr = buffer[idx];
+        const char* symbol = &quot;&quot;;
+
+        Dl_info info;
+        if (dladdr(addr, &amp;info) &amp;&amp; info.dli_sname) {
+            symbol = info.dli_sname;
+        }
+
+        // 计算相对地址
+        void* relative_addr = reinterpret_cast&lt;void*&gt;(reinterpret_cast&lt;uintptr_t&gt;(addr) - reinterpret_cast&lt;uintptr_t&gt;(info.dli_fbase));
+
+        printf(&quot;%-3d %p %s (relative addr: %p)\n&quot;, idx, addr, symbol, relative_addr);
+    }
+}
+
+int main() {
+    const int max_frames = 128;
+    void* buffer[max_frames];
+
+    capture_backtrace(buffer, max_frames);
+    print_backtrace(buffer, max_frames);
+
+    return 0;
+}
+</code></pre>
+<p>_Unwind_Backtrace和_Unwind_GetIP函数是在libunwind库中定义的，这个库是GNU C Library（glibc）的一部分。然而，Android系统并不使用glibc，而是使用一个更轻量级的C库，叫做Bionic libc。因此，_Unwind_Backtrace和_Unwind_GetIP函数在Android系统中的可用性取决于Bionic libc的版本和Android系统的版本。</p>
+<p>在早期的Android版本中（例如Android 4.x），Bionic libc并未完全实现libunwind库的功能，因此_Unwind_Backtrace和_Unwind_GetIP函数可能无法正常工作。在这些版本中，我们通常需要使用其他方法来获取堆栈信息，例如手动遍历栈帧或者使用第三方的库。</p>
+<p>从Android 5.0（Lollipop）开始，Bionic libc开始提供更完整的libunwind库的支持，包括_Unwind_Backtrace和_Unwind_GetIP函数。因此，在Android 5.0及更高版本中，我们可以直接使用这两个函数来获取堆栈信息。</p>
 
   <hr>
 <div class="md-source-file">
   <small>
     
       最后更新:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">May 15, 2024</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">May 26, 2024</span>
       
     
   </small>
