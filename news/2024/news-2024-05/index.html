@@ -1583,6 +1583,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    性能无损线上代码覆盖率采集，实现应用动态监控！
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -1860,6 +1867,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    性能无损线上代码覆盖率采集，实现应用动态监控！
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -1967,13 +1981,27 @@ int main() {
 <li>ActivityManagerService（AMS）接口进行二次确认：当进程收到了 SIGQUIT 信号，只能说明当前进程有可能发生了 ANR ，但是并不能够百分百确定发生了 ANR，比如其他应用发生 ANR 时， CPU 使用率占用比较高的进程也会收到 SIGQUIT 信号，因此需要进行二次确认。通过 ActivityManager.getProcessesInErrorState 可以获取当前进程的错误状态，如果进程是 NOT_RESPONDING 状态，则说明进程发生了 ANR。</li>
 <li>抓取 Trace 文件：在明确了 ANR 发生后，接下来就是 /data/anr/traces.txt 文件的读取。SignalCatcher 线程在收到 SIGQUIT 信号后会获取各个线程的 Trace 信息，并且通过系统的 write 函数来把 Trace 的数据写入到 /data/anr/traces.txt 文件中。我们通过 PLT Hook 这个 write 方法，就可以获取写入到 traces.txt 文件中的 ANR Trace 数据了。</li>
 </ul>
+<h3 id="_4"><a href="https://mp.weixin.qq.com/s/cVgwHxVs-xA5zywk5u0Eew">性能无损线上代码覆盖率采集，实现应用动态监控！</a></h3>
+<p>前面介绍过两种线上代码覆盖率采集的方案，一种是基于插桩方案，对性能会有一定损耗，另一种是 Hack classTable，使用起来比较麻烦。本文主要介绍如何通过 JVMTI 来实现线上代码覆盖率采集，</p>
+<p>JVMTI（JVM Tool Interface）是 Java 虚拟机所提供的 Native 编程接口。通过这些接口，开发人员不仅可以调试在虚拟机上运行的 Java 程序，还能查看它们运行的状态、控制环境变量，甚至修改代码逻辑，从而帮助开发人员监控和优化程序性能。但在Android（ART）上被Google官方在Release模式中禁用掉了，如果需要使用则需要hack，同时对于系统版本有一定要求（&gt;=Android8）。</p>
+<p><img alt="" src="https://raw.gitmirror.com/RicardoJiang/resource/main/2024/may/p10.webp" /></p>
+<p>JVMTI 可以实现以下功能：</p>
+<ul>
+<li>重定义 Class</li>
+<li>跟踪对象分配和垃圾回收过程</li>
+<li>遵循对象的引用树，遍历堆中的所有对象</li>
+<li>检查 Java 调用堆栈</li>
+<li>暂停和恢复所有线程</li>
+<li>其他功能</li>
+</ul>
+<p>代码覆盖率采集功能使用 jvmti提供的一个函数GetLoadedClasses 方法，我们通过 hack 方法开启线上 JVMTI 检测后，在合适的时机调用这个方法即可。</p>
 
   <hr>
 <div class="md-source-file">
   <small>
     
       最后更新:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">May 26, 2024</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">May 27, 2024</span>
       
     
   </small>
