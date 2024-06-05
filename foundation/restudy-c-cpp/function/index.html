@@ -1,0 +1,2670 @@
+
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="专注于 Android 性能优化领域，分享基础知识，实战方案，学习路线，技术动态等资源">
+      
+      
+      
+        <link rel="canonical" href="https://android-performance-optimization.github.io/foundation/restudy-c-cpp/function/">
+      
+      
+        <link rel="prev" href="../pointer/">
+      
+      
+        <link rel="next" href="../../framework/activity-start/">
+      
+      <link rel="icon" href="../../../assets/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.0, mkdocs-material-9.1.16">
+    
+    
+      
+        <title>函数 - Android 性能优化手册</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.26e3688c.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.ecc896b0.min.css">
+      
+      
+
+    
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Fira+Sans:300,300i,400,400i,700,700i%7CFira+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Fira Sans";--md-code-font:"Fira Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&"object"==typeof palette.color)for(var key of Object.keys(palette.color))document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#_1" class="md-skip">
+          跳转至
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="页眉">
+    <a href="../../.." title="Android 性能优化手册" class="md-header__button md-logo" aria-label="Android 性能优化手册" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 89 89">
+  <path d="M3.136,17.387l0,42.932l42.932,21.467l-42.932,-64.399Z" />
+  <path d="M21.91,8l42.933,64.398l-18.775,9.388l-42.932,-64.399l18.774,-9.387Z" style="fill-opacity: 0.5" />
+  <path d="M67.535,17.387l-27.262,18.156l21.878,32.818l5.384,2.691l0,-53.665Z" />
+  <path d="M67.535,17.387l0,53.666l18.774,-9.388l0,-53.665l-18.774,9.387Z" style="fill-opacity: 0.25" />
+</svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Android 性能优化手册
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              函数
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+          
+            
+            
+            
+            <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_1">
+            
+              <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_2" hidden>
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69Z"/></svg>
+              </label>
+            
+          
+            
+            
+            
+            <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_2">
+            
+              <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_1" hidden>
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12c0-2.42-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69Z"/></svg>
+              </label>
+            
+          
+        </form>
+      
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="搜索" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="查找">
+        
+          <a href="javascript:void(0)" class="md-search__icon md-icon" title="分享" aria-label="分享" data-clipboard data-clipboard-text="" data-md-component="search-share" tabindex="-1">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7 0-.24-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.15c-.05.21-.08.43-.08.66 0 1.61 1.31 2.91 2.92 2.91 1.61 0 2.92-1.3 2.92-2.91A2.92 2.92 0 0 0 18 16.08Z"/></svg>
+          </a>
+        
+        <button type="reset" class="md-search__icon md-icon" title="清空当前内容" aria-label="清空当前内容" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            正在初始化搜索引擎
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/android-performance-optimization/homepage" title="前往仓库" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    android-performance-optimization
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="标签" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../.." class="md-tabs__link">
+        首页
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  <li class="md-tabs__item">
+    <a href="../../../resource/" class="md-tabs__link">
+      学习资源
+    </a>
+  </li>
+
+      
+        
+  
+  
+    
+  
+
+
+  
+  
+  
+    
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../self-cultivation/elf-file-detail/" class="md-tabs__link md-tabs__link--active">
+        筑基手册
+      </a>
+    </li>
+  
+
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../practical/compile/compile-acceleration/" class="md-tabs__link">
+        实战手册
+      </a>
+    </li>
+  
+
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../news/2024/news-2024-05/" class="md-tabs__link">
+        技术月报
+      </a>
+    </li>
+  
+
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="导航栏" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="Android 性能优化手册" class="md-nav__button md-logo" aria-label="Android 性能优化手册" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 89 89">
+  <path d="M3.136,17.387l0,42.932l42.932,21.467l-42.932,-64.399Z" />
+  <path d="M21.91,8l42.933,64.398l-18.775,9.388l-42.932,-64.399l18.774,-9.387Z" style="fill-opacity: 0.5" />
+  <path d="M67.535,17.387l-27.262,18.156l21.878,32.818l5.384,2.691l0,-53.665Z" />
+  <path d="M67.535,17.387l0,53.666l18.774,-9.388l0,-53.665l-18.774,9.387Z" style="fill-opacity: 0.25" />
+</svg>
+
+    </a>
+    Android 性能优化手册
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/android-performance-optimization/homepage" title="前往仓库" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    android-performance-optimization
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1" >
+      
+      
+        
+          
+            
+          
+        
+          
+        
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="../../..">首页</a>
+          
+            <label for="__nav_1">
+              <span class="md-nav__icon md-icon"></span>
+            </label>
+          
+        </div>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_1_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_1">
+          <span class="md-nav__icon md-icon"></span>
+          首页
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../intro/htc/" class="md-nav__link">
+        如何参与
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../resource/" class="md-nav__link">
+        学习资源
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
+      
+      
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+          筑基手册
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
+        <label class="md-nav__title" for="__nav_3">
+          <span class="md-nav__icon md-icon"></span>
+          筑基手册
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_1" >
+      
+      
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_3_1" id="__nav_3_1_label" tabindex="0">
+          程序员的自我修养
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_1_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_3_1">
+          <span class="md-nav__icon md-icon"></span>
+          程序员的自我修养
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../self-cultivation/elf-file-detail/" class="md-nav__link">
+        Elf 文件格式详解
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../self-cultivation/static-link/" class="md-nav__link">
+        静态链接
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../self-cultivation/elf-load/" class="md-nav__link">
+        ELF 文件的装载与进程
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../self-cultivation/dynamic-link/" class="md-nav__link">
+        动态链接
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../self-cultivation/memory/" class="md-nav__link">
+        内存
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../self-cultivation/system-call/" class="md-nav__link">
+        系统调用
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2" >
+      
+      
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_3_2" id="__nav_3_2_label" tabindex="0">
+          深入实践 Kotlin 元编程
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_2_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_3_2">
+          <span class="md-nav__icon md-icon"></span>
+          深入实践 Kotlin 元编程
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../kotlin-meta-programming/meta-programming-basic/" class="md-nav__link">
+        元编程概述
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../kotlin-meta-programming/meta-data-introduction/" class="md-nav__link">
+        元数据简介
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../kotlin-meta-programming/runtime-reflect/" class="md-nav__link">
+        运行时的反射
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../kotlin-meta-programming/code-generate/" class="md-nav__link">
+        源代码生成
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../kotlin-meta-programming/symbol-process/" class="md-nav__link">
+        编译时的符号处理
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../kotlin-meta-programming/code-static-analyse/" class="md-nav__link">
+        程序静态分析
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../kotlin-meta-programming/compiler-extension/" class="md-nav__link">
+        编译器插件
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../kotlin-meta-programming/meta-programming-debug/" class="md-nav__link">
+        元程序的开发和调试
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_3" >
+      
+      
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_3_3" id="__nav_3_3_label" tabindex="0">
+          Kolin 编译器学习
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_3_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_3_3">
+          <span class="md-nav__icon md-icon"></span>
+          Kolin 编译器学习
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../kotlin-compiler-learn/learning-resource/" class="md-nav__link">
+        Kotlin 编译器相关学习资源
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_4" checked>
+      
+      
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_3_4" id="__nav_3_4_label" tabindex="0">
+          重学 C/C++
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_4_label" aria-expanded="true">
+        <label class="md-nav__title" for="__nav_3_4">
+          <span class="md-nav__icon md-icon"></span>
+          重学 C/C++
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../environment-config/" class="md-nav__link">
+        环境搭建
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../quick-start/" class="md-nav__link">
+        快速上手
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../basic-concept/" class="md-nav__link">
+        基本概念
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../data-type/" class="md-nav__link">
+        数据类型
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../statement/" class="md-nav__link">
+        语句
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../operators-and-expressions/" class="md-nav__link">
+        操作符和表达式
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../pointer/" class="md-nav__link">
+        指针
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          函数
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        函数
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    函数定义
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    函数的参数
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    可变参数列表
+  </a>
+  
+    <nav class="md-nav" aria-label="可变参数列表">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#stdarg" class="md-nav__link">
+    stdarg宏
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    总结
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_5" >
+      
+      
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_3_5" id="__nav_3_5_label" tabindex="0">
+          Android 系统基础
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_5_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_3_5">
+          <span class="md-nav__icon md-icon"></span>
+          Android 系统基础
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../framework/activity-start/" class="md-nav__link">
+        Activity 启动流程分析
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_6" >
+      
+      
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_3_6" id="__nav_3_6_label" tabindex="0">
+          实用工具系列
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_6_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_3_6">
+          <span class="md-nav__icon md-icon"></span>
+          实用工具系列
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tools/native-hook/" class="md-nav__link">
+        Native Hook 快速上手
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+      
+      
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+          实战手册
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_4">
+          <span class="md-nav__icon md-icon"></span>
+          实战手册
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_1" >
+      
+      
+        
+          
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_4_1" id="__nav_4_1_label" tabindex="0">
+          编译优化
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_1_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_4_1">
+          <span class="md-nav__icon md-icon"></span>
+          编译优化
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../practical/compile/compile-acceleration/" class="md-nav__link">
+        编译加速的8个实用技巧
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../practical/compile/now-in-android/" class="md-nav__link">
+        nowinandroid 构建脚本学习
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_2" >
+      
+      
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_4_2" id="__nav_4_2_label" tabindex="0">
+          代码质量优化
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_2_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_4_2">
+          <span class="md-nav__icon md-icon"></span>
+          代码质量优化
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../practical/code-quality/kotlin-detekt/" class="md-nav__link">
+        落地 Kotlin 代码规范，DeteKt 了解一下
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_3" >
+      
+      
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_4_3" id="__nav_4_3_label" tabindex="0">
+          稳定性优化
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_3_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_4_3">
+          <span class="md-nav__icon md-icon"></span>
+          稳定性优化
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../practical/stability/airbag/" class="md-nav__link">
+        安全气囊如何实现？
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_4" >
+      
+      
+        
+          
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_4_4" id="__nav_4_4_label" tabindex="0">
+          速度优化
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_4_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_4_4">
+          <span class="md-nav__icon md-icon"></span>
+          速度优化
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../practical/speed/json-serialization-speed/" class="md-nav__link">
+        常用 JSON 库性能对比
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../practical/speed/kcp-gson-moshi/" class="md-nav__link">
+        使用 KCP 打造更安全的 Gson 与更快的 Moshi
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_5" >
+      
+      
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_4_5" id="__nav_4_5_label" tabindex="0">
+          内存优化
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_5_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_4_5">
+          <span class="md-nav__icon md-icon"></span>
+          内存优化
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../practical/memory/memory-usage-analyse/" class="md-nav__link">
+        App 内存占用分析
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+      
+      
+        
+          
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+          技术月报
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_5">
+          <span class="md-nav__icon md-icon"></span>
+          技术月报
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_1" >
+      
+      
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_5_1" id="__nav_5_1_label" tabindex="0">
+          2024
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_1_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_5_1">
+          <span class="md-nav__icon md-icon"></span>
+          2024
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../news/2024/news-2024-05/" class="md-nav__link">
+        Android 性能优化技术月报 | 2024 年 5 月
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../news/2024/news-2024-04/" class="md-nav__link">
+        Android 性能优化技术月报 | 2024 年 4 月
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../news/2024/news-2024-03/" class="md-nav__link">
+        Android 性能优化技术月报 | 2024 年 3 月
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../news/2024/news-2024-02/" class="md-nav__link">
+        Android 性能优化技术月报 | 2024 年 2 月
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../news/2024/news-2024-01/" class="md-nav__link">
+        Android 性能优化技术月报 | 2024 年 1 月
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_2" >
+      
+      
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_5_2" id="__nav_5_2_label" tabindex="0">
+          2023
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_2_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_5_2">
+          <span class="md-nav__icon md-icon"></span>
+          2023
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../news/2023/news-2023-12/" class="md-nav__link">
+        Android 性能优化技术月报 | 2023 年 12 月
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../news/2023/news-2023-11/" class="md-nav__link">
+        Android 性能优化技术月报 | 2023 年 11 月
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../news/2023/news-2023-10/" class="md-nav__link">
+        Android 性能优化技术月报 | 2023 年 10 月
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../news/2023/news-2023-09/" class="md-nav__link">
+        Android 性能优化技术月报 | 2023 年 9 月
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../news/2023/news-2023-08/" class="md-nav__link">
+        Android 性能优化技术月报 | 2023 年 8 月
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../news/2023/news-2023-07/" class="md-nav__link">
+        Android 性能优化技术月报 | 2023 年 7 月
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    函数定义
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    函数的参数
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    可变参数列表
+  </a>
+  
+    <nav class="md-nav" aria-label="可变参数列表">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#stdarg" class="md-nav__link">
+    stdarg宏
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    总结
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+  
+  
+
+
+<h1 id="_1">函数</h1>
+<p>本文为《C 与 指针读书笔记》，感兴趣的读者可以去看原书。</p>
+<h2 id="_2">函数定义</h2>
+<p>函数的定义就是函数体的实现。函数体就是一个代码块，它在函数被调用时执行。与函数定义相反，函数声明出现在函数被调用的地方。函数声明向编译器提供该函数的相关信息，用于确保函数被正确地调用。</p>
+<pre><code class="language-c">function_name()
+{
+}
+</code></pre>
+<h2 id="_3">函数的参数</h2>
+<p>C函数的所有参数均以“传值调用”方式进行传递，这意味着函数将获得参数值的一份拷贝。这样，函数可以放心修改这个拷贝值，而不必担心会修改调用程序实际传递给它的参数。这个行为与Modula和Pascal中的值参数（不是var参数）相同。</p>
+<p>C的规则很简单：所有参数都是传值调用。但是，如果被传递的参数是一个数组名，并且在函数中使用下标引用该数组的参数，那么在函数中对数组元素进行修改实际上修改的是调用程序中的数组元素。函数将访问调用程序的数组元素，数组并不会被复制。这个行为被称为“传址调用”，也就是许多其他语言所实现的var参数。</p>
+<p>数组参数的这种行为似乎与传值调用规则相悖。但是，此处其实并无矛盾之处——数组名的值实际上是一个指针，传递给函数的就是这个指针的一份拷贝。下标引用实际上是间接访问的另一种形式，它可以对指针执行间接访问操作，访问指针指向的内存位置。参数（指针）实际上是一份拷贝，但在这份拷贝上执行间接访问操作所访问的是原先的数组。我们只要记住两个规则：</p>
+<p>1．传递给函数的标量参数是传值调用的。</p>
+<p>2．传递给函数的数组参数在行为上就像它们是通过传址调用的那样。</p>
+<h2 id="_4">可变参数列表</h2>
+<p>在函数的原型中，列出了函数期望接受的参数，但原型只能显示固定数目的参数。让一个函数在不同的时候接受不同数目的参数是不是可以呢？</p>
+<h3 id="stdarg">stdarg宏</h3>
+<p>可变参数列表是通过宏来实现的，这些宏定义于stdarg.h头文件，它是标准库的一部分。这个头文件声明了一个类型va_list和三个宏——va_start、va_arg和va_end  。我们可以声明一个类型为va_list的变量，与这几个宏配合使用，访问参数的值。</p>
+<p>你可能同时注意到参数列表中至少要有一个命名参数。如果连一个命名参数也没有，你就无法使用va_start。这个参数提供了一种方法，用于查找参数列表的可变部分。</p>
+<p>对于这些宏，存在两个基本的限制。一个值的类型无法简单地通过检查它的位模式来判断，这两个限制就是这个事实的直接结果。</p>
+<ul>
+<li>这些宏无法判断实际存在的参数的数量。</li>
+<li>这些宏无法判断每个参数的类型。</li>
+</ul>
+<h2 id="_5">总结</h2>
+<p>函数定义同时描述了函数的参数列表和函数体（当函数被调用时所执行的语句），参数列表有两种可以接受的形式。K&amp;R C风格用一个单独的列表说明参数的类型，它出现在函数体的左花括号之前。新式风格（也是现在提倡的那种）则直接在参数列表中包含了参数的类型。如果函数体内没有任何语句，那么该函数就称为存根，它在测试不完整的程序时非常有用。</p>
+<p>函数声明给出了和一个函数有关的有限信息，当函数被调用时就会用到这些信息。函数声明也有两种可以接受的形式。K&amp;R风格没有参数列表，它只是声明了函数返回值的类型。目前所提倡的新风格又称为函数原型，除了返回值类型之外，它还包含了参数类型的声明，这就允许编译器在调用函数时检查参数的数量和类型。你也可以把参数名放在函数的原型中，尽管不是必需，但这样做可以使原型对于其他读者更为有用，因为它传递了更多的信息。对于没有参数的函数，它的原型在参数列表中有一个关键字void。常见的原型使用方法是把原型放在一个单独的文件中，当其他源文件需要这个原型时，就用#include指令把第7章　函数
+C的函数和其他语言的函数（或过程、方法）相似之处甚多。所以到现在为止，尽管我们对函数只是进行了一点非正式的讨论，但你已经能够使用它们了。但是，函数的有些方面并不像直觉上应该的那样，所以本章将正式描述C的函数。</p>
+<p>7.1　函数定义
+函数的定义就是函数体的实现。函数体就是一个代码块，它在函数被调用时执行。与函数定义相反，函数声明出现在函数被调用的地方。函数声明向编译器提供该函数的相关信息，用于确保函数被正确地调用。首先让我们来看一下函数的定义。</p>
+<p>函数定义的语法如下：</p>
+<p>类型</p>
+<p>函数名 ( 形式参数 )</p>
+<p>代码块</p>
+<p>回忆一下，代码块就是一对花括号，里面包含了一些声明和语句（两者都是可选的）。因此，最简单的函数大致如下所示：</p>
+<p>function_name()
+{
+}</p>
+<p>当这个函数被调用时，它简单地返回。然而，它可以实现一种有用的存根 （stub）目的，为那些此时尚未实现的代码保留一个位置。编写这类存根，或者说为尚未编写的代码“占好位置”，可以保持程序在结构上的完整性，以便于你编译和测试程序的其他部分。</p>
+<p>形式参数列表包括变量名和它们的类型声明。代码块包含了局部变量的声明和函数调用时需要执行的语句。程序7.1是一个简单函数的例子。</p>
+<p>把函数的类型与函数名分写两行纯属风格问题。这种写法可以使我们在使用视觉或某些工具程序追踪源代码时更容易查找函数名。</p>
+<p>K&amp;R C</p>
+<p>在K&amp;R C中，形式参数的类型以单独的列表进行声明，并出现在参数列表和函数体的左花括号之间，如下所示：</p>
+<p>int *
+find_int(key, array, array_len)
+int key;
+int array[];
+int array_len;
+{</p>
+<p>这种声明形式现在仍为标准所允许，主要是为了让较老的程序无需修改便可通过编译。但我们应该提倡新声明风格，理由有二：首先，它消除了旧式风格的冗余。其次，也是更重要的一点，它允许函数原型的使用，提高了编译器在函数调用时检查错误的能力。关于函数原型，我们将在本章后面的内容里讨论。</p>
+<p>/<em>
+** 在数组中寻找某个特定整型值的存储位置，并返回一个指向该位置的指针。
+</em>/</p>
+<h1 id="include">include <stdio.h></h1>
+<p>int *
+find_int( int key, int array[], int array_len )
+{
+　　　　　　int i;</p>
+<p>/<em>
+　　　　　　** 对于数组中的每个位置 ...
+　　　　　　</em>/
+　　　　　　for( i = 0; i &lt; array_len; i += 1 )
+　　　　　　　　 /<em>
+　　　　　　　　 ** 检查这个位置的值是否为需要查找的值。
+　　　　　　　　 </em>/
+　　　　　　　　 if( array[ i ] == key )
+　　　　　　　　　　　 return &amp;array[ i ];</p>
+<p>return NULL;
+}</p>
+<p>程序7.1　在数组中寻找一个整型值</p>
+<p>find_int.c</p>
+<p>return语句</p>
+<p>当执行流到达函数定义的末尾时，函数就将返回(return)，也就是说，执行流返回到函数被调用的地方。return语句允许你从函数体的任何位置返回，并不一定要在函数体的末尾。它的语法如下所示：</p>
+<p>return　expression</p>
+<p>;</p>
+<p>表达式expression是可选的。如果函数无需向调用程序返回一个值，它就被省略。这类函数在绝大多数其他语言中被称为过程（procedure）。这些函数执行到函数体末尾时隐式地返回，它们没有返回值。这种没有返回值的函数在声明时应该把函数的类型声明为void。</p>
+<p>真函数是从表达式内部调用的，它必须返回一个值，用于表达式的求值。这类函数的return语句必须包含一个表达式。通常，表达式的类型就是函数声明的返回类型。只有当编译器可以通过寻常算术转换把表达式的类型转换为正确的类型时，才允许返回类型与函数声明的返回类型不同的表达式。</p>
+<p>有些程序员更喜欢把return语句写成下面这种样子：</p>
+<p>return ( x );</p>
+<p>语法并没有要求你加上括号。但如果你喜欢，尽管加上，因为在表达式两端加上括号总是合法的。</p>
+<p>在C中，子程序不论是否存在返回值，均被称为函数。调用一个真函数（即返回一个值的函数）但不在任何表达式中使用这个返回值是完全可能的。在这种情况下，返回值就被丢弃。但是，从表达式内部调用一个过程类型的函数（无返回值）是一个严重的错误，因为这样一来在表达式的求值过程中会使用一个不可预测的值（垃圾）。幸运的是，现代的编译器通常可以捕捉这类错误，因为它们较之老式编译器在函数的返回类型上更为严格。</p>
+<p>7.2　函数声明
+当编译器遇到一个函数调用时，它产生代码传递参数并调用这个函数，而且接收该函数返回的值（如果有的话）。但编译器是如何知道该函数期望接受的是什么类型和多少数量的参数呢？如何知道该函数的返回值（如果有的话）类型呢？</p>
+<p>如果没有关于调用函数的特定信息，编译器便假定在这个函数的调用时参数的类型和数量是正确的。它同时会假定函数将返回一个整型值。对于那些返回值并非整型的函数而言，这种隐式认定常常导致错误。</p>
+<p>7.2.1　原型
+向编译器提供一些关于函数的特定信息显然更为安全，我们可以通过两种方法来实现。首先，如果同一源文件的前面已经出现了该函数的定义，编译器就会记住它的参数数量和类型，以及函数的返回值类型。接着，编译器便可以检查该函数的所有后续调用（在同一个源文件中），确保它们是正确的。</p>
+<p>K&amp;R C：</p>
+<p>如果函数是以旧式风格定义的，也就是用一个单独的列表给出参数的类型，那么编译器就只记住函数的返回值类型，但不保存函数的参数数量和类型方面的信息。由于这个缘故，只要有可能，你都应该使用新式风格的函数定义，这点非常重要。</p>
+<p>第2种向编译器提供函数信息的方法是使用函数原型 (function prototype)，你在第1章已经见过它。原型总结了函数定义的起始部分的声明，向编译器提供有关该函数应该如何调用的完整信息。使用原型最方便（且最安全）的方法是把原型置于一个单独的文件，当其他源文件需要这个函数的原型时，就使用#include指令包含该文件。这个技巧避免了错误键入函数原型的可能性，它同时简化了程序的维护任务，因为这样只需要该原型的一份物理拷贝。如果原型需要修改，你只需要修改它的一处拷贝。</p>
+<p>举个例子，这里有一个find_int函数的原型，取自前面的例子：</p>
+<p>int *find_int( int key, int array[], int len );</p>
+<p>注意最后面的那个分号：它区分了函数原型和函数定义的起始部分。原型告诉编译器函数的参数数量和每个参数的类型以及返回值的类型。编译器见过原型之后，就可以检查该函数的调用，确保参数正确、返回值无误。当出现不匹配的情况时（例如，参数的类型错误），编译器会把不匹配的实参或返回值转换为正确的类型，当然前提是这样的转换必须是可行的。</p>
+<p>提示：</p>
+<p>注意我在上面的原型中加上了参数的名字。虽然它并非必需，但在函数原型中加入描述性的参数名是明智的，因为它可以给希望调用该函数的客户提供有用的信息。例如，你觉得下面这两个函数原型哪个更有用？</p>
+<p>char <em>strcpy( char </em>, char * );
+char <em>strcpy( char </em>destination, char *source );</p>
+<p>警告：</p>
+<p>下面的代码段例子说明了一种使用函数原型的危险方法。</p>
+<p>Void
+a()
+{
+　 　　int 　<em>func( int </em>value, int len);
+　　　...
+}</p>
+<p>void
+b()
+{
+　　　int　　func( int len, int *value );
+　　　...
+}</p>
+<p>仔细观察一下这两个原型，你会发现它们是不一样的。参数的顺序倒了，返回类型也不同。问题在于这两个函数原型都写于函数体的内部，它们都具有代码块作用域，所以编译器在每个函数结束前会把它记住的原型信息丢弃，这样它就无法发现它们之间存在的不匹配情况。</p>
+<p>标准表示，在同一个代码块中，函数原型必须与同一个函数的任何先前原型匹配，否则编译器应该产生一条错误信息。但是，在这个例子里，第1个代码块的作用域并不与第2个代码块重叠。因此，原型的不匹配就无法被检测到。这两个原型至少有一个是错误的（也可能两个都错），但编译器看不到这种情况，所以不会发出任何错误信息。</p>
+<p>下面的代码段说明了一种使用函数原型的更好方法。</p>
+<h1 id="include-funch">include "func.h"</h1>
+<p>picture\陈冀康\d\d170.tif</p>
+<p>文件func.h包含了下面的函数原型</p>
+<p>int　<em>func( int </em>value, int len );</p>
+<p>从几个方面看，这个技巧比前一种方法更好。</p>
+<p>1．现在函数原型具有文件作用域，所以原型的一份拷贝可以作用于整个源文件，较之在该函数每次调用前单独书写一份函数原型要容易得多。</p>
+<p>2．现在函数原型只书写一次，这样就不会出现多份原型的拷贝之间的不匹配现象。</p>
+<p>3．如果函数的定义进行了修改，我们只需要修改原型，并重新编译所有包含了该原型的源文件即可。</p>
+<p>4．如果函数的原型同时也被#include指令包含到定义函数的文件中，编译器就可以确认函数原型与函数定义的匹配。</p>
+<p>通过只书写函数原型一次，我们消除了多份原型的拷贝间不一致的可能性。然而，函数原型必须与函数定义匹配。把函数原型包含在定义函数的文件中可以使编译器确认它们之间的匹配。</p>
+<p>考虑下面这个声明，它看上去有些含糊：</p>
+<p>int *func();</p>
+<p>它既可以看作是一个旧式风格的声明（只给出func函数的返回类型），也可以看作是一个没有参数的函数的新风格原型。它究竟是哪一个呢？这个声明必须被解释为旧式风格的声明，目的是保持与ANSI标准之前的程序的兼容性。一个没有参数的函数的原型应该写成下面这个样子：</p>
+<p>int *func( void );</p>
+<p>关键字void提示没有任何参数，而不是表示它有一个类型为void的参数。</p>
+<p>7.2.2　函数的缺省认定
+当程序调用一个无法见到原型的函数时，编译器便认为该函数返回一个整型值。对于那些并不返回整型值的函数，这种认定可能会引起错误。</p>
+<p>警告：</p>
+<p>所有的函数都应该具有原型，尤其是那些返回值不是整型的函数。记住，值的类型并不是值的内在本质，而是取决于它被使用的方式。如果编译器认定函数返回一个整型值，它将产生整数指令操纵这个值。如果这个值实际上是个非整型值，比如说是个浮点值，其结果通常将是不正确的。</p>
+<p>让我们看一个这种错误的例子。假设有一个函数xyz，它返回float值3.14。在Sun Sparc工作站中，用于表示这个浮点数的二进制位模式如下：</p>
+<p>01000000010010001111010111000011</p>
+<p>现在假定函数是这样被调用的：</p>
+<p>float　f;
+...
+f = xyz();</p>
+<p>如果在函数调用之前编译器无法看到它的原型，它便认定这个函数返回一个整型值，并产生指令将这个值转换为float，然后再赋值给变量f。</p>
+<p>函数返回的位如上所示。转换指令把它们解释为整型值1 078 523 331，并把这个值转换为float类型，结果存储于变量f中。</p>
+<p>为什么函数的返回值实际上已经是浮点值的形式时，还要执行类型转换呢？编译器并没有办法知道这个情况，因为没有原型或声明告诉它这些信息。这个例子说明了为什么返回值不是整型的函数具有原型是极为重要的。</p>
+<p>7.3　函数的参数
+C函数的所有参数均以“传值调用”方式进行传递，这意味着函数将获得参数值的一份拷贝。这样，函数可以放心修改这个拷贝值，而不必担心会修改调用程序实际传递给它的参数。这个行为与Modula和Pascal中的值参数（不是var参数）相同。</p>
+<p>C的规则很简单：所有参数都是传值调用。但是，如果被传递的参数是一个数组名，并且在函数中使用下标引用该数组的参数，那么在函数中对数组元素进行修改实际上修改的是调用程序中的数组元素。函数将访问调用程序的数组元素，数组并不会被复制。这个行为被称为“传址调用”，也就是许多其他语言所实现的var参数。</p>
+<p>数组参数的这种行为似乎与传值调用规则相悖。但是，此处其实并无矛盾之处——数组名的值实际上是一个指针，传递给函数的就是这个指针的一份拷贝。下标引用实际上是间接访问的另一种形式，它可以对指针执行间接访问操作，访问指针指向的内存位置。参数（指针）实际上是一份拷贝，但在这份拷贝上执行间接访问操作所访问的是原先的数组。我们将在下一章再讨论这一点，此处只要记住两个规则：</p>
+<p>1．传递给函数的标量参数是传值调用的。</p>
+<p>2．传递给函数的数组参数在行为上就像它们是通过传址调用的那样。</p>
+<p>/<em>
+** 对值进行偶校验。
+</em>/</p>
+<p>int
+even_parity( int value, int n_bits )
+{
+　　　　　　 int parity = 0;</p>
+<p>/<em>
+　　　　　　 ** 计数值中值为1的位的个数。
+　　　　　　 </em>/
+　　　　　　 while( n_bits &gt; 0 ){
+　　　　　　　　　　parity += value &amp; 1;
+　　　　　　　 　　　value &gt;&gt;= 1;
+　　　　　　　　　　　n_bits -= 1;
+　　　　　 　 }</p>
+<p>/<em>
+　　　　　 　 ** 如果计数器的最低位是0，返回TRUE(表示1的位数为偶数个)。
+　　　　　 </em>/
+　　　　 　 return ( parity % 2 ) == 0;
+}</p>
+<p>程序7.2　奇偶校验</p>
+<p>parity.c</p>
+<p>程序7.2说明了标量函数参数的传值调用行为。函数检查第1个参数是否满足偶校验，也就是它的二进制位模式中1的个数是否为偶数。函数的第2个参数指定第1个参数中有效位的数目。函数一次一位地对第1个参数值进行移位，所以每个位迟早都会出现在最右边的那个位置。所有的位逐个加在一起，所以在循环结束之后，我们就得到第1个参数值的位模式中1的个数。最后，对这个数进行测试，看看它的最低有效位是不是1。如果不是，那么说明1的个数就是偶数个。</p>
+<p>这个函数的有趣特性是在它的执行过程中，它会破坏这两个参数的值。但这并无妨，因为参数是通过传值调用的，函数所使用的值是实际参数的一份拷贝。破坏这份拷贝并不会影响原先的值。</p>
+<p>程序7.3a则有所不同：它希望修改调用程序传递的参数。这个函数的目的是交换调用程序所传递的这两个参数的值。但这个程序是无效的，因为它实际交换的是参数的拷贝，原先的参数值并未进行交换。</p>
+<p>/<em>
+** 交换调用程序中的两个整数(没有效果!)
+</em>/</p>
+<p>void
+swap( int x, int y )
+{
+　　　　　　int temp;</p>
+<p>temp = x;
+　　　　　　x = y;
+　　　　　　y = temp;
+}</p>
+<p>程序7.3a　整数交换：无效的版本</p>
+<p>swap1.c</p>
+<p>为了访问调用程序的值，你必须向函数传递指向你希望修改的变量的指针。接着函数必须对指针使用间接访问操作，修改需要修改的变量。程序7.3b使用了这个技巧：</p>
+<p>/<em>
+** 交换调用程序中的两个整数。
+</em>/</p>
+<p>void
+swap( int <em>x, int </em>y )
+{
+　　　　int temp;</p>
+<p>temp = <em>x;
+　　　　</em>x = <em>y;
+　　　　</em>y = temp;
+}</p>
+<p>程序7.3b　整数交换：有效版本</p>
+<p>swap2.c</p>
+<p>因为函数期望接受的参数是指针，所以我们应该按照下面的方式调用它：</p>
+<p>swap (&amp;a, &amp;b);</p>
+<p>程序7.4把一个数组的所有元素都设置为0。n_elements是一个标量参数，所以它是传值调用的。在函数中修改它的值并不会影响调用程序中的对应参数。另一方面，函数确实把调用程序的数组的所有元素设置为0。数组参数的值是一个指针，下标引用实际上是对这个指针执行间接访问操作。</p>
+<p>这个例子同时说明了另外一个特性。在声明数组参数时不指定它的长度是合法的，因为函数并不为数组元素分配内存。间接访问操作将访问调用程序中的数组元素。这样，一个单独的函数可以访问任意长度的数组。对于Pascal程序员而言，这应该是个福音。但是，函数并没有办法判断数组参数的长度，所以函数如果需要这个值，它必须作为参数显式地传递给函数</p>
+<p>/<em>
+** 把一个数组的所有元素都设置为零。
+</em>/</p>
+<p>void
+clear_array( int array[], int n_elements )
+{
+　　　　　 /<em>
+　　　　　 ** 从数组最后一个元素开始，逐个清除数组中的所有元素。注意前缀自增避免了越出数组边界的可能性。
+　　　　　 </em>/
+　　　　　 while( n_elements &gt; 0 )
+　　　　　　　　 array[ --n_elements ] = 0;
+}</p>
+<p>程序7.4　将一个数组设置为零 　</p>
+<p>clrarray.c</p>
+<p>K&amp;R C：</p>
+<p>回想一下，在K&amp;R C中，函数的参数是像下面这样声明的：</p>
+<p>int
+func(a, b, c)
+int a;
+char b;
+float c;
+{
+…</p>
+<p>避免使用这种旧风格的另一个理由是K&amp;R编译器处理参数的方式稍有不同：在参数传递之前，char和short类型的参数被提升为int类型，float类型的参数被提升为double类型。这种转换被称为缺省参数提升(default argument promotion)。由于这个规则的存在，在ANSI标准之前的程序中，你会经常看到函数参数被声明为int类型，但实际上传递的是char类型。</p>
+<p>警告：</p>
+<p>为了保持兼容性，ANSI编译器也会为旧式风格声明的函数执行这类转换。但是，使用原型的函数并不执行这类转换，所以混用这两种风格可能导致错误。</p>
+<p>7.4　ADT和黑盒
+C可以用于设计和实现抽象数据类型 (ADT，abstract data type)，因为它可以限制函数和数据定义的作用域。这个技巧也被称为黑盒 (black box)设计。抽象数据类型的基本想法是很简单的——模块具有功能说明和接口说明，前者说明模块所执行的任务，后者定义模块的使用。但是，模块的用户并不需要知道模块实现的任何细节，而且除了那些定义好的接口之外，用户不能以任何方式访问模块。</p>
+<p>限制对模块的访问是通过static关键字的合理使用实现的，它可以限制对那些并非接口的函数和数据的访问。例如，考虑一个用于维护一个地址/电话号码列表的模块。模块必须提供函数，根据一个指定的名字查找地址和电话号码。但是，列表存储的方式是依赖于具体实现的，所以这个信息为模块所私有，客户并不知情。</p>
+<p>下一个例子程序说明了这个模块的一种可能的实现方法。程序7.5a定义了一个头文件，它定义了一些由客户使用的接口。程序7.6b展示了这个模块的实现 [1] 。</p>
+<p>/<em>
+** 地址列表模块的声明。
+</em>/</p>
+<p>/<em>
+** 数据特征
+**
+**　各种数据的最大长度（包括结尾的NUL字节）和地址的最大数量。
+</em>/</p>
+<h1 id="define-name_length-30">define　NAME_LENGTH　30　　/<em>允许出现的最长名字 </em>/</h1>
+<h1 id="define-addr_length-100">define　ADDR_LENGTH　100　　/<em> 允许出现的最长地址 </em>/</h1>
+<h1 id="define-phone_length-11">define　PHONE_LENGTH　11　　/<em> 允许出现的最长电话号码 </em>/</h1>
+<h1 id="define-max_addresses-1000">define　MAX_ADDRESSES　1000　　/<em> 允许出现的最多地址个数 </em>/</h1>
+<p>/<em>
+** 接口函数
+**
+**　给出一个名字，查找对应的地址。
+</em>/
+char const *
+lookup_address( char const *name );</p>
+<p>/<em>
+**　给出一个名字，查找对应的电话号码。
+</em>/
+char const *
+lookup_phone( char const *name );</p>
+<p>程序7.5a　地址列表模块：头文件</p>
+<p>addrlist.h</p>
+<p>/<em>
+** 用于维护一个地址列表的抽象数据类型。
+</em>/</p>
+<h1 id="include-addrlisth">include "addrlist.h"</h1>
+<h1 id="include_1">include <stdio.h></h1>
+<p>/<em>
+**　每个地址的三个部分，分别保存于三个数组的对应元素中。
+</em>/
+static　char　name[MAX_ADDRESSES][NAME_LENGTH];
+static　char　address[MAX_ADDRESSES][ADDR_LENGTH];
+static　char　phone[MAX_ADDRESSES][PHONE_LENGTH];</p>
+<p>/<em>
+**　这个函数在数组中查找一个名字并返回查找到的位置的下标。
+**　如果这个名字在数组中并不存在，函数返回-1。
+</em>/
+static int
+find_entry( char const *name_to_find )
+{
+　　　int entry;</p>
+<p>for( entry = 0; entry &lt; MAX_ADDRESSES; entry += 1 )
+　　　　　　if( strcmp( name_to_find, name[ entry ] ) == 0 )
+　　　　　　　　　return entry;</p>
+<p>return -1;
+}</p>
+<p>/<em>
+**　给定一个名字，查找并返回对应的地址。
+**　如果名字没有找到，函数返回一个NULL指针。
+</em>/
+char const *
+lookup_address( char const *name )
+{
+　　　int entry;</p>
+<p>entry = find_entry( name );
+　　　if( entry == -1 )
+　　　　　　return NULL;
+　　　else
+　　　　　　return address[ entry ];
+}</p>
+<p>/<em>
+**　给定一个名字，查找并返回对应的电话号码。
+**　如果名字没有找到，函数返回一个NULL指针。
+</em>/
+char const *
+lookup_phone( char const *name )
+{
+　　　int entry;</p>
+<p>entry = find_entry( name );
+　　　if( entry == -1 )
+　　　　　　return NULL;
+　　　else
+　　　　　　return phone[ entry ];
+}</p>
+<p>程序7.5b　地址列表模块：实现</p>
+<p>addrlist.c</p>
+<p>程序7.5是一个黑盒的好例子。黑盒的功能通过规定的接口访问，在这个例子里，接口是函数lookup_address和lookup_phone。但是，用户不能直接访问和模块实现有关的数据，如数组或辅助函数find_entry，因为这些内容被声明为static。</p>
+<p>提示：</p>
+<p>这种类型的实现威力在于它使程序的各个部分相互之间更加独立。例如，随着地址列表的记录条数越来越多，简单的线性查找可能太慢，或者用于存储记录的表可能装满。此时你可以重新编写查找函数，使它更富效率，可能是通过使用某种形式的散列表查找来实现。或者，你甚至可以放弃使用数组，转而为这些记录动态分配内存空间。但是，如果用户程序可以直接访问存储记录的表，表的组织形式如果进行了修改，就有可能导致用户程序失败。</p>
+<p>黑盒的概念使实现细节与外界隔绝，这就消除了用户试图直接访问这些实现细节的诱惑。这样，访问模块唯一可能的方法就是通过模块所定义的接口。</p>
+<p>7.5　递归
+C通过运行时堆栈支持递归函数的实现 [2] 。递归函数就是直接或间接调用自身的函数。许多教科书都把计算阶乘和菲波那契数列用来说明递归，这是非常不幸的。在第1个例子里，递归并没有提供任何优越之处。在第2个例子中，它的效率之低是非常恐怖的。</p>
+<p>这里有一个简单的程序，可用于说明递归。程序的目的是把一个整数从二进制形式转换为可打印的字符形式。例如，给出一个值4267，我们需要依次产生字符‘4’、‘2’、‘6’和‘7’。如果在printf函数中使用了%d格式码，它就会执行这类处理。</p>
+<p>我们采用的策略是把这个值反复除以10，并打印各个余数。例如，4267除10的余数是7，但是我们不能直接打印这个余数。我们需要打印的是机器字符集中表示数字‘7’的值。在ASCII码中，字符‘7’的值是55，所以我们需要在余数上加上48来获得正确的字符。但是，使用字符常量而不是整型常量可以提高程序的可移植性。考虑下面的关系：</p>
+<p>picture\陈冀康02-14程序\d\d179.tif</p>
+<p>从这些关系中，我们很容易看出在余数上加上‘0’就可以产生对应字符的代码 [3] 。接着就打印出余数。下一步是取得商，4267/10等于426。然后用这个值重复上述步骤。</p>
+<p>这种处理方法存在的唯一问题是它产生的数字次序正好相反，它们是逆向打印的。程序7.6使用递归来修正这个问题。</p>
+<p>程序7.6中的函数是递归性质的，因为它包含了一个对自身的调用。乍一看，函数似乎永远不会终止。当函数调用时，它将调用自身，第2次调用还将调用自身，以此类推，似乎会永远调用下去。但是，事实上并不会出现这种情况。</p>
+<p>这个程序的递归实现了某种类型的螺旋状while循环。while循环在循环体每次执行时必须取得某种进展，逐步迫近循环终止条件。递归函数也是如此，它在每次递归调用后必须越来越接近某种限制条件。当递归函数符合这个限制条件时，它便不再调用自身。</p>
+<p>在程序7.6中，递归函数的限制条件就是变量quotient为零。在每次递归调用之前，我们都把quotient除以10，所以每递归调用一次，它的值就越来越接近零。当它最终变成零时，递归便告终止。</p>
+<p>/<em>
+** 接受一个整型值（无符号），把它转换为字符并打印它。前导零被删除。
+</em>/</p>
+<h1 id="include_2">include <stdio.h></h1>
+<p>void
+binary_to_ascii( unsigned int value )
+{
+　　unsigned int　　 quotient;</p>
+<p>quotient = value / 10;
+　　if( quotient != 0 )
+　　　　 binary_to_ascii( quotient );
+　　putchar( value % 10 + '0' );
+}</p>
+<p>程序7.6　将二进制整数转换为字符</p>
+<p>btoa.c</p>
+<p>递归是如何帮助我们以正确的顺序打印这些字符呢？下面是这个函数的工作流程。</p>
+<p>1．将参数值除以10。</p>
+<p>2．如果quotient的值为非零，调用binary_to_ascii打印quotient当前值的各位数字。</p>
+<p>3．接着，打印步骤1中除法运算的余数。</p>
+<p>注意在第2个步骤中，我们需要打印的是quotient当前值的各位数字。我们所面临的问题和最初的问题完全相同，只是变量quotient的值变小了。我们用刚刚编写的函数（把整数转换为各个数字字符并打印出来）来解决这个问题。由于quotient的值越来越小，所以递归最终会终止。</p>
+<p>一旦你理解了递归，阅读递归函数最容易的方法不是纠缠于它的执行过程，而是相信递归函数会顺利完成它的任务。如果你的每个步骤正确无误，你的限制条件设置正确，并且每次调用之后更接近限制条件，递归函数总是能够正确地完成任务。</p>
+<p>7.5.1　追踪递归函数
+但是，为了能理解递归的工作原理，你需要追踪递归调用的执行过程，所以让我们来进行这项工作。追踪一个递归函数执行过程的关键是理解函数中所声明的变量是如何存储的。当函数被调用时，它的变量的空间是创建于运行时堆栈上的。以前调用的函数的变量仍保留在堆栈上，但它们被新函数的变量所掩盖，因此是不能被访问的。</p>
+<p>当递归函数调用自身时，情况也是如此。每进行一次新的调用，都将创建一批变量，它们将掩盖递归函数前一次调用所创建的变量。当我们追踪一个递归函数的执行过程时，必须把分属不同次调用的变量区分开来，以避免混淆。</p>
+<p>程序7.6的函数有两个变量：参数value和局部变量quotient。下面的一些图显示了堆栈的状态，当前可以访问的变量位于栈顶。所有其他调用的变量饰以灰色阴影，表示它们不能被当前正在执行的函数访问。</p>
+<p>假定我们以4267这个值调用递归函数。当函数刚开始执行时，堆栈的内容如下图所示。</p>
+<p>C和指针TU\p128.tif</p>
+<p>执行除法运算之后，堆栈的内容如下：</p>
+<p>C和指针TU\p129a.tif</p>
+<p>接着，if语句判断出quotient的值非零，所以对该函数执行递归调用。当这个函数第二次被调用之初，堆栈的内容如下：</p>
+<p>C和指针TU\p129b.tif</p>
+<p>堆栈上创建了一批新的变量，隐藏了前面的那批变量，除非当前这次递归调用返回，否则它们是不能被访问的。再次执行除法运算之后，堆栈的内容如下：</p>
+<p>C和指针TU\p129c.tif</p>
+<p>quotient的值现在为42，仍然非零，所以需要继续执行递归调用，并再创建一批变量。在执行完这次调用的除法运算之后，堆栈的内容如下：</p>
+<p>C和指针TU\p129d.tif</p>
+<p>此时，quotient的值还是非零，仍然需要执行递归调用。在执行除法运算之后，堆栈的内容如下：</p>
+<p>C和指针TU\p130a.tif</p>
+<p>不算递归调用语句本身，到目前为止所执行的语句只是除法运算以及对quotient的值进行测试。由于递归调用使这些语句重复执行，所以它的效果类似循环：当quotient的值非零时，把它的值作为初始值重新开始循环。但是，递归调用将会保存一些信息（这点与循环不同），也就是保存在堆栈中的变量值。这些信息很快就会变得非常重要。</p>
+<p>现在quotient的值变成了零，递归函数便不再调用自身，而是开始打印输出。然后函数返回，并开始销毁堆栈上的变量值。</p>
+<p>每次调用putchar得到变量value的最后一个数字，方法是对value进行模10取余运算，其结果是一个0到9之间的整数。把它与字符常量‘0’相加，其结果便是对应于这个数字的ASCII字符，然后把这个字符打印出来。</p>
+<p>C和指针TU\p130b.tif</p>
+<p>接着函数返回，它的变量从堆栈中销毁。接着，递归函数的前一次调用重新继续执行，它所使用的是自己的变量，它们现在位于堆栈的顶部。因为它的value值是42，所以调用putchar后打印出来的数字是2。</p>
+<p>C和指针TU\p131a.tif</p>
+<p>接着递归函数的这次调用也返回，它的变量也被销毁，此时位于堆栈顶部的是递归函数再前一次调用的变量。递归调用从这个位置继续执行，这次打印的数字是6。在这次调用返回之前，堆栈的内容如下：</p>
+<p>C和指针TU\p131b.tif</p>
+<p>现在我们已经展开了整个递归过程，并回到该函数最初的调用。这次调用打印出数字7，也就是它的value参数除10的余数。</p>
+<p>C和指针TU\p131c.tif</p>
+<p>然后，这个递归函数就彻底返回到其他函数调用它的地点。</p>
+<p>如果你把打印出来的字符一个接一个排在一起，出现在打印机或屏幕上，你将看到正确的值：4267。</p>
+<p>7.5.2　递归与迭代
+递归是一种强有力的技巧，但和其他技巧一样，它也可能被误用。这里就有一个例子。阶乘的定义往往就是以递归的形式描述的，如下所示：</p>
+<p>\rm{\tt factorial}(\tt n)=\begin{cases}\rm \tt n\leqslant 0:1\\rm \tt n&gt; 0:n\times \rm{\tt factorial}\tt (n-1)\end{cases}\right.</p>
+<p>这个定义同时具备了我们开始讨论递归所需要的两个特性：存在限制条件，当符合这个条件时递归便不再继续；每次递归调用之后越来越接近这个限制条件。</p>
+<p>用这种方式定义阶乘往往引导人们使用递归来实现阶乘函数，如程序7.7a所示。这个函数能够产生正确的结果，但它并不是递归的良好用法。为什么？递归函数调用将涉及一些运行时开销——参数必须压到堆栈中，为局部变量分配内存空间（所有递归均如此，并非特指这个例子），寄存器的值必须保存等。当递归函数的每次调用返回时，上述这些操作必须还原，恢复成原来的样子。所以，基于这些开销，对于这个程序而言，它并没有简化问题的解决方案。</p>
+<p>/<em>
+** 用递归方法计算n的阶乘。
+</em>/</p>
+<p>long
+factorial( int n )
+{
+　　　　if( n &lt;= 0 )
+　　　　　　return 1;
+　　　　else
+　　　　　　return n * factorial( n - 1 );
+}</p>
+<p>程序7.7a　递归计算阶乘</p>
+<p>fact_rec.c</p>
+<p>程序7.7b使用循环计算相同的结果。尽管这个使用简单循环的程序不甚符合前面阶乘的数学定义，但它却能更为有效地计算出相同的结果。如果你仔细观察递归函数，你会发现递归调用是函数所执行的最后一项任务。这个函数是尾部递归(tail recursion)的一个例子。由于函数在递归调用返回之后不再执行任何任务，所以尾部递归可以很方便地转换成一个简单循环，完成相同的任务。</p>
+<p>*
+** 用迭代方法计算n的阶乘。
+*/</p>
+<p>long
+factorial( int n )
+{
+　　　　int　　　result = 1;</p>
+<p>while( n &gt; 1 ){
+　　　　　　result *= n;
+　　　　　　n -= 1;
+　　　}</p>
+<p>return result;
+}</p>
+<p>程序7.7b　迭代计算阶乘 　　</p>
+<p>fact_itr.c</p>
+<p>提示：</p>
+<p>许多问题是以递归的形式进行解释的，这只是因为它比非递归形式更为清晰。但是，这些问题的迭代实现往往比递归实现效率更高，虽然代码的可读性可能稍差一些。当一个问题相当复杂，难以用迭代形式实现时，此时递归实现的简洁性便可以补偿它所带来的运行时开销。</p>
+<p>在程序7.7a中，递归在改善代码的可读性方面并无优势，因为程序7.7b的循环方案也同样简单。这里有一个更为极端的例子，菲波那契数就是一个数列，数列中每个数的值就是它前面两个数的和。这种关系常常用递归的形式进行描述：</p>
+<p>\rm{\tt{Fibonacci}}\tt (n)=\begin{cases}\rm \tt n\leqslant 1:1\\rm \tt n=2:1\\rm \tt n&gt; 2:Fibonacci(n-1)+Fibonacci(n-2)\end{cases}\right.</p>
+<p>同样，这种递归形式的定义容易诱导人们使用递归形式来解决问题，如程序7.8a所示。这里有一个陷阱：它使用递归步骤计算Fibonacci(n-1)和Fibonacci(n-2)。但是，在计算Fibonacci(n-1)时也将计算Fibonacci(n-2)。这个额外的计算代价有多大呢？</p>
+<p>答案是：它的代价远远不止一个冗余计算：每个递归调用都触发另外两个递归调用，而这两个调用的任何一个还将触发两个递归调用，再接下去的调用也是如此。这样，冗余计算的数量增长得非常快。例如，在递归计算Fibonacci(10)时，Fibonacci(3)的值被计算了21次。但是，在递归计算Fibonacci(30)时，Fibonacci(3)的值被计算了317 811次。当然，这317 811次计算所产生的结果是完全一样的，除了其中之一外，其余的纯属浪费。这个额外的开销真是相当恐怖！</p>
+<p>/<em>
+** 用递归方法计算第n个菲波那契数的值。
+</em>/</p>
+<p>long
+fibonacci( int n )
+{
+　　　　 if( n &lt;= 2 )
+　　　　　　　return 1;</p>
+<p>return fibonacci( n - 1 ) + fibonacci( n - 2 );
+}</p>
+<p>程序7.8a　用递归计算菲波那契数</p>
+<p>fib_rec.c</p>
+<p>现在考虑程序7.8b，它使用一个简单循环来代替递归。同样，这个循环形式不如递归形式符合前面菲波那契数的抽象定义，但它的效率提高了几十万倍！</p>
+<p>当你使用递归方式实现一个函数之前，先问问你自己使用递归带来的好处是否抵得上它的代价。而且你必须小心：这个代价可能比初看上去要大得多。</p>
+<p>/<em>
+** 用迭代方法计算第n个菲波那契数的值。
+</em>/</p>
+<p>long
+fibonacci( int n )
+{
+　　　　long　result;
+　　　　long　previous_result;
+　　　　long　next_older_result;</p>
+<p>result = previous_result = 1;</p>
+<p>while( n &gt; 2 ){
+　　　　　n -= 1;
+　　　　　next_older_result = previous_result;
+　　　　　previous_result = result;
+　　　　　result = previous_result + next_older_result;
+　　　　}
+　　　　return result;
+}</p>
+<p>程序7.8b　用迭代计算菲波那契数</p>
+<p>fib_iter.c</p>
+<p>7.6　可变参数列表
+在函数的原型中，列出了函数期望接受的参数，但原型只能显示固定数目的参数。让一个函数在不同的时候接受不同数目的参数是不是可以呢？答案是肯定的，但存在一些限制。考虑一个计算一系列值的平均值的函数。如果这些值存储于数组中，这个任务就太简单了，所以为了让问题变得更有趣一些，我们假定它们并不存储于数组中。程序7.9a试图完成这个任务。</p>
+<p>这个函数存在几个问题。首先，它不对参数的数量进行测试，无法检测到参数过多这种情况。不过这个问题很好解决，简单加上测试就是了。其次，函数无法处理超过5个的值。要解决这个问题，你只有在已经很臃肿的代码中再增加一些类似的代码。</p>
+<p>但是，当你试图用下面这种形式调用这个函数时，还存在一个更为严重的问题：</p>
+<p>avg1 = average( 3, x, y, z );</p>
+<p>这里只有4个参数，但函数具有6个形参。标准是这样定义这种情况的：这种行为的后果是未定义的。这样，第1个参数可能会与n_values对应，也可能与形参v2对应。你当然可以测试一下你的编译器是如何处理这种情况的，但这个程序显然是不可移植的。我们需要的是一种机制，它能够以一种良好定义的方法访问数量未定的参数列表。</p>
+<p>/<em>
+** 计算指定数目的值的平均值（差的方案）。
+</em>/</p>
+<p>float
+average( int n_values, int v1, int v2, int v3, int v4, int v5 )
+{
+　　　　 float sum = v1;</p>
+<p>if( n_values &gt;= 2 )
+　　　　　　sum += v2;
+　　　　 if( n_values &gt;= 3 )
+　　　　 　　sum += v3;
+　　　　 if( n_values &gt;= 4 )
+　　　　　　　sum += v4;
+　　　　 if( n_values &gt;= 5 )
+　　　　 　　sum += v5;
+　　　　 return sum / n_values;
+}</p>
+<p>程序7.9a　计算标量参数的平均值：差的版本</p>
+<p>average1.c</p>
+<p>7.6.1　stdarg宏
+可变参数列表是通过宏来实现的，这些宏定义于stdarg.h头文件，它是标准库的一部分。这个头文件声明了一个类型va_list和三个宏——va_start、va_arg和va_end [4] 。我们可以声明一个类型为va_list的变量，与这几个宏配合使用，访问参数的值。</p>
+<p>程序7.9b使用这三个宏正确地完成了程序7.9a试图完成的任务。注意参数列表中的省略号：它提示此处可能传递数量和类型未确定的参数。在编写这个函数的原型时，也要使用相同的记法。</p>
+<p>函数声明了一个名叫var_arg的变量，它用于访问参数列表的未确定部分。这个变量通过调用va_start来初始化。它的第1个参数是va_list变量的名字，第2个参数是省略号前最后一个有名字的参数。初始化过程把var_arg变量设置为指向可变参数部分的第1个参数。</p>
+<p>为了访问参数，需要使用va_arg，这个宏接受两个参数：va_list变量和参数列表中下一个参数的类型。在这个例子中，所有的可变参数都是整型。在有些函数中，你可能要通过前面获得的数据来判断下一个参数的类型 [5] 。va_arg返回这个参数的值，并使var_arg指向下一个可变参数。</p>
+<p>最后，当访问完毕最后一个可变参数之后，我们需要调用va_end。</p>
+<p>7.6.2　可变参数的限制
+注意，可变参数必须从头到尾按照顺序逐个访问。如果你在访问了几个可变参数后想半途中止，这是可以的。但是，如果你想一开始就访问参数列表中间的参数，那是不行的。另外，由于参数列表中的可变参数部分并没有原型，所以，所有作为可变参数传递给函数的值都将执行缺省参数类型提升。</p>
+<p>/<em>
+** 计算指定数量的值的平均值。
+</em>/</p>
+<h1 id="include_3">include <stdarg.h></h1>
+<p>float
+average( int n_values, ... )
+{
+　　　　　 va_list　 var_arg;
+　　　　　 int　　count;
+　　　　　 float sum = 0;</p>
+<p>/<em>
+　　　　　 ** 准备访问可变参数。
+　　　　　 </em>/
+　　　　　 va_start( var_arg, n_values );</p>
+<p>/<em>
+　　　　　 ** 添加取自可变参数列表的值。
+　　　　　 </em>/
+　　　　　 for( count = 0; count &lt; n_values; count += 1 ){
+　　　　　　　　 sum += va_arg( var_arg, int );
+　　　　　 }</p>
+<p>/<em>
+　　　　　 ** 完成处理可变参数。
+　　　　　 </em>/
+　　　　　 va_end( var_arg );</p>
+<p>return sum / n_values;
+}</p>
+<p>程序7.9b　计算标量参数的平均值：正确版本</p>
+<p>average2.c</p>
+<p>你可能同时注意到参数列表中至少要有一个命名参数。如果连一个命名参数也没有，你就无法使用va_start。这个参数提供了一种方法，用于查找参数列表的可变部分。</p>
+<p>对于这些宏，存在两个基本的限制。一个值的类型无法简单地通过检查它的位模式来判断，这两个限制就是这个事实的直接结果。</p>
+<p>1．这些宏无法判断实际存在的参数的数量。</p>
+<p>2．这些宏无法判断每个参数的类型。</p>
+<p>要回答这两个问题，就必须使用命名参数。在程序7.9b中，命名参数指定了实际传递的参数数量，不过它们的类型被假定为整型。printf函数中的命名参数是格式字符串，它不仅指定了参数的数量，而且指定了参数的类型。</p>
+<p>警告：</p>
+<p>如果你在va_arg中指定了错误的类型，那么其结果是不可预测的。这个错误是很容易发生的，因为va_arg无法正确识别作用于可变参数之上的缺省参数类型提升。char、short和float类型的值实际上将作为int或double类型的值传递给函数。所以你在va_arg中使用后面这些类型时应该小心。</p>
+<p>7.7　总结
+函数定义同时描述了函数的参数列表和函数体（当函数被调用时所执行的语句），参数列表有两种可以接受的形式。K&amp;R C风格用一个单独的列表说明参数的类型，它出现在函数体的左花括号之前。新式风格（也是现在提倡的那种）则直接在参数列表中包含了参数的类型。如果函数体内没有任何语句，那么该函数就称为存根，它在测试不完整的程序时非常有用。</p>
+<p>函数声明给出了和一个函数有关的有限信息，当函数被调用时就会用到这些信息。函数声明也有两种可以接受的形式。K&amp;R风格没有参数列表，它只是声明了函数返回值的类型。目前所提倡的新风格又称为函数原型，除了返回值类型之外，它还包含了参数类型的声明，这就允许编译器在调用函数时检查参数的数量和类型。你也可以把参数名放在函数的原型中，尽管不是必需，但这样做可以使原型对于其他读者更为有用，因为它传递了更多的信息。对于没有参数的函数，它的原型在参数列表中有一个关键字void。常见的原型使用方法是把原型放在一个单独的文件中，当其他源文件需要这个原型时，就用#include指令把这个文件包含进来。这个技巧可以使原型必需的拷贝份数降到最低，有助于提高程序的可维护性。</p>
+<p>return语句用于指定从一个函数返回的值。如果return语句没有包含返回值，或者函数不包含任何return语句，那么函数就没有返回值。在许多其他语言中，这类函数被称为过程。在ANSI C中，没有返回值的函数的返回类型应该声明为void。</p>
+<p>当一个函数被调用时，编译器如果无法看到它的任何声明，那么它就假定函数返回一个整型值。对于那些返回值不是整型的函数，在调用之前对它们进行声明是非常重要的，这可以避免由于不可预测的类型转换而导致的错误。对于那些没有原型的函数，传递给函数的实参将进行缺省参数提升：char和short类型的实参被转换为int类型，float类型的实参被转换为double类型。</p>
+<p>函数的参数是通过传值方式进行传递的，它实际所传递的是实参的一份拷贝。因此，函数可以修改它的形参（也就是实参的拷贝），而不会修改调用程序实际传递的参数。数组名也是通过传值方式传递的，但它传给函数的是一个指向该数组的指针的拷贝。在函数中，如果在数组形参中使用了下标引用操作，就会引发间接访问操作，它实际所访问的是调用程序的数组元素。因此，在函数中修改参数数组的元素实际上修改的是调用程序的数组。这个行为被称为传址调用。如果你希望在传递标量参数时也具有传址调用的语义，你可以向函数传递指向参数的指针，并在函数中使用间接访问来访问或修改这些值。</p>
+<p>抽象数据类型，或称黑盒，由接口和实现两部分组成。接口是公有的，它说明客户如何使用ADT所提供的功能。实现是私有的，是实际执行任务的部分。将实现部分声明为私有可以访止客户程序依赖于模块的实现细节。这样，当需要的时候，我们可以对实现进行修改，这样做并不会影响客户程序的代码。</p>
+<p>递归函数直接或间接地调用自身。为了使递归能顺利进行，函数的每次调用必须获得一些进展，进一步靠近目标。当达到目标时，递归函数就不再调用自身。在阅读递归函数时，不必纠缠于递归调用的内部细节。你只要简单地认为递归函数将会执行它的预定任务即可有些函数是以递归形式进行描述的，如阶乘和菲波那契数列，但它们如果使用迭代方式来实现，效率会更高一些。如果一个递归函数内部所执行的最后一条语句就是调用自身时，那么它就被称为尾部递归。尾部递归可以很容易地改写为循环的形式，它的效率通常更高一些。</p>
+<p>有些函数的参数列表包含可变的参数数量和类型，它们可以使用stdarg.h头文件所定义的宏来实现。参数列表的可变部分位于一个或多个普通参数（命名参数）的后面，它在函数原型中以一个省略号表示。命名参数必须以某种形式提示可变部分实际所传递的参数数量，而且如果预先知道的话，也可以提供参数的类型信息。当参数列表中可变部分的参数实际传递给函数时，它们将经历缺省参数提升。可变部分的参数只能从第1个到最后1个依次进行访问。</p>
+<h2 id="_6">编程练习</h2>
+<h3 id="1">练习 1</h3>
+<p>为下面这个函数原型编写函数定义</p>
+<pre><code class="language-c">　　int ascii_to_integer( char *string );
+</code></pre>
+<p>这个字符串参数必须包含一个或多个数字，函数应该把这些数字字符转换为整数并返回这个整数。如果字符串参数包含了任何非数字字符，函数就返回零。</p>
+<pre><code class="language-c">#include &lt;stdio.h&gt;
+
+int ascii_to_integer(char *string) {
+    int result = 0;  // 存储结果的整数
+
+    // 循环遍历字符串中的每个字符
+    while (*string) {
+        // 如果当前字符是数字字符
+        if (*string &gt;= '0' &amp;&amp; *string &lt;= '9') {
+            // 将当前字符转换为整数（减去'0'的ASCII值得到真正的数值）
+            // 并将其加到结果上，同时考虑当前结果已是前一次迭代的结果*10
+            result = result * 10 + (*string - '0');
+        } else {
+            // 如果遇到非数字字符，则停止转换
+            break;
+        }
+
+        // 移动到下一个字符
+        string++;
+    }
+
+    return result;
+}
+
+// 测试函数的简单例子
+int main() {
+    char str1[] = &quot;12345&quot;;
+    char str2[] = &quot;987a654&quot;;
+    char str3[] = &quot;abc123&quot;;
+
+    printf(&quot;%s 转换为整数是: %d\n&quot;, str1, ascii_to_integer(str1));
+    printf(&quot;%s 转换为整数是: %d\n&quot;, str2, ascii_to_integer(str2));
+    printf(&quot;%s 转换为整数是: %d\n&quot;, str3, ascii_to_integer(str3));
+
+    return 0;
+}
+</code></pre>
+<h3 id="2">练习 2</h3>
+<p>编写一个名叫max_list的函数，它用于检查任意数目的整型参数并返回它们中的最大值。参数列表必须以一个负值结尾，提示列表的结束。</p>
+<pre><code class="language-c">#include &lt;stdio.h&gt;
+#include &lt;stdarg.h&gt;
+
+// 定义max_list函数，使用可变参数列表找出并返回最大整数
+int max_list(int first_arg, ...) {
+    // 初始化可变参数列表
+    va_list var_arg;
+    va_start(var_arg, first_arg);
+
+    // 假设第一个参数是目前为止的最大值
+    int max_val = first_arg;
+
+    int curr_val;
+
+    // 循环直到遇到负数参数，这表示参数列表的结束
+    while ((curr_val = va_arg(var_arg, int)) &gt;= 0) {
+        // 更新最大值
+        if (curr_val &gt; max_val) {
+            max_val = curr_val;
+        }
+    }
+
+    // 清理可变参数列表
+    va_end(var_arg);
+
+    // 返回找到的最大值
+    return max_val;
+}
+
+// 主函数，用于展示max_list函数的使用
+int main() {
+    // 测试max_list函数
+    printf(&quot;Max of 12, 75, 3, 87, -1 is: %d\n&quot;, max_list(12, 75, 3, 87, -1));
+    printf(&quot;Max of 20, 10, 5, -1 is: %d\n&quot;, max_list(20, 10, 5, -1));
+    printf(&quot;Max of 99, -1 is: %d\n&quot;, max_list(99, -1));
+
+    return 0;
+}
+</code></pre>
+<h3 id="3">练习 3</h3>
+<p>实现一个简化的 printf 函数，它能够处理 %d、%f、%s和%c 格式码。根据 ANSI 标准的原则，其他格式码的行为是未定义的。你可以假定已经存在函数print_integer和print_float，用于打印这些类型的值。对于另外两种类型的值，使用putchar来打印。</p>
+<pre><code class="language-c">#include &lt;stdio.h&gt;
+#include &lt;stdarg.h&gt;
+
+// 假设的函数原型
+void print_integer(int value) {
+    printf(&quot;%d&quot;, value);
+}
+
+// 假设的函数原型
+void print_float(float value) {
+    printf(&quot;%f&quot;, value);
+}
+
+void mini_printf(const char *format, ...) {
+    va_list args;
+    va_start(args, format);
+
+    while (*format != '\0') {
+        if (*format == '%') {
+            format++; // 移动到格式说明符
+            switch (*format) {
+                case 'd':
+                    print_integer(va_arg(args, int));
+                    break;
+                case 'f':
+                    print_float((float)va_arg(args, double)); // 注意：va_arg使用double来获取浮点数
+                    break;
+                case 's': ;
+                    char *s = va_arg(args, char*);
+                    while (*s) putchar(*s++);
+                    break;
+                case 'c':
+                    putchar((char)va_arg(args, int)); // 注意：va_arg使用int来获取字符
+                    break;
+                default:
+                    // 如果遇到未定义的格式代码，则输出它。
+                    putchar('%');
+                    putchar(*format);
+                    break;
+            }
+        } else {
+            // 如果不是格式指定符，直接输出该字符
+            putchar(*format);
+        }
+        format++;
+    }
+
+    va_end(args);
+}
+
+int main() {
+    mini_printf(&quot;This is a string: %s\n&quot;, &quot;Hello, World!&quot;);
+    mini_printf(&quot;This is an integer: %d\n&quot;, 12345);
+    mini_printf(&quot;This is a float: %f\nThis is a char: %c\n&quot;, 3.14159, 'A');
+    return 0;
+}
+</code></pre>
+
+  <hr>
+<div class="md-source-file">
+  <small>
+    
+      最后更新:
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">June 5, 2024</span>
+      
+    
+  </small>
+</div>
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12Z"/></svg>
+            回到页面顶部
+          </button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="页脚" >
+        
+          
+          <a href="../pointer/" class="md-footer__link md-footer__link--prev" aria-label="上一页: 指针" rel="prev">
+            <div class="md-footer__button md-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                上一页
+              </span>
+              <div class="md-ellipsis">
+                指针
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../../framework/activity-start/" class="md-footer__link md-footer__link--next" aria-label="下一页: Activity 启动流程分析" rel="next">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                下一页
+              </span>
+              <div class="md-ellipsis">
+                Activity 启动流程分析
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    <script id="__config" type="application/json">{"base": "../../..", "features": ["announce.dismiss", "content.code.annotate", "content.code.copy", "content.tooltips", "navigation.footer", "navigation.indexes", "navigation.tabs", "navigation.top", "navigation.tracking", "search.highlight", "search.share", "search.suggest", "toc.follow"], "search": "../../../assets/javascripts/workers/search.208ed371.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.a51614de.min.js"></script>
+      
+    
+  </body>
+</html>
