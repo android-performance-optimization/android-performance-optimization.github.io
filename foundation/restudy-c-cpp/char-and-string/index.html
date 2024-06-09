@@ -10,20 +10,20 @@
       
       
       
-        <link rel="canonical" href="https://android-performance-optimization.github.io/foundation/restudy-c-cpp/pointer/">
+        <link rel="canonical" href="https://android-performance-optimization.github.io/foundation/restudy-c-cpp/char-and-string/">
       
       
-        <link rel="prev" href="../operators-and-expressions/">
+        <link rel="prev" href="../array/">
       
       
-        <link rel="next" href="../function/">
+        <link rel="next" href="../../framework/activity-start/">
       
       <link rel="icon" href="../../../assets/favicon.png">
       <meta name="generator" content="mkdocs-1.6.0, mkdocs-material-9.1.16">
     
     
       
-        <title>指针 - Android 性能优化手册</title>
+        <title>字符串、字符和字节 - Android 性能优化手册</title>
       
     
     
@@ -113,7 +113,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              指针
+              字符串、字符和字节
             
           </span>
         </div>
@@ -974,161 +974,11 @@
               
   
   
-    
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          指针
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../pointer/" class="md-nav__link">
         指针
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="目录">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      目录
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
-    内存和地址
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
-    间接访问操作符
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#null" class="md-nav__link">
-    NULL指针
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_4" class="md-nav__link">
-    指针、间接访问和变量
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_5" class="md-nav__link">
-    指针运算
-  </a>
-  
-    <nav class="md-nav" aria-label="指针运算">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#_6" class="md-nav__link">
-    算术运算
-  </a>
-  
-    <nav class="md-nav" aria-label="算术运算">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#_7" class="md-nav__link">
-    指针 ± 整数
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_8" class="md-nav__link">
-    指针 — 指针
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_9" class="md-nav__link">
-    关系运算
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_10" class="md-nav__link">
-    总结
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_11" class="md-nav__link">
-    编译练习
-  </a>
-  
-    <nav class="md-nav" aria-label="编译练习">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#1" class="md-nav__link">
-    练习 1
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#2" class="md-nav__link">
-    练习 2
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#3" class="md-nav__link">
-    练习 3
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -1166,11 +1016,127 @@
               
   
   
+    
   
-    <li class="md-nav__item">
-      <a href="../char-and-string/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          字符串、字符和字节
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         字符串、字符和字节
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    字符串基础
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    字符串查找基础
+  </a>
+  
+    <nav class="md-nav" aria-label="字符串查找基础">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    查找一个字符
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    查找任何几个字符
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    查找一个子串
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    高级字符串查找
+  </a>
+  
+    <nav class="md-nav" aria-label="高级字符串查找">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    查找一个字符串前缀
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    查找标记
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    内存操作
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_11" class="md-nav__link">
+    总结
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -1949,58 +1915,36 @@
       
         <li class="md-nav__item">
   <a href="#_2" class="md-nav__link">
-    内存和地址
+    字符串基础
   </a>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#_3" class="md-nav__link">
-    间接访问操作符
+    字符串查找基础
   </a>
   
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#null" class="md-nav__link">
-    NULL指针
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_4" class="md-nav__link">
-    指针、间接访问和变量
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_5" class="md-nav__link">
-    指针运算
-  </a>
-  
-    <nav class="md-nav" aria-label="指针运算">
+    <nav class="md-nav" aria-label="字符串查找基础">
       <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    查找一个字符
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    查找任何几个字符
+  </a>
+  
+</li>
         
           <li class="md-nav__item">
   <a href="#_6" class="md-nav__link">
-    算术运算
-  </a>
-  
-    <nav class="md-nav" aria-label="算术运算">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#_7" class="md-nav__link">
-    指针 ± 整数
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_8" class="md-nav__link">
-    指针 — 指针
+    查找一个子串
   </a>
   
 </li>
@@ -2009,10 +1953,25 @@
     </nav>
   
 </li>
+      
+        <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    高级字符串查找
+  </a>
+  
+    <nav class="md-nav" aria-label="高级字符串查找">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    查找一个字符串前缀
+  </a>
+  
+</li>
         
           <li class="md-nav__item">
   <a href="#_9" class="md-nav__link">
-    关系运算
+    查找标记
   </a>
   
 </li>
@@ -2024,42 +1983,15 @@
       
         <li class="md-nav__item">
   <a href="#_10" class="md-nav__link">
-    总结
+    内存操作
   </a>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#_11" class="md-nav__link">
-    编译练习
+    总结
   </a>
-  
-    <nav class="md-nav" aria-label="编译练习">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#1" class="md-nav__link">
-    练习 1
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#2" class="md-nav__link">
-    练习 2
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#3" class="md-nav__link">
-    练习 3
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
@@ -2081,209 +2013,469 @@
   
 
 
-<h1 id="_1">指针</h1>
+<h1 id="_1">字符串、字符和字节</h1>
 <p>本文为《C 与 指针读书笔记》，感兴趣的读者可以去看原书。</p>
-<h2 id="_2">内存和地址</h2>
-<p>前面提到过，我们可以把计算机的内存看作是一条长街上的一排房屋。每座房子都可以容纳数据，并通过一个房号来标识。</p>
-<p>这个比喻颇为有用，但也存在局限性。计算机的内存由数以亿万计的位（bit）组成，每个位可以容纳值0或1。由于一个位所能表示的值的范围太有限，所以单独的位用处不大，通常许多位合成一组作为一个单位，这样就可以存储范围较大的值。</p>
-<p>1．内存中的每个位置由一个独一无二的地址标识。</p>
-<p>2．内存中的每个位置都包含一个值。</p>
-<p>我们可以通过内存地址获得这个地址上的值，但是，要记住所有这些地址实在是太笨拙了，所以高级语言所提供的特性之一就是通过名字而不是地址来访问内存的位置。</p>
-<p>当然，这些名字就是我们所称的变量。有一点非常重要，你必须记住，名字与内存位置之间的关联并不是硬件所提供的，它是由编译器为我们实现的。所有这些变量给了我们一种更方便的方法记住地址——硬件仍然通过地址访问内存位置 。</p>
-<h2 id="_3">间接访问操作符</h2>
-<p>通过一个指针访问它所指向的地址的过程称为间接访问(indirection)或解引用指针(dereferencing the pointer)。这个用于执行间接访问的操作符是单目操作符*。</p>
-<p><img alt="" src="https://raw.gitmirror.com/RicardoJiang/resource/main/2024/may/p4.png" /></p>
-<h2 id="null">NULL指针</h2>
-<p>标准定义了NULL指针，它作为一个特殊的指针变量，表示不指向任何东西。要使一个指针变量为NULL，你可以给它赋一个零值。为了测试一个指针变量是否为NULL，你可以将它与零值进行比较。之所以选择零这个值是因为一种源代码约定。就机器内部而言，NULL指针的实际值可能与此不同。在这种情况下，编译器将负责零值和内部值之间的翻译转换。</p>
-<p>NULL指针的概念是非常有用的，因为它给了你一种方法，表示某个特定的指针目前并未指向任何东西。例如，一个用于在某个数组中查找某个特定值的函数可能返回一个指向查找到的数组元素的指针。如果该数组不包含指定条件的值，函数就返回一个NULL指针。这个技巧允许返回值传达两个不同片段的信息。首先，有没有找到元素？其次，如果找到，它是哪个元素？</p>
-<p>对指针进行解引用操作可以获得它所指向的值。但从定义上看，NULL指针并未指向任何东西。因此，对一个NULL指针进行解引用操作是非法的。在对指针进行解引用操作之前，你首先必须确保它并非NULL指针。</p>
-<h2 id="_4">指针、间接访问和变量</h2>
-<p>如果你自以为已经精通了指针，请看一下这个表达式，看看你是否明白它的意思。</p>
-<pre><code class="language-c">*&amp;a = 25;
-</code></pre>
-<p>如果你的答案是它把值25赋值给变量a，恭喜！你答对了。让我们来分析这个表达式。首先，&amp;操作符产生变量a的地址，它是一个指针常量（注意，使用这个指针常量并不需要知道它的实际值）。接着，*操作符访问其操作数所表示的地址。在这个表达式中，操作数是a的地址，所以值25就存储于a中。</p>
-<p>这条语句和简单地使用a=25;有什么区别吗？从功能上说，它们是相同的。但是，它涉及更多的操作。除非编译器（或优化器）知道你在干什么并丢弃额外的操作，否则它所产生的目标代码将会更大、更慢。更糟的是，这些额外的操作符会使源代码的可读性变差。基于这些原因，没人会故意使用像*&amp;a这样的表达式。</p>
-<h2 id="_5">指针运算</h2>
-<p>指针加上一个整数的结果是另一个指针。问题是，它指向哪里？如果你将一个字符指针加1，运算结果产生的指针指向内存中的下一个字符。float占据的内存空间不止1个字节，如果你将一个指向float的指针加1，将会发生什么呢？它会不会指向该float值内部的某个字节呢？</p>
-<p>幸运的是，答案是否定的。当一个指针和一个整数量执行算术运算时，整数在执行加法运算前始终会根据合适的大小进行调整。这个“合适的大小”就是指针所指向类型的大小，“调整”就是把整数值和“合适的大小”相乘。为了更好地说明，试想在某台机器上，float占据4个字节。在计算float型指针加3的表达式时，这个3将根据float类型的大小（此例中为4）进行调整（相乘）。这样，实际加到指针上的整型值为12。</p>
-<h3 id="_6">算术运算</h3>
-<h4 id="_7">指针　±　整数</h4>
-<p>标准定义这种形式只能用于指向数组中某个元素的指针，但实际上这种形式也适用于使用 malloc 函数动态分配获得的内存，尽管翻遍标准也未见它提及这个事实。</p>
-<p>数组中的元素存储于连续的内存位置中，后面元素的地址大于前面元素的地址。因此，我们很容易看出，对一个指针加1使它指向数组中下一个元素。</p>
-<p>第2种类型的指针运算具有如下形式：</p>
-<h4 id="_8">指针　—　指针</h4>
-<p>只有当两个指针都指向同一个数组中的元素时，才允许从一个指针减去另一个指针。</p>
-<p>两个指针相减的结果的类型是ptrdiff_t，它是一种有符号整数类型。减法运算的值是两个指针在内存中的距离（以数组元素的长度为单位，而不是以字节为单位），因为减法运算的结果将除以数组元素类型的长度。例如，如果p1指向array[i]而p2指向array[j]，那么p2-p1的值就是j-i的值。</p>
-<p>如果两个指针所指向的不是同一个数组中的元素，那么它们之间相减的结果是未定义的。就像如果你把两个位于不同街道的房子的门牌号码相减不可能获得这两所房子间的房子数一样。程序员无从知道两个数组在内存中的相对位置，如果不知道这一点，两个指针之间的距离就毫无意义。</p>
-<h3 id="_9">关系运算</h3>
-<p>对指针执行关系运算也是有限制的。用下列关系操作符对两个指针值进行比较是可能的：</p>
-<pre><code>&lt;　　&lt;=　　&gt;　　&gt;=
-</code></pre>
-<p>不过前提是它们都指向同一个数组中的元素。根据你所使用的操作符，比较表达式将告诉你哪个指针指向数组中更前或更后的元素。标准并未定义如果两个任意的指针进行比较会产生什么结果。</p>
-<p>然而，你可以在两个任意的指针间执行相等或不相等测试，因为这类比较的结果和编译器选择在何处存储数据并无关系——指针要么指向同一个地址，要么指向不同的地址。</p>
-<h2 id="_10">总结</h2>
-<p>计算机内存中的每个位置都由一个地址标识。通常，邻近的内存位置合成一组，这样就允许存储更大范围的值。指针就是它的值表示内存地址的变量。</p>
-<p>无论是程序员还是计算机都无法通过值的位模式来判断它的类型。类型是通过值的使用方法隐式地确定的。编译器能够保证值的声明和值的使用之间的关系是适当的，从而帮助我们确定值的类型。</p>
-<p>指针变量的值并非它所指向的内存位置所存储的值。我们必须使用间接访问来获得它所指向位置存储的值。对一个“指向整型的指针”施加间接访问操作的结果将是一个整型值。</p>
-<p>声明一个指针变量并不会自动分配任何内存。在对指针执行间接访问前，指针必须进行初始化：或者使它指向现有的内存，或者给它分配动态内存。对未初始化的指针变量执行间接访问操作是非法的，而且这种错误常常难以检测。其结果常常是一个不相关的值被修改。这种错误是很难被调试发现的。</p>
-<p>NULL指针就是不指向任何东西的指针。它可以赋值给一个指针，用于表示那个指针并不指向任何值。对NULL指针执行间接访问操作的后果因编译器而异，两个常见的后果分别是返回内存位置零的值以及终止程序。</p>
-<p>和任何其他变量一样，指针变量也可以作为左值使用。对指针执行间接访问操作所产生的值也是个左值，因为这种表达式标识了一个特定的内存位置。</p>
-<p>除了NULL指针之外，再也没有任何内建的记法来表示指针常量，因为程序员通常无法预测编译器会把变量放在内存中的什么位置。在极少见的情况下，我们偶尔需要使用指针常量，这时我们可以通过把一个整型值强制转换为指针类型来创建它。</p>
-<p>在指针值上可以执行一些有限的算术运算。你可以把一个整型值加到一个指针上，也可以从一个指针减去一个整型值。在这两种情况下，这个整型值会进行调整，原值将乘以指针目标类型的长度。这样，对一个指针加1将使它指向下一个变量，至于该变量在内存中占几个字节的大小则与此无关。</p>
-<p>然而，指针运算只有作用于数组中其结果才是可以预测的。对任何并非指向数组元素的指针执行算术运算是非法的（但常常很难被检测到）。如果一个指针减去一个整数后，运算结果产生的指针所指向的位置在数组第一个元素之前，那么它也是非法的。加法运算稍有不同，如果结果指针指向数组最后一个元素后面的那个内存位置仍是合法（但不能对这个指针执行间接访问操作），不过再往后就不合法了。</p>
-<p>如果两个指针都指向同一个数组中的元素，那么它们之间可以相减。指针减法的结果经过调整（除以数组元素类型的长度），表示两个指针在数组中相隔多少个元素。如果两个指针并不是指向同一个数组的元素，那么它们之间进行相减就是错误的。</p>
-<p>任何指针之间都可以进行比较，测试它们相等或不相等。如果两个指针都指向同一个数组中的元素，那么它们之间还可以执行&lt;、&lt;=、&gt;和&gt;=等关系运算，用于判断它们在数组中任何指针之间都可以进行比较，测试它们相等或不相等。如果两个指针都指向同一个数组中的元素，那么它们之间还可以执行&lt;、&lt;=、&gt;和&gt;=等关系运算，用于判断它们在数组中的相对位置。对两个不相关的指针执行关系运算，其结果是未定义的。</p>
-<h2 id="_11">编译练习</h2>
+<p>字符串是一种重要的数据类型，但是C语言并没有显式的字符串数据类型，因为字符串以字符串常量的形式出现或者存储于字符数组中。</p>
+<h2 id="_2">字符串基础</h2>
+<p>首先，让我们回顾一下字符串的基础知识。字符串就是一串零个或多个字符，并且以一个位模式为全0的NUL字节结尾。因此，字符串所包含的字符内部不能出现NUL字节。这个限制很少会引起问题，因为NUL字节并不存在与它相关联的可打印字符，这也是它被选为终止符的原因。NUL字节是字符串的终止符，但它本身并不是字符串的一部分，所以字符串的长度并不包括NUL字节。</p>
+<h2 id="_3">字符串查找基础</h2>
+<h3 id="_4">查找一个字符</h3>
+<p>在一个字符串中查找一个特定字符最容易的方法是使用strchr和strrchr函数</p>
+<h3 id="_5">查找任何几个字符</h3>
+<p>strpbrk是个更为常见的函数。它并不是查找某个特定的字符，而是查找任何一组字符第1次在字符串中出现的位置</p>
+<h3 id="_6">查找一个子串</h3>
+<p>为了在字符串中查找一个子串，我们可以使用strstr函数</p>
+<h2 id="_7">高级字符串查找</h2>
+<h3 id="_8">查找一个字符串前缀</h3>
+<p>strspn和strcspn函数用于在字符串的起始位置对字符计数</p>
+<h3 id="_9">查找标记</h3>
+<p>一个字符串常常包含几个单独的部分，它们彼此被分隔开来。每次为了处理这些部分，你首先必须把它们从字符串中抽取出来。</p>
+<p>这个任务正是strtok函数所实现的功能。它从字符串中隔离各个单独的称为标记(token)的部分，并丢弃分隔符</p>
+<h2 id="_10">内存操作</h2>
+<p>根据定义，字符串由一个NUL字节结尾，所以字符串内部不能包含任何NUL字符。但是，非字符串数据内部包含零值的情况并不罕见。你无法使用字符串函数来处理这种类型的数据，因为当它们遇到第1个NUL字节时将停止工作。</p>
+<p>不过，我们可以使用另外一组相关的函数，它们的操作与字符串函数类似，但这些函数能够处理任意的字节序列。</p>
+<h2 id="_11">总结</h2>
+<p>字符串就是零个或多个字符的序列，该序列以一个NUL字节结尾。字符串的长度就是它所包含的字符的数目。标准库提供了一些函数用于处理字符串，它们的原型位于头文件string.h中。</p>
+<p>strlen函数用于计算一个字符串的长度，它的返回值是一个无符号整数，所以把它用于表达式时应该小心。strcpy函数把一个字符串从一个位置复制到另一个位置，而strcat函数把一个字符串的一份拷贝添加到另一个字符串的后面。这两个函数都假定它们的参数是有效的字符串，而且如果源字符串和目标字符串出现重叠，函数的结果是未定义的。strcmp对两个字符串进行词典序的比较。它的返回值提示第1个字符串是大于、小于还是等于第2个字符串。</p>
+<p>长度受限的函数strncpy、strncat和strncmp都类似它们对应的不受限制版本。区别在于这些函数还接受一个长度参数。在strncpy中，长度指定了多少个字符将被写入到目标字符数组中。如果源字符串比指定长度更长，结果字符串将不会以NUL字节结尾。strncat函数的长度参数指定从源字符串复制过来的字符的最大数目，但它的结果始终以一个NUL字节结尾。strcmp函数的长度参数用于限定字符比较的数目。如果两个字符串在指定的数目里不存在区别，它们便被认为是相等的。</p>
+<p>用于查找字符串的函数有好几个。strchr函数查找一个字符串中某个字符第1次出现的位置。strrchr函数查找一个字符串中某个字符最后一次出现的位置。strpbrk在一个字符串中查找一个指定字符集中任意字符第1次出现的位置。strstr函数在一个字符串中查找另一个字符串第1次出现的位置。</p>
+<p>标准库还提供了一些更加高级的字符串查找函数。strspn函数计算一个字符串的起始部分匹配一个指定字符集中任意字符的字符数量。strcspn函数计算一个字符串的起始部分不匹配一个指定字符集中任意字符的字符数量。strtok函数把一个字符串分割成几个标记。每次当它调用时，都返回一个指向字符串中下一个标记位置的指针。这些标记由一个指定字符集的一个或多个字符分隔。</p>
+<p>strerror把一个错误代码作为它的参数。它返回一个指向字符串的指针，该字符串用于描述这个错误。</p>
+<p>标准库还提供了各种用于测试和转换字符的函数。使用这些函数的程序比那些自己执行字符测试和转换的程序更具移植性。toupper函数把一个小写字母字符转换为大写形式，tolower函数则执行相反的任务。iscntrl函数检查它的参数是不是一个控制字符，isspace函数测试它的参数是否为空白字符。isdigit函数用于测试它的参数是否为一个十进制数字字符，isxdigit函数则检查它的参数是否为一个十六进制数字字符。islower和isupper函数分别检查它们的参数是否为大写和小写字母。isalpha函数检查它的参数是否为字母字符，isalnum函数检查它的参数是否为字母或数字字符，ispunct函数检查它的参数是否为标点符号字符。最后，isgraph函数检查它的参数是否为图形字符，isprint函数检查它的参数是否为图形字符或空白字符。</p>
+<p>memxxx函数提供了类似字符串函数的能力，但它们可以处理包括NUL字节在内的任意字节。这些函数都接受一个长度参数。memcpy从源参数向目标参数复制由长度参数指定的字节数。memmove函数执行相同的功能，但它能够正确处理源参数和目标参数出现重第9章　字符串、字符和字节
+字符串是一种重要的数据类型，但是C语言并没有显式的字符串数据类型，因为字符串以字符串常量的形式出现或者存储于字符数组中。字符串常量很适用于那些程序不会对它们进行修改的字符串。所有其他字符串都必须存储于字符数组或动态分配的内存中（见第11章）。本章描述处理字符串和字符的库函数，以及一组相关的，具有类似能力的，既可以处理字符串也可以处理非字符串数据的函数。</p>
+<p>9.1　字符串基础
+首先，让我们回顾一下字符串的基础知识。字符串就是一串零个或多个字符，并且以一个位模式为全0的NUL字节结尾。因此，字符串所包含的字符内部不能出现NUL字节。这个限制很少会引起问题，因为NUL字节并不存在与它相关联的可打印字符，这也是它被选为终止符的原因。NUL字节是字符串的终止符，但它本身并不是字符串的一部分，所以字符串的长度并不包括NUL字节。</p>
+<p>头文件string.h包含了使用字符串函数所需的原型和声明。尽管并非必需，但在程序中包含这个头文件确实是个好主意，因为有了它所包含的原型，编译器可以更好地为你的程序执行错误检查 [1] 。</p>
+<p>9.2　字符串长度
+字符串的长度就是它所包含的字符个数。我们很容易通过对字符进行计数来计算字符串的长度，程序9.1就是这样做的。这种实现方法说明了处理字符串所使用的处理过程的类型。但是，事实上你极少需要编写字符串函数，因为标准库所提供的函数通常能完成这些任务。不过，如果你还是希望自己编写一个字符串函数，请注意标准保留了所有以str开头的函数名，用于标准库将来的扩展。</p>
+<p>库函数strlen的原型如下：</p>
+<p>size_t　strlen( char const *string );</p>
+<p>警告：</p>
+<p>注意strlen返回一个类型为size_t的值。这个类型是在头文件stddef.h中定义的，它是一个无符号整数类型。在表达式中使用无符号数可能导致不可预料的结果。例如，下面两个表达式看上去是相等的：</p>
+<p>if( strlen( x ) &gt;= strlen( y ) ) ...
+if( strlen( x ) – strlen( y ) &gt;= 0 ) ...</p>
+<p>但事实上它们是不相等的。第1条语句将按照你预想的那样工作，但第2条语句的结果将永远是真。strlen的结果是个无符号数，所以操作符&gt;=左边的表达式也将是无符号数，而无符号数绝不可能是负的。</p>
+<p>/<em>
+** 计算字符串参数的长度。
+</em>/</p>
+<h1 id="include">include <stddef.h></h1>
+<p>size_t
+strlen( char const *string )
+{
+　 int length;</p>
+<p>for( length = 0; *string++ != '\0'; )
+　　　 length += 1;</p>
+<p>return length;
+}</p>
+<p>程序9.1　字符串长度</p>
+<p>strlen.c</p>
+<p>警告：</p>
+<p>表达式中如果同时包含了有符号数和无符号数，可能会产生奇怪的结果。和前一对语句一样，下面两条语句并不相等，其原因相同。</p>
+<p>if( strlen( x ) &gt;= 10 ) ...
+if( strlen( x ) – 10 &gt;= 0 ) ...</p>
+<p>如果把strlen的返回值强制转换为int，就可以消除这个问题。</p>
+<p>提示：</p>
+<p>你很可能想自行编写strlen函数，灵活运用register声明和一些聪明的技巧使它比库函数版本效率更高。这的确是个诱惑，但事实上很少能够如愿。标准库函数有时是用汇编语言实现的，目的就是为了充分利用某些机器所提供的特殊的字符串操纵指令，从而追求最大限度的速度。即使在没有这类特殊指令的机器上，你最好还是把更多的时间花在程序其他部分的算法改进上。寻找一种更好的算法比改良一种差劲的算法更有效率，复用已经存在的软件比重新开发一个效率更高。</p>
+<p>9.3　不受限制的字符串函数
+最常用的字符串函数都是“不受限制”的，就是说它们只是通过寻找字符串参数结尾的NUL字节来判断它的长度。这些函数一般都指定一块内存用于存放结果字符串。在使用这些函数时，程序员必须保证结果字符串不会溢出这块内存。在本节具体讨论每个函数时，我将对这个问题作更详细的讨论。</p>
+<p>9.3.1　复制字符串
+用于复制字符串的函数是strcpy，它的原型如下所示：</p>
+<p>char　　<em>strcpy( char </em>dst, char const *src );</p>
+<p>这个函数把参数src字符串复制到dst参数。如果参数src和dst在内存中出现重叠，其结果是未定义的。由于dst参数将进行修改，所以它必须是个字符数组或者是一个指向动态分配内存的数组的指针，不能使用字符串常量。这个函数的返回值将在9.3.3小节描述。</p>
+<p>目标参数的以前内容将被覆盖并丢失。即使新的字符串比dst原先的内存更短，由于新字符串是以NUL字节结尾，所以老字符串最后剩余的几个字符也会被有效地删除。</p>
+<p>考虑下面这个例子：</p>
+<p>d246</p>
+<p>如果条件为真并且复制顺利执行，数组将包含下面的内容：</p>
+<p>p177</p>
+<p>第1个NUL字节后面的几个字符再也无法被字符串函数访问，因此从任何现实的角度看，它们都已经是丢失的了。</p>
+<p>警告：</p>
+<p>程序员必须保证目标字符数组的空间足以容纳需要复制的字符串。如果字符串比数组长，多余的字符仍被复制，它们将覆盖原先存储于数组后面的内存空间的值。strcpy无法解决这个问题，因为它无法判断目标字符数组的长度。</p>
+<p>例如：</p>
+<p>char　　　message[] = "Original message";
+...
+strcpy( message, "A different message" );</p>
+<p>第2个字符串太长了，无法容纳于message字符数组中。因此，strcpy函数将侵占数组后面的部分内存空间，改写原先恰好存储在那里的变量。如果你在使用这个函数前确保目标参数足以容纳源字符串，就可以避免大量的调试工作。</p>
+<p>9.3.2　连接字符串
+要想把一个字符串添加（连接）到另一个字符串的后面，你可以使用strcat函数。它的原型如下：</p>
+<p>char　　<em>strcat( char </em>dst, char const *src );</p>
+<p>strcat函数要求dst参数原先已经包含了一个字符串（可以是空字符串）。它找到这个字符串的末尾，并把src字符串的一份拷贝添加到这个位置。如果src和dst的位置发生重叠，其结果是未定义的。</p>
+<p>下面这个例子显示了这个函数的一种常见用法。</p>
+<p>d247</p>
+<p>每个strcat函数的字符串参数都被添加到原先存在于message数组的字符串后面。其结果是下面这个字符串：</p>
+<p>Hello Jim, how are you?</p>
+<p>警告：</p>
+<p>和前面一样，程序员必须保证目标字符数组剩余的空间足以保存整个源字符串。但这次并不是简单地把源字符串的长度和目标字符数组的长度进行比较，你必须考虑目标数组中原先存在的字符串。</p>
+<p>9.3.3　函数的返回值
+strcpy和strcat都返回它们第1个参数的一份拷贝，就是一个指向目标字符数组的指针。由于它们返回这种类型的值，所以你可以嵌套地调用这些函数，如下面的例子所示：</p>
+<p>strcat( strcpy( dst, a ), b );</p>
+<p>strcpy首先执行。它把字符串从a复制到dst并返回dst。然后这个返回值成为strcat函数的第1个参数，strcat函数把b添加到dst的后面。</p>
+<p>这种嵌套调用的风格较之下面这种可读性更佳的风格在功能上并无优势。</p>
+<p>strcpy( dst, a );
+strcat( dst, b );</p>
+<p>事实上，在这些函数的绝大多数调用中，它们的返回值只是被简单地忽略。</p>
+<p>9.3.4　字符串比较
+比较两个字符串涉及对两个字符串对应的字符逐个进行比较，直到发现不匹配为止。那个最先不匹配的字符中较“小”（也就是说，在字符集中的序数较小）的那个字符所在的字符串被认为“小于”另外一个字符串。如果其中一个字符串是另外一个字符串的前面一部分，那么它也被认为“小于”另外一个字符串，因为它的NUL结尾字节出现得更早。这种比较被称为“词典比较”，对于只包含大写字母或只包含小写字母的字符串比较，这种比较过程所给出的结果总是和我们日常所用的字母顺序的比较相同。</p>
+<p>库函数strcmp用于比较两个字符串，它的原型如下：</p>
+<p>int　 strcmp( char const <em>s1, char const </em>s2 );</p>
+<p>如果s1小于s2，strcmp函数返回一个小于零的值。如果s1大于s2，函数返回一个大于零的值。如果两个字符串相等，函数就返回零。</p>
+<p>警告：</p>
+<p>初学者常常会编写下面这样的表达式</p>
+<p>if( strcmp( a, b ) )</p>
+<p>他以为如果两个字符串相等，它的结果将是真。但是，这个结果将正好相反，因为在两个字符串相等的情况下返回值是零（假）。然而，把这个返回值当作布尔值进行测试是一种坏风格，因为它具有三个截然不同的结果：小于、等于和大于。所以，更好的方法是把这个返回值与零进行比较。</p>
+<p>警告：</p>
+<p>注意标准并没有规定用于提示不相等的具体值。它只是说如果第1个字符串大于第2个字符串就返回一个大于零的值，如果第1个字符串小于第2个字符串就返回一个小于零的值。一个常见的错误是以为返回值是1和－1，分别代表大于和小于。但这个假设并不总是正确的。</p>
+<p>警告：</p>
+<p>由于strcmp并不修改它的任何一个参数，所以不存在溢出字符数组的危险。但是，和其他不受限制的字符串函数一样，strcmp函数的字符串参数也必须以一个NUL字节结尾。如果并非如此，strcmp就可能对参数后面的字节进行比较，这个比较结果将不会有什么意义。</p>
+<p>9.4　长度受限的字符串函数
+标准库还包含了一些函数，它们以一种不同的方式处理字符串。这些函数接受一个显式的长度参数，用于限定进行复制或比较的字符数。这些函数提供了一种方便的机制，可以防止难以预料的长字符串从它们的目标数组溢出。</p>
+<p>这些函数的原型如下所示。和它们的不受限制版本一样，如果源参数和目标参数发生重叠，strncpy和strncat的结果就是未定义的。</p>
+<p>p249</p>
+<p>和strcpy一样，strncpy把源字符串的字符复制到目标数组。然而，它总是正好向dst写入len个字符。如果strlen( src )的值小于len，dst数组就用额外的NUL字节填充到len长度。如果strlen( src )的值大于或等于len，那么只有len个字符被复制到dst中。注意！它的结果将不会以NUL字节结尾 。</p>
+<p>警告：</p>
+<p>strncpy调用的结果可能不是一个字符串，因此字符串必须以NUL字节结尾。如果在一个需要字符串的地方（例如strlen函数的参数）使用了一个不是以NUL字节结尾的字符序列，会发生什么情况呢？strlen函数将无法知道NUL字节是没有的，所以它将继续进行查找，一个字符接一个字符，直到它发现一个NUL字节为止。或许它找了几百个字符才找到，而strlen函数的这个返回值从本质上说是一个随机数。或者，如果函数试图访问系统分配给这个程序以外的内存范围，程序就会崩溃。</p>
+<p>警告：</p>
+<p>这个问题只有当你使用strncpy函数创建字符串，然后或者对它们使用str开头的库函数，或者在printf中使用%s格式码打印它们时才会发生。在使用不受限制的函数之前，你首先必须确定字符串实际上是以NUL字节结尾的。例如，考虑下面这个代码段：</p>
+<p>d249</p>
+<p>如果name的内容可以容纳于buffer中，最后那个赋值语句没有任何效果。但是，如果name太长，这条赋值语句可以保证buffer中的字符串是以NUL结尾的。以后对这个数组使用strlen或其他不受限制的字符串函数将能够正确工作。</p>
+<p>尽管strncat也是一个长度受限的函数，但它和strncpy存在不同之外。它从src中最多复制len个字符到目标数组的后面。但是，strncat总是在结果字符串后面添加一个NUL字节，而且它不会像strncpy那样对目标数组用NUL字节进行填充。注意目标数组中原先的字符串并没有算在strncat的长度中。strncat最多向目标数组复制len个字符（再加一个结尾的NUL字节），它才不管目标参数除去原先存在的字符串之后留下的空间够不够。</p>
+<p>最后，strncmp也用于比较两个字符串，但它最多比较len个字节。如果两个字符串在第len个字符之前存在不相等的字符，这个函数就像strcmp一样停止比较，返回结果。如果两个字符串的前len个字符相等，函数就返回零。</p>
+<p>9.5　字符串查找基础
+标准库中存在许多函数，它们用各种不同的方法查找字符串。这些各种各样的工具给了C程序员很大的灵活性。</p>
+<p>9.5.1　查找一个字符
+在一个字符串中查找一个特定字符最容易的方法是使用strchr和strrchr函数，它们的原型如下所示：</p>
+<p>p250</p>
+<p>注意它们的第2个参数是一个整型值。但是，它包含了一个字符值。strchr在字符串str中查找字符ch第1次出现的位置，找到后函数返回一个指向该位置的指针。如果该字符并不存在于字符串中，函数就返回一个NULL指针。strrchr的功能和strchr基本一致，只是它所返回的是一个指向字符串中该字符最后一次出现的位置（最右边那个）。</p>
+<p>这里有个例子：</p>
+<p>d250</p>
+<p>ans所指向的位置将是string+7，因为第1个'h'出现在这个位置。注意这里大小写是有区别的。</p>
+<p>9.5.2　查找任何几个字符
+strpbrk是个更为常见的函数。它并不是查找某个特定的字符，而是查找任何一组字符第1次在字符串中出现的位置。它的原型如下：</p>
+<p>char　　<em>strpbrk( char const </em>str, char const *group );</p>
+<p>这个函数返回一个指向str中第1个匹配group中任何一个字符的字符位置。如果未找到匹配，函数返回一个NULL指针。</p>
+<p>在下面的代码段中，</p>
+<p>d251</p>
+<p>ans所指向的位置是string+1，因为这个位置是第2个参数中的字符第1次出现的位置。和前面一样，这个函数也是区分大小写的。</p>
+<p>9.5.3　查找一个子串
+为了在字符串中查找一个子串，我们可以使用strstr函数，它的原型如下：</p>
+<p>char <em>strstr( char const </em>s1, char const *s2 );</p>
+<p>这个函数在s1中查找整个s2第1次出现的起始位置，并返回一个指向该位置的指针。如果s2并没有完整地出现在s1的任何地方，函数将返回一个NULL指针。如果第2个参数是一个空字符串，函数就返回s1。</p>
+<p>标准库中并不存在strrstr或strrpbrk函数。不过，如果你需要它们，它们是很容易实现的。程序9.2显示了一种实现strrstr的方法。这个技巧同样也可以用于实现strrpbrk。</p>
+<p>/<em>
+** 在字符串s1中查找字符串s2最右出现的位置，并返回一个指向该位置的指针。
+</em>/</p>
+<h1 id="include_1">include <string.h></h1>
+<p>char<em>
+my_strrstr( char const </em>s1, char const <em>s2 )
+{
+　　　 register char</em>last;
+　　　 register char<em>current;
+　　　 /</em>
+　　　 ** 把指针初始化为我们已经找到的前一次匹配位置。
+　　　 */
+　　　 last = NULL;</p>
+<p>/<em>
+　　　 </em><em>只在第2个字符串不为空时才进行查找，如果S2为空，返回NULL。
+　　　 </em>/
+　　　 if( <em>s2 != '\0' ){
+　　　　　　/</em>
+　　　　　　** 查找s2在s1中第1次出现的位置。
+　　　　　　*/
+　　　　　　current = strstr( s1, s2 );</p>
+<p>/<em>
+　　　 ** 我们每次找到字符串时，让指针指向它的起始位置。然后查找该字符串下一个匹配位置。
+　　　 </em>/
+　　　　　　　　　 while( current != NULL ){
+　　　　　　　　　　　　last = current;
+　　　　　　　　　　　　current = strstr( last + 1, s2 );
+　　　　　　　　　　}
+　　　　　　}</p>
+<p>/<em> 返回指向我们找到的最后一次匹配的起始位置的指针。</em>/
+　　　　　　return last;
+}</p>
+<p>程序9.2　查找子串最右一次出现的位置</p>
+<p>mstrrstr.c</p>
+<p>9.6　高级字符串查找
+接下来的一组函数简化了从一个字符串中查找和抽取一个子串的过程。</p>
+<p>9.6.1　查找一个字符串前缀
+strspn和strcspn函数用于在字符串的起始位置对字符计数。它们的原型如下所示：</p>
+<p>size_t　strspn( char const <em>str, char const </em>group );
+size_t　strcspn( char cosnt <em>str, char const </em>group );</p>
+<p>group字符串指定一个或多个字符。strspn返回str起始部分匹配group中任意字符的字符数。例如，如果group包含了空格、制表符等空白字符，那么这个函数将返回str起始部分空白字符的数目。str的下一个字符就是它的第1个非空白字符。</p>
+<p>考虑下面这个例子：</p>
+<p>d253</p>
+<p>当然，buffer缓冲区在正常情况下是不会用这个方法进行初始化的。它将会包含在运行时读取的数据。但是在buffer中有了这个值之后，变量len1将被设置为2，变量len2将被设置为11。下面的代码将计算一个指向字符串中第1个非空白字符的指针。</p>
+<p>ptr = buffer + strspn( buffer, "\n\r\f\t\v" );</p>
+<p>strcspn函数和strspn函数正好相反，它对str字符串起始部分中不与group中任何字符匹配的字符进行计数。strcspn这个名字中字母c来源于对一组字符求补这个概念，也就是把这些字符换成原先并不存在的字符。如果你使用“ \n\r\f\t\v”作为group参数，这个函数将返回第1个参数字符串起始部分所有非空白字符的值。</p>
+<p>9.6.2　查找标记
+一个字符串常常包含几个单独的部分，它们彼此被分隔开来。每次为了处理这些部分，你首先必须把它们从字符串中抽取出来。</p>
+<p>这个任务正是strtok函数所实现的功能。它从字符串中隔离各个单独的称为标记(token)的部分，并丢弃分隔符。它的原型如下：</p>
+<p>char　　<em>strtok( char </em>str, char const *sep );</p>
+<p>sep参数是个字符串，定义了用作分隔符的字符集合。第1参数指定一个字符串，它包含零个或多个由sep字符串中一个或多个分隔符分隔的标记。strtok找到str的下一个标记，并将其用NUL结尾，然后返回一个指向这个标记的指针。</p>
+<p>警告：</p>
+<p>当strtok函数执行任务时，它将会修改它所处理的字符串。如果源字符串不能被修改，那就复制一份，将这份拷贝传递给strtok函数。</p>
+<p>如果strtok函数的第1个参数不是NULL，函数将找到字符串的第1个标记。strtok同时将保存它在字符串中的位置。如果strtok函数的第1个参数是NULL，函数就在同一个字符串中从这个被保存的位置开始像前面一样查找下一个标记。如果字符串内不存在更多的标记，strtok函数就返回一个NULL指针。在典型情况下，在第1次调用strtok时，向它传递一个指向字符串的指针。然后，这个函数被重复调用（第1个参数为NULL），直到它返回NULL为止。</p>
+<p>程序9.3是一个简短的例子。这个函数从它的参数中提取标记并把它们打印出来（一行一个）。这些标记用空白分隔。不要被for语句的外观所混淆。它之所以被分成3行是因为它实在太长了。</p>
+<p>/<em>
+** 从一个字符数组中提取空白字符分隔的标记并把它们打印出来（每行一个）。 
+</em>/</p>
+<h1 id="include_2">include <stdio.h></h1>
+<h1 id="include_3">include <string.h></h1>
+<p>void
+print_tokens( char <em>line )
+{
+　　　　 static char whitespace[] = " \t\f\r\v\n";
+　　　　 char　</em>token;</p>
+<p>for( token = strtok( line, whitespace );
+　　　　　　 token != NULL;
+　　　　　　 token = strtok( NULL, whitespace ) )
+　　　　　　　printf( "Next token is %s\n", token );
+}</p>
+<p>程序9.3　提取标记</p>
+<p>token.c</p>
+<p>如果你愿意，你可以在每次调用strtok函数时使用不同的分隔符集合。当一个字符串的不同部分由不同的字符集合分隔的时候，这个技巧很管用。</p>
+<p>警告：</p>
+<p>由于strtok函数保存它所处理的函数的局部状态信息，所以你不能用它同时解析两个字符串。因此，如果for循环的循环体内调用了一个在内部调用strtok函数的函数，程序9.3将会失败。</p>
+<p>9.7　错误信息
+当你调用一些函数，请求操作系统执行一些功能如打开文件时，如果出现错误，操作系统是通过设置一个外部的整型变量errno进行错误代码报告的。strerror函数把其中一个错误代码作为参数并返回一个指向用于描述错误的字符串的指针。这个函数的原型如下：</p>
+<p>char　*strerror( int error_number );</p>
+<p>事实上，返回值应该被声明为const，因为你不应该修改它。</p>
+<p>9.8　字符操作
+标准库包含了两组函数，用于操作单独的字符，它们的原型位于头文件ctype.h。第1组函数用于对字符分类，而第2组函数用于转换字符。</p>
+<p>9.8.1　字符分类
+每个分类函数接受一个包含字符值的整型参数。函数测试这个字符并返回一个整型值，表示真或假 [2] 。表9.1列出了这些分类函数以及它们每个所执行的测试。</p>
+<p>表9.1　字符分类函数</p>
+<p>函　　数</p>
+<p>如果它的参数符合下列条件就返回真</p>
+<p>iscntrl</p>
+<p>任何控制字符</p>
+<p>isspace</p>
+<p>空白字符：空格' ', 换页 '\f', 换行 '\n', 回车 '\r', 制表符 '\t'或垂直制表符'\v'</p>
+<p>isdigit</p>
+<p>十进制数字0～9</p>
+<p>isxdigit</p>
+<p>十六进制数字，包括所有十进制数字，小写字母a～f，大写字母A～F</p>
+<p>islower</p>
+<p>小写字母a～z</p>
+<p>isupper</p>
+<p>大写字母A～Z</p>
+<p>isalpha</p>
+<p>字母a～z或A～Z</p>
+<p>isalnum</p>
+<p>字母或数字，a～z，A～Z或0～9</p>
+<p>ispunct</p>
+<p>标点符号，任何不属于数字或字母的图形字符（可打印符号）</p>
+<p>isgraph</p>
+<p>任何图形字符</p>
+<p>isprint</p>
+<p>任何可打印字符，包括图形字符和空白字符</p>
+<p>9.8.2　字符转换
+转换函数把大写字母转换为小写字母或者把小写字母转换为大写字母。</p>
+<p>int　tolower( int ch );
+int　toupper( int ch );</p>
+<p>toupper函数返回其参数的对应大写形式，tolower函数返回其参数的对应小写形式。如果函数的参数并不是一个处于适当大小写状态的字符（即toupper的参数不是小写字母或tolower的参数不是个大写字母），函数将不修改参数直接返回。</p>
+<p>提示：</p>
+<p>直接测试或操纵字符将会降低程序的可移植性。例如，考虑下面这条语句，它试图测试ch是否是一个大写字符。</p>
+<p>if( ch &gt;= 'A' &amp;&amp; ch &lt;= 'Z' )</p>
+<p>这条语句在使用ASCII字符集的机器上能够运行，但在使用EBCDIC字符集的机器上将会失败。另一方面，下面这条语句</p>
+<p>if( isupper( ch ) )</p>
+<p>无论机器使用哪个字符集，它都能顺利运行。</p>
+<p>9.9　内存操作
+根据定义，字符串由一个NUL字节结尾，所以字符串内部不能包含任何NUL字符。但是，非字符串数据内部包含零值的情况并不罕见。你无法使用字符串函数来处理这种类型的数据，因为当它们遇到第1个NUL字节时将停止工作。</p>
+<p>不过，我们可以使用另外一组相关的函数，它们的操作与字符串函数类似，但这些函数能够处理任意的字节序列。下面是它们的原型。</p>
+<p>p257</p>
+<p>每个原型都包含一个显式的参数说明需要处理的字节数。但和strn带头的函数不同，它们在遇到NUL字节时并不会停止操作。</p>
+<p>memcpy从src的起始位置复制length个字节到dst的内存起始位置。你可以用这种方法复制任何类型的值，第3个参数指定复制值的长度（以字节计）。如果src和dst以任何形式出现了重叠，它的结果是未定义的。</p>
+<p>例如：</p>
+<p>char　　temp[SIZE], values[SIZE];
+...
+memcpy( temp, values, SIZE );</p>
+<p>它从数组values复制SIZE个字节到数组temp。</p>
+<p>但是，如果两个数组都是整型数组该怎么办呢？下面的语句可以完成这项任务：</p>
+<p>memcpy( temp, values, sizeof( values ) );</p>
+<p>前两个参数并不需要使用强制类型转换，因为在函数的原型中，参数的类型是void<em>型指针，而任何类型的指针都可以转换为void</em>型指针。</p>
+<p>如果数组只有部分内容需要被复制，那么需要复制的数量必须在第3个参数中指明。对于长度大于一个字节的数据，要确保把数量和数据类型的长度相乘，例如：</p>
+<p>memcpy( saved_answers, answers, count * sizeof( answers[0] ) );</p>
+<p>你也可以使用这种技巧复制结构或结构数组。</p>
+<p>memmove函数的行为和memcpy差不多，只是它的源和目标操作数可以重叠。虽然它并不需要以下面这种方式实现，不过memmove的结果和这种方法的结果相同：把源操作数复制到一个临时位置，这个临时位置不会与源或目标操作数重叠，然后再把它从这个临时位置复制到目标操作数。memmove通常无法使用某些机器所提供的特殊的字节-字符串处理指令来实现，所以它可能比memcpy慢一些。但是，如果源和目标参数真的可能存在重叠，就应该使用memmove，如下例所示：</p>
+<p>d258</p>
+<p>memcmp对两段内存的内容进行比较，这两段内存分别起始于a和b，共比较length个字节。这些值按照无符号字符逐字节进行比较，函数的返回类型和strcmp函数一样——负值表示a小于b，正值表示a大于b，零表示a等于b。由于这些值是根据一串无符号字节进行比较的，所以如果memcmp函数用于比较不是单字节的数据如整数或浮点数时就可能给出不可预料的结果。</p>
+<p>memchr从a的起始位置开始查找字符ch第1次出现的位置，并返回一个指向该位置的指针，它共查找length个字节。如果在这length个字节中未找到该字符，函数就返回一个NULL指针。</p>
+<p>最后，memset函数把从a开始的length个字节都设置为字符值ch。例如：</p>
+<p>memset( buffer, 0, SIZE );</p>
+<p>把buffer的前SIZE个字节都初始化为0。</p>
+<p>9.10　总结
+字符串就是零个或多个字符的序列，该序列以一个NUL字节结尾。字符串的长度就是它所包含的字符的数目。标准库提供了一些函数用于处理字符串，它们的原型位于头文件string.h中。</p>
+<p>strlen函数用于计算一个字符串的长度，它的返回值是一个无符号整数，所以把它用于表达式时应该小心。strcpy函数把一个字符串从一个位置复制到另一个位置，而strcat函数把一个字符串的一份拷贝添加到另一个字符串的后面。这两个函数都假定它们的参数是有效的字符串，而且如果源字符串和目标字符串出现重叠，函数的结果是未定义的。strcmp对两个字符串进行词典序的比较。它的返回值提示第1个字符串是大于、小于还是等于第2个字符串。</p>
+<p>长度受限的函数strncpy、strncat和strncmp都类似它们对应的不受限制版本。区别在于这些函数还接受一个长度参数。在strncpy中，长度指定了多少个字符将被写入到目标字符数组中。如果源字符串比指定长度更长，结果字符串将不会以NUL字节结尾。strncat函数的长度参数指定从源字符串复制过来的字符的最大数目，但它的结果始终以一个NUL字节结尾。strcmp函数的长度参数用于限定字符比较的数目。如果两个字符串在指定的数目里不存在区别，它们便被认为是相等的。</p>
+<p>用于查找字符串的函数有好几个。strchr函数查找一个字符串中某个字符第1次出现的位置。strrchr函数查找一个字符串中某个字符最后一次出现的位置。strpbrk在一个字符串中查找一个指定字符集中任意字符第1次出现的位置。strstr函数在一个字符串中查找另一个字符串第1次出现的位置。</p>
+<p>标准库还提供了一些更加高级的字符串查找函数。strspn函数计算一个字符串的起始部分匹配一个指定字符集中任意字符的字符数量。strcspn函数计算一个字符串的起始部分不匹配一个指定字符集中任意字符的字符数量。strtok函数把一个字符串分割成几个标记。每次当它调用时，都返回一个指向字符串中下一个标记位置的指针。这些标记由一个指定字符集的一个或多个字符分隔。</p>
+<p>strerror把一个错误代码作为它的参数。它返回一个指向字符串的指针，该字符串用于描述这个错误。</p>
+<p>标准库还提供了各种用于测试和转换字符的函数。使用这些函数的程序比那些自己执行字符测试和转换的程序更具移植性。toupper函数把一个小写字母字符转换为大写形式，tolower函数则执行相反的任务。iscntrl函数检查它的参数是不是一个控制字符，isspace函数测试它的参数是否为空白字符。isdigit函数用于测试它的参数是否为一个十进制数字字符，isxdigit函数则检查它的参数是否为一个十六进制数字字符。islower和isupper函数分别检查它们的参数是否为大写和小写字母。isalpha函数检查它的参数是否为字母字符，isalnum函数检查它的参数是否为字母或数字字符，ispunct函数检查它的参数是否为标点符号字符。最后，isgraph函数检查它的参数是否为图形字符，isprint函数检查它的参数是否为图形字符或空白字符。</p>
+<p>memxxx函数提供了类似字符串函数的能力，但它们可以处理包括NUL字节在内的任意字节。这些函数都接受一个长度参数。memcpy从源参数向目标参数复制由长度参数指定的字节数。memmove函数执行相同的功能，但它能够正确处理源参数和目标参数出现重叠的情况。memcmp函数比较两个序列的字节，memchr函数在一个字节序列中查找一个特定的值。最后，memset函数把一序列字节初始化为一个特定的值。</p>
+<h2 id="_12">编程练习</h2>
 <h3 id="1">练习 1</h3>
-<p>请编写一个函数，它在一个字符串中进行搜索，查找所有在一个给定字符集合中出现的字符。这个函数的原型应该如下：</p>
-<pre><code class="language-c">char *find_char( char const *source,
-　　char const *chars );
-</code></pre>
+<p>编写一个程序，从标准输入读取一些字符，并统计下列各类字符所占的百分比。</p>
+<p>控制字符
+空白字符
+数字
+小写字母
+大写字母
+标点符号
+不可打印的字符</p>
 <pre><code class="language-c">#include &lt;stdio.h&gt;
-
-char *find_char(char const *source, char const *chars) {
-    if (!source || !chars) {
-        return NULL; // 如果任一输入字符串是NULL，直接返回NULL
-    }
-
-    // 遍历source字符串
-    for (; *source != '\0'; ++source) {
-        // 对每个source中的字符，遍历chars字符串
-        for (const char *temp_chars = chars; *temp_chars != '\0'; ++temp_chars) {
-            // 如果在chars中找到了与source中当前字符相匹配的字符，返回当前字符的地址
-            if (*source == *temp_chars) {
-                return (char *)source;
-            }
-        }
-    }
-
-    // 如果遍历完了source字符串也没有在chars中找到匹配的字符，返回NULL
-    return NULL;
-}
+#include &lt;ctype.h&gt;
 
 int main() {
-    char const *source = &quot;Hello, World!&quot;;
-    char const *chars = &quot;abcdefghijklmnopqrstuvwxyz&quot;;
+    int control = 0, space = 0, digit = 0, lower = 0, upper = 0, punct = 0, nonprint = 0, total = 0;
+    int ch;
 
-    char *found_char = find_char(source, chars);
-    if (found_char != NULL) {
-        printf(&quot;First matching character: '%c'\n&quot;, *found_char);
-    } else {
-        printf(&quot;No matching character found.\n&quot;);
+    // 读取字符直到遇到EOF
+    while ((ch = getchar()) != EOF) {
+        total++;
+
+        if (iscntrl(ch)) control++;
+        if (isspace(ch)) space++;
+        if (isdigit(ch)) digit++;
+        if (islower(ch)) lower++;
+        if (isupper(ch)) upper++;
+        if (ispunct(ch)) punct++;
+        if (ch &gt; 127) nonprint++; // 非ASCII字符
     }
+
+    // 打印统计结果
+    printf(&quot;总字符数: %d\n&quot;, total);
+    printf(&quot;控制字符: %.2f%%\n&quot;, (double)control/total*100);
+    printf(&quot;空白字符: %.2f%%\n&quot;, (double)space/total*100);
+    printf(&quot;数字: %.2f%%\n&quot;, (double)digit/total*100);
+    printf(&quot;小写字母: %.2f%%\n&quot;, (double)lower/total*100);
+    printf(&quot;大写字母: %.2f%%\n&quot;, (double)upper/total*100);
+    printf(&quot;标点符号: %.2f%%\n&quot;, (double)punct/total*100);
+    printf(&quot;不可打印的字符: %.2f%%\n&quot;, (double)nonprint/total*100);
 
     return 0;
 }
-
 </code></pre>
 <h3 id="2">练习 2</h3>
-<p>请编写一个函数，删除一个字符串的一部分。函数的原型如下：</p>
-<pre><code>　int del_substr( char *str, char const *substr )
-</code></pre>
-<p>函数首先应该判断substr是否出现在str中。如果它并未出现，函数就返回0；如果出现，函数应该把str中位于该子串后面的所有字符复制到该子串的位置，从而删除这个子串，然后函数返回1。如果substr多次出现在str中，函数只删除第1次出现的子串。函数的第2个参数绝不会被修改。</p>
+<p>编写一个名叫my_strcpy的函数。它类似于strcpy函数，但它不会溢出目标数组。复制的结果必须是一个真正的字符串。</p>
 <pre><code class="language-c">#include &lt;stdio.h&gt;
-#include &lt;string.h&gt;
-#include &lt;stdbool.h&gt;
 
-// 功能: 查找子字符串substr在字符串str中的位置
-// 返回值: 如果找到substr，则返回substr在str中首次出现的地址；否则返回NULL
-char *find_substr(char *str, char const *substr) {
-    if (!str || !substr) {
-        return NULL;
-    }
-
-    int len_str = strlen(str);
-    int len_substr = strlen(substr);
-
-    if (len_substr == 0) {
-        return str;
-    }
-
-    for (int i = 0; i &lt;= len_str - len_substr; ++i) {
-        bool found = true;
-        for (int j = 0; j &lt; len_substr; ++j) {
-            if (str[i + j] != substr[j]) {
-                found = false;
-                break;
-            }
-        }
-        if (found) {
-            return &amp;str[i];
-        }
-    }
-    return NULL;
-}
-
-// 功能: 从字符串str中删除子字符串substr
-// 返回值: 如果删除成功，返回1；如果子字符串未找到，返回0
-int del_substr(char *str, char const *substr) {
-    char *substr_location = find_substr(str, substr);
-
-    if (substr_location == NULL) {
-        // 如果未找到子字符串，返回0
-        return 0;
-    }
-
-    int len_substr = strlen(substr);
-    int shift = strlen(substr_location + len_substr) + 1; // 包括NULL终止符
-
-    // 删除子字符串：将后面的字符串向前移动
-    memmove(substr_location, substr_location + len_substr, shift);
-
-    return 1;
-}
+// my_strcpy 函数的声明
+void my_strcpy(char *dest, const char *src, size_t destSize);
 
 int main() {
-    char str[100] = &quot;Hello, World! World!&quot;;
-    char const *substr = &quot;World&quot;;
+    char dest[10];
+    const char *src = &quot;HelloWorld&quot;;
 
-    printf(&quot;Original string: '%s'\n&quot;, str);
+    // 使用 my_strcpy 复制字符串，确保不发生溢出
+    my_strcpy(dest, src, sizeof(dest));
 
-    if (del_substr(str, substr)) {
-        printf(&quot;After deletion: '%s'\n&quot;, str);
-    } else {
-        printf(&quot;Substring not found.\n&quot;);
-    }
-
+    printf(&quot;Copied string: %s\n&quot;, dest);
     return 0;
+}
+
+// my_strcpy 函数的定义
+void my_strcpy(char *dest, const char *src, size_t destSize) {
+    if (destSize == 0) return; // 如果目标数组的大小为0，则无法进行复制
+
+    size_t i;
+    for (i = 0; i &lt; destSize - 1 &amp;&amp; src[i] != '\0'; i++) {
+        dest[i] = src[i];
+    }
+    dest[i] = '\0'; // 确保字符串以空字符结尾
 }
 </code></pre>
 <h3 id="3">练习 3</h3>
-<p>编写函数reverse_string，它的原型如下：</p>
-<pre><code class="language-c">　void reverse_string( char *string );
-</code></pre>
-<p>函数把参数字符串中的字符反向排列。请使用指针而不是数组下标，不要使用任何C函数库中用于操纵字符串的函数。提示： 不需要声明一个局部数组来临时存储参数字符串。</p>
-<pre><code class="language-c">void reverse_string(char *string) {
-    char *start = string; // start指针指向字符串开头
-    char *end = string; // end指针也先指向开头，稍后寻找字符串末尾
-    char temp; // 交换字符时使用的临时变量
+<p>编写一个名叫my_strcat的函数。它类似于strcat函数，但它不会溢出目标数组。它的结果必须是一个真正的字符串。</p>
+<pre><code class="language-c">#include &lt;stdio.h&gt;
 
-    // 将end指针移动到字符串的末尾（不包括NULL终止符）
-    while (*end != '\0') {
-        end++;
-    }
-    end--; // end指针现在指向字符串的最后一个字符
-
-    // 当start指针在end指针之前时，交换两个指针指向的字符
-    while (start &lt; end) {
-        // 交换并移动指针
-        temp = *start;
-        *start = *end;
-        *end = temp;
-
-        // start指针向后移动，end指针向前移动
-        start++;
-        end--;
-    }
-}
+// my_strcat 函数的声明
+void my_strcat(char *dest, const char *src, size_t destSize);
 
 int main() {
-    char str[] = &quot;Hello, World!&quot;;
-    reverse_string(str);
-    printf(&quot;%s\n&quot;, str); // 输出反转后的字符串
+    char dest[20] = &quot;Hello, &quot;;
+    const char *src = &quot;World!&quot;;
+
+    // 使用 my_strcat 连接两个字符串，确保不发生溢出
+    my_strcat(dest, src, sizeof(dest));
+
+    printf(&quot;Concatenated string: %s\n&quot;, dest);
     return 0;
 }
 
+// my_strcat 函数的定义
+void my_strcat(char *dest, const char *src, size_t destSize) {
+    size_t destLen = 0;
+    while (destLen &lt; destSize &amp;&amp; dest[destLen] != '\0') {
+        destLen++; // 计算现有字符串的长度（不包括结尾的'\0'）
+    }
+
+    if (destLen == destSize) {
+        return; // 如果目标字符串已经占满了整个数组，则无法添加更多字符
+    }
+
+    // 复制源字符串到目标字符串的末端，直到源字符串结束或目标数组被填满
+    size_t i;
+    for (i = 0; destLen + i &lt; destSize - 1 &amp;&amp; src[i] != '\0'; i++) {
+        dest[destLen + i] = src[i];
+    }
+    dest[destLen + i] = '\0'; // 确保字符串以'\0'结尾
+}
+</code></pre>
+<h3 id="4">练习 4</h3>
+<p>编写函数</p>
+<pre><code>int palindrome( char *string );
+</code></pre>
+<p>如果参数字符串是个回文，函数就返回真，否则就返回假。回文就是指一个字符串从左向右读和从右向左读是一样的 。函数应该忽略所有的非字母字符，而且在进行字符比较时不用区分大小写。</p>
+<pre><code class="language-c">#include &lt;stdio.h&gt;
+#include &lt;ctype.h&gt; // 引入ctype.h以使用isalpha和tolower函数
+
+// 函数声明
+int palindrome(char *string);
+
+int main() {
+    char testString[] = &quot;A man, a plan, a canal: Panama&quot;;
+
+    if (palindrome(testString)) {
+        printf(&quot;\&quot;%s\&quot; is a palindrome.\n&quot;, testString);
+    } else {
+        printf(&quot;\&quot;%s\&quot; is not a palindrome.\n&quot;, testString);
+    }
+
+    return 0;
+}
+
+// 判断字符串是否是回文的函数实现
+int palindrome(char *string) {
+    // 首先确定字符串的长度
+    int length = 0;
+    while (string[length] != '\0') {
+        length++;
+    }
+
+    // 使用双指针技术，一个从前往后，一个从后往前
+    int left = 0, right = length - 1;
+    while (left &lt; right) {
+        // 如果左边字符不是字母，则左指针右移
+        if (!isalpha((unsigned char)string[left])) {
+            left++;
+            continue;
+        }
+        // 如果右边字符不是字母，则右指针左移
+        if (!isalpha((unsigned char)string[right])) {
+            right--;
+            continue;
+        }
+        // 比较两边的字符是否相等（不区分大小写）
+        if (tolower((unsigned char)string[left]) != tolower((unsigned char)string[right])) {
+            return 0; // 如果不相等，返回0
+        }
+        // 如果相等，继续比较
+        left++;
+        right--;
+    }
+    return 1; // 字符串是回文，返回1
+}
 </code></pre>
 
   <hr>
@@ -2322,7 +2514,7 @@ int main() {
       <nav class="md-footer__inner md-grid" aria-label="页脚" >
         
           
-          <a href="../operators-and-expressions/" class="md-footer__link md-footer__link--prev" aria-label="上一页: 操作符和表达式" rel="prev">
+          <a href="../array/" class="md-footer__link md-footer__link--prev" aria-label="上一页: 数组" rel="prev">
             <div class="md-footer__button md-icon">
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
             </div>
@@ -2331,20 +2523,20 @@ int main() {
                 上一页
               </span>
               <div class="md-ellipsis">
-                操作符和表达式
+                数组
               </div>
             </div>
           </a>
         
         
           
-          <a href="../function/" class="md-footer__link md-footer__link--next" aria-label="下一页: 函数" rel="next">
+          <a href="../../framework/activity-start/" class="md-footer__link md-footer__link--next" aria-label="下一页: Activity 启动流程分析" rel="next">
             <div class="md-footer__title">
               <span class="md-footer__direction">
                 下一页
               </span>
               <div class="md-ellipsis">
-                函数
+                Activity 启动流程分析
               </div>
             </div>
             <div class="md-footer__button md-icon">
