@@ -10,20 +10,16 @@
       
       
       
-        <link rel="canonical" href="https://android-performance-optimization.github.io/foundation/restudy-c-cpp/function/">
+        <link rel="canonical" href="https://android-performance-optimization.github.io/foundation/restudy-c-cpp/dynamic-memory/">
       
       
-        <link rel="prev" href="../pointer/">
-      
-      
-        <link rel="next" href="../array/">
       
       <link rel="icon" href="../../../assets/favicon.png">
       <meta name="generator" content="mkdocs-1.6.0, mkdocs-material-9.1.16">
     
     
       
-        <title>函数 - Android 性能优化手册</title>
+        <title>动态内存分配 - Android 性能优化手册</title>
       
     
     
@@ -113,7 +109,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              函数
+              动态内存分配
             
           </span>
         </div>
@@ -245,8 +241,6 @@
         
   
   
-    
-  
 
 
   
@@ -258,7 +252,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="../../self-cultivation/elf-file-detail/" class="md-tabs__link md-tabs__link--active">
+      <a href="../../self-cultivation/elf-file-detail/" class="md-tabs__link">
         筑基手册
       </a>
     </li>
@@ -448,16 +442,14 @@
 
   
   
-    
-  
   
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
       
       
       
-      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
       
       
         
@@ -480,7 +472,7 @@
           <span class="md-nav__icon md-icon"></span>
         </label>
       
-      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
         <label class="md-nav__title" for="__nav_3">
           <span class="md-nav__icon md-icon"></span>
           筑基手册
@@ -839,16 +831,14 @@
               
   
   
-    
-  
   
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
       
       
       
-      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_4" checked>
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_4" >
       
       
         
@@ -881,7 +871,7 @@
           <span class="md-nav__icon md-icon"></span>
         </label>
       
-      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_4_label" aria-expanded="true">
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_4_label" aria-expanded="false">
         <label class="md-nav__title" for="__nav_3_4">
           <span class="md-nav__icon md-icon"></span>
           重学 C/C++
@@ -990,113 +980,11 @@
               
   
   
-    
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          函数
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../function/" class="md-nav__link">
         函数
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="目录">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      目录
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
-    函数定义
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
-    函数的参数
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_4" class="md-nav__link">
-    可变参数列表
-  </a>
-  
-    <nav class="md-nav" aria-label="可变参数列表">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#stdarg" class="md-nav__link">
-    stdarg宏
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_5" class="md-nav__link">
-    编程练习
-  </a>
-  
-    <nav class="md-nav" aria-label="编程练习">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#1" class="md-nav__link">
-    练习 1
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#2" class="md-nav__link">
-    练习 2
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#3" class="md-nav__link">
-    练习 3
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -1917,29 +1805,22 @@
       
         <li class="md-nav__item">
   <a href="#_2" class="md-nav__link">
-    函数定义
+    为什么使用动态内存分配
   </a>
   
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
-    函数的参数
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_4" class="md-nav__link">
-    可变参数列表
-  </a>
-  
-    <nav class="md-nav" aria-label="可变参数列表">
+    <nav class="md-nav" aria-label="为什么使用动态内存分配">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#stdarg" class="md-nav__link">
-    stdarg宏
+  <a href="#mallocfree" class="md-nav__link">
+    malloc和free
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#callocrealloc" class="md-nav__link">
+    calloc和realloc
   </a>
   
 </li>
@@ -1950,7 +1831,28 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    使用动态分配的内存
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    常见的动态内存错误
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#_5" class="md-nav__link">
+    总结
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
     编程练习
   </a>
   
@@ -1967,13 +1869,6 @@
           <li class="md-nav__item">
   <a href="#2" class="md-nav__link">
     练习 2
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#3" class="md-nav__link">
-    练习 3
   </a>
   
 </li>
@@ -2001,170 +1896,136 @@
   
 
 
-<h1 id="_1">函数</h1>
+<h1 id="_1">动态内存分配</h1>
 <p>本文为《C 与 指针读书笔记》，感兴趣的读者可以去看原书。</p>
-<h2 id="_2">函数定义</h2>
-<p>函数的定义就是函数体的实现。函数体就是一个代码块，它在函数被调用时执行。与函数定义相反，函数声明出现在函数被调用的地方。函数声明向编译器提供该函数的相关信息，用于确保函数被正确地调用。</p>
-<pre><code class="language-c">function_name()
-{
-}
+<p>数组的元素存储于内存中连续的位置上。当一个数组被声明时，它所需要的内存在编译时就被分配。但是，你也可以使用动态内存分配在运行时为它分配内存。</p>
+<h2 id="_2">为什么使用动态内存分配</h2>
+<p>当你声明数组时，你必须用一个编译时常量指定数组的长度。但是，数组的长度常常在运行时才知道，这是由于它所需要的内存空间取决于输入数据。例如，一个用于计算学生等级和平均分的程序可能需要存储一个班级所有学生的数据，但不同班级的学生数量可能不同。在这些情况下，我们通常采取的方法是声明一个较大的数组，它可以容纳可能出现的最多元素。</p>
+<h3 id="mallocfree">malloc和free</h3>
+<p>C函数库提供了两个函数，malloc和free，分别用于执行动态内存分配和释放。这些函数维护一个可用内存池。当一个程序另外需要一些内存时，它就调用malloc函数，malloc从内存池中提取一块合适的内存，并向该程序返回一个指向这块内存的指针。这块内存此时并没有以任何方式进行初始化。如果对这块内存进行初始化非常重要，你要么自已动手对它进行初始化，要么使用calloc函数（在下一节描述）。当一块以前分配的内存不再使用时，程序调用free函数把它归还给内存池供以后之需。</p>
+<p>malloc的参数就是需要分配的内存字节（字符）数 。如果内存池中的可用内存可以满足这个需求，malloc就返回一个指向被分配的内存块起始位置的指针。</p>
+<p>malloc所分配的是一块连续的内存。例如，如果请求它分配100个字节的内存，那么它实际分配的内存就是100个连续的字节，并不会分开位于两块或多块不同的内存。同时，malloc实际分配的内存有可能比你请求的稍微多一点。但是，这个行为是由编译器定义的，所以你不能指望它肯定会分配比你的请求更多的内存。</p>
+<p>如果内存池是空的，或者它的可用内存无法满足你的请求，会发生什么情况呢？在这种情况下，malloc函数向操作系统请求，要求得到更多的内存，并在这块新内存上执行分配任务。如果操作系统无法向malloc提供更多的内存，malloc就返回一个NULL指针。因此，对每个从malloc返回的指针都进行检查，确保它并非NULL是非常重要的。</p>
+<p>free的参数必须要么是NULL，要么是一个先前从malloc、calloc或realloc返回的值。向free传递一个NULL参数不会产生任何效果。</p>
+<p>malloc又是如何知道你所请求的内存需要存储的是整数、浮点值、结构还是数组呢？它并不知情——malloc返回一个类型为void <em>的指针，正是缘于这个原因。标准表示一个void </em>类型的指针可以转换为其他任何类型的指针。但是，有些编译器，尤其是那些老式的编译器，可能要求你在转换时使用强制类型转换。</p>
+<p>对于要求边界对齐的机器，malloc所返回的内存的起始位置将始终能够满足对边界对齐要求最严格的类型的要求。</p>
+<h3 id="callocrealloc">calloc和realloc</h3>
+<p>另外还有两个内存分配函数，calloc和realloc。</p>
+<pre><code class="language-c">void　　*calloc( size_t num_elements,
+　　　　　　　　　 size_t element_size );
+void　　realloc( void *ptr, size_t new_size );
 </code></pre>
-<h2 id="_3">函数的参数</h2>
-<p>C函数的所有参数均以“传值调用”方式进行传递，这意味着函数将获得参数值的一份拷贝。这样，函数可以放心修改这个拷贝值，而不必担心会修改调用程序实际传递给它的参数。这个行为与Modula和Pascal中的值参数（不是var参数）相同。</p>
-<p>C的规则很简单：所有参数都是传值调用。但是，如果被传递的参数是一个数组名，并且在函数中使用下标引用该数组的参数，那么在函数中对数组元素进行修改实际上修改的是调用程序中的数组元素。函数将访问调用程序的数组元素，数组并不会被复制。这个行为被称为“传址调用”，也就是许多其他语言所实现的var参数。</p>
-<p>数组参数的这种行为似乎与传值调用规则相悖。但是，此处其实并无矛盾之处——数组名的值实际上是一个指针，传递给函数的就是这个指针的一份拷贝。下标引用实际上是间接访问的另一种形式，它可以对指针执行间接访问操作，访问指针指向的内存位置。参数（指针）实际上是一份拷贝，但在这份拷贝上执行间接访问操作所访问的是原先的数组。我们只要记住两个规则：</p>
-<p>1．传递给函数的标量参数是传值调用的。</p>
-<p>2．传递给函数的数组参数在行为上就像它们是通过传址调用的那样。</p>
-<h2 id="_4">可变参数列表</h2>
-<p>在函数的原型中，列出了函数期望接受的参数，但原型只能显示固定数目的参数。让一个函数在不同的时候接受不同数目的参数是不是可以呢？</p>
-<h3 id="stdarg">stdarg宏</h3>
-<p>可变参数列表是通过宏来实现的，这些宏定义于stdarg.h头文件，它是标准库的一部分。这个头文件声明了一个类型va_list和三个宏——va_start、va_arg和va_end  。我们可以声明一个类型为va_list的变量，与这几个宏配合使用，访问参数的值。</p>
-<p>你可能同时注意到参数列表中至少要有一个命名参数。如果连一个命名参数也没有，你就无法使用va_start。这个参数提供了一种方法，用于查找参数列表的可变部分。</p>
-<p>对于这些宏，存在两个基本的限制。一个值的类型无法简单地通过检查它的位模式来判断，这两个限制就是这个事实的直接结果。</p>
-<ul>
-<li>这些宏无法判断实际存在的参数的数量。</li>
-<li>这些宏无法判断每个参数的类型。</li>
-</ul>
-<h2 id="_5">编程练习</h2>
+<p>calloc也用于分配内存。malloc和calloc之间的主要区别是后者在返回指向内存的指针之前把它初始化为0。这个初始化常常能带来方便，但如果你的程序只是想把一些值存储到数组中，那么这个初始化过程纯属浪费时间。calloc和malloc之间另一个较小的区别是它们请求内存数量的方式不同。calloc的参数包括所需元素的数量和每个元素的字节数。根据这些值，它能够计算出总共需要分配的内存。</p>
+<p>realloc函数用于修改一个原先已经分配的内存块的大小。使用这个函数，你可以使一块内存扩大或缩小。如果它用于扩大一个内存块，那么这块内存原先的内容依然保留，新增加的内存添加到原先内存块的后面，新内存并未以任何方法进行初始化。如果它用于缩小一个内存块，该内存块尾部的部分内存便被拿掉，剩余部分内存的原先内容依然保留。</p>
+<p>如果原先的内存块无法改变大小，realloc将分配另一块正确大小的内存，并把原先那块内存的内容复制到新的块上。因此，在使用realloc之后，你就不能再使用指向旧内存的指针，而是应该改用realloc所返回的新指针。</p>
+<p>最后，如果realloc函数的第1个参数是NULL，那么它的行为就和malloc一模一样。</p>
+<h2 id="_3">使用动态分配的内存</h2>
+<p>当你使用动态分配内存后就有了一个指针，那么你该如何使用这块内存呢？当然，你可以使用间接访问和指针运算来访问数组的不同整数位置，同时你不仅可以使用指针，也可以使用下标。</p>
+<h2 id="_4">常见的动态内存错误</h2>
+<p>在使用动态内存分配的程序中，常常会出现许多错误。这些错误包括对NULL指针进行解引用操作、对分配的内存进行操作时越过边界、释放并非动态分配的内存、试图释放一块动态分配的内存的一部分以及一块动态内存被释放之后被继续使用。</p>
+<p>当一个使用动态内存分配的程序失败时，人们很容易把问题的责任推给malloc和free函数。但它们实际上很少是罪魁祸首。事实上，问题几乎总是出在你自己的程序中，而且常常是由于访问了分配内存以外的区域而引起的。</p>
+<h2 id="_5">总结</h2>
+<p>当数组被声明时，必须在编译时知道它的长度。动态内存分配允许程序为一个长度在运行时才知道的数组分配内存空间。</p>
+<p>malloc和calloc函数都用于动态分配一块内存，并返回一个指向该块内存的指针。malloc的参数就是需要分配的内存的字节数。和它不同的是，calloc的参数是你需要分配的元素个数和每个元素的长度。calloc函数在返回前把内存初始化为零，而malloc函数返回时内存并未以任何方式进行初始化。调用realloc函数可以改变一块已经动态分配的内存的大小。增加内存块大小时有可能采取的方法是把原来内存块上的所有数据复制到一个新的、更大的内存块上。当一个动态分配的内存块不再使用时，应该调用free函数把它归还给可用内存池。内存被释放之后便不能再被访问。</p>
+<p>如果请求的内存分配失败，malloc、calloc和realloc函数返回的将是一个NULL指针。错误地访问分配内存之外的区域所引起的后果类似越界访问一个数组，但这个错误还可能破坏可用内存池，导致程序失败。如果一个指针不是从早先的malloc、calloc或realloc函数返回的，它是不能作为参数传递给free函数的。你也不能只释放一块内存的一部分。</p>
+<p>内存泄漏是指内存被动态分配以后，当它不再使用时未被释放。内存泄漏会增加程序的体积，有可能导致程序或系统的崩溃。</p>
+<h2 id="_6">编程练习</h2>
 <h3 id="1">练习 1</h3>
-<p>为下面这个函数原型编写函数定义</p>
-<pre><code class="language-c">　　int ascii_to_integer( char *string );
-</code></pre>
-<p>这个字符串参数必须包含一个或多个数字，函数应该把这些数字字符转换为整数并返回这个整数。如果字符串参数包含了任何非数字字符，函数就返回零。</p>
+<p>编写一个函数，从标准输入读取一列整数，把这些值存储于一个动态分配的数组中并返回这个数组。函数通过观察EOF判断输入列表是否结束。数组的第1个数是数组包含的值的个数，它的后面就是这些整数值。</p>
 <pre><code class="language-c">#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
 
-int ascii_to_integer(char *string) {
-    int result = 0;  // 存储结果的整数
+int* readIntegers() {
+    int* array = (int*)malloc(sizeof(int)); // 初始分配空间给计数器
+    if (array == NULL) { // 检查内存分配是否成功
+        perror(&quot;Initial malloc failed&quot;);
+        exit(EXIT_FAILURE);
+    }
+    array[0] = 0; // 初始化计数器为0
 
-    // 循环遍历字符串中的每个字符
-    while (*string) {
-        // 如果当前字符是数字字符
-        if (*string &gt;= '0' &amp;&amp; *string &lt;= '9') {
-            // 将当前字符转换为整数（减去'0'的ASCII值得到真正的数值）
-            // 并将其加到结果上，同时考虑当前结果已是前一次迭代的结果*10
-            result = result * 10 + (*string - '0');
-        } else {
-            // 如果遇到非数字字符，则停止转换
-            break;
+    int input;
+    while (scanf(&quot;%d&quot;, &amp;input) != EOF) { // 读取整数直到EOF
+        array[0]++; // 增加计数器
+        // 重新分配空间以容纳新的整数和计数器
+        int* temp = (int*)realloc(array, (array[0] + 1) * sizeof(int));
+        if (temp == NULL) { // 检查内存重新分配是否成功
+            perror(&quot;realloc failed&quot;);
+            free(array);
+            exit(EXIT_FAILURE);
         }
-
-        // 移动到下一个字符
-        string++;
+        array = temp;
+        array[array[0]] = input; // 在数组的末尾添加新读取的整数
     }
 
-    return result;
+    if (array[0] == 0) { // 如果没有读取任何整数
+        free(array);
+        return NULL;
+    }
+
+    return array; // 返回动态分配并填充的数组
 }
 
-// 测试函数的简单例子
 int main() {
-    char str1[] = &quot;12345&quot;;
-    char str2[] = &quot;987a654&quot;;
-    char str3[] = &quot;abc123&quot;;
-
-    printf(&quot;%s 转换为整数是: %d\n&quot;, str1, ascii_to_integer(str1));
-    printf(&quot;%s 转换为整数是: %d\n&quot;, str2, ascii_to_integer(str2));
-    printf(&quot;%s 转换为整数是: %d\n&quot;, str3, ascii_to_integer(str3));
+    int* integers = readIntegers();
+    if (integers != NULL) {
+        printf(&quot;You have entered %d integers which are:\n&quot;, integers[0]);
+        for (int i = 1; i &lt;= integers[0]; i++) {
+            printf(&quot;%d\n&quot;, integers[i]);
+        }
+        free(integers); // 记得释放分配的内存
+    } else {
+        printf(&quot;No integers were read.\n&quot;);
+    }
 
     return 0;
 }
 </code></pre>
 <h3 id="2">练习 2</h3>
-<p>编写一个名叫max_list的函数，它用于检查任意数目的整型参数并返回它们中的最大值。参数列表必须以一个负值结尾，提示列表的结束。</p>
+<p>编写一个函数，从标准输入读取一个字符串，把字符串复制到动态分配的内存中，并返回该字符串的拷贝。这个函数不应该对读入字符串的长度作任何限制！</p>
 <pre><code class="language-c">#include &lt;stdio.h&gt;
-#include &lt;stdarg.h&gt;
+#include &lt;stdlib.h&gt;
 
-// 定义max_list函数，使用可变参数列表找出并返回最大整数
-int max_list(int first_arg, ...) {
-    // 初始化可变参数列表
-    va_list var_arg;
-    va_start(var_arg, first_arg);
-
-    // 假设第一个参数是目前为止的最大值
-    int max_val = first_arg;
-
-    int curr_val;
-
-    // 循环直到遇到负数参数，这表示参数列表的结束
-    while ((curr_val = va_arg(var_arg, int)) &gt;= 0) {
-        // 更新最大值
-        if (curr_val &gt; max_val) {
-            max_val = curr_val;
-        }
+char* readAndCopyString() {
+    int bufferSize = 10; // 初始缓冲区大小
+    char* str = (char*)malloc(bufferSize * sizeof(char));
+    if (str == NULL) { // 检查内存分配是否成功
+        perror(&quot;Initial malloc failed&quot;);
+        exit(EXIT_FAILURE);
     }
 
-    // 清理可变参数列表
-    va_end(var_arg);
-
-    // 返回找到的最大值
-    return max_val;
-}
-
-// 主函数，用于展示max_list函数的使用
-int main() {
-    // 测试max_list函数
-    printf(&quot;Max of 12, 75, 3, 87, -1 is: %d\n&quot;, max_list(12, 75, 3, 87, -1));
-    printf(&quot;Max of 20, 10, 5, -1 is: %d\n&quot;, max_list(20, 10, 5, -1));
-    printf(&quot;Max of 99, -1 is: %d\n&quot;, max_list(99, -1));
-
-    return 0;
-}
-</code></pre>
-<h3 id="3">练习 3</h3>
-<p>实现一个简化的 printf 函数，它能够处理 %d、%f、%s和%c 格式码。根据 ANSI 标准的原则，其他格式码的行为是未定义的。你可以假定已经存在函数print_integer和print_float，用于打印这些类型的值。对于另外两种类型的值，使用putchar来打印。</p>
-<pre><code class="language-c">#include &lt;stdio.h&gt;
-#include &lt;stdarg.h&gt;
-
-// 假设的函数原型
-void print_integer(int value) {
-    printf(&quot;%d&quot;, value);
-}
-
-// 假设的函数原型
-void print_float(float value) {
-    printf(&quot;%f&quot;, value);
-}
-
-void mini_printf(const char *format, ...) {
-    va_list args;
-    va_start(args, format);
-
-    while (*format != '\0') {
-        if (*format == '%') {
-            format++; // 移动到格式说明符
-            switch (*format) {
-                case 'd':
-                    print_integer(va_arg(args, int));
-                    break;
-                case 'f':
-                    print_float((float)va_arg(args, double)); // 注意：va_arg使用double来获取浮点数
-                    break;
-                case 's': ;
-                    char *s = va_arg(args, char*);
-                    while (*s) putchar(*s++);
-                    break;
-                case 'c':
-                    putchar((char)va_arg(args, int)); // 注意：va_arg使用int来获取字符
-                    break;
-                default:
-                    // 如果遇到未定义的格式代码，则输出它。
-                    putchar('%');
-                    putchar(*format);
-                    break;
+    char ch;
+    int count = 0;
+    printf(&quot;Enter a string: &quot;);
+    while (scanf(&quot;%c&quot;, &amp;ch) &amp;&amp; ch != '\n') { // 读取字符直到遇到换行符
+        str[count++] = ch;
+        if (count == bufferSize) { // 若当前已用完缓冲区
+            bufferSize *= 2; // 增加缓冲区大小
+            char* temp = (char*)realloc(str, bufferSize * sizeof(char));
+            if (temp == NULL) { // 检查内存重新分配是否成功
+                perror(&quot;realloc failed&quot;);
+                free(str);
+                exit(EXIT_FAILURE);
             }
-        } else {
-            // 如果不是格式指定符，直接输出该字符
-            putchar(*format);
+            str = temp;
         }
-        format++;
+    }
+    str[count] = '\0'; // 在字符串末尾添加NULL终止符
+
+    // 重新分配恰好合适的空间给字符串
+    char* exactStr = (char*)realloc(str, (count + 1) * sizeof(char));
+    if (exactStr == NULL) { // 检查内存重新分配是否成功
+        perror(&quot;Final realloc failed&quot;);
+        free(str); // 释放原来的内存防止内存泄露
+        exit(EXIT_FAILURE);
     }
 
-    va_end(args);
+    return exactStr; // 返回动态分配的字符串副本
 }
 
 int main() {
-    mini_printf(&quot;This is a string: %s\n&quot;, &quot;Hello, World!&quot;);
-    mini_printf(&quot;This is an integer: %d\n&quot;, 12345);
-    mini_printf(&quot;This is a float: %f\nThis is a char: %c\n&quot;, 3.14159, 'A');
+    char* str = readAndCopyString();
+    printf(&quot;You entered: %s\n&quot;, str);
+    free(str); // 使用完毕后释放分配的内存
     return 0;
 }
 </code></pre>
@@ -2200,42 +2061,6 @@ int main() {
       
         <footer class="md-footer">
   
-    
-      
-      <nav class="md-footer__inner md-grid" aria-label="页脚" >
-        
-          
-          <a href="../pointer/" class="md-footer__link md-footer__link--prev" aria-label="上一页: 指针" rel="prev">
-            <div class="md-footer__button md-icon">
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
-            </div>
-            <div class="md-footer__title">
-              <span class="md-footer__direction">
-                上一页
-              </span>
-              <div class="md-ellipsis">
-                指针
-              </div>
-            </div>
-          </a>
-        
-        
-          
-          <a href="../array/" class="md-footer__link md-footer__link--next" aria-label="下一页: 数组" rel="next">
-            <div class="md-footer__title">
-              <span class="md-footer__direction">
-                下一页
-              </span>
-              <div class="md-ellipsis">
-                数组
-              </div>
-            </div>
-            <div class="md-footer__button md-icon">
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"/></svg>
-            </div>
-          </a>
-        
-      </nav>
     
   
   <div class="md-footer-meta md-typeset">
