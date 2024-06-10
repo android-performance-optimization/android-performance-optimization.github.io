@@ -10,20 +10,20 @@
       
       
       
-        <link rel="canonical" href="https://android-performance-optimization.github.io/foundation/kotlin-meta-programming/runtime-reflect/">
+        <link rel="canonical" href="https://android-performance-optimization.github.io/foundation/restudy-c-cpp/advanced-pointer/">
       
       
-        <link rel="prev" href="../meta-data-introduction/">
+        <link rel="prev" href="../struct-and-pointer/">
       
       
-        <link rel="next" href="../code-generate/">
+        <link rel="next" href="../../framework/activity-start/">
       
       <link rel="icon" href="../../../assets/favicon.png">
       <meta name="generator" content="mkdocs-1.6.0, mkdocs-material-9.1.16">
     
     
       
-        <title>运行时的反射 - Android 性能优化手册</title>
+        <title>高级指针话题 - Android 性能优化手册</title>
       
     
     
@@ -113,7 +113,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              运行时的反射
+              高级指针话题
             
           </span>
         </div>
@@ -623,16 +623,14 @@
               
   
   
-    
-  
   
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
       
       
       
-      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2" checked>
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2" >
       
       
         
@@ -659,7 +657,7 @@
           <span class="md-nav__icon md-icon"></span>
         </label>
       
-      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_2_label" aria-expanded="true">
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_2_label" aria-expanded="false">
         <label class="md-nav__title" for="__nav_3_2">
           <span class="md-nav__icon md-icon"></span>
           深入实践 Kotlin 元编程
@@ -672,7 +670,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../meta-programming-basic/" class="md-nav__link">
+      <a href="../../kotlin-meta-programming/meta-programming-basic/" class="md-nav__link">
         元编程概述
       </a>
     </li>
@@ -686,7 +684,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../meta-data-introduction/" class="md-nav__link">
+      <a href="../../kotlin-meta-programming/meta-data-introduction/" class="md-nav__link">
         元数据简介
       </a>
     </li>
@@ -698,134 +696,11 @@
               
   
   
-    
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          运行时的反射
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../../kotlin-meta-programming/runtime-reflect/" class="md-nav__link">
         运行时的反射
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="目录">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      目录
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#java" class="md-nav__link">
-    Java 反射
-  </a>
-  
-    <nav class="md-nav" aria-label="Java 反射">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
-    基本功能
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
-    解除访问限制
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_4" class="md-nav__link">
-    动态代理
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_5" class="md-nav__link">
-    对注解的支持
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_6" class="md-nav__link">
-    对方法参数名的支持
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#kotlin" class="md-nav__link">
-    访问 Kotlin 代码
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#kotlin_1" class="md-nav__link">
-    Kotlin 反射
-  </a>
-  
-    <nav class="md-nav" aria-label="Kotlin 反射">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#_7" class="md-nav__link">
-    基本功能
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_8" class="md-nav__link">
-    属性引用和函数引用
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#typeof" class="md-nav__link">
-    typeOf
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -837,7 +712,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../code-generate/" class="md-nav__link">
+      <a href="../../kotlin-meta-programming/code-generate/" class="md-nav__link">
         源代码生成
       </a>
     </li>
@@ -851,7 +726,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../symbol-process/" class="md-nav__link">
+      <a href="../../kotlin-meta-programming/symbol-process/" class="md-nav__link">
         编译时的符号处理
       </a>
     </li>
@@ -865,7 +740,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../code-static-analyse/" class="md-nav__link">
+      <a href="../../kotlin-meta-programming/code-static-analyse/" class="md-nav__link">
         程序静态分析
       </a>
     </li>
@@ -879,7 +754,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../compiler-extension/" class="md-nav__link">
+      <a href="../../kotlin-meta-programming/compiler-extension/" class="md-nav__link">
         编译器插件
       </a>
     </li>
@@ -893,7 +768,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../meta-programming-debug/" class="md-nav__link">
+      <a href="../../kotlin-meta-programming/meta-programming-debug/" class="md-nav__link">
         元程序的开发和调试
       </a>
     </li>
@@ -964,14 +839,16 @@
               
   
   
+    
+  
   
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
       
       
       
-      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_4" >
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_4" checked>
       
       
         
@@ -1010,7 +887,7 @@
           <span class="md-nav__icon md-icon"></span>
         </label>
       
-      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_4_label" aria-expanded="false">
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_4_label" aria-expanded="true">
         <label class="md-nav__title" for="__nav_3_4">
           <span class="md-nav__icon md-icon"></span>
           重学 C/C++
@@ -1023,7 +900,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../restudy-c-cpp/environment-config/" class="md-nav__link">
+      <a href="../environment-config/" class="md-nav__link">
         环境搭建
       </a>
     </li>
@@ -1037,7 +914,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../restudy-c-cpp/quick-start/" class="md-nav__link">
+      <a href="../quick-start/" class="md-nav__link">
         快速上手
       </a>
     </li>
@@ -1051,7 +928,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../restudy-c-cpp/basic-concept/" class="md-nav__link">
+      <a href="../basic-concept/" class="md-nav__link">
         基本概念
       </a>
     </li>
@@ -1065,7 +942,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../restudy-c-cpp/data-type/" class="md-nav__link">
+      <a href="../data-type/" class="md-nav__link">
         数据类型
       </a>
     </li>
@@ -1079,7 +956,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../restudy-c-cpp/statement/" class="md-nav__link">
+      <a href="../statement/" class="md-nav__link">
         语句
       </a>
     </li>
@@ -1093,7 +970,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../restudy-c-cpp/operators-and-expressions/" class="md-nav__link">
+      <a href="../operators-and-expressions/" class="md-nav__link">
         操作符和表达式
       </a>
     </li>
@@ -1107,7 +984,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../restudy-c-cpp/pointer/" class="md-nav__link">
+      <a href="../pointer/" class="md-nav__link">
         指针
       </a>
     </li>
@@ -1121,7 +998,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../restudy-c-cpp/function/" class="md-nav__link">
+      <a href="../function/" class="md-nav__link">
         函数
       </a>
     </li>
@@ -1135,7 +1012,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../restudy-c-cpp/array/" class="md-nav__link">
+      <a href="../array/" class="md-nav__link">
         数组
       </a>
     </li>
@@ -1149,7 +1026,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../restudy-c-cpp/char-and-string/" class="md-nav__link">
+      <a href="../char-and-string/" class="md-nav__link">
         字符串、字符和字节
       </a>
     </li>
@@ -1163,7 +1040,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../restudy-c-cpp/struct-and-union/" class="md-nav__link">
+      <a href="../struct-and-union/" class="md-nav__link">
         结构和联合
       </a>
     </li>
@@ -1177,7 +1054,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../restudy-c-cpp/dynamic-memory/" class="md-nav__link">
+      <a href="../dynamic-memory/" class="md-nav__link">
         动态内存分配
       </a>
     </li>
@@ -1191,7 +1068,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../restudy-c-cpp/struct-and-pointer/" class="md-nav__link">
+      <a href="../struct-and-pointer/" class="md-nav__link">
         使用结构和指针
       </a>
     </li>
@@ -1203,11 +1080,100 @@
               
   
   
+    
   
-    <li class="md-nav__item">
-      <a href="../../restudy-c-cpp/advanced-pointer/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          高级指针话题
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         高级指针话题
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    函数指针
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    命令行参数
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    总结
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    编程练习
+  </a>
+  
+    <nav class="md-nav" aria-label="编程练习">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1" class="md-nav__link">
+    练习 1
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2" class="md-nav__link">
+    练习 2
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3" class="md-nav__link">
+    练习 3
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -1985,85 +1951,51 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#java" class="md-nav__link">
-    Java 反射
-  </a>
-  
-    <nav class="md-nav" aria-label="Java 反射">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
   <a href="#_2" class="md-nav__link">
-    基本功能
+    函数指针
   </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
-    解除访问限制
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_4" class="md-nav__link">
-    动态代理
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_5" class="md-nav__link">
-    对注解的支持
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_6" class="md-nav__link">
-    对方法参数名的支持
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#kotlin" class="md-nav__link">
-    访问 Kotlin 代码
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#kotlin_1" class="md-nav__link">
-    Kotlin 反射
+  <a href="#_3" class="md-nav__link">
+    命令行参数
   </a>
   
-    <nav class="md-nav" aria-label="Kotlin 反射">
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    总结
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    编程练习
+  </a>
+  
+    <nav class="md-nav" aria-label="编程练习">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#_7" class="md-nav__link">
-    基本功能
+  <a href="#1" class="md-nav__link">
+    练习 1
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#_8" class="md-nav__link">
-    属性引用和函数引用
+  <a href="#2" class="md-nav__link">
+    练习 2
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#typeof" class="md-nav__link">
-    typeOf
+  <a href="#3" class="md-nav__link">
+    练习 3
   </a>
   
 </li>
@@ -2091,39 +2023,114 @@
   
 
 
-<h1 id="_1">运行时的反射</h1>
-<p>本文为《深入实践 kotlin 元编程》读书笔记，想要深入了解 kotlin 元编程的同学可以阅读原书。</p>
-<p>反射是指程序可以分析、修改自身数据结构的能力。</p>
-<p>反射为静态语言提供了动态能力的补充，使得我们可以通过类名、函数名、字段名就可以获得操作类、函数、字段的对象，进而实现对这些程序结构的访问和修改。反射广泛应用于数据序 列化、软件测试等场景当中。</p>
-<h2 id="java">Java 反射</h2>
-<p>Java 反射是专门设计用来支持 Java 运行时元编程的特性的。</p>
-<h3 id="_2">基本功能</h3>
-<p>Java 1.1 引入反射，提供了绝大多数我们现在可以用到的反射 API，包括 Class、 Method、Field 这些核心类型以及其成员，使得我们可以使用反射来实现几乎所有通过编码来 实现的程序功能。</p>
-<h3 id="_3">解除访问限制</h3>
-<p>Java 1.2 中引入了 AccessibleObject 作为 Method 和 Field 等类型的父类(这 些类在 Java 1.2 之前直接继承自 Object 类)。如此一来，我们就可以通过 setAccessible 来解除 Java 类的私有成员的访问限制。这次更新使得反射的能力得到了 “史诗级”增强，也使得开发者可以在任意位置访问几乎任意类型的私有成员。</p>
-<h3 id="_4">动态代理</h3>
-<p>Java 1.3 引入了 Proxy 类型，支持了运行时动态代理。将动态代理与反射配合使用， 我们可以在运行时动态实现 Java 接口，使程序的灵活性得到大大地提升。动态代理可以用于 实现 AOP(面向切面编程)、模拟接口、拦截方法调用等用途。</p>
-<h3 id="_5">对注解的支持</h3>
-<p>Java 5 引入了注解，同时也在反射中增加了处理注解的 API。注解可以为源代码提供元信息，我们既可以在编译时解析注解，也可以在运行时使用反射访问注解。</p>
-<h3 id="_6">对方法参数名的支持</h3>
-<p>Java 8 以前，Java 编译器不会将 Java 方法的参数名编译到 JVM 字节码当中，因而 我们也无法使用反射访问到参数的名字。对于这样的场景，广大框架设计者常用的办法就是使用 注解将参数名添加到方法参数上，在运行时读取注解的值来获取参数名。</p>
-<p>Java 8 为编译器增加了参数 -parameters，以及 Parameter 类来获取方法参数名。</p>
-<p>在这种情况下，我们无须借助注解也可以读取到方法的参数名。</p>
-<h3 id="kotlin">访问 Kotlin 代码</h3>
-<p>在 Kotlin JVM 程序中，可以使用 Java 反射来访问 Kotlin 类型。只不过 Java 反 射对 Kotlin 的语法特性一无所知，它只能以 Java 的视角来观察 Kotlin 语法，因此使用 Java 反射访问 Kotlin 的类型及其成员时，本质上是在访问 Kotlin 代码编译生成的字节码所对应的 Java 类型。</p>
-<h2 id="kotlin_1">Kotlin 反射</h2>
-<p>Kotlin 反射是专门为 Kotlin 的语法特性设计实现的运行时元编程技术，它的出现解决了 Java 反射无法识别 Kotlin 语法特性的问题。</p>
-<h3 id="_7">基本功能</h3>
-<p>Kotlin 反射的设计与 Java 反射如出一辙。KClass 在公共标准库中的定义非常简单，只有三个成员。Kotlin JS 和 Kotlin Native 当中的实现也是如此，这意味着 Kotlin 在除了 JVM 以外的所有平台上提供的反射能力都极其有限。</p>
-<p>也正是因为如此，通常我们提到 Kotlin 反射，都是特指 Kotlin JVM 上的反射。</p>
-<h3 id="_8">属性引用和函数引用</h3>
-<p>属性引用和函数引用可以分别通过类名::属性和类名::函数名的语法获取，其中类名部分在属性和函数是顶级声明的情况下缺省。</p>
-<p>通过类名获取的引用是没有绑定 receiver 的，因此在调用时需要传入对应类型的实例。</p>
-<p>我们也可以通过实例直接获取引用，语法为实例::属性名和实例::函数名，通过实例获取的引用是绑定了 receiver 的引用。</p>
-<h3 id="typeof">typeOf</h3>
-<p>typeOf 是一个函数，调用时，它会返回具体化(reified)之后的类型 T 对应的 KType 实例。</p>
-<p>有读者可能会有疑问，T 不是已经具体化了吗?我们为什么不直接使用 T::class 来获取 KClass 实例呢?显然，KClass 和 KType 还是有很大的差异的，前者是泛型擦除之后的运行时类型表示，后者则包含了泛型信息，可以用于序列化或者反序列化等场景。</p>
-<p>typeOf 主要应对的就是需要获取 KType 或者在 JVM 上获取 Type 的场景， 也经常与 inline 和 reified 一起使用来编写库函数。</p>
+<h1 id="_1">高级指针话题</h1>
+<p>本文为《C 与 指针读书笔记》，感兴趣的读者可以去看原书。</p>
+<h2 id="_2">函数指针</h2>
+<p>你不会每天都使用函数指针。但是，它们确有用武之地，最常见的两个用途是转换表(jump table)和作为参数传递给另一个函数。</p>
+<pre><code class="language-c">int　　f( int );
+int　　(*pf)( int ) = &amp;f;
+</code></pre>
+<p>初始化表达式中的&amp;操作符是可选的，因为函数名 被使用时总是由编译器把它转换为函数指针 。&amp;操作符只是显式地说明了编译器将隐式执行的任务。</p>
+<h2 id="_3">命令行参数</h2>
+<p>处理命令行参数是指向指针的指针的另一个用武之地。有些操作系统，包括UNIX和MS-DOS，让用户在命令行中编写参数来启动一个程序的执行。这些参数被传递给程序，程序按照它认为合适的任何方式对它们进行处理。</p>
+<h2 id="_4">总结</h2>
+<p>如果声明得当，一个指针变量可以指向另一个指针变量。和其他的指针变量一样，一个指向指针的指针在它使用之前必须进行初始化。为了取得目标对象，必须对指针的指针执行双重的间接访问操作。更多层的间接访问也是允许的（比如一个指向整型的指针的指针的指针），但它们与简单的指针相比用的较少。你也可以创建指向函数和数组的指针，还可以创建包含这类指针的数组。</p>
+<p>你可以使用函数指针来实现回调函数。一个指向回调函数的指针作为参数传递给另一个函数，后者使用这个指针调用回调函数。使用这种技巧，你可以创建通用型函数，用于执行普通的操作如在一个链表中查找。任何特定问题的某个实例的工作，如在链表中进行值的比较，由客户提供的回调函数执行。</p>
+<p>转移表也使用函数指针。转移表像switch语句一样执行选择。转移表由一个函数指针数组组成（这些函数必须具有相同的原型）。函数通过下标选择某个指针，再通过指针调用对应的函数。你必须始终保证下标值处于适当的范围之内，因为在转移表中调试错误是非常困难的。</p>
+<p>如果某个执行环境实现了命令行参数，这些参数是通过两个形参传递给main函数的。这两个形参通常称为argc和argv。argc是一个整数，用于表示参数的数量。argv是一个指针，它指向一个序列的字符型指针。该序列中的每个指针指向一个命令行参数。该序列以一个NULL指针作为结束标志。其中第1个参数就是程序的名字。程序可以通过对argv使用间接访问操作来访问命令行参数。</p>
+<p>出现在表达式中的字符串常量的值是一个常量指针，它指向字符串的第1个字符。和数组名一样，你既可以用指针表达式也可以用下标来使用字符串常量。</p>
+<h2 id="_5">编程练习</h2>
+<h3 id="1">练习 1</h3>
+<p>编写一个通用目的的函数，遍历一个单链表。它应该接受两个参数：一个指向链表第1个节点的指针和一个指向一个回调函数的指针。回调函数应该接受单个参数，也就是指向一个链表节点的指针。对于链表中的每个节点，都应该调用一次这个回调函数。这个函数需要知道链表节点的什么信息？</p>
+<pre><code class="language-c">typedef void (*callback_fn)(NODE *);
+
+void traverse_list(NODE *head, callback_fn callback) {
+    NODE *current = head;  // 从链表头开始遍历
+
+    while (current != NULL) {
+        callback(current);  // 对当前节点调用回调函数
+        current = current-&gt;next;  // 移动到下一个节点
+    }
+}
+</code></pre>
+<h3 id="2">练习 2</h3>
+<p>转换下面的代码段，使它改用转移表而不是switch语句</p>
+<pre><code class="language-c">void add_new_trans(Node *list, Transaction *transaction);
+void delete_trans(Node *list, Transaction *transaction);
+void forward_trans(Node *list, Transaction *transaction);
+void backward_trans(Node *list, Transaction *transaction);
+void search_trans(Node *list, Transaction *transaction);
+void edit_trans(Node *list, Transaction *transaction);
+
+void (*trans_table[])(Node *, Transaction *) = {
+    add_new_trans,
+    delete_trans,
+    forward_trans,
+    backward_trans,
+    search_trans,
+    edit_trans
+};
+
+// 假设transaction-&gt;type是Trans_type枚举中的一个有效值
+trans_table[transaction-&gt;type](list, transaction);
+</code></pre>
+<h3 id="3">练习 3</h3>
+<p>编写一个名叫sort的函数，它用于对一个任何类型的数组进行排序。为了使函数更为通用，它的其中一个参数必须是一个指向比较回调函数的指针，该回调函数由调用程序提供。比较函数接受两个参数，也就是两个指向需要进行比较的值的指针。如果两个值相等，函数返回零；如果第1个值小于第2个，函数返回一个小于零的整数；如果第1个值大于第2个，函数返回一个大于零的整数。</p>
+<pre><code class="language-c">// 比较回调函数的类型定义
+typedef int (*compare_fn)(const void *, const void *);
+
+#include &lt;stdlib.h&gt;
+
+// 通用的排序函数
+void sort(void *array, size_t nitems, size_t size, compare_fn cmp) {
+    // 用一个临时变量来保存元素，以进行交换
+    void *temp = malloc(size);
+    if (temp == NULL) {
+        // 处理内存分配失败的情况
+        return;
+    }
+
+    for (size_t i = 0; i &lt; nitems - 1; ++i) {
+        for (size_t j = 0; j &lt; nitems - i - 1; ++j) {
+            // 计算数组中当前元素和下一个元素的指针
+            void *current = (char*)array + j * size;
+            void *next = (char*)array + (j + 1) * size;
+
+            // 使用提供的比较函数进行比较
+            if (cmp(current, next) &gt; 0) {
+                // 如果current &gt; next，则交换它们
+                memcpy(temp, current, size);
+                memcpy(current, next, size);
+                memcpy(next, temp, size);
+            }
+        }
+    }
+
+    free(temp); // 释放用于交换的临时内存
+}
+
+#include &lt;stdio.h&gt;
+
+// 整数比较函数
+int compare_ints(const void *a, const void *b) {
+    return (*(int*)a - *(int*)b);
+}
+
+int main() {
+    int arr[] = {5, 3, 2, 4, 1};
+    size_t n = sizeof(arr) / sizeof(arr[0]);
+
+    sort(arr, n, sizeof(arr[0]), compare_ints);
+
+    // 打印排序后的数组
+    for (size_t i = 0; i &lt; n; i++) {
+        printf(&quot;%d &quot;, arr[i]);
+    }
+    printf(&quot;\n&quot;);
+
+    return 0;
+}
+</code></pre>
 
   <hr>
 <div class="md-source-file">
@@ -2161,7 +2168,7 @@
       <nav class="md-footer__inner md-grid" aria-label="页脚" >
         
           
-          <a href="../meta-data-introduction/" class="md-footer__link md-footer__link--prev" aria-label="上一页: 元数据简介" rel="prev">
+          <a href="../struct-and-pointer/" class="md-footer__link md-footer__link--prev" aria-label="上一页: 使用结构和指针" rel="prev">
             <div class="md-footer__button md-icon">
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
             </div>
@@ -2170,20 +2177,20 @@
                 上一页
               </span>
               <div class="md-ellipsis">
-                元数据简介
+                使用结构和指针
               </div>
             </div>
           </a>
         
         
           
-          <a href="../code-generate/" class="md-footer__link md-footer__link--next" aria-label="下一页: 源代码生成" rel="next">
+          <a href="../../framework/activity-start/" class="md-footer__link md-footer__link--next" aria-label="下一页: Activity 启动流程分析" rel="next">
             <div class="md-footer__title">
               <span class="md-footer__direction">
                 下一页
               </span>
               <div class="md-ellipsis">
-                源代码生成
+                Activity 启动流程分析
               </div>
             </div>
             <div class="md-footer__button md-icon">
