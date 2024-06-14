@@ -10,20 +10,20 @@
       
       
       
-        <link rel="canonical" href="https://android-performance-optimization.github.io/foundation/restudy-c-cpp/struct-and-union/">
+        <link rel="canonical" href="https://android-performance-optimization.github.io/foundation/pointers-on-c/advanced-pointer/">
       
       
-        <link rel="prev" href="../char-and-string/">
+        <link rel="prev" href="../struct-and-pointer/">
       
       
-        <link rel="next" href="../dynamic-memory/">
+        <link rel="next" href="../preprocessor/">
       
       <link rel="icon" href="../../../assets/favicon.png">
       <meta name="generator" content="mkdocs-1.6.0, mkdocs-material-9.1.16">
     
     
       
-        <title>结构和联合 - Android 性能优化手册</title>
+        <title>高级指针话题 - Android 性能优化手册</title>
       
     
     
@@ -113,7 +113,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              结构和联合
+              高级指针话题
             
           </span>
         </div>
@@ -885,14 +885,14 @@
       
       
         <label class="md-nav__link" for="__nav_3_4" id="__nav_3_4_label" tabindex="0">
-          重学 C/C++
+          C 和指针
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_4_label" aria-expanded="true">
         <label class="md-nav__title" for="__nav_3_4">
           <span class="md-nav__icon md-icon"></span>
-          重学 C/C++
+          C 和指针
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
           
@@ -1040,155 +1040,11 @@
               
   
   
-    
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          结构和联合
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../struct-and-union/" class="md-nav__link">
         结构和联合
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="目录">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      目录
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
-    结构基础知识
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
-    结构声明
-  </a>
-  
-    <nav class="md-nav" aria-label="结构声明">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#_4" class="md-nav__link">
-    结构成员
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_5" class="md-nav__link">
-    结构成员的间接访问
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_6" class="md-nav__link">
-    结构的自引用
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_7" class="md-nav__link">
-    不完整的声明
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_8" class="md-nav__link">
-    结构的初始化
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_9" class="md-nav__link">
-    结构的存储分配
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_10" class="md-nav__link">
-    作为函数参数的结构
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_11" class="md-nav__link">
-    位段
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_12" class="md-nav__link">
-    联合
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_13" class="md-nav__link">
-    总结
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_14" class="md-nav__link">
-    编程练习
-  </a>
-  
-    <nav class="md-nav" aria-label="编程练习">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#1" class="md-nav__link">
-    练习 1
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -1226,11 +1082,100 @@
               
   
   
+    
   
-    <li class="md-nav__item">
-      <a href="../advanced-pointer/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          高级指针话题
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         高级指针话题
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    函数指针
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    命令行参数
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    总结
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    编程练习
+  </a>
+  
+    <nav class="md-nav" aria-label="编程练习">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1" class="md-nav__link">
+    练习 1
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2" class="md-nav__link">
+    练习 2
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3" class="md-nav__link">
+    练习 3
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -2023,96 +1968,27 @@
       
         <li class="md-nav__item">
   <a href="#_2" class="md-nav__link">
-    结构基础知识
+    函数指针
   </a>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#_3" class="md-nav__link">
-    结构声明
+    命令行参数
   </a>
   
-    <nav class="md-nav" aria-label="结构声明">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
+</li>
+      
+        <li class="md-nav__item">
   <a href="#_4" class="md-nav__link">
-    结构成员
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_5" class="md-nav__link">
-    结构成员的间接访问
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_6" class="md-nav__link">
-    结构的自引用
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_7" class="md-nav__link">
-    不完整的声明
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_8" class="md-nav__link">
-    结构的初始化
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_9" class="md-nav__link">
-    结构的存储分配
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_10" class="md-nav__link">
-    作为函数参数的结构
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_11" class="md-nav__link">
-    位段
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_12" class="md-nav__link">
-    联合
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_13" class="md-nav__link">
     总结
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#_14" class="md-nav__link">
+  <a href="#_5" class="md-nav__link">
     编程练习
   </a>
   
@@ -2122,6 +1998,20 @@
           <li class="md-nav__item">
   <a href="#1" class="md-nav__link">
     练习 1
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2" class="md-nav__link">
+    练习 2
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3" class="md-nav__link">
+    练习 3
   </a>
   
 </li>
@@ -2149,98 +2039,111 @@
   
 
 
-<h1 id="_1">结构和联合</h1>
+<h1 id="_1">高级指针话题</h1>
 <p>本文为《C 与 指针读书笔记》，感兴趣的读者可以去看原书。</p>
-<p>数据经常以成组的形式存在。例如，雇主必须明了每位雇员的姓名、年龄和工资。如果这些值能够存储在一起，访问起来会简单一些。但是，如果这些值的类型不同（就像现在这种情况），它们无法存储于同一个数组中。在C中，使用结构可以把不同类型的值存储在一起。</p>
-<h2 id="_2">结构基础知识</h2>
-<p>聚合数据类型（aggregate data type）能够同时存储超过一个的单独数据。C提供了两种类型的聚合数据类型，数组和结构。数组是相同类型的元素的集合，它的每个元素是通过下标引用或指针间接访问来选择的。</p>
-<p>结构也是一些值的集合，这些值称为它的成员 (member)，但一个结构的各个成员可能具有不同的类型。</p>
-<p>数组元素可以通过下标访问，这只是因为数组的元素长度相同。但是，在结构中情况并非如此。由于一个结构的成员可能长度不同，所以不能使用下标来访问它们。相反，每个结构成员都有自己的名字，它们是通过名字访问的。</p>
-<p>这个区别非常重要。结构并不是一个它自身成员的数组。和数组名不同，当一个结构变量在表达式中使用时，它并不被替换成一个指针。结构变量也无法使用下标来选择特定的成员。</p>
-<p>结构变量属于标量类型，所以你可以像对待其他标量类型那样执行相同类型的操作。结构也可以作为传递给函数的参数，它们也可以作为返回值从函数返回，相同类型的结构变量相互之间可以赋值。你可以声明指向结构的指针，取一个结构变量的地址，也可以声明结构数组。但是，在讨论这些话题之前，我们必须知道一些更为基础的东西。</p>
-<h2 id="_3">结构声明</h2>
-<p>在声明结构时，必须列出它包含的所有成员。这个列表包括每个成员的类型和名字。</p>
-<pre><code class="language-c">struct tag { member-list
-
- } variable-list
+<h2 id="_2">函数指针</h2>
+<p>你不会每天都使用函数指针。但是，它们确有用武之地，最常见的两个用途是转换表(jump table)和作为参数传递给另一个函数。</p>
+<pre><code class="language-c">int　　f( int );
+int　　(*pf)( int ) = &amp;f;
 </code></pre>
-<h3 id="_4">结构成员</h3>
-<p>可以在一个结构外部声明的任何变量都可以作为结构的成员。尤其是，结构成员可以是标量、数组、指针甚至是其他结构。</p>
-<h3 id="_5">结构成员的间接访问</h3>
-<p>如果你拥有一个指向结构的指针，你该如何访问这个结构的成员呢？首先就是对指针执行间接访问操作，这使你获得这个结构。然后你使用点操作符来访问它的成员。但是，点操作符的优先级高于间接访问操作符，所以你必须在表达式中使用括号，确保间接访问首先执行。</p>
-<p>由于这个概念有点惹人厌，所以C语言提供了一个更为方便的操作符来完成这项工作——-&gt;操作符（也称箭头操作符）。和点操作符一样，箭头操作符接受两个操作数，但左操作数必须是一个指向结构的指针 。箭头操作符对左操作数执行间接访问取得指针所指向的结构，然后和点操作符一样，根据右操作数选择一个指定的结构成员。但是，间接访问操作内建于箭头操作符中，所以我们不需要显式地执行间接访问或使用括号。</p>
-<h3 id="_6">结构的自引用</h3>
-<p>在一个结构内部包含一个类型为该结构本身的成员是否合法呢？</p>
-<p>当成员b是另一个完整的结构，其内部还将包含它自己的成员b时，这种类型的自引用是非法的。这第2个成员又是另一个完整的结构，它还将包括它自己的成员b。这样重复下去永无止境。这有点像永远不会终止的递归程序。</p>
-<p>而当 b 是一个指针而不是结构时是合法的。编译器在结构的长度确定之前就已经知道指针的长度，所以这种类型的自引用是合法的。</p>
-<p>如果你觉得一个结构内部包含一个指向该结构本身的指针有些奇怪，请记住它事实上所指向的是同一种类型的不同 结构。更加高级的数据结构，如链表和树，都是用这种技巧实现的。每个结构指向链表的下一个元素或树的下一个分枝。</p>
-<h3 id="_7">不完整的声明</h3>
-<p>偶尔，你必须声明一些相互之间存在依赖的结构。也就是说，其中一个结构包含了另一个结构的一个或多个成员。和自引用结构一样，至少有一个结构必须在另一个结构内部以指针的形式存在。问题在于声明部分：如果每个结构都引用了其他结构的标签，哪个结构应该首先声明呢？</p>
-<p>这个问题的解决方案是使用不完整声明(incomplete declaration)，它声明一个作为结构标签的标识符。然后，我们可以把这个标签用在不需要知道这个结构的长度的声明中，如声明指向这个结构的指针。接下来的声明把这个标签与成员列表联系在一起。</p>
-<h3 id="_8">结构的初始化</h3>
-<p>结构的初始化方式和数组的初始化很相似。一个位于一对花括号内部、由逗号分隔的初始值列表可用于结构各个成员的初始化。这些值根据结构成员列表的顺序写出。如果初始列表的值不够，剩余的结构成员将使用缺省值进行初始化。</p>
-<p>结构中如果包含数组或结构成员，其初始化方式类似于多维数组的初始化。一个完整的聚合类型成员的初始值列表可以嵌套于结构的初始值列表内部。</p>
-<h2 id="_9">结构的存储分配</h2>
-<p>结构在内存中是如何实际存储的呢？前面例子的这张图似乎提示了结构内部包含了大量的未用空间。但这张图并不完全准确，编译器按照成员列表的顺序一个接一个地给每个成员分配内存。只有当存储成员时需要满足正确的边界对齐要求时，成员之间才可能出现用于填充的额外内存空间。</p>
-<h2 id="_10">作为函数参数的结构</h2>
-<p>结构变量是一个标量，它可以用于其他标量可以使用的任何场合。因此，把结构作为参数传递给一个函数是合法的，但这种做法往往并不适宜。</p>
-<p>如果传递给函数的是一个指向结构的指针，指针比整个结构要小得多，所以把它压到堆栈上效率能提高很多。传递指针另外需要付出的代价是我们必须在函数中使用间接访问来访问结构的成员。结构越大，把指向它的指针传递给函数的效率就越高。</p>
-<p>在许多机器中，你可以把参数声明为寄存器变量，从而进一步提高指针传递方案的效率。在有些机器上，这种声明在函数的起始部分还需要一条额外的指令，用于把堆栈中的参数（参数先传递给堆栈）复制到寄存器，供函数使用。但是，如果函数对这个指针的间接访问次数超过两三次，那么使用这种方法所节省的时间将远远高于一条额外指令所花费的时间。</p>
-<p>向函数传递指针的缺陷在于函数现在可以对调用程序的结构变量进行修改。如果我们不希望如此，可以在函数中使用const关键字来防止这类修改。</p>
-<h2 id="_11">位段</h2>
-<p>关于结构，我们最后还必须提到它们实现位段(bit field)的能力。位段的声明和结构类似，但它的成员是一个或多个位的字段。这些不同长度的字段实际上存储于一个或多个整型变量中。</p>
-<p>位段的声明和任何普通的结构成员声明相同，但有两个例外。首先，位段成员必须声明为int、signed int或unsigned int类型。其次，在成员名的后面是一个冒号和一个整数，这个整数指定该位段所占用的位的数目。</p>
-<p>使用位段的能够把长度为奇数的数据包装在一起，节省存储空间。当程序需要使用成千上万的这类结构时，这种节省方法就会变得相当重要。另一个使用位段的理由是由于它们可以很方便地访问一个整型值的部分内容。</p>
-<h2 id="_12">联合</h2>
-<p>和结构相比，联合（union）可以说是另一种动物了。联合的声明和结构类似，但它的行为方式却和结构不同。联合的所有成员引用的是内存中的相同位置 。当你想在不同的时刻把不同的东西存储于同一个位置时，就可以使用联合。</p>
-<p>如果联合的各个成员具有不同的长度，联合的长度就是它最长成员的长度。</p>
-<h2 id="_13">总结</h2>
-<p>在结构中，不同类型的值可以存储在一起。结构中的值称为成员，它们是通过名字访问的。结构变量是一个标量，可以出现在普通标量变量可以出现的任何场合。</p>
-<p>结构的声明列出了结构包含的成员列表。不同的结构声明即使它们的成员列表相同也被认为是不同的类型。结构标签是一个名字，它与一个成员列表相关联。你可以使用结构标签在不同的声明中创建相同类型的结构变量，这样就不用每次在声明中重复成员列表。typedef也可以用于实现这个目标。</p>
-<p>结构的成员可以是标量、数组或指针。结构也可以包含本身也是结构的成员。在不同的结构中出现同样的成员名是不会引起冲突的。你使用点操作符访问结构变量的成员。如果你拥有一个指向结构的指针，你可以使用箭头操作符访问这个结构的成员。</p>
-<p>结构不能包含类型也是这个结构的成员，但它的成员可以是一个指向这个结构的指针。这个技巧常常用于链式数据结构中。为了声明两个结构，每个结构都包含一个指向对方的指针的成员，我们需要使用不完整的声明来定义一个结构标签名。结构变量可以用一个由花括号包围的值列表进行初始化。这些值的类型必须适合它所初始化的那些成员。</p>
-<p>编译器为一个结构变量的成员分配内存时要满足它们的边界对齐要求。在实现结构存储的边界对齐时，可能会浪费一部分内存空间。根据边界对齐要求降序排列结构成员可以最大限度地减少结构存储中浪费的内存空间。sizeof返回的值包含了结构中浪费的内存空间。</p>
-<p>结构可以作为参数传递给函数，也可以作为返回值从函数返回。但是，向函数传递一个指向结构的指针往往效率更高。在结构指针参数的声明中可以加上const关键字防止函数修改指针所指向的结构。</p>
-<p>位段是结构的一种，但它的成员长度以位为单位指定。位段声明在本质上是不可移植的，因为它涉及许多与实现有关的因素。但是，位段允许你把长度为奇数的值包装在一起以节省存储空间。源代码如果需要访问一个值内部任意的一些位，使用位段比较简便。</p>
-<p>一个联合的所有成员都存储于同一个内存位置。通过访问不同类型的联合成员，内存中相同的位组合可以被解释为不同的东西。联合在实现变体记录时很有用，但程序员必须负责确认实际存储的是哪个变体并选择正确的联合成员以便访问数据。联合变量也可以进行初始化，但初始值必须与联合第1个成员的类型匹配。</p>
-<h2 id="_14">编程练习</h2>
+<p>初始化表达式中的&amp;操作符是可选的，因为函数名 被使用时总是由编译器把它转换为函数指针 。&amp;操作符只是显式地说明了编译器将隐式执行的任务。</p>
+<h2 id="_3">命令行参数</h2>
+<p>处理命令行参数是指向指针的指针的另一个用武之地。有些操作系统，包括UNIX和MS-DOS，让用户在命令行中编写参数来启动一个程序的执行。这些参数被传递给程序，程序按照它认为合适的任何方式对它们进行处理。</p>
+<h2 id="_4">总结</h2>
+<p>如果声明得当，一个指针变量可以指向另一个指针变量。和其他的指针变量一样，一个指向指针的指针在它使用之前必须进行初始化。为了取得目标对象，必须对指针的指针执行双重的间接访问操作。更多层的间接访问也是允许的（比如一个指向整型的指针的指针的指针），但它们与简单的指针相比用的较少。你也可以创建指向函数和数组的指针，还可以创建包含这类指针的数组。</p>
+<p>你可以使用函数指针来实现回调函数。一个指向回调函数的指针作为参数传递给另一个函数，后者使用这个指针调用回调函数。使用这种技巧，你可以创建通用型函数，用于执行普通的操作如在一个链表中查找。任何特定问题的某个实例的工作，如在链表中进行值的比较，由客户提供的回调函数执行。</p>
+<p>转移表也使用函数指针。转移表像switch语句一样执行选择。转移表由一个函数指针数组组成（这些函数必须具有相同的原型）。函数通过下标选择某个指针，再通过指针调用对应的函数。你必须始终保证下标值处于适当的范围之内，因为在转移表中调试错误是非常困难的。</p>
+<p>如果某个执行环境实现了命令行参数，这些参数是通过两个形参传递给main函数的。这两个形参通常称为argc和argv。argc是一个整数，用于表示参数的数量。argv是一个指针，它指向一个序列的字符型指针。该序列中的每个指针指向一个命令行参数。该序列以一个NULL指针作为结束标志。其中第1个参数就是程序的名字。程序可以通过对argv使用间接访问操作来访问命令行参数。</p>
+<p>出现在表达式中的字符串常量的值是一个常量指针，它指向字符串的第1个字符。和数组名一样，你既可以用指针表达式也可以用下标来使用字符串常量。</p>
+<h2 id="_5">编程练习</h2>
 <h3 id="1">练习 1</h3>
-<p>当你拨打长途电话时，电话公司所保存的信息包括你拨打电话的日期和时间。它还包括三个电话号码：你使用的那个电话、你呼叫的那个电话以及你付账的那个电话。这些电话号码的每一个都由三个部分组成：区号、交换台和站号码。请为这些记账信息编写一个结构声明。</p>
-<pre><code class="language-c">#include &lt;stdio.h&gt;
+<p>编写一个通用目的的函数，遍历一个单链表。它应该接受两个参数：一个指向链表第1个节点的指针和一个指向一个回调函数的指针。回调函数应该接受单个参数，也就是指向一个链表节点的指针。对于链表中的每个节点，都应该调用一次这个回调函数。这个函数需要知道链表节点的什么信息？</p>
+<pre><code class="language-c">typedef void (*callback_fn)(NODE *);
 
-// 定义电话号码的结构
-typedef struct {
-    int areaCode;    // 区号
-    int exchange;    // 交换台
-    int station;     // 站号码
-} PhoneNumber;
+void traverse_list(NODE *head, callback_fn callback) {
+    NODE *current = head;  // 从链表头开始遍历
 
-// 定义记账信息的结构
-typedef struct {
-    char callDate[11];  // 电话拨打的日期，格式&quot;YYYY-MM-DD&quot;，包括结束符'\0'需要11个字符
-    char callTime[6];   // 电话拨打的时间，格式&quot;HH:MM&quot;，包括结束符'\0'需要6个字符
-    PhoneNumber usingPhone;  // 使用的电话
-    PhoneNumber calledPhone; // 呼叫的电话
-    PhoneNumber billingPhone; // 付账的电话
-} CallBillingInfo;
+    while (current != NULL) {
+        callback(current);  // 对当前节点调用回调函数
+        current = current-&gt;next;  // 移动到下一个节点
+    }
+}
+</code></pre>
+<h3 id="2">练习 2</h3>
+<p>转换下面的代码段，使它改用转移表而不是switch语句</p>
+<pre><code class="language-c">void add_new_trans(Node *list, Transaction *transaction);
+void delete_trans(Node *list, Transaction *transaction);
+void forward_trans(Node *list, Transaction *transaction);
+void backward_trans(Node *list, Transaction *transaction);
+void search_trans(Node *list, Transaction *transaction);
+void edit_trans(Node *list, Transaction *transaction);
+
+void (*trans_table[])(Node *, Transaction *) = {
+    add_new_trans,
+    delete_trans,
+    forward_trans,
+    backward_trans,
+    search_trans,
+    edit_trans
+};
+
+// 假设transaction-&gt;type是Trans_type枚举中的一个有效值
+trans_table[transaction-&gt;type](list, transaction);
+</code></pre>
+<h3 id="3">练习 3</h3>
+<p>编写一个名叫sort的函数，它用于对一个任何类型的数组进行排序。为了使函数更为通用，它的其中一个参数必须是一个指向比较回调函数的指针，该回调函数由调用程序提供。比较函数接受两个参数，也就是两个指向需要进行比较的值的指针。如果两个值相等，函数返回零；如果第1个值小于第2个，函数返回一个小于零的整数；如果第1个值大于第2个，函数返回一个大于零的整数。</p>
+<pre><code class="language-c">// 比较回调函数的类型定义
+typedef int (*compare_fn)(const void *, const void *);
+
+#include &lt;stdlib.h&gt;
+
+// 通用的排序函数
+void sort(void *array, size_t nitems, size_t size, compare_fn cmp) {
+    // 用一个临时变量来保存元素，以进行交换
+    void *temp = malloc(size);
+    if (temp == NULL) {
+        // 处理内存分配失败的情况
+        return;
+    }
+
+    for (size_t i = 0; i &lt; nitems - 1; ++i) {
+        for (size_t j = 0; j &lt; nitems - i - 1; ++j) {
+            // 计算数组中当前元素和下一个元素的指针
+            void *current = (char*)array + j * size;
+            void *next = (char*)array + (j + 1) * size;
+
+            // 使用提供的比较函数进行比较
+            if (cmp(current, next) &gt; 0) {
+                // 如果current &gt; next，则交换它们
+                memcpy(temp, current, size);
+                memcpy(current, next, size);
+                memcpy(next, temp, size);
+            }
+        }
+    }
+
+    free(temp); // 释放用于交换的临时内存
+}
+
+#include &lt;stdio.h&gt;
+
+// 整数比较函数
+int compare_ints(const void *a, const void *b) {
+    return (*(int*)a - *(int*)b);
+}
 
 int main() {
-    // 示例：创建一个CallBillingInfo实例并初始化
-    CallBillingInfo callInfo = {
-        &quot;2023-04-01&quot;, // 电话拨打日期
-        &quot;15:30&quot;,      // 电话拨打时间
-        {123, 456, 7890}, // 使用的电话号码（区号、交换台、站号码）
-        {321, 654, 0987}, // 呼叫的电话号码
-        {111, 222, 3333}  // 付账的电话号码
-    };
+    int arr[] = {5, 3, 2, 4, 1};
+    size_t n = sizeof(arr) / sizeof(arr[0]);
 
-    // 输出某些信息进行验证
-    printf(&quot;Call Date: %s\n&quot;, callInfo.callDate);
-    printf(&quot;Call Time: %s\n&quot;, callInfo.callTime);
-    printf(&quot;Using Phone: (%d) %d-%d\n&quot;, 
-            callInfo.usingPhone.areaCode, 
-            callInfo.usingPhone.exchange, 
-            callInfo.usingPhone.station);
+    sort(arr, n, sizeof(arr[0]), compare_ints);
+
+    // 打印排序后的数组
+    for (size_t i = 0; i &lt; n; i++) {
+        printf(&quot;%d &quot;, arr[i]);
+    }
+    printf(&quot;\n&quot;);
+
     return 0;
 }
 </code></pre>
@@ -2250,7 +2153,7 @@ int main() {
   <small>
     
       最后更新:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">June 11, 2024</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">June 14, 2024</span>
       
     
   </small>
@@ -2281,7 +2184,7 @@ int main() {
       <nav class="md-footer__inner md-grid" aria-label="页脚" >
         
           
-          <a href="../char-and-string/" class="md-footer__link md-footer__link--prev" aria-label="上一页: 字符串、字符和字节" rel="prev">
+          <a href="../struct-and-pointer/" class="md-footer__link md-footer__link--prev" aria-label="上一页: 使用结构和指针" rel="prev">
             <div class="md-footer__button md-icon">
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
             </div>
@@ -2290,20 +2193,20 @@ int main() {
                 上一页
               </span>
               <div class="md-ellipsis">
-                字符串、字符和字节
+                使用结构和指针
               </div>
             </div>
           </a>
         
         
           
-          <a href="../dynamic-memory/" class="md-footer__link md-footer__link--next" aria-label="下一页: 动态内存分配" rel="next">
+          <a href="../preprocessor/" class="md-footer__link md-footer__link--next" aria-label="下一页: 预处理器" rel="next">
             <div class="md-footer__title">
               <span class="md-footer__direction">
                 下一页
               </span>
               <div class="md-ellipsis">
-                动态内存分配
+                预处理器
               </div>
             </div>
             <div class="md-footer__button md-icon">

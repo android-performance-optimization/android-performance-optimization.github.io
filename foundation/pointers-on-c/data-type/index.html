@@ -10,20 +10,20 @@
       
       
       
-        <link rel="canonical" href="https://android-performance-optimization.github.io/foundation/restudy-c-cpp/operators-and-expressions/">
+        <link rel="canonical" href="https://android-performance-optimization.github.io/foundation/pointers-on-c/data-type/">
       
       
-        <link rel="prev" href="../statement/">
+        <link rel="prev" href="../basic-concept/">
       
       
-        <link rel="next" href="../pointer/">
+        <link rel="next" href="../statement/">
       
       <link rel="icon" href="../../../assets/favicon.png">
       <meta name="generator" content="mkdocs-1.6.0, mkdocs-material-9.1.16">
     
     
       
-        <title>操作符和表达式 - Android 性能优化手册</title>
+        <title>数据类型 - Android 性能优化手册</title>
       
     
     
@@ -113,7 +113,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              操作符和表达式
+              数据类型
             
           </span>
         </div>
@@ -885,14 +885,14 @@
       
       
         <label class="md-nav__link" for="__nav_3_4" id="__nav_3_4_label" tabindex="0">
-          重学 C/C++
+          C 和指针
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_4_label" aria-expanded="true">
         <label class="md-nav__title" for="__nav_3_4">
           <span class="md-nav__icon md-icon"></span>
-          重学 C/C++
+          C 和指针
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
           
@@ -942,11 +942,229 @@
               
   
   
+    
   
-    <li class="md-nav__item">
-      <a href="../data-type/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          数据类型
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         数据类型
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    基本数据类型
+  </a>
+  
+    <nav class="md-nav" aria-label="基本数据类型">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    整型家族
+  </a>
+  
+    <nav class="md-nav" aria-label="整型家族">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    整型字面值
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    枚举类型
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    浮点类型
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    指针
+  </a>
+  
+    <nav class="md-nav" aria-label="指针">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    指针常量
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    字符串常量
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    基本声明
+  </a>
+  
+    <nav class="md-nav" aria-label="基本声明">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_11" class="md-nav__link">
+    声明指针
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_12" class="md-nav__link">
+    隐式声明
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#typedef" class="md-nav__link">
+    typedef
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_13" class="md-nav__link">
+    常量
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_14" class="md-nav__link">
+    作用域
+  </a>
+  
+    <nav class="md-nav" aria-label="作用域">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_15" class="md-nav__link">
+    代码块作用域
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_16" class="md-nav__link">
+    文件作用域
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_17" class="md-nav__link">
+    原型作用域
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_18" class="md-nav__link">
+    函数作用域
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_19" class="md-nav__link">
+    链接属性
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_20" class="md-nav__link">
+    存储类型
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#static" class="md-nav__link">
+    static关键字
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_21" class="md-nav__link">
+    总结
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -970,141 +1188,11 @@
               
   
   
-    
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          操作符和表达式
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../operators-and-expressions/" class="md-nav__link">
         操作符和表达式
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="目录">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      目录
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
-    操作符
-  </a>
-  
-    <nav class="md-nav" aria-label="操作符">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
-    算术操作符
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_4" class="md-nav__link">
-    移位操作符
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_5" class="md-nav__link">
-    位操作符
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_6" class="md-nav__link">
-    赋值
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_7" class="md-nav__link">
-    其它操作符
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_8" class="md-nav__link">
-    布尔值
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_9" class="md-nav__link">
-    左值和右值
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_10" class="md-nav__link">
-    编程练习
-  </a>
-  
-    <nav class="md-nav" aria-label="编程练习">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#1" class="md-nav__link">
-    练习 1
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#2" class="md-nav__link">
-    练习 2
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#3" class="md-nav__link">
-    练习3
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -2009,43 +2097,64 @@
       
         <li class="md-nav__item">
   <a href="#_2" class="md-nav__link">
-    操作符
+    基本数据类型
   </a>
   
-    <nav class="md-nav" aria-label="操作符">
+    <nav class="md-nav" aria-label="基本数据类型">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
   <a href="#_3" class="md-nav__link">
-    算术操作符
+    整型家族
   </a>
   
-</li>
+    <nav class="md-nav" aria-label="整型家族">
+      <ul class="md-nav__list">
         
           <li class="md-nav__item">
   <a href="#_4" class="md-nav__link">
-    移位操作符
+    整型字面值
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#_5" class="md-nav__link">
-    位操作符
+    枚举类型
   </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#_6" class="md-nav__link">
-    赋值
+    浮点类型
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#_7" class="md-nav__link">
-    其它操作符
+    指针
+  </a>
+  
+    <nav class="md-nav" aria-label="指针">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    指针常量
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    字符串常量
   </a>
   
 </li>
@@ -2054,52 +2163,119 @@
     </nav>
   
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#_8" class="md-nav__link">
-    布尔值
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_9" class="md-nav__link">
-    左值和右值
-  </a>
+        
+      </ul>
+    </nav>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#_10" class="md-nav__link">
-    编程练习
+    基本声明
   </a>
   
-    <nav class="md-nav" aria-label="编程练习">
+    <nav class="md-nav" aria-label="基本声明">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#1" class="md-nav__link">
-    练习 1
+  <a href="#_11" class="md-nav__link">
+    声明指针
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#2" class="md-nav__link">
-    练习 2
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#3" class="md-nav__link">
-    练习3
+  <a href="#_12" class="md-nav__link">
+    隐式声明
   </a>
   
 </li>
         
       </ul>
     </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#typedef" class="md-nav__link">
+    typedef
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_13" class="md-nav__link">
+    常量
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_14" class="md-nav__link">
+    作用域
+  </a>
+  
+    <nav class="md-nav" aria-label="作用域">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_15" class="md-nav__link">
+    代码块作用域
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_16" class="md-nav__link">
+    文件作用域
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_17" class="md-nav__link">
+    原型作用域
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_18" class="md-nav__link">
+    函数作用域
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_19" class="md-nav__link">
+    链接属性
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_20" class="md-nav__link">
+    存储类型
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#static" class="md-nav__link">
+    static关键字
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_21" class="md-nav__link">
+    总结
+  </a>
   
 </li>
       
@@ -2121,129 +2297,144 @@
   
 
 
-<h1 id="_1">操作符和表达式</h1>
+<h1 id="_1">数据类型</h1>
 <p>本文为《C 与 指针读书笔记》，感兴趣的读者可以去看原书。</p>
-<p>C提供了所有你希望编程语言应该拥有的操作符 ，它甚至提供了一些你意想不到的操作符。事实上，C被许多人所诟病的一个缺点就是它品种繁多的操作符。C的这个特点使它很难精通。另一方面，C的许多操作符具有其他语言的操作符无可抗衡的价值，这也是C适用于开发范围极广的应用程序的原因之一。</p>
-<h2 id="_2">操作符</h2>
-<h3 id="_3">算术操作符</h3>
-<p>C提供了所有常用的算术操作符：</p>
-<pre><code>+　　-　　*　　/　　%
+<p>程序对数据进行操作，本章将对数据进行描述。描述它的各种类型，描述它的特点以及如何声明它。</p>
+<p>本章还将描述变量的三个属性——作用域、链接属性和存储类型。这三个属性决定了一个变量的“可视性”（也就是它可以在什么地方使用）和“生命期”（它的值将保持多久）。</p>
+<h2 id="_2">基本数据类型</h2>
+<p>在C语言中，仅有4种基本数据类型——整型、浮点型、指针和聚合类型（如数组和结构等）。</p>
+<h3 id="_3">整型家族</h3>
+<p>整型家族包括字符、短整型、整型和长整型，它们都分为有符号 (singed)和无符号 (unsigned)两种版本。</p>
+<p>听上去“长整型”所能表示的值应该比“短整型”所能表示的值要大，但这个假设并不一定正确。规定整型值相互之间大小的规则很简单：</p>
+<p>长整型至少应该和整型一样长，而整型至少应该和短整型一样长。</p>
+<p>short int至少16位，long int至少32位。至于缺省的int究竟是16位还是32位，或者是其他值，则由编译器设计者决定。</p>
+<p>同时你还应该注意到标准也没有规定这3个值必须不一样。如果某种机器的环境的字长是32位，而且没有什么指令能够更有效地处理更短的整型值，它可能把这3个整型值都设定为32位。</p>
+<p>尽管设计char类型变量的目的是为了让它们容纳字符型值，但字符在本质上是小整型值。缺省的char要么是signed char，要么是unsigned char，这取决于编译器。</p>
+<p>这个事实意味着不同机器上的char可能拥有不同范围的值。所以，只有当程序所使用的char型变量的值位于signed char和unsigned char的交集中，这个程序才是可移植的。</p>
+<h4 id="_4">整型字面值</h4>
+<p>字面值 (literal) 这个术语是字面值常量的缩写——这是一种实体，指定了自身的值，并且不允许发生改变。</p>
+<p>十进制整型字面值可能是int、long或unsigned long。在缺省情况下，它是最短类型但能完整容纳这个值。</p>
+<p>整数也可以用八进制来表示，只要在数值前面以0开头。整数也可以用十六进制来表示，它以0x开头。</p>
+<p>八进制和十六进制字面值可能的类型是int、unsigned int、long或unsigned long。在缺省情况下，字面值的类型就是上述类型中最短但足以容纳整个值的类型。</p>
+<p>另外还有字符常量。它们的类型总是int。你不能在它们后面添加unsigned或long后缀。字符常量就是一个用单引号包围起来的单个字符（或字符转义序列或三字母词）。</p>
+<h4 id="_5">枚举类型</h4>
+<p>枚举 (enumerated)类型就是指它的值为符号常量而不是字面值的类型，它们以下面这种形式声明：</p>
+<pre><code class="language-c">enum Jar_Type { CUP, PINT, QUART, HALF_GALLON, GALLON };
 </code></pre>
-<h3 id="_4">移位操作符</h3>
-<p>汇编语言程序员对于移位操作已经是非常熟悉了。对于那些适应能力强的读者，这里作一简单介绍。移位操作只是简单地把一个值的位向左或向右移动。在左移位中，值最左边的几位被丢弃，右边多出来的几个空位则由0补齐。</p>
-<h3 id="_5">位操作符</h3>
-<p>位操作符对它们的操作数的各个位执行AND、OR和XOR（异或）等逻辑操作。</p>
-<p>当两个位进行AND操作时，如果两个位都是1，结果为1，否则结果为0。当两个位进行OR操作时，如果两个位都是0，结果为0，否则结果为1。最后，当两个位进行XOR操作时，如果两个位不同，结果为1，如果两个位相同，结果为0。</p>
-<p>位操作符有：</p>
-<pre><code>&amp;　　|　　^
+<p>这种类型的变量实际上以整型的方式存储，这些符号名的实际值都是整型值。这里CUP是0，PINT是1，以此类推。适当的时候，你可以为这些符号名指定特定的整型值，如下所示：</p>
+<pre><code>enum Jar_Type { CUP = 8, PINT = 16, QUART = 32,
+　　　　　HALF_GALLON = 64, GALLON = 128 };
 </code></pre>
-<h3 id="_6">赋值</h3>
-<p>最后，我们讨论赋值操作符，它用一个等号表示。赋值是表达式的一种，而不是某种类型的语句。所以，只要是允许出现表达式的地方，都允许进行赋值。</p>
-<p>赋值操作符把右操作数的值存储于左操作数指定的位置。但赋值也是个表达式，表达式就具有一个值。赋值表达式的值就是左操作数的新值，它可以作为其他赋值操作符的操作数，如下面的语句所示：</p>
-<pre><code class="language-c">a = x = y + 3;
+<h3 id="_6">浮点类型</h3>
+<p>诸如3.14159和6.0231023 这样的数值无法按照整数存储。第一个数并非整数，而第二个数远远超出了计算机整数所能表达的范围。但是，它们可以用浮点数的形式存储。它们通常以一个小数以及一个以某个假定数为基数的指数组成</p>
+<p>浮点数家族包括float、double和long double类型。通常，这些类型分别提供单精度、双精度以及在某些支持扩展精度的机器上提供扩展精度。ANSI标准仅仅规定long double至少和double一样长，而double至少和float一样长。标准同时规定了一个最小范围：所有浮点类型至少能够容纳从10- 37 到1037 之间的任何值。</p>
+<p>浮点数字面值在缺省情况下都是double类型的，除非它的后面跟一个L或l表示它是一个long double类型的值，或者跟一个F或f表示它是一个float类型的值。</p>
+<h3 id="_7">指针</h3>
+<p>指针是 C 语言为什么如此流行的一个重要原因。指针可以有效地实现诸如 tree和list 这类高级数据结构。用C语言可以比使用其他语言编写出更为紧凑和有效的程序，但同时 C 对指针使用的不加限制正是许多令人欲哭无泪和咬牙切齿的错误的根源。</p>
+<p>变量的值存储于计算机的内存中，每个变量都占据一个特定的位置。每个内存位置都由地址 唯一确定并引用，就像一条街道上的房子由它们的门牌号码标识一样。指针只是地址的另一个名字罢了。指针变量就是一个其值为另外一个（一些）内存地址的变量。C语言拥有一些操作符，你可以获得一个变量的地址，也可以通过一个指针变量取得它所指向的值或数据结构。</p>
+<p>通过地址而不是名字来访问数据的想法常常会引起混淆。事实上你不该被搞混，因为在日常生活中，有很多东西都是这样的。比如用门牌号码来标识一条街道上的房子就是如此，没有人会把房子的门牌号码和房子里面的东西搞混。</p>
+<p>指针也完全一样。你可以把计算机的内存想象成一条长街上的一间间房子，每间房子都用一个唯一的号码进行标识。每个位置包含一个值，这和它的地址是独立且显著不同的，即使它们都是数字。</p>
+<h4 id="_8">指针常量</h4>
+<p>指针常量与非指针常量在本质上是不同的，因为编译器负责把变量赋值给计算机内存中的位置，程序员事先无法知道某个特定的变量将存储到内存中的哪个位置。</p>
+<p>事实上，当一个函数每次被调用时，它的自动变量（局部变量）可能每次分配的内存位置都不相同。因此，把指针常量表达为数值字面值的形式几乎没有用处，所以C语言内部并没有特地定义这个概念</p>
+<h4 id="_9">字符串常量</h4>
+<p>许多人对C语言不存在字符串类型感到奇怪，不过C语言提供了字符串常量。事实上，C语言存在字符串的概念：它就是一串以NUL字节结尾的零个或多个字符。字符串通常存储在字符数组中，这也是C语言没有显式的字符串类型的原因。由于NUL字节是用于终结字符串的，所以在字符串内部不能有NUL字节。不过，在一般情况下，这个限制并不会造成问题。之所以选择NUL作为字符串的终止符，是因为它不是一个可打印的字符。</p>
+<h2 id="_10">基本声明</h2>
+<p>只知道基本的数据类型还远远不够，你还应该知道怎样声明变量。变量声明的基本形式是：</p>
+<pre><code>说明符（一个或多个）　声明表达式列表
+
+int　i;
+char　j, k, l;
 </code></pre>
-<h3 id="_7">其它操作符</h3>
-<p>本章还介绍了其他一些操作符</p>
+<h3 id="_11">声明指针</h3>
+<pre><code class="language-c">int　　*a;
+</code></pre>
+<p>这条语句表示表达式<em> a产生的结果类型是int。知道了</em> 操作符执行的是间接访问操作以后，我们可以推断a肯定是一个指向int的指针。</p>
+<p>C在本质上是一种自由形式的语言，这很容易诱使你把星号写在靠近类型的一侧，如下所示：</p>
+<pre><code class="language-c">int*　a;
+</code></pre>
+<p>这个声明与前面一个声明具有相同的意思，而且看上去更为清楚，a被声明为类型为int*的指针。但是，这并不是一个好技巧，原因如下：</p>
+<pre><code class="language-c">int*　b, c, d;
+</code></pre>
+<p>人们很自然地以为这条语句把所有三个变量声明为指向整型的指针，但事实上并非如此。我们被它的形式愚弄了。星号实际上是表达式*b的一部分，只对这个标识符有用。b是一个指针，但其余两个变量只是普通的整型。</p>
+<h3 id="_12">隐式声明</h3>
+<p>C语言中有几种声明，它的类型名可以省略。例如，函数如果不显式地声明返回值的类型，它就默认返回整型。当你使用旧风格声明函数的形式参数时，如果省略了参数的类型，编译器就会默认它们为整型。最后，如果编译器可以得到充足的信息，推断出一条语句实际上是一个声明时，如果它缺少类型名，编译器会假定它为整型。</p>
+<h2 id="typedef">typedef</h2>
+<p>C语言支持一种叫作typedef的机制，它允许你为各种数据类型定义新名字。typedef声明的写法和普通的声明基本相同，只是把typedef这个关键字出现在声明的前面。例如，下面这个声明：</p>
+<pre><code class="language-c">typedef char　*ptr_to_char;
+</code></pre>
+<p>这个声明把标识符ptr_to_char作为指向字符的指针类型的新名字。你可以像使用任何预定义名字一样在下面的声明中使用这个新名字。例如：</p>
+<pre><code>ptr_to_char　　　a;
+</code></pre>
+<p>声明a是一个指向字符的指针。</p>
+<p>使用typedef声明类型可以减少使声明变得又臭又长的危险，尤其是那些复杂的声明。而且，如果你以后觉得应该修改程序所使用的一些数据的类型时，修改一个typedef声明比修改程序中与这种类型有关的所有变量（和函数）的所有声明要容易得多。</p>
+<p>你应该使用typedef而不是#define来创建新的类型名，因为后者无法正确地处理指针类型</p>
+<h2 id="_13">常量</h2>
+<p>ANSI C允许你声明常量，常量的样子和变量完全一样，只是它们的值不能修改。你可以使用const关键字来声明常量，如下所示：</p>
+<pre><code>int　　　　const　　a;
+const　　　　int　　a;
+</code></pre>
+<p>这两条语句都把a声明为一个整数，它的值不能被修改。你可以选择自己觉得容易理解的一种，并一直坚持使用同一种形式。</p>
+<p>当然，由于a的值无法被修改，所以你无法把任何东西赋值给它。如此一来，你怎样才能让它在一开始拥有一个值呢？有两种方法：首先，你可以在声明时时对它进行初始化，其次，在函数中声明为const的形参在函数被调用时会得到实参的值。</p>
+<p>define指令是另一种创建名字常量的机制。例如，下面这两个声明都为50这个值创建了名字常量。</p>
+<pre><code>#define　　　MAX_ELEMENTS　 50
+int　　　　  const　 max_eleemnts = 50;
+</code></pre>
+<p>在这种情况下，使用#define比使用cosnt变量更好。因为只要允许使用字面值常量的地方都可以使用前者，比如声明数组的长度。const变量只能用于允许使用变量的地方。</p>
+<h2 id="_14">作用域</h2>
+<p>当变量在程序的某个部分被声明时，它只有在程序的一定区域才能被访问。这个区域由标识符的作用域（scope）决定。标识符的作用域就是程序中该标识符可以被使用的区域。</p>
+<p>例如，函数的局部变量的作用域局限于该函数的函数体。这个规则意味着两点。首先，其他函数都无法通过这些变量的名字访问它们，因为这些变量在它们的作用域之外便不再有效。其次，只要分属不同的作用域，你可以给不同的变量起同一个名字。</p>
+<p>编译器可以确认4种不同类型的作用域——文件作用域、函数作用域、代码块作用域和原型作用域。标识符声明的位置决定它的作用域。</p>
+<h3 id="_15">代码块作用域</h3>
+<p>位于一对花括号之间的所有语句称为一个代码块。任何在代码块的开始位置声明的标识符都具有代码块作用域 (block scope)，表示它们可以被这个代码块中的所有语句访问。</p>
+<h3 id="_16">文件作用域</h3>
+<p>任何在所有代码块之外声明的标识符都具有文件作用域 (file scope)，它表示这些标识符从它们的声明之处直到它所在的源文件结尾处都是可以访问的。</p>
+<p>在文件中定义的函数名也具有文件作用域，因为函数名本身并不属于任何代码块。</p>
+<h3 id="_17">原型作用域</h3>
+<p>原型作用域 (prototype scope)只适用于在函数原型中声明的参数名。在原型中（与函数的定义不同），参数的名字并非必需。但是，如果出现参数名，你可以随你所愿给它们取任何名字，它们不必与函数定义中的形参名匹配，也不必与函数实际调用时所传递的实参匹配。</p>
+<p>原型作用域防止这些参数名与程序其他部分的名字冲突。事实上，唯一可能出现的冲突就是在同一个原型中不止一次地使用同一个名字。</p>
+<h3 id="_18">函数作用域</h3>
+<p>最后一种作用域的类型是函数作用域 (function scope)。它只适用于语句标签，语句标签用于goto语句。基本上，函数作用域可以简化为一条规则——一个函数中的所有语句标签必须唯一。</p>
+<h2 id="_19">链接属性</h2>
+<p>当组成一个程序的各个源文件分别被编译之后，所有的目标文件以及那些从一个或多个函数库中引用的函数链接在一起，形成可执行程序。</p>
+<p>然而，如果相同的标识符出现在几个不同的源文件中时，它们是像Pascal那样表示同一个实体？还是表示不同的实体？标识符的链接属性 (linkage)决定如何处理在不同文件中出现的标识符。标识符的作用域与它的链接属性有关，但这两个属性并不相同。</p>
+<p>链接属性一共有3种——external（外部）、internal（内部）和none（无）。</p>
 <ul>
-<li>单目操作符</li>
-<li>逻辑操作符</li>
-<li>条件操作符</li>
-<li>逗号操作符</li>
-<li>下标引用</li>
+<li>没有链接属性的标识符(none)总是被当作单独的个体，也就是说该标识符的多个声明被当作独立不同的实体。</li>
+<li>属于internal链接属性的标识符在同一个源文件内的所有声明中都指同一个实体，但位于不同源文件的多个声明则分属不同的实体。</li>
+<li>最后，属于external链接属性的标识符不论声明多少次、位于几个源文件都表示同一个实体。</li>
 </ul>
-<h2 id="_8">布尔值</h2>
-<p>C并不具备显式的布尔类型，所以使用整数来代替。其规则是：零是假，任何非零值皆为真。</p>
-<h2 id="_9">左值和右值</h2>
-<p>为了理解有些操作符存在的限制，你必须理解左值 (L-value)和右值 (R-value)之间的区别。这两个术语是多年前由编译器设计者所创造并沿用至今，尽管它们的定义并不与C语言严格吻合。</p>
-<p>左值就是那些能够出现在赋值符号左边的东西。右值就是那些可以出现在赋值符号右边的东西。</p>
-<h2 id="_10">编程练习</h2>
-<h3 id="1">练习 1</h3>
-<p>编写一个程序，从标准输入读取字符，并把它们写到标准输出中。除了大写字母字符要转换为小写字母之外，所有字符的输出形式应该和它的输入形式完全相同。</p>
-<pre><code class="language-c">#include &lt;stdio.h&gt;
-#include &lt;ctype.h&gt; // 为了使用tolower函数
-
-int main() {
-    int c; // 使用int来存储字符，是因为EOF通常定义为-1，无法用char表示
-
-    // 使用getchar读取单个字符直到EOF
-    while((c = getchar()) != EOF) {
-        // 如果字符是大写字母，转换为小写
-        if(c &gt;= 'A' &amp;&amp; c &lt;= 'Z') {
-            c = tolower(c);
-        }
-        // 输出字符
-        putchar(c);
-    }
-
-    return 0;
-}
+<p>关键字extern和static用于在声明中修改标识符的链接属性。如果某个声明在正常情况下具有external链接属性，在它前面加上static关键字可以使它的链接属性变为internal。</p>
+<pre><code class="language-c">static　　int　　　　b;
 </code></pre>
-<h3 id="2">练习 2</h3>
-<p>编写一个程序，从标准输入读取字符，并把它们写到标准输出中。所有非字母字符都完全按照它的输入形式输出，字母字符在输出前进行加密。</p>
-<p>加密方法很简单：每个字母被修改为在字母表上距其13个位置（前或后）的字母。例如，A被修改为N，B被修改为O，Z被修改为M，以此类推。注意大小写字母都应该被转换</p>
-<pre><code class="language-c">#include &lt;stdio.h&gt;
-
-// 函数声明，用于ROT13加密
-char rot13_char(char c);
-
-int main() {
-    int c;  // 使用int来接收字符，以便能处理EOF情况
-
-    // 从标准输入中逐字符读取，直到EOF
-    while ((c = getchar()) != EOF) {
-        // 打印加密后的字符
-        putchar(rot13_char(c));
-    }
-
-    return 0;
-}
-
-// 实现ROT13加密的函数
-char rot13_char(char c) {
-    // 处理大写字母
-    if (c &gt;= 'A' &amp;&amp; c &lt;= 'Z') {
-        return 'A' + (c - 'A' + 13) % 26;
-    }
-    // 处理小写字母
-    else if (c &gt;= 'a' &amp;&amp; c &lt;= 'z') {
-        return 'a' + (c - 'a' + 13) % 26;
-    }
-    // 非字母字符不变
-    return c;
-}
-</code></pre>
-<h3 id="3">练习3</h3>
-<p>编写一个函数，这个函数的返回值是把value的二进制位模式从左到右变换一下后的值，编写函数时要注意不要让它依赖于你的机器上整型值的长度。</p>
-<pre><code class="language-c">#include &lt;stdio.h&gt;
-
-// 函数声明
-unsigned int reverse_bits(unsigned int value) {
-    unsigned int result = 0;
-    unsigned int i;
-    for (i = 0; i &lt; sizeof(value) * 8; i++) { // 遍历 value 的每一位
-        result &lt;&lt;= 1;  // 将 result 左移一位，为下一位做好空间
-        result |= (value &amp; 1); // 将 value 的最低位加到 result 的最低位
-        value &gt;&gt;= 1;  // 将 value 右移一位，准备处理下一位
-    }
-    return result;
-}
-
-int main() {
-    unsigned int num = 1; // 测试示例
-    printf(&quot;Original number: %u\n&quot;, num);
-    unsigned int reversed = reverse_bits(num);
-    printf(&quot;Reversed bits: %u\n&quot;, reversed);
-
-    return 0;
-}
-</code></pre>
+<p>如上所示，变量b就将为这个源文件所私有。在其他源文件中，如果也链接到一个叫做b的变量，那么它所引用的是另一个不同的变量。类似，你也可以把函数声明为static，这可以防止它被其他源文件调用。</p>
+<p>extern关键字的规则更为复杂。一般而言，它为一个标识符指定external链接属性，这样就可以访问在其他任何位置定义的这个实体。</p>
+<p>需要注意的是，当extern关键字用于源文件中一个标识符的第1次声明时，它指定该标识符具有external链接属性。但是，如果它用于该标识符的第2次或以后的声明时，它并不会更改由第1次声明所指定的链接属性</p>
+<h2 id="_20">存储类型</h2>
+<p>变量的存储类型(storage class)是指存储变量值的内存类型。变量的存储类型决定变量何时创建、何时销毁以及它的值将保持多久。</p>
+<p>有三个地方可以用于存储变量：普通内存、运行时堆栈、硬件寄存器。在这三个地方存储的变量具有不同的特性。</p>
+<p>变量的缺省存储类型取决于它的声明位置。凡是在任何代码块之外声明的变量总是存储于静态内存中，也就是不属于堆栈的内存，这类变量称为静态(static)变量。对于这类变量，你无法为它们指定其他存储类型。静态变量在程序运行之前创建，在程序的整个执行期间始终存在。它始终保持原先的值，除非给它赋一个不同的值或者程序结束。</p>
+<p>在代码块内部声明的变量的缺省存储类型是自动的(automatic)，也就是说它存储于堆栈中，称为自动(auto)变量。有一个关键字auto就是用于修饰这种存储类型的，但它极少使用，因为代码块中的变量在缺省情况下就是自动变量。</p>
+<p>在程序执行到声明自动变量的代码块时，自动变量才被创建，当程序的执行流离开该代码块时，这些自动变量便自行销毁。如果该代码块被数次执行，例如一个函数被反复调用，这些自动变量每次都将重新创建。在代码块再次执行时，这些自动变量在堆栈中所占据的内存位置有可能和原先的位置相同，也可能不同。即使它们所占据的位置相同，你也不能保证这块内存同时不会有其他的用途。因此，我们可以说自动变量在代码块执行完毕后就消失。当代码块再次执行时，它们的值一般并不是上次执行时的值。</p>
+<p>对于在代码块内部声明的变量，如果给它加上关键字static，可以使它的存储类型从自动变为静态。具有静态存储类型的变量在整个程序执行过程中一直存在，而不仅仅在声明它的代码块的执行时存在。注意，修改变量的存储类型并不表示修改该变量的作用域，它仍然只能在该代码块内部按名字访问。函数的形式参数不能声明为静态，因为实参总是在堆栈中传递给函数，用于支持递归。</p>
+<p>最后，关键字register可以用于自动变量的声明，提示它们应该存储于机器的硬件寄存器而不是内存中，这类变量称为寄存器变量。通常，寄存器变量比存储于内存的变量访问起来效率更高。但是，编译器并不一定要理睬register关键字，如果有太多的变量被声明为register，它只选取前几个实际存储于寄存器中，其余的就按普通自动变量处理。如果一个编译器自己具有一套寄存器优化方法，它也可能忽略register关键字，其依据是由编译器决定哪些变量存储于寄存器中比人脑的决定更为合理一些。</p>
+<p>在典型情况下，你希望把使用频率最高的那些变量声明为寄存器变量。在有些计算机中，如果把指针声明为寄存器变量，程序的效率将能得到提高，尤其是那些频繁执行间接访问操作的指针。你可以把函数的形式参数声明为寄存器变量，编译器会在函数的起始位置生成指令，把这些值从堆栈复制到寄存器中。但是，完全有可能，这个优化措施所节省的时间和空间的开销还抵不上复制这几个值所用的开销。</p>
+<h2 id="static">static关键字</h2>
+<p>当用于不同的上下文环境时，static关键字具有不同的意思。</p>
+<p>当它用于函数定义时，或用于代码块之外的变量声明时，static关键字用于修改标识符的链接属性，从external改为internal，但标识符的存储类型和作用域不受影响。用这种方式声明的函数或变量只能在声明它们的源文件中访问。</p>
+<p>当它用于代码块内部的变量声明时，static关键字用于修改变量的存储类型，从自动变量修改为静态变量，但变量的链接属性和作用域不受影响。用这种方式声明的变量在程序执行之前创建，并在程序的整个执行期间一直存在，而不是每次在代码块开始执行时创建，在代码块执行完毕后销毁。</p>
+<h2 id="_21">总结</h2>
+<p>具有external链接属性的实体在其他语言的术语里称为全局(global)实体，所有源文件中的所有函数均可以访问它。只要变量并非声明于代码块或函数定义内部，它在缺省情况下的链接属性即为external。如果一个变量声明于代码块内部，在它前面添加extern关键字将使它所引用的是全局变量而非局部变量。</p>
+<p>具有external链接属性的实体总是具有静态存储类型。全局变量在程序开始执行前创建，并在程序整个执行过程中始终存在。从属于函数的局部变量在函数开始执行时创建，在函数执行完毕后销毁，但用于执行函数的机器指令在程序的生命期内一直存在。</p>
+<p>局部变量由函数内部使用，不能被其他函数通过名字引用。它在缺省情况下的存储类型为自动，这是基于两个原因：其一，当这些变量需要时才为它们分配存储，这样可以减少内存的总需求量。其二，在堆栈上为它们分配存储可以有效地实现递归。如果你觉得让变量的值在函数的多次调用中始终保持原先的值非常重要的话，你可以修改它的存储类型，把它从自动变量改为静态变量。</p>
+<p><img alt="" src="https://raw.gitmirror.com/RicardoJiang/resource/main/2024/may/p1.png" /></p>
 
   <hr>
 <div class="md-source-file">
   <small>
     
       最后更新:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">June 11, 2024</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">June 14, 2024</span>
       
     
   </small>
@@ -2274,7 +2465,7 @@ int main() {
       <nav class="md-footer__inner md-grid" aria-label="页脚" >
         
           
-          <a href="../statement/" class="md-footer__link md-footer__link--prev" aria-label="上一页: 语句" rel="prev">
+          <a href="../basic-concept/" class="md-footer__link md-footer__link--prev" aria-label="上一页: 基本概念" rel="prev">
             <div class="md-footer__button md-icon">
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
             </div>
@@ -2283,20 +2474,20 @@ int main() {
                 上一页
               </span>
               <div class="md-ellipsis">
-                语句
+                基本概念
               </div>
             </div>
           </a>
         
         
           
-          <a href="../pointer/" class="md-footer__link md-footer__link--next" aria-label="下一页: 指针" rel="next">
+          <a href="../statement/" class="md-footer__link md-footer__link--next" aria-label="下一页: 语句" rel="next">
             <div class="md-footer__title">
               <span class="md-footer__direction">
                 下一页
               </span>
               <div class="md-ellipsis">
-                指针
+                语句
               </div>
             </div>
             <div class="md-footer__button md-icon">

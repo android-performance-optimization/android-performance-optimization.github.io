@@ -10,20 +10,20 @@
       
       
       
-        <link rel="canonical" href="https://android-performance-optimization.github.io/foundation/restudy-c-cpp/advanced-pointer/">
+        <link rel="canonical" href="https://android-performance-optimization.github.io/foundation/pointers-on-c/function/">
       
       
-        <link rel="prev" href="../struct-and-pointer/">
+        <link rel="prev" href="../pointer/">
       
       
-        <link rel="next" href="../preprocessor/">
+        <link rel="next" href="../array/">
       
       <link rel="icon" href="../../../assets/favicon.png">
       <meta name="generator" content="mkdocs-1.6.0, mkdocs-material-9.1.16">
     
     
       
-        <title>高级指针话题 - Android 性能优化手册</title>
+        <title>函数 - Android 性能优化手册</title>
       
     
     
@@ -113,7 +113,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              高级指针话题
+              函数
             
           </span>
         </div>
@@ -885,14 +885,14 @@
       
       
         <label class="md-nav__link" for="__nav_3_4" id="__nav_3_4_label" tabindex="0">
-          重学 C/C++
+          C 和指针
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_4_label" aria-expanded="true">
         <label class="md-nav__title" for="__nav_3_4">
           <span class="md-nav__icon md-icon"></span>
-          重学 C/C++
+          C 和指针
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
           
@@ -998,11 +998,113 @@
               
   
   
+    
   
-    <li class="md-nav__item">
-      <a href="../function/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          函数
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         函数
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    函数定义
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    函数的参数
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    可变参数列表
+  </a>
+  
+    <nav class="md-nav" aria-label="可变参数列表">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#stdarg" class="md-nav__link">
+    stdarg宏
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    编程练习
+  </a>
+  
+    <nav class="md-nav" aria-label="编程练习">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1" class="md-nav__link">
+    练习 1
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2" class="md-nav__link">
+    练习 2
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3" class="md-nav__link">
+    练习 3
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -1082,100 +1184,11 @@
               
   
   
-    
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          高级指针话题
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../advanced-pointer/" class="md-nav__link">
         高级指针话题
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="目录">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      目录
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
-    函数指针
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
-    命令行参数
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_4" class="md-nav__link">
-    总结
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_5" class="md-nav__link">
-    编程练习
-  </a>
-  
-    <nav class="md-nav" aria-label="编程练习">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#1" class="md-nav__link">
-    练习 1
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#2" class="md-nav__link">
-    练习 2
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#3" class="md-nav__link">
-    练习 3
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -1968,22 +1981,35 @@
       
         <li class="md-nav__item">
   <a href="#_2" class="md-nav__link">
-    函数指针
+    函数定义
   </a>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#_3" class="md-nav__link">
-    命令行参数
+    函数的参数
   </a>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#_4" class="md-nav__link">
-    总结
+    可变参数列表
   </a>
+  
+    <nav class="md-nav" aria-label="可变参数列表">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#stdarg" class="md-nav__link">
+    stdarg宏
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -2039,111 +2065,170 @@
   
 
 
-<h1 id="_1">高级指针话题</h1>
+<h1 id="_1">函数</h1>
 <p>本文为《C 与 指针读书笔记》，感兴趣的读者可以去看原书。</p>
-<h2 id="_2">函数指针</h2>
-<p>你不会每天都使用函数指针。但是，它们确有用武之地，最常见的两个用途是转换表(jump table)和作为参数传递给另一个函数。</p>
-<pre><code class="language-c">int　　f( int );
-int　　(*pf)( int ) = &amp;f;
+<h2 id="_2">函数定义</h2>
+<p>函数的定义就是函数体的实现。函数体就是一个代码块，它在函数被调用时执行。与函数定义相反，函数声明出现在函数被调用的地方。函数声明向编译器提供该函数的相关信息，用于确保函数被正确地调用。</p>
+<pre><code class="language-c">function_name()
+{
+}
 </code></pre>
-<p>初始化表达式中的&amp;操作符是可选的，因为函数名 被使用时总是由编译器把它转换为函数指针 。&amp;操作符只是显式地说明了编译器将隐式执行的任务。</p>
-<h2 id="_3">命令行参数</h2>
-<p>处理命令行参数是指向指针的指针的另一个用武之地。有些操作系统，包括UNIX和MS-DOS，让用户在命令行中编写参数来启动一个程序的执行。这些参数被传递给程序，程序按照它认为合适的任何方式对它们进行处理。</p>
-<h2 id="_4">总结</h2>
-<p>如果声明得当，一个指针变量可以指向另一个指针变量。和其他的指针变量一样，一个指向指针的指针在它使用之前必须进行初始化。为了取得目标对象，必须对指针的指针执行双重的间接访问操作。更多层的间接访问也是允许的（比如一个指向整型的指针的指针的指针），但它们与简单的指针相比用的较少。你也可以创建指向函数和数组的指针，还可以创建包含这类指针的数组。</p>
-<p>你可以使用函数指针来实现回调函数。一个指向回调函数的指针作为参数传递给另一个函数，后者使用这个指针调用回调函数。使用这种技巧，你可以创建通用型函数，用于执行普通的操作如在一个链表中查找。任何特定问题的某个实例的工作，如在链表中进行值的比较，由客户提供的回调函数执行。</p>
-<p>转移表也使用函数指针。转移表像switch语句一样执行选择。转移表由一个函数指针数组组成（这些函数必须具有相同的原型）。函数通过下标选择某个指针，再通过指针调用对应的函数。你必须始终保证下标值处于适当的范围之内，因为在转移表中调试错误是非常困难的。</p>
-<p>如果某个执行环境实现了命令行参数，这些参数是通过两个形参传递给main函数的。这两个形参通常称为argc和argv。argc是一个整数，用于表示参数的数量。argv是一个指针，它指向一个序列的字符型指针。该序列中的每个指针指向一个命令行参数。该序列以一个NULL指针作为结束标志。其中第1个参数就是程序的名字。程序可以通过对argv使用间接访问操作来访问命令行参数。</p>
-<p>出现在表达式中的字符串常量的值是一个常量指针，它指向字符串的第1个字符。和数组名一样，你既可以用指针表达式也可以用下标来使用字符串常量。</p>
+<h2 id="_3">函数的参数</h2>
+<p>C函数的所有参数均以“传值调用”方式进行传递，这意味着函数将获得参数值的一份拷贝。这样，函数可以放心修改这个拷贝值，而不必担心会修改调用程序实际传递给它的参数。这个行为与Modula和Pascal中的值参数（不是var参数）相同。</p>
+<p>C的规则很简单：所有参数都是传值调用。但是，如果被传递的参数是一个数组名，并且在函数中使用下标引用该数组的参数，那么在函数中对数组元素进行修改实际上修改的是调用程序中的数组元素。函数将访问调用程序的数组元素，数组并不会被复制。这个行为被称为“传址调用”，也就是许多其他语言所实现的var参数。</p>
+<p>数组参数的这种行为似乎与传值调用规则相悖。但是，此处其实并无矛盾之处——数组名的值实际上是一个指针，传递给函数的就是这个指针的一份拷贝。下标引用实际上是间接访问的另一种形式，它可以对指针执行间接访问操作，访问指针指向的内存位置。参数（指针）实际上是一份拷贝，但在这份拷贝上执行间接访问操作所访问的是原先的数组。我们只要记住两个规则：</p>
+<p>1．传递给函数的标量参数是传值调用的。</p>
+<p>2．传递给函数的数组参数在行为上就像它们是通过传址调用的那样。</p>
+<h2 id="_4">可变参数列表</h2>
+<p>在函数的原型中，列出了函数期望接受的参数，但原型只能显示固定数目的参数。让一个函数在不同的时候接受不同数目的参数是不是可以呢？</p>
+<h3 id="stdarg">stdarg宏</h3>
+<p>可变参数列表是通过宏来实现的，这些宏定义于stdarg.h头文件，它是标准库的一部分。这个头文件声明了一个类型va_list和三个宏——va_start、va_arg和va_end  。我们可以声明一个类型为va_list的变量，与这几个宏配合使用，访问参数的值。</p>
+<p>你可能同时注意到参数列表中至少要有一个命名参数。如果连一个命名参数也没有，你就无法使用va_start。这个参数提供了一种方法，用于查找参数列表的可变部分。</p>
+<p>对于这些宏，存在两个基本的限制。一个值的类型无法简单地通过检查它的位模式来判断，这两个限制就是这个事实的直接结果。</p>
+<ul>
+<li>这些宏无法判断实际存在的参数的数量。</li>
+<li>这些宏无法判断每个参数的类型。</li>
+</ul>
 <h2 id="_5">编程练习</h2>
 <h3 id="1">练习 1</h3>
-<p>编写一个通用目的的函数，遍历一个单链表。它应该接受两个参数：一个指向链表第1个节点的指针和一个指向一个回调函数的指针。回调函数应该接受单个参数，也就是指向一个链表节点的指针。对于链表中的每个节点，都应该调用一次这个回调函数。这个函数需要知道链表节点的什么信息？</p>
-<pre><code class="language-c">typedef void (*callback_fn)(NODE *);
+<p>为下面这个函数原型编写函数定义</p>
+<pre><code class="language-c">　　int ascii_to_integer( char *string );
+</code></pre>
+<p>这个字符串参数必须包含一个或多个数字，函数应该把这些数字字符转换为整数并返回这个整数。如果字符串参数包含了任何非数字字符，函数就返回零。</p>
+<pre><code class="language-c">#include &lt;stdio.h&gt;
 
-void traverse_list(NODE *head, callback_fn callback) {
-    NODE *current = head;  // 从链表头开始遍历
+int ascii_to_integer(char *string) {
+    int result = 0;  // 存储结果的整数
 
-    while (current != NULL) {
-        callback(current);  // 对当前节点调用回调函数
-        current = current-&gt;next;  // 移动到下一个节点
+    // 循环遍历字符串中的每个字符
+    while (*string) {
+        // 如果当前字符是数字字符
+        if (*string &gt;= '0' &amp;&amp; *string &lt;= '9') {
+            // 将当前字符转换为整数（减去'0'的ASCII值得到真正的数值）
+            // 并将其加到结果上，同时考虑当前结果已是前一次迭代的结果*10
+            result = result * 10 + (*string - '0');
+        } else {
+            // 如果遇到非数字字符，则停止转换
+            break;
+        }
+
+        // 移动到下一个字符
+        string++;
     }
+
+    return result;
+}
+
+// 测试函数的简单例子
+int main() {
+    char str1[] = &quot;12345&quot;;
+    char str2[] = &quot;987a654&quot;;
+    char str3[] = &quot;abc123&quot;;
+
+    printf(&quot;%s 转换为整数是: %d\n&quot;, str1, ascii_to_integer(str1));
+    printf(&quot;%s 转换为整数是: %d\n&quot;, str2, ascii_to_integer(str2));
+    printf(&quot;%s 转换为整数是: %d\n&quot;, str3, ascii_to_integer(str3));
+
+    return 0;
 }
 </code></pre>
 <h3 id="2">练习 2</h3>
-<p>转换下面的代码段，使它改用转移表而不是switch语句</p>
-<pre><code class="language-c">void add_new_trans(Node *list, Transaction *transaction);
-void delete_trans(Node *list, Transaction *transaction);
-void forward_trans(Node *list, Transaction *transaction);
-void backward_trans(Node *list, Transaction *transaction);
-void search_trans(Node *list, Transaction *transaction);
-void edit_trans(Node *list, Transaction *transaction);
+<p>编写一个名叫max_list的函数，它用于检查任意数目的整型参数并返回它们中的最大值。参数列表必须以一个负值结尾，提示列表的结束。</p>
+<pre><code class="language-c">#include &lt;stdio.h&gt;
+#include &lt;stdarg.h&gt;
 
-void (*trans_table[])(Node *, Transaction *) = {
-    add_new_trans,
-    delete_trans,
-    forward_trans,
-    backward_trans,
-    search_trans,
-    edit_trans
-};
+// 定义max_list函数，使用可变参数列表找出并返回最大整数
+int max_list(int first_arg, ...) {
+    // 初始化可变参数列表
+    va_list var_arg;
+    va_start(var_arg, first_arg);
 
-// 假设transaction-&gt;type是Trans_type枚举中的一个有效值
-trans_table[transaction-&gt;type](list, transaction);
-</code></pre>
-<h3 id="3">练习 3</h3>
-<p>编写一个名叫sort的函数，它用于对一个任何类型的数组进行排序。为了使函数更为通用，它的其中一个参数必须是一个指向比较回调函数的指针，该回调函数由调用程序提供。比较函数接受两个参数，也就是两个指向需要进行比较的值的指针。如果两个值相等，函数返回零；如果第1个值小于第2个，函数返回一个小于零的整数；如果第1个值大于第2个，函数返回一个大于零的整数。</p>
-<pre><code class="language-c">// 比较回调函数的类型定义
-typedef int (*compare_fn)(const void *, const void *);
+    // 假设第一个参数是目前为止的最大值
+    int max_val = first_arg;
 
-#include &lt;stdlib.h&gt;
+    int curr_val;
 
-// 通用的排序函数
-void sort(void *array, size_t nitems, size_t size, compare_fn cmp) {
-    // 用一个临时变量来保存元素，以进行交换
-    void *temp = malloc(size);
-    if (temp == NULL) {
-        // 处理内存分配失败的情况
-        return;
-    }
-
-    for (size_t i = 0; i &lt; nitems - 1; ++i) {
-        for (size_t j = 0; j &lt; nitems - i - 1; ++j) {
-            // 计算数组中当前元素和下一个元素的指针
-            void *current = (char*)array + j * size;
-            void *next = (char*)array + (j + 1) * size;
-
-            // 使用提供的比较函数进行比较
-            if (cmp(current, next) &gt; 0) {
-                // 如果current &gt; next，则交换它们
-                memcpy(temp, current, size);
-                memcpy(current, next, size);
-                memcpy(next, temp, size);
-            }
+    // 循环直到遇到负数参数，这表示参数列表的结束
+    while ((curr_val = va_arg(var_arg, int)) &gt;= 0) {
+        // 更新最大值
+        if (curr_val &gt; max_val) {
+            max_val = curr_val;
         }
     }
 
-    free(temp); // 释放用于交换的临时内存
+    // 清理可变参数列表
+    va_end(var_arg);
+
+    // 返回找到的最大值
+    return max_val;
 }
 
-#include &lt;stdio.h&gt;
+// 主函数，用于展示max_list函数的使用
+int main() {
+    // 测试max_list函数
+    printf(&quot;Max of 12, 75, 3, 87, -1 is: %d\n&quot;, max_list(12, 75, 3, 87, -1));
+    printf(&quot;Max of 20, 10, 5, -1 is: %d\n&quot;, max_list(20, 10, 5, -1));
+    printf(&quot;Max of 99, -1 is: %d\n&quot;, max_list(99, -1));
 
-// 整数比较函数
-int compare_ints(const void *a, const void *b) {
-    return (*(int*)a - *(int*)b);
+    return 0;
+}
+</code></pre>
+<h3 id="3">练习 3</h3>
+<p>实现一个简化的 printf 函数，它能够处理 %d、%f、%s和%c 格式码。根据 ANSI 标准的原则，其他格式码的行为是未定义的。你可以假定已经存在函数print_integer和print_float，用于打印这些类型的值。对于另外两种类型的值，使用putchar来打印。</p>
+<pre><code class="language-c">#include &lt;stdio.h&gt;
+#include &lt;stdarg.h&gt;
+
+// 假设的函数原型
+void print_integer(int value) {
+    printf(&quot;%d&quot;, value);
+}
+
+// 假设的函数原型
+void print_float(float value) {
+    printf(&quot;%f&quot;, value);
+}
+
+void mini_printf(const char *format, ...) {
+    va_list args;
+    va_start(args, format);
+
+    while (*format != '\0') {
+        if (*format == '%') {
+            format++; // 移动到格式说明符
+            switch (*format) {
+                case 'd':
+                    print_integer(va_arg(args, int));
+                    break;
+                case 'f':
+                    print_float((float)va_arg(args, double)); // 注意：va_arg使用double来获取浮点数
+                    break;
+                case 's': ;
+                    char *s = va_arg(args, char*);
+                    while (*s) putchar(*s++);
+                    break;
+                case 'c':
+                    putchar((char)va_arg(args, int)); // 注意：va_arg使用int来获取字符
+                    break;
+                default:
+                    // 如果遇到未定义的格式代码，则输出它。
+                    putchar('%');
+                    putchar(*format);
+                    break;
+            }
+        } else {
+            // 如果不是格式指定符，直接输出该字符
+            putchar(*format);
+        }
+        format++;
+    }
+
+    va_end(args);
 }
 
 int main() {
-    int arr[] = {5, 3, 2, 4, 1};
-    size_t n = sizeof(arr) / sizeof(arr[0]);
-
-    sort(arr, n, sizeof(arr[0]), compare_ints);
-
-    // 打印排序后的数组
-    for (size_t i = 0; i &lt; n; i++) {
-        printf(&quot;%d &quot;, arr[i]);
-    }
-    printf(&quot;\n&quot;);
-
+    mini_printf(&quot;This is a string: %s\n&quot;, &quot;Hello, World!&quot;);
+    mini_printf(&quot;This is an integer: %d\n&quot;, 12345);
+    mini_printf(&quot;This is a float: %f\nThis is a char: %c\n&quot;, 3.14159, 'A');
     return 0;
 }
 </code></pre>
@@ -2153,7 +2238,7 @@ int main() {
   <small>
     
       最后更新:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">June 11, 2024</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">June 14, 2024</span>
       
     
   </small>
@@ -2184,7 +2269,7 @@ int main() {
       <nav class="md-footer__inner md-grid" aria-label="页脚" >
         
           
-          <a href="../struct-and-pointer/" class="md-footer__link md-footer__link--prev" aria-label="上一页: 使用结构和指针" rel="prev">
+          <a href="../pointer/" class="md-footer__link md-footer__link--prev" aria-label="上一页: 指针" rel="prev">
             <div class="md-footer__button md-icon">
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
             </div>
@@ -2193,20 +2278,20 @@ int main() {
                 上一页
               </span>
               <div class="md-ellipsis">
-                使用结构和指针
+                指针
               </div>
             </div>
           </a>
         
         
           
-          <a href="../preprocessor/" class="md-footer__link md-footer__link--next" aria-label="下一页: 预处理器" rel="next">
+          <a href="../array/" class="md-footer__link md-footer__link--next" aria-label="下一页: 数组" rel="next">
             <div class="md-footer__title">
               <span class="md-footer__direction">
                 下一页
               </span>
               <div class="md-ellipsis">
-                预处理器
+                数组
               </div>
             </div>
             <div class="md-footer__button md-icon">

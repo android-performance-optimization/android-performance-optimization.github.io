@@ -10,20 +10,20 @@
       
       
       
-        <link rel="canonical" href="https://android-performance-optimization.github.io/foundation/restudy-c-cpp/basic-concept/">
+        <link rel="canonical" href="https://android-performance-optimization.github.io/foundation/pointers-on-c/char-and-string/">
       
       
-        <link rel="prev" href="../quick-start/">
+        <link rel="prev" href="../array/">
       
       
-        <link rel="next" href="../data-type/">
+        <link rel="next" href="../struct-and-union/">
       
       <link rel="icon" href="../../../assets/favicon.png">
       <meta name="generator" content="mkdocs-1.6.0, mkdocs-material-9.1.16">
     
     
       
-        <title>基本概念 - Android 性能优化手册</title>
+        <title>字符串、字符和字节 - Android 性能优化手册</title>
       
     
     
@@ -113,7 +113,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              基本概念
+              字符串、字符和字节
             
           </span>
         </div>
@@ -885,14 +885,14 @@
       
       
         <label class="md-nav__link" for="__nav_3_4" id="__nav_3_4_label" tabindex="0">
-          重学 C/C++
+          C 和指针
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_4_label" aria-expanded="true">
         <label class="md-nav__title" for="__nav_3_4">
           <span class="md-nav__icon md-icon"></span>
-          重学 C/C++
+          C 和指针
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
           
@@ -928,140 +928,11 @@
               
   
   
-    
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          基本概念
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../basic-concept/" class="md-nav__link">
         基本概念
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="目录">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      目录
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
-    环境
-  </a>
-  
-    <nav class="md-nav" aria-label="环境">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
-    编译
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_4" class="md-nav__link">
-    执行
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_5" class="md-nav__link">
-    词法规则
-  </a>
-  
-    <nav class="md-nav" aria-label="词法规则">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#_6" class="md-nav__link">
-    注释
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_7" class="md-nav__link">
-    自由形式的源代码
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_8" class="md-nav__link">
-    标识符
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_9" class="md-nav__link">
-    程序的形式
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_10" class="md-nav__link">
-    小结
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_11" class="md-nav__link">
-    编程练习
-  </a>
-  
-    <nav class="md-nav" aria-label="编程练习">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#1" class="md-nav__link">
-    练习 1
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -1155,11 +1026,168 @@
               
   
   
+    
   
-    <li class="md-nav__item">
-      <a href="../char-and-string/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          字符串、字符和字节
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         字符串、字符和字节
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    字符串基础
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    字符串查找基础
+  </a>
+  
+    <nav class="md-nav" aria-label="字符串查找基础">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    查找一个字符
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    查找任何几个字符
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    查找一个子串
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    高级字符串查找
+  </a>
+  
+    <nav class="md-nav" aria-label="高级字符串查找">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    查找一个字符串前缀
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    查找标记
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    内存操作
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_11" class="md-nav__link">
+    总结
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_12" class="md-nav__link">
+    编程练习
+  </a>
+  
+    <nav class="md-nav" aria-label="编程练习">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1" class="md-nav__link">
+    练习 1
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2" class="md-nav__link">
+    练习 2
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3" class="md-nav__link">
+    练习 3
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4" class="md-nav__link">
+    练习 4
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -2008,22 +2036,36 @@
       
         <li class="md-nav__item">
   <a href="#_2" class="md-nav__link">
-    环境
+    字符串基础
   </a>
   
-    <nav class="md-nav" aria-label="环境">
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    字符串查找基础
+  </a>
+  
+    <nav class="md-nav" aria-label="字符串查找基础">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
-    编译
+  <a href="#_4" class="md-nav__link">
+    查找一个字符
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#_4" class="md-nav__link">
-    执行
+  <a href="#_5" class="md-nav__link">
+    查找任何几个字符
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    查找一个子串
   </a>
   
 </li>
@@ -2034,37 +2076,23 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_5" class="md-nav__link">
-    词法规则
+  <a href="#_7" class="md-nav__link">
+    高级字符串查找
   </a>
   
-    <nav class="md-nav" aria-label="词法规则">
+    <nav class="md-nav" aria-label="高级字符串查找">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#_6" class="md-nav__link">
-    注释
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_7" class="md-nav__link">
-    自由形式的源代码
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
   <a href="#_8" class="md-nav__link">
-    标识符
+    查找一个字符串前缀
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#_9" class="md-nav__link">
-    程序的形式
+    查找标记
   </a>
   
 </li>
@@ -2076,13 +2104,20 @@
       
         <li class="md-nav__item">
   <a href="#_10" class="md-nav__link">
-    小结
+    内存操作
   </a>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#_11" class="md-nav__link">
+    总结
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_12" class="md-nav__link">
     编程练习
   </a>
   
@@ -2092,6 +2127,27 @@
           <li class="md-nav__item">
   <a href="#1" class="md-nav__link">
     练习 1
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2" class="md-nav__link">
+    练习 2
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3" class="md-nav__link">
+    练习 3
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4" class="md-nav__link">
+    练习 4
   </a>
   
 </li>
@@ -2119,81 +2175,199 @@
   
 
 
-<h1 id="_1">基本概念</h1>
+<h1 id="_1">字符串、字符和字节</h1>
 <p>本文为《C 与 指针读书笔记》，感兴趣的读者可以去看原书。</p>
-<p>毫无疑问，学习一门编程语言的基础知识不如编写程序有趣。但是，不知道语言的基础知识会使你在编写程序时缺少乐趣。</p>
-<h2 id="_2">环境</h2>
-<p>在ANSI C的任何一种实现中，存在两种不同的环境，一种是编译环境，一种是执行环境</p>
-<h3 id="_3">编译</h3>
-<p>编译阶段由几个步骤组成，组成一个程序的每个（有可能有多个）源文件通过编译过程分别转换为目标代码 (object code)。然后，各个目标文件由链接器 (linker)捆绑在一起，形成一个单一而完整的可执行程序。链接器同时也会引入标准C函数库中任何被该程序所用到的函数，而且它也可以搜索程序员个人的程序库，将其中需要使用的函数也链接到程序中。</p>
-<p><img alt="" src="https://raw.gitmirror.com/RicardoJiang/resource/main/2024/april/p13.png" /></p>
-<p>编译过程具体分为以下几个阶段：</p>
-<ul>
-<li>预处理器 (preprocessor)处理</li>
-<li>然后，源代码经过解析 (parse)，判断它的语句的意思</li>
-<li>随后，便产生目标代码</li>
-<li>如果在编译时加入优化相关命令，优化器 (optimizer)就会对目标代码进一步进行处理，使它效率更高</li>
-</ul>
-<h3 id="_4">执行</h3>
-<p>程序的执行过程也需要经历几个阶段。</p>
-<ul>
-<li>首先，程序必须载入到内存中，这个任务由操作系统完成。</li>
-<li>然后，程序的执行便开始。通常一个小型的启动程序会与程序链接在一起。它负责处理一系列日常事务，如收集命名行参数以便使程序能够访问它们。接着，便调用main函数。</li>
-<li>现在，便开始执行程序代码。在绝大多数机器里，程序将使用一个运行时堆栈 (stack)，它用于存储函数的局部变量和返回地址。程序同时也可以使用静态 (static)内存，存储于静态内存中的变量在程序的整个执行过程中将一直保留它们的值。</li>
-<li>程序执行的最后一个阶段就是程序的终止，它可以由多种不同的原因引起。</li>
-</ul>
-<h2 id="_5">词法规则</h2>
-<p>词法规则就像英语中的拼写规则，决定你在源程序中如何形成单独的字符片段，也就是标记 (token)。</p>
-<p>一个 ANSI C 程序由声明和函数组成：</p>
-<ul>
-<li>函数定义了需要执行的工作</li>
-<li>而声明则描述了函数和（或）函数将要操作的数据类型（有时候是数据本身）。</li>
-</ul>
-<h3 id="_6">注释</h3>
-<p>C语言的注释以字符/<em>开始，以字符</em>/结束，中间可以包含除<em>/之外的任何字符。在源代码中，一个注释可能跨越多行，但它不能嵌套于另一个注释中。注意，/</em>或*/如果出现在字符串字面值内部，就不再起注释定界符的作用。</p>
-<p>所有的注释都会被预处理器拿掉，取而代之的是一个空格。因此，注释可以出现于任何空格可以出现的地方。</p>
-<h3 id="_7">自由形式的源代码</h3>
-<p>C 是一种自由形式的语言，也就是说并没有规则规定什么地方可以书写语句，一行中可以出现多少条语句，什么地方应该留下空白以及应该出现多少空白等 。</p>
-<p>唯一的规则就是相邻的标记之间必须出现一至多个空白字符(或注释)，不然它们可能被解释为单个标记。</p>
-<h3 id="_8">标识符</h3>
-<p>标识符(identifier)就是变量、函数、类型等的名字。它们由大小写字母、数字和下划线组成，但不能以数字开头。</p>
-<p>C是一种大小写敏感的语言，所以abc、Abc、abC和ABC是4个不同的标识符。标识符的长度没有限制，但标准允许编译器忽略第31个字符以后的字符。标准同时允许编译器对用于表示外部名字（也就是由链接器操纵的名字）的标识符进行限制，只识别前六位不区分大小写的字符。</p>
-<h3 id="_9">程序的形式</h3>
-<p>一个C程序可能保存于一个或多个源文件中。虽然一个源文件可以包含超过一个的函数，但每个函数都必须完整地出现于同一个源文件中。</p>
-<h2 id="_10">小结</h2>
-<p>一个C程序的源代码保存在一个或多个源文件中，但一个函数只能完整地出现在同一个源文件中。把相关的函数放在同一个文件内是一种好策略。每个源文件都分别编译，产生对应的目标文件。然后，目标文件被链接在一起，形成可执行程序。编译和最终运行程序的机器有可能相同，也可能不同。</p>
-<p>程序必须载入到内存中才能执行。在宿主式环境中，这个任务由操作系统完成。在自由式环境中，程序常常永久存储于ROM中。经过初始化的静态变量在程序执行前能获得它们的值。你的程序执行的起点是main函数。绝大多数环境使用堆栈来存储局部变量和其他数据。</p>
-<p>C编译器所使用的字符集必须包括某些特定的字符。如果你使用的字符集缺少某些字符，可以使用三字母词来代替。转义序列使某些无法打印的字符得以表达，例如在程序中包含某些空白字符。</p>
-<p>注释以/<em>开始，以</em>/结束，它不允许嵌套。注释将被预处理器去除。标识符由字母、数字和下划线组成，但不能以数字开头。在标识符中，大写字母和小写字母是不一样的。关键字由系统保留，不能作为标识符使用。C是一种自由形式的语言。但是，用清楚的风格来编写程序有助于程序的阅读和维护</p>
-<h2 id="_11">编程练习</h2>
+<p>字符串是一种重要的数据类型，但是C语言并没有显式的字符串数据类型，因为字符串以字符串常量的形式出现或者存储于字符数组中。</p>
+<h2 id="_2">字符串基础</h2>
+<p>首先，让我们回顾一下字符串的基础知识。字符串就是一串零个或多个字符，并且以一个位模式为全0的NUL字节结尾。因此，字符串所包含的字符内部不能出现NUL字节。这个限制很少会引起问题，因为NUL字节并不存在与它相关联的可打印字符，这也是它被选为终止符的原因。NUL字节是字符串的终止符，但它本身并不是字符串的一部分，所以字符串的长度并不包括NUL字节。</p>
+<h2 id="_3">字符串查找基础</h2>
+<h3 id="_4">查找一个字符</h3>
+<p>在一个字符串中查找一个特定字符最容易的方法是使用strchr和strrchr函数</p>
+<h3 id="_5">查找任何几个字符</h3>
+<p>strpbrk是个更为常见的函数。它并不是查找某个特定的字符，而是查找任何一组字符第1次在字符串中出现的位置</p>
+<h3 id="_6">查找一个子串</h3>
+<p>为了在字符串中查找一个子串，我们可以使用strstr函数</p>
+<h2 id="_7">高级字符串查找</h2>
+<h3 id="_8">查找一个字符串前缀</h3>
+<p>strspn和strcspn函数用于在字符串的起始位置对字符计数</p>
+<h3 id="_9">查找标记</h3>
+<p>一个字符串常常包含几个单独的部分，它们彼此被分隔开来。每次为了处理这些部分，你首先必须把它们从字符串中抽取出来。</p>
+<p>这个任务正是strtok函数所实现的功能。它从字符串中隔离各个单独的称为标记(token)的部分，并丢弃分隔符</p>
+<h2 id="_10">内存操作</h2>
+<p>根据定义，字符串由一个NUL字节结尾，所以字符串内部不能包含任何NUL字符。但是，非字符串数据内部包含零值的情况并不罕见。你无法使用字符串函数来处理这种类型的数据，因为当它们遇到第1个NUL字节时将停止工作。</p>
+<p>不过，我们可以使用另外一组相关的函数，它们的操作与字符串函数类似，但这些函数能够处理任意的字节序列。</p>
+<h2 id="_11">总结</h2>
+<p>字符串就是零个或多个字符的序列，该序列以一个NUL字节结尾。字符串的长度就是它所包含的字符的数目。标准库提供了一些函数用于处理字符串，它们的原型位于头文件string.h中。</p>
+<p>strlen函数用于计算一个字符串的长度，它的返回值是一个无符号整数，所以把它用于表达式时应该小心。strcpy函数把一个字符串从一个位置复制到另一个位置，而strcat函数把一个字符串的一份拷贝添加到另一个字符串的后面。这两个函数都假定它们的参数是有效的字符串，而且如果源字符串和目标字符串出现重叠，函数的结果是未定义的。strcmp对两个字符串进行词典序的比较。它的返回值提示第1个字符串是大于、小于还是等于第2个字符串。</p>
+<p>长度受限的函数strncpy、strncat和strncmp都类似它们对应的不受限制版本。区别在于这些函数还接受一个长度参数。在strncpy中，长度指定了多少个字符将被写入到目标字符数组中。如果源字符串比指定长度更长，结果字符串将不会以NUL字节结尾。strncat函数的长度参数指定从源字符串复制过来的字符的最大数目，但它的结果始终以一个NUL字节结尾。strcmp函数的长度参数用于限定字符比较的数目。如果两个字符串在指定的数目里不存在区别，它们便被认为是相等的。</p>
+<p>用于查找字符串的函数有好几个。strchr函数查找一个字符串中某个字符第1次出现的位置。strrchr函数查找一个字符串中某个字符最后一次出现的位置。strpbrk在一个字符串中查找一个指定字符集中任意字符第1次出现的位置。strstr函数在一个字符串中查找另一个字符串第1次出现的位置。</p>
+<p>标准库还提供了一些更加高级的字符串查找函数。strspn函数计算一个字符串的起始部分匹配一个指定字符集中任意字符的字符数量。strcspn函数计算一个字符串的起始部分不匹配一个指定字符集中任意字符的字符数量。strtok函数把一个字符串分割成几个标记。每次当它调用时，都返回一个指向字符串中下一个标记位置的指针。这些标记由一个指定字符集的一个或多个字符分隔。</p>
+<p>strerror把一个错误代码作为它的参数。它返回一个指向字符串的指针，该字符串用于描述这个错误。</p>
+<p>标准库还提供了各种用于测试和转换字符的函数。使用这些函数的程序比那些自己执行字符测试和转换的程序更具移植性。toupper函数把一个小写字母字符转换为大写形式，tolower函数则执行相反的任务。iscntrl函数检查它的参数是不是一个控制字符，isspace函数测试它的参数是否为空白字符。isdigit函数用于测试它的参数是否为一个十进制数字字符，isxdigit函数则检查它的参数是否为一个十六进制数字字符。islower和isupper函数分别检查它们的参数是否为大写和小写字母。isalpha函数检查它的参数是否为字母字符，isalnum函数检查它的参数是否为字母或数字字符，ispunct函数检查它的参数是否为标点符号字符。最后，isgraph函数检查它的参数是否为图形字符，isprint函数检查它的参数是否为图形字符或空白字符。</p>
+<p>memxxx函数提供了类似字符串函数的能力，但它们可以处理包括NUL字节在内的任意字节。这些函数都接受一个长度参数。memcpy从源参数向目标参数复制由长度参数指定的字节数。memmove函数执行相同的功能，但它能够正确处理源参数和目标参数出现重第9章　字符串、字符和字节
+字符串是一种重要的数据类型，但是C语言并没有显式的字符串数据类型，因为字符串以字符串常量的形式出现或者存储于字符数组中。字符串常量很适用于那些程序不会对它们进行修改的字符串。所有其他字符串都必须存储于字符数组或动态分配的内存中（见第11章）。本章描述处理字符串和字符的库函数，以及一组相关的，具有类似能力的，既可以处理字符串也可以处理非字符串数据的函数。</p>
+<h2 id="_12">编程练习</h2>
 <h3 id="1">练习 1</h3>
-<p>编写一个程序，它从标准输入读取C源代码，并验证所有的花括号都正确地成对出现。注意：你不必担心注释内部、字符串常量内部和字符常量形式的花括号。</p>
+<p>编写一个程序，从标准输入读取一些字符，并统计下列各类字符所占的百分比。</p>
+<p>控制字符
+空白字符
+数字
+小写字母
+大写字母
+标点符号
+不可打印的字符</p>
 <pre><code class="language-c">#include &lt;stdio.h&gt;
+#include &lt;ctype.h&gt;
 
 int main() {
-    int c, braceCount = 0;
+    int control = 0, space = 0, digit = 0, lower = 0, upper = 0, punct = 0, nonprint = 0, total = 0;
+    int ch;
 
-    while ((c = getchar()) != EOF) {
-        if (c == '{') {
-            ++braceCount;
-        } else if (c == '}') {
-            --braceCount;
-            if (braceCount &lt; 0) {
-                // 更多的右花括号而不是左花括号
-                printf(&quot;错误：多余的右花括号\n&quot;);
-                return 1;
-            }
-        }
+    // 读取字符直到遇到EOF
+    while ((ch = getchar()) != EOF) {
+        total++;
+
+        if (iscntrl(ch)) control++;
+        if (isspace(ch)) space++;
+        if (isdigit(ch)) digit++;
+        if (islower(ch)) lower++;
+        if (isupper(ch)) upper++;
+        if (ispunct(ch)) punct++;
+        if (ch &gt; 127) nonprint++; // 非ASCII字符
     }
 
-    if (braceCount &gt; 0) {
-        // 更多的左花括号而不是右花括号
-        printf(&quot;错误：未闭合的左花括号\n&quot;);
+    // 打印统计结果
+    printf(&quot;总字符数: %d\n&quot;, total);
+    printf(&quot;控制字符: %.2f%%\n&quot;, (double)control/total*100);
+    printf(&quot;空白字符: %.2f%%\n&quot;, (double)space/total*100);
+    printf(&quot;数字: %.2f%%\n&quot;, (double)digit/total*100);
+    printf(&quot;小写字母: %.2f%%\n&quot;, (double)lower/total*100);
+    printf(&quot;大写字母: %.2f%%\n&quot;, (double)upper/total*100);
+    printf(&quot;标点符号: %.2f%%\n&quot;, (double)punct/total*100);
+    printf(&quot;不可打印的字符: %.2f%%\n&quot;, (double)nonprint/total*100);
+
+    return 0;
+}
+</code></pre>
+<h3 id="2">练习 2</h3>
+<p>编写一个名叫my_strcpy的函数。它类似于strcpy函数，但它不会溢出目标数组。复制的结果必须是一个真正的字符串。</p>
+<pre><code class="language-c">#include &lt;stdio.h&gt;
+
+// my_strcpy 函数的声明
+void my_strcpy(char *dest, const char *src, size_t destSize);
+
+int main() {
+    char dest[10];
+    const char *src = &quot;HelloWorld&quot;;
+
+    // 使用 my_strcpy 复制字符串，确保不发生溢出
+    my_strcpy(dest, src, sizeof(dest));
+
+    printf(&quot;Copied string: %s\n&quot;, dest);
+    return 0;
+}
+
+// my_strcpy 函数的定义
+void my_strcpy(char *dest, const char *src, size_t destSize) {
+    if (destSize == 0) return; // 如果目标数组的大小为0，则无法进行复制
+
+    size_t i;
+    for (i = 0; i &lt; destSize - 1 &amp;&amp; src[i] != '\0'; i++) {
+        dest[i] = src[i];
+    }
+    dest[i] = '\0'; // 确保字符串以空字符结尾
+}
+</code></pre>
+<h3 id="3">练习 3</h3>
+<p>编写一个名叫my_strcat的函数。它类似于strcat函数，但它不会溢出目标数组。它的结果必须是一个真正的字符串。</p>
+<pre><code class="language-c">#include &lt;stdio.h&gt;
+
+// my_strcat 函数的声明
+void my_strcat(char *dest, const char *src, size_t destSize);
+
+int main() {
+    char dest[20] = &quot;Hello, &quot;;
+    const char *src = &quot;World!&quot;;
+
+    // 使用 my_strcat 连接两个字符串，确保不发生溢出
+    my_strcat(dest, src, sizeof(dest));
+
+    printf(&quot;Concatenated string: %s\n&quot;, dest);
+    return 0;
+}
+
+// my_strcat 函数的定义
+void my_strcat(char *dest, const char *src, size_t destSize) {
+    size_t destLen = 0;
+    while (destLen &lt; destSize &amp;&amp; dest[destLen] != '\0') {
+        destLen++; // 计算现有字符串的长度（不包括结尾的'\0'）
+    }
+
+    if (destLen == destSize) {
+        return; // 如果目标字符串已经占满了整个数组，则无法添加更多字符
+    }
+
+    // 复制源字符串到目标字符串的末端，直到源字符串结束或目标数组被填满
+    size_t i;
+    for (i = 0; destLen + i &lt; destSize - 1 &amp;&amp; src[i] != '\0'; i++) {
+        dest[destLen + i] = src[i];
+    }
+    dest[destLen + i] = '\0'; // 确保字符串以'\0'结尾
+}
+</code></pre>
+<h3 id="4">练习 4</h3>
+<p>编写函数</p>
+<pre><code>int palindrome( char *string );
+</code></pre>
+<p>如果参数字符串是个回文，函数就返回真，否则就返回假。回文就是指一个字符串从左向右读和从右向左读是一样的 。函数应该忽略所有的非字母字符，而且在进行字符比较时不用区分大小写。</p>
+<pre><code class="language-c">#include &lt;stdio.h&gt;
+#include &lt;ctype.h&gt; // 引入ctype.h以使用isalpha和tolower函数
+
+// 函数声明
+int palindrome(char *string);
+
+int main() {
+    char testString[] = &quot;A man, a plan, a canal: Panama&quot;;
+
+    if (palindrome(testString)) {
+        printf(&quot;\&quot;%s\&quot; is a palindrome.\n&quot;, testString);
     } else {
-        printf(&quot;所有花括号正确成对出现。\n&quot;);
+        printf(&quot;\&quot;%s\&quot; is not a palindrome.\n&quot;, testString);
     }
 
     return 0;
+}
+
+// 判断字符串是否是回文的函数实现
+int palindrome(char *string) {
+    // 首先确定字符串的长度
+    int length = 0;
+    while (string[length] != '\0') {
+        length++;
+    }
+
+    // 使用双指针技术，一个从前往后，一个从后往前
+    int left = 0, right = length - 1;
+    while (left &lt; right) {
+        // 如果左边字符不是字母，则左指针右移
+        if (!isalpha((unsigned char)string[left])) {
+            left++;
+            continue;
+        }
+        // 如果右边字符不是字母，则右指针左移
+        if (!isalpha((unsigned char)string[right])) {
+            right--;
+            continue;
+        }
+        // 比较两边的字符是否相等（不区分大小写）
+        if (tolower((unsigned char)string[left]) != tolower((unsigned char)string[right])) {
+            return 0; // 如果不相等，返回0
+        }
+        // 如果相等，继续比较
+        left++;
+        right--;
+    }
+    return 1; // 字符串是回文，返回1
 }
 </code></pre>
 
@@ -2202,7 +2376,7 @@ int main() {
   <small>
     
       最后更新:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">June 11, 2024</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">June 14, 2024</span>
       
     
   </small>
@@ -2233,7 +2407,7 @@ int main() {
       <nav class="md-footer__inner md-grid" aria-label="页脚" >
         
           
-          <a href="../quick-start/" class="md-footer__link md-footer__link--prev" aria-label="上一页: 快速上手" rel="prev">
+          <a href="../array/" class="md-footer__link md-footer__link--prev" aria-label="上一页: 数组" rel="prev">
             <div class="md-footer__button md-icon">
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
             </div>
@@ -2242,20 +2416,20 @@ int main() {
                 上一页
               </span>
               <div class="md-ellipsis">
-                快速上手
+                数组
               </div>
             </div>
           </a>
         
         
           
-          <a href="../data-type/" class="md-footer__link md-footer__link--next" aria-label="下一页: 数据类型" rel="next">
+          <a href="../struct-and-union/" class="md-footer__link md-footer__link--next" aria-label="下一页: 结构和联合" rel="next">
             <div class="md-footer__title">
               <span class="md-footer__direction">
                 下一页
               </span>
               <div class="md-ellipsis">
-                数据类型
+                结构和联合
               </div>
             </div>
             <div class="md-footer__button md-icon">
