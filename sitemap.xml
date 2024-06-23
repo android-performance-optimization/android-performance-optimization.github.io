@@ -71,6 +71,11 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://android-performance-optimization.github.io/foundation/nand-to-tetris/sequential-logic/</loc>
+         <lastmod>2024-06-23</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://android-performance-optimization.github.io/foundation/pointers-on-c/advanced-pointer/</loc>
          <lastmod>2024-06-23</lastmod>
          <changefreq>daily</changefreq>

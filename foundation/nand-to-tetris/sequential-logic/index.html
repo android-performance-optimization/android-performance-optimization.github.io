@@ -10,20 +10,20 @@
       
       
       
-        <link rel="canonical" href="https://android-performance-optimization.github.io/practical/speed/kcp-gson-moshi/">
+        <link rel="canonical" href="https://android-performance-optimization.github.io/foundation/nand-to-tetris/sequential-logic/">
       
       
-        <link rel="prev" href="../json-serialization-speed/">
+        <link rel="prev" href="../bool-arithmetic/">
       
       
-        <link rel="next" href="../../memory/memory-usage-analyse/">
+        <link rel="next" href="../../framework/activity-start/">
       
       <link rel="icon" href="../../../assets/favicon.png">
       <meta name="generator" content="mkdocs-1.6.0, mkdocs-material-9.1.16">
     
     
       
-        <title>使用 KCP 打造更安全的 Gson 与更快的 Moshi - Android 性能优化手册</title>
+        <title>时序逻辑 - Android 性能优化手册</title>
       
     
     
@@ -75,7 +75,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#kcp-gson-moshi" class="md-skip">
+        <a href="#_1" class="md-skip">
           跳转至
         </a>
       
@@ -113,7 +113,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              使用 KCP 打造更安全的 Gson 与更快的 Moshi
+              时序逻辑
             
           </span>
         </div>
@@ -245,6 +245,8 @@
         
   
   
+    
+  
 
 
   
@@ -256,7 +258,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="../../../foundation/self-cultivation/elf-file-detail/" class="md-tabs__link">
+      <a href="../../self-cultivation/elf-file-detail/" class="md-tabs__link md-tabs__link--active">
         筑基手册
       </a>
     </li>
@@ -268,8 +270,6 @@
         
   
   
-    
-  
 
 
   
@@ -281,7 +281,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="../../compile/compile-acceleration/" class="md-tabs__link md-tabs__link--active">
+      <a href="../../../practical/compile/compile-acceleration/" class="md-tabs__link">
         实战手册
       </a>
     </li>
@@ -448,14 +448,16 @@
 
   
   
+    
+  
   
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
       
       
       
-      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
       
       
         
@@ -480,7 +482,7 @@
           <span class="md-nav__icon md-icon"></span>
         </label>
       
-      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
         <label class="md-nav__title" for="__nav_3">
           <span class="md-nav__icon md-icon"></span>
           筑基手册
@@ -534,7 +536,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../foundation/self-cultivation/elf-file-detail/" class="md-nav__link">
+      <a href="../../self-cultivation/elf-file-detail/" class="md-nav__link">
         Elf 文件格式详解
       </a>
     </li>
@@ -548,7 +550,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../foundation/self-cultivation/static-link/" class="md-nav__link">
+      <a href="../../self-cultivation/static-link/" class="md-nav__link">
         静态链接
       </a>
     </li>
@@ -562,7 +564,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../foundation/self-cultivation/elf-load/" class="md-nav__link">
+      <a href="../../self-cultivation/elf-load/" class="md-nav__link">
         ELF 文件的装载与进程
       </a>
     </li>
@@ -576,7 +578,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../foundation/self-cultivation/dynamic-link/" class="md-nav__link">
+      <a href="../../self-cultivation/dynamic-link/" class="md-nav__link">
         动态链接
       </a>
     </li>
@@ -590,7 +592,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../foundation/self-cultivation/memory/" class="md-nav__link">
+      <a href="../../self-cultivation/memory/" class="md-nav__link">
         内存
       </a>
     </li>
@@ -604,7 +606,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../foundation/self-cultivation/system-call/" class="md-nav__link">
+      <a href="../../self-cultivation/system-call/" class="md-nav__link">
         系统调用
       </a>
     </li>
@@ -670,7 +672,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../foundation/kotlin-meta-programming/meta-programming-basic/" class="md-nav__link">
+      <a href="../../kotlin-meta-programming/meta-programming-basic/" class="md-nav__link">
         元编程概述
       </a>
     </li>
@@ -684,7 +686,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../foundation/kotlin-meta-programming/meta-data-introduction/" class="md-nav__link">
+      <a href="../../kotlin-meta-programming/meta-data-introduction/" class="md-nav__link">
         元数据简介
       </a>
     </li>
@@ -698,7 +700,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../foundation/kotlin-meta-programming/runtime-reflect/" class="md-nav__link">
+      <a href="../../kotlin-meta-programming/runtime-reflect/" class="md-nav__link">
         运行时的反射
       </a>
     </li>
@@ -712,7 +714,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../foundation/kotlin-meta-programming/code-generate/" class="md-nav__link">
+      <a href="../../kotlin-meta-programming/code-generate/" class="md-nav__link">
         源代码生成
       </a>
     </li>
@@ -726,7 +728,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../foundation/kotlin-meta-programming/symbol-process/" class="md-nav__link">
+      <a href="../../kotlin-meta-programming/symbol-process/" class="md-nav__link">
         编译时的符号处理
       </a>
     </li>
@@ -740,7 +742,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../foundation/kotlin-meta-programming/code-static-analyse/" class="md-nav__link">
+      <a href="../../kotlin-meta-programming/code-static-analyse/" class="md-nav__link">
         程序静态分析
       </a>
     </li>
@@ -754,7 +756,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../foundation/kotlin-meta-programming/compiler-extension/" class="md-nav__link">
+      <a href="../../kotlin-meta-programming/compiler-extension/" class="md-nav__link">
         编译器插件
       </a>
     </li>
@@ -768,7 +770,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../foundation/kotlin-meta-programming/meta-programming-debug/" class="md-nav__link">
+      <a href="../../kotlin-meta-programming/meta-programming-debug/" class="md-nav__link">
         元程序的开发和调试
       </a>
     </li>
@@ -820,7 +822,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../foundation/kotlin-compiler-learn/learning-resource/" class="md-nav__link">
+      <a href="../../kotlin-compiler-learn/learning-resource/" class="md-nav__link">
         Kotlin 编译器相关学习资源
       </a>
     </li>
@@ -900,7 +902,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../foundation/pointers-on-c/environment-config/" class="md-nav__link">
+      <a href="../../pointers-on-c/environment-config/" class="md-nav__link">
         环境搭建
       </a>
     </li>
@@ -914,7 +916,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../foundation/pointers-on-c/quick-start/" class="md-nav__link">
+      <a href="../../pointers-on-c/quick-start/" class="md-nav__link">
         快速上手
       </a>
     </li>
@@ -928,7 +930,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../foundation/pointers-on-c/basic-concept/" class="md-nav__link">
+      <a href="../../pointers-on-c/basic-concept/" class="md-nav__link">
         基本概念
       </a>
     </li>
@@ -942,7 +944,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../foundation/pointers-on-c/data-type/" class="md-nav__link">
+      <a href="../../pointers-on-c/data-type/" class="md-nav__link">
         数据类型
       </a>
     </li>
@@ -956,7 +958,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../foundation/pointers-on-c/statement/" class="md-nav__link">
+      <a href="../../pointers-on-c/statement/" class="md-nav__link">
         语句
       </a>
     </li>
@@ -970,7 +972,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../foundation/pointers-on-c/operators-and-expressions/" class="md-nav__link">
+      <a href="../../pointers-on-c/operators-and-expressions/" class="md-nav__link">
         操作符和表达式
       </a>
     </li>
@@ -984,7 +986,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../foundation/pointers-on-c/pointer/" class="md-nav__link">
+      <a href="../../pointers-on-c/pointer/" class="md-nav__link">
         指针
       </a>
     </li>
@@ -998,7 +1000,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../foundation/pointers-on-c/function/" class="md-nav__link">
+      <a href="../../pointers-on-c/function/" class="md-nav__link">
         函数
       </a>
     </li>
@@ -1012,7 +1014,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../foundation/pointers-on-c/array/" class="md-nav__link">
+      <a href="../../pointers-on-c/array/" class="md-nav__link">
         数组
       </a>
     </li>
@@ -1026,7 +1028,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../foundation/pointers-on-c/char-and-string/" class="md-nav__link">
+      <a href="../../pointers-on-c/char-and-string/" class="md-nav__link">
         字符串、字符和字节
       </a>
     </li>
@@ -1040,7 +1042,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../foundation/pointers-on-c/struct-and-union/" class="md-nav__link">
+      <a href="../../pointers-on-c/struct-and-union/" class="md-nav__link">
         结构和联合
       </a>
     </li>
@@ -1054,7 +1056,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../foundation/pointers-on-c/dynamic-memory/" class="md-nav__link">
+      <a href="../../pointers-on-c/dynamic-memory/" class="md-nav__link">
         动态内存分配
       </a>
     </li>
@@ -1068,7 +1070,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../foundation/pointers-on-c/struct-and-pointer/" class="md-nav__link">
+      <a href="../../pointers-on-c/struct-and-pointer/" class="md-nav__link">
         使用结构和指针
       </a>
     </li>
@@ -1082,7 +1084,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../foundation/pointers-on-c/advanced-pointer/" class="md-nav__link">
+      <a href="../../pointers-on-c/advanced-pointer/" class="md-nav__link">
         高级指针话题
       </a>
     </li>
@@ -1096,7 +1098,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../foundation/pointers-on-c/preprocessor/" class="md-nav__link">
+      <a href="../../pointers-on-c/preprocessor/" class="md-nav__link">
         预处理器
       </a>
     </li>
@@ -1115,14 +1117,16 @@
               
   
   
+    
+  
   
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
       
       
       
-      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_5" >
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_5" checked>
       
       
         
@@ -1141,7 +1145,7 @@
           <span class="md-nav__icon md-icon"></span>
         </label>
       
-      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_5_label" aria-expanded="false">
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_5_label" aria-expanded="true">
         <label class="md-nav__title" for="__nav_3_5">
           <span class="md-nav__icon md-icon"></span>
           计算机系统要素
@@ -1154,7 +1158,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../foundation/nand-to-tetris/introduction/" class="md-nav__link">
+      <a href="../introduction/" class="md-nav__link">
         前言
       </a>
     </li>
@@ -1168,7 +1172,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../foundation/nand-to-tetris/bool-logic/" class="md-nav__link">
+      <a href="../bool-logic/" class="md-nav__link">
         布尔逻辑
       </a>
     </li>
@@ -1182,7 +1186,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../foundation/nand-to-tetris/bool-arithmetic/" class="md-nav__link">
+      <a href="../bool-arithmetic/" class="md-nav__link">
         布尔运算
       </a>
     </li>
@@ -1194,11 +1198,162 @@
               
   
   
+    
   
-    <li class="md-nav__item">
-      <a href="../../../foundation/nand-to-tetris/sequential-logic/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          时序逻辑
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         时序逻辑
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    背景知识
+  </a>
+  
+    <nav class="md-nav" aria-label="背景知识">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#clock" class="md-nav__link">
+    时钟（Clock）
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#flip-flops" class="md-nav__link">
+    触发器（Flip-Flops）
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#registers" class="md-nav__link">
+    寄存器（Registers）
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#memories" class="md-nav__link">
+    内存（Memories）
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#counter" class="md-nav__link">
+    计数器（Counter）
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    项目
+  </a>
+  
+    <nav class="md-nav" aria-label="项目">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#bit" class="md-nav__link">
+    Bit
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#register" class="md-nav__link">
+    Register
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ram8" class="md-nav__link">
+    RAM8
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ram64" class="md-nav__link">
+    RAM64
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ram512" class="md-nav__link">
+    RAM512
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ram4k" class="md-nav__link">
+    RAM4K
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ram16k" class="md-nav__link">
+    RAM16K
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pc" class="md-nav__link">
+    PC
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -1248,7 +1403,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../foundation/framework/activity-start/" class="md-nav__link">
+      <a href="../../framework/activity-start/" class="md-nav__link">
         Activity 启动流程分析
       </a>
     </li>
@@ -1300,7 +1455,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../foundation/tools/native-hook/" class="md-nav__link">
+      <a href="../../tools/native-hook/" class="md-nav__link">
         Native Hook 快速上手
       </a>
     </li>
@@ -1327,16 +1482,14 @@
 
   
   
-    
-  
   
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
       
       
       
-      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" checked>
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
       
       
         
@@ -1357,7 +1510,7 @@
           <span class="md-nav__icon md-icon"></span>
         </label>
       
-      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="true">
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
         <label class="md-nav__title" for="__nav_4">
           <span class="md-nav__icon md-icon"></span>
           实战手册
@@ -1403,7 +1556,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../compile/compile-acceleration/" class="md-nav__link">
+      <a href="../../../practical/compile/compile-acceleration/" class="md-nav__link">
         编译加速的8个实用技巧
       </a>
     </li>
@@ -1417,7 +1570,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../compile/now-in-android/" class="md-nav__link">
+      <a href="../../../practical/compile/now-in-android/" class="md-nav__link">
         nowinandroid 构建脚本学习
       </a>
     </li>
@@ -1469,7 +1622,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../code-quality/kotlin-detekt/" class="md-nav__link">
+      <a href="../../../practical/code-quality/kotlin-detekt/" class="md-nav__link">
         落地 Kotlin 代码规范，DeteKt 了解一下
       </a>
     </li>
@@ -1521,7 +1674,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../stability/airbag/" class="md-nav__link">
+      <a href="../../../practical/stability/airbag/" class="md-nav__link">
         安全气囊如何实现？
       </a>
     </li>
@@ -1540,16 +1693,14 @@
               
   
   
-    
-  
   
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
       
       
       
-      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_4" checked>
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_4" >
       
       
         
@@ -1564,7 +1715,7 @@
           <span class="md-nav__icon md-icon"></span>
         </label>
       
-      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_4_label" aria-expanded="true">
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_4_label" aria-expanded="false">
         <label class="md-nav__title" for="__nav_4_4">
           <span class="md-nav__icon md-icon"></span>
           速度优化
@@ -1577,7 +1728,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../json-serialization-speed/" class="md-nav__link">
+      <a href="../../../practical/speed/json-serialization-speed/" class="md-nav__link">
         常用 JSON 库性能对比
       </a>
     </li>
@@ -1589,282 +1740,11 @@
               
   
   
-    
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          使用 KCP 打造更安全的 Gson 与更快的 Moshi
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../../../practical/speed/kcp-gson-moshi/" class="md-nav__link">
         使用 KCP 打造更安全的 Gson 与更快的 Moshi
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="目录">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      目录
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#_1" class="md-nav__link">
-    前言
-  </a>
-  
-    <nav class="md-nav" aria-label="前言">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
-    空安全与默认值问题
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
-    性能问题
-  </a>
-  
-    <nav class="md-nav" aria-label="性能问题">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#_4" class="md-nav__link">
-    多次运行测试结果
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_5" class="md-nav__link">
-    一次运行测试结果
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#kudos" class="md-nav__link">
-    Kudos 是什么
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#kudos_1" class="md-nav__link">
-    Kudos 使用
-  </a>
-  
-    <nav class="md-nav" aria-label="Kudos 使用">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#1-classpath" class="md-nav__link">
-    1. 添加插件到 classpath
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_6" class="md-nav__link">
-    在项目中启用插件
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#kudos_2" class="md-nav__link">
-    为特定类启动 Kudos 的支持
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_7" class="md-nav__link">
-    原理解析：前置知识
-  </a>
-  
-    <nav class="md-nav" aria-label="原理解析：前置知识">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#_8" class="md-nav__link">
-    编译器插件是什么？
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#k2-k1" class="md-nav__link">
-    K2 编译器与 K1 编译器
-  </a>
-  
-    <nav class="md-nav" aria-label="K2 编译器与 K1 编译器">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#_9" class="md-nav__link">
-    编译器前端
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_10" class="md-nav__link">
-    编译器后端
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_11" class="md-nav__link">
-    编译器扩展点
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#kudos_3" class="md-nav__link">
-    Kudos 原理解析
-  </a>
-  
-    <nav class="md-nav" aria-label="Kudos 原理解析">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#_12" class="md-nav__link">
-    项目结构
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#kudos_4" class="md-nav__link">
-    Kudos 如何保证空安全与默认值？
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#kudos-jsonreader" class="md-nav__link">
-    Kudos 如何简化 JsonReader 的使用
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#kudos-compiler" class="md-nav__link">
-    kudos-compiler 的实现
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_13" class="md-nav__link">
-    性能数据
-  </a>
-  
-    <nav class="md-nav" aria-label="性能数据">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#_14" class="md-nav__link">
-    多次运行测试结果
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_15" class="md-nav__link">
-    一次运行测试结果
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#kotlin" class="md-nav__link">
-    如何学习 Kotlin 编译器插件
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_16" class="md-nav__link">
-    总结
-  </a>
-  
-    <nav class="md-nav" aria-label="总结">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#_17" class="md-nav__link">
-    开源地址
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -1914,7 +1794,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../memory/memory-usage-analyse/" class="md-nav__link">
+      <a href="../../../practical/memory/memory-usage-analyse/" class="md-nav__link">
         App 内存占用分析
       </a>
     </li>
@@ -2251,233 +2131,113 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#_1" class="md-nav__link">
-    前言
-  </a>
-  
-    <nav class="md-nav" aria-label="前言">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
   <a href="#_2" class="md-nav__link">
-    空安全与默认值问题
+    背景知识
+  </a>
+  
+    <nav class="md-nav" aria-label="背景知识">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#clock" class="md-nav__link">
+    时钟（Clock）
   </a>
   
 </li>
         
           <li class="md-nav__item">
+  <a href="#flip-flops" class="md-nav__link">
+    触发器（Flip-Flops）
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#registers" class="md-nav__link">
+    寄存器（Registers）
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#memories" class="md-nav__link">
+    内存（Memories）
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#counter" class="md-nav__link">
+    计数器（Counter）
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#_3" class="md-nav__link">
-    性能问题
+    项目
   </a>
   
-    <nav class="md-nav" aria-label="性能问题">
+    <nav class="md-nav" aria-label="项目">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#_4" class="md-nav__link">
-    多次运行测试结果
+  <a href="#bit" class="md-nav__link">
+    Bit
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#_5" class="md-nav__link">
-    一次运行测试结果
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#kudos" class="md-nav__link">
-    Kudos 是什么
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#kudos_1" class="md-nav__link">
-    Kudos 使用
-  </a>
-  
-    <nav class="md-nav" aria-label="Kudos 使用">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#1-classpath" class="md-nav__link">
-    1. 添加插件到 classpath
+  <a href="#register" class="md-nav__link">
+    Register
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#_6" class="md-nav__link">
-    在项目中启用插件
+  <a href="#ram8" class="md-nav__link">
+    RAM8
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#kudos_2" class="md-nav__link">
-    为特定类启动 Kudos 的支持
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_7" class="md-nav__link">
-    原理解析：前置知识
-  </a>
-  
-    <nav class="md-nav" aria-label="原理解析：前置知识">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#_8" class="md-nav__link">
-    编译器插件是什么？
+  <a href="#ram64" class="md-nav__link">
+    RAM64
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#k2-k1" class="md-nav__link">
-    K2 编译器与 K1 编译器
-  </a>
-  
-    <nav class="md-nav" aria-label="K2 编译器与 K1 编译器">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#_9" class="md-nav__link">
-    编译器前端
+  <a href="#ram512" class="md-nav__link">
+    RAM512
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#_10" class="md-nav__link">
-    编译器后端
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_11" class="md-nav__link">
-    编译器扩展点
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#kudos_3" class="md-nav__link">
-    Kudos 原理解析
-  </a>
-  
-    <nav class="md-nav" aria-label="Kudos 原理解析">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#_12" class="md-nav__link">
-    项目结构
+  <a href="#ram4k" class="md-nav__link">
+    RAM4K
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#kudos_4" class="md-nav__link">
-    Kudos 如何保证空安全与默认值？
+  <a href="#ram16k" class="md-nav__link">
+    RAM16K
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#kudos-jsonreader" class="md-nav__link">
-    Kudos 如何简化 JsonReader 的使用
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#kudos-compiler" class="md-nav__link">
-    kudos-compiler 的实现
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_13" class="md-nav__link">
-    性能数据
-  </a>
-  
-    <nav class="md-nav" aria-label="性能数据">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#_14" class="md-nav__link">
-    多次运行测试结果
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_15" class="md-nav__link">
-    一次运行测试结果
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#kotlin" class="md-nav__link">
-    如何学习 Kotlin 编译器插件
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_16" class="md-nav__link">
-    总结
-  </a>
-  
-    <nav class="md-nav" aria-label="总结">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#_17" class="md-nav__link">
-    开源地址
+  <a href="#pc" class="md-nav__link">
+    PC
   </a>
   
 </li>
@@ -2505,376 +2265,233 @@
   
 
 
-<h1 id="kcp-gson-moshi">使用 KCP 打造更安全的 Gson 与更快的 Moshi</h1>
-<h2 id="_1">前言</h2>
-<p>众所周知，使用 Gson、Jackson 等框架反序列化 JSON 到 Kotlin 类时存在空安全问题和构造器默认值失效的问题，同时常用的 Gson, Moshi 等框架往往在功能上比较强大，全面，而在性能上却没有很明显的优势。本文将介绍如何使用 Kotlin 编译器插件打造更安全的 Gson 与更快的 Moshi。</p>
-<h3 id="_2">空安全与默认值问题</h3>
-<p><img alt="" src="https://raw.gitmirror.com/RicardoJiang/resource/main/2023/december/p5.png" /></p>
-<p>如上图所示，我们在使用 Gson 将 Json 数据反序列化为 <code>User</code> 对象时，会遇到空值安全问题和默认构造参数失效的问题。下面让我们来探讨一下为何会出现这样的情况。</p>
-<p><img alt="" src="https://raw.gitmirror.com/RicardoJiang/resource/main/2023/december/p6.png" /></p>
-<ul>
-<li>当调用<code>Gson.fromJson</code>方法来反序列化对象时，首先会创建<code>Adapter</code></li>
-<li>在创建<code>Adapter</code>的过程时需要获取类的构建函数，如果存在无参构建函数会直接返回，否则会通过 UnSafe 的方式创建</li>
-<li>当使用 UnSafe 方式创建时，就不会调用我们定义的主构造函数了，默认值自然也就失效了</li>
-<li>在<code>Adapter</code>创建后，接下来就是在<code>Adapter</code>中通过<code>jsonReader</code>读取输入</li>
-<li>在读取输入的过程中通过<code>field.set(target, fieldValue)</code>反射赋值，自然也就无法保证空安全了</li>
-</ul>
-<h3 id="_3">性能问题</h3>
-<p>反序列化是 Android 开发中必备且非常高频的需求，因此一个高性能的反序列化框架就非常重要了，那么常用的 Gson 与 Moshi 等框架性能到底怎么样呢?</p>
-<p>下面列出使用 Jetpack Microbenchmark 库测试常用反序列化框架的结果，具体测试过程可见：<a href="https://android-performance-optimization.github.io/practical/speed/json-serialization-speed/">常用 JSON 库性能对比</a></p>
-<h4 id="_4">多次运行测试结果</h4>
-<p><img alt="" src="https://raw.gitmirror.com/RicardoJiang/resource/main/2023/october/DeserializationSpeedMultiTimes.png" /></p>
-<p>从柱状图可以很明显的看出各个框架的速度对比</p>
-<ul>
-<li>Kotlin Serialization 看起来是最适合 Kotlin 的反序列化框架，在各个框架中表现最好</li>
-<li>JSONReader 与 JSONObject 在小数据上表现也不错，在大数据上 JSONReader 与其它框架相差不大，而 JSONObject 由于要将 InputStream 转化成 String，表现较差</li>
-<li>Moshi 与 Gson 在反序列化速度上差距不大，基本上是一个量级，但相比 JSONReader 等框架则明显较慢</li>
-</ul>
-<h4 id="_5">一次运行测试结果</h4>
-<p><img alt="" src="https://raw.gitmirror.com/RicardoJiang/resource/main/2023/october/DeserializationSpeedRunOnce.png" /></p>
-<p>可以看出，一次运行测试结果与多次运行测试结果明显不同</p>
-<ul>
-<li>JSONReader 与 JSONObject 相比其它框架优势明显，在冷启动场景使用这些系统原生 API 应该会有一定优势</li>
-<li>在冷启动场景，Moshi 与 Kotlin Serialization 速度差不多，相比 Gson 则略慢</li>
-</ul>
-<p>根据上述结果，可以看出 JSONReader 这些原生 API 在冷启动场景有极大优势，在经过充分优化后相比 Gson, Moshi 等库仍然有一定优势。因此，如果要实现更高性能的反序列化，使用 JSONReader 代替 Gson 与 Moshi，应该是个不错的选择。</p>
-<p>但是 JSONReader 这些原生 API 使用起来较为麻烦，需要写很多模板代码，我们该如何优化呢？答案就是 Kudos。</p>
-<h2 id="kudos">Kudos 是什么</h2>
-<p>Kudos 是 Kotlin utilities for deserializing objects 的缩写。它可以解决使用 Gson、Jackson 等框架反序列化 JSON 到 Kotlin 类时所存在的空安全问题和构造器默认值失效的问题，同时可以简化高性能的反序列化框架 JsonReader 的使用方式。</p>
-<p>Kudos 已经在 Github 上开源，开源地址可见：<a href="https://github.com/kanyun-inc/Kudos">https://github.com/kanyun-inc/Kudos</a></p>
-<h2 id="kudos_1">Kudos 使用</h2>
-<p>引入 Kudos 主要分为以下几步</p>
-<h3 id="1-classpath">1. 添加插件到 classpath</h3>
-<pre><code class="language-kotlin">// 方式 1
-// 传统方式，在根目录的 build.gradle.kts 中添加以下代码
-buildscript {
-    repositories {
-        mavenCentral()
-    }
-    dependencies {
-        classpath(&quot;com.kanyun.kudos:kudos-gradle-plugin:$latest_version&quot;)
-    }
-}
+<h1 id="_1">时序逻辑</h1>
+<p>在前两章里面构建的所有的布尔芯片和算术芯片都是组合芯片（combinational chips）。组合芯片计算那些“输出结果仅依赖于其输入变量的排列组合”的函数。这些相关的简单
+芯片提供很多重要的处理功能（像ALU一样），但是它们却不能维持自身的状态。</p>
+<p>计算机不仅要能计算值，而且还需要存取数据，因而这些芯片必须配备记忆单元（memory elements）来保存数据，这些记忆单元是由时序芯片 （sequential chips） 组成。</p>
+<p>记忆单元的实现是复杂的过程，涉及了同步、时钟和反馈回路。其中的大部分能够被封装到称为触发器（flip-flop）的底层时序门（sequential gate）中。本章将这些触发器作
+为基预置模块来使用，详细介绍和构建所有典型的现代计算机所采用的记忆设备（memory devices），涉及的内容从二进制单元 （binary celis）到寄存器 （registers，注意：这里的寄存器不是 CPU 中的寄存器），再到存储块（memory banks）和计数器（counters）。</p>
+<h2 id="_2">背景知识</h2>
+<h3 id="clock">时钟（Clock）</h3>
+<p>在大多数计算机里，时间的流逝是用主时钟（master clock）来表示的，它提供连续的交变信号序列。其精确的硬件实现通常基于振荡器 （oscillator），其在两个信号值 0-1，或称“低电平-高电平（lowo-high，tick-tock）”之间交替变化。</p>
+<p>两个相邻的上升沿之间的时间间隙称为时钟的周期（cycle），每个时钟周期模塑一个离散时间单元。通过使用硬件电路，这个信号同时被传送到计算机平台的每个时序芯片中。</p>
+<h3 id="flip-flops">触发器（Flip-Flops）</h3>
+<p>计算机里最基本的时序单元是称为触发器的设备，它有几个种变体。在本书里我们使用称为数据触发器（Data Flip-Flop,DFF 或称 D触发器）的变体，其接口包含1比特位输入和1比特位输出。</p>
+<p>另外，DFF 有个时钟输入，根据主时钟信号连续地交变。数据和时钟的输入使得 DFF 能够实现基于时间的行为 out（t）=in（t-1），这里 in 和 out是门的输入和输出值，t 是当前时钟周期。换句话说，DFF 简单地将前一个时间周期的输入值作为当前周期的输出。</p>
+<p>由此可见，这种基本行为是所有计算机硬件维持自身状态的基础，从二进制单元到寄存器以至任意大的随机存取记忆单元（RAM）皆是如此。</p>
+<h3 id="registers">寄存器（Registers）</h3>
+<p>寄存是具有记忆功能的设备，它能够“储存”或称“记忆”某一时刻的值，实现经典的存储行为 out（t）=out（t—1）。</p>
+<p>从另一个方面来说，DFF 仅能够输出它前一时钟周期的输入，也就是 out（t）=in（t—1）。这就告诉我们，可以通过 DFF 来实现寄存器，只需将后面的输出反馈到它的输入就可以了。</p>
+<p>一旦实现了保存1比特位的基本机制，就可以轻松地构建任意位宽的寄存器，这可以通过由多个1比特位寄存器构成的阵列来实现，以构建可保存多比特位值的寄存器（。此类寄存器的基本设计参数是它的宽度，即它所保存比特位的数量—比如，16、32或64。此类寄存器的多位容量通常用字（word）来表示。</p>
+<p><img alt="" src="https://raw.gitmirror.com/RicardoJiang/resource/main/2024/june/p18.png" /></p>
+<h3 id="memories">内存（Memories）</h3>
+<p>一旦具备了表示字的基本能力，就可以构建任意长度的存储块了。我们可以通过将很多寄存器堆叠起来形成随机存取 RAM 单元来实现。</p>
+<p>随机存取内存（RAM,Random Access Memory）这个概念由此得来：在RAM上能够随机访问被选择的字而不会受限于访问顺序。也就是说，我们要求内存中的任何字（无论具体物理位
+置在哪里）都能以相等的速度被直接访问。</p>
+<p><img alt="" src="https://raw.gitmirror.com/RicardoJiang/resource/main/2024/june/p19.png" /></p>
+<p>这个规定可以通过以下方式实现。首先，根据其各自被存取的位置,也就是n位 RAM 中每个记忆单元—分配一个唯一的地址（address，一个从0到n一1之间的整数）。然后，构建一个由n-寄存器构成的阵列，再构建一个逻辑门，使得该逻辑门能够根据给定的地址 j，找到地址 j 对应的记忆单元。</p>
+<p>要注意，由于记忆单元没有以物理实现的方式被标上地址，因此地址概念并没有在 RAM设计中显式地表现出来，而我们在后面将会看到，当芯片配备了直接访问逻辑部件后，就能以逻辑方式实现寻址的概念。</p>
+<p>总的来说，典型的RAM设备接收三种输入：数据输入、地址输入和加载位。地址指定了在当前时种周期里哪一个 RAM 寄存器被访问。</p>
+<p>进行读操作时（Load = 0），RAM的输出立即发出被选中的记忆单元的值。</p>
+<p>在进行写操作（load = 1）时，被选择的记忆单元将在下一个时间周期内被赋予新输入值，从此 RAM 将开始发出该新输入值。</p>
+<h3 id="counter">计数器（Counter）</h3>
+<p>计数器是一种时序芯片，它的状态是整数，每经过一个时间周期，该控数就增加1个单位，执行函数our（t）=our（t-1）+C，这里c就是1。</p>
+<p>计数器在数字系统中担当非常重要的角色。比如，典型的CPU 包括一个程序计数器 （program counter），它的输出就是当前程序中下一步将要执行的指令地址。</p>
+<p>计数器芯片可以通过将标准寄存器的输入/输出逻辑和附加的常数组合逻辑相结合来实现。一般来说，计数器必须要配一些附加的功能块，比如将计数置零、加载新的计数值，
+或者用减操作来取代增操作。</p>
+<h2 id="_3">项目</h2>
+<p>本章介绍的所有内存系统的基础是触发器(Flip-Flops)，并将这种门电路看作是原始的构建模块。在硬件知识的教材中，通常是从基本的组合逻辑门（比如 Nand 门）开始讲述，使用合适的反馈环来实现触发器。本书将DFF 看作是原始门，因此它们可以直接被用在硬件构造项目里面，而不用去管这些 DFF 的内部结构。</p>
+<p>触发器 DFF 门能够利用第1章中介绍的一些底层级逻辑门来实现。然而，本书将DFF 看作是原始门，</p>
+<h3 id="bit">Bit</h3>
+<pre><code>/**
+ * 1-bit register:
+ * If load is asserted, the register's value is set to in;
+ * Otherwise, the register maintains its current value:
+ * if (load(t)) out(t+1) = in(t), else out(t+1) = out(t)
+ */
+CHIP Bit {
+    IN in, load;
+    OUT out;
 
-// 方式 2
-// 引用插件新方式，在 settings.gradle.kts 中添加以下代码
-pluginManagement {
-    repositories {
-        mavenCentral()
-    }
-    plugins {
-        id(&quot;com.kanyun.kudos&quot;) version &quot;$latest_version&quot; apply false
-    }
+    PARTS:
+    Mux(a = preOut, b = in, sel = load, out = o1);
+    DFF(in = o1, out = preOut, out = out);
 }
 </code></pre>
-<h3 id="_6">在项目中启用插件</h3>
-<pre><code class="language-kotlin">plugins {
-    // 启用 Kudos 插件. 
-    // 为被 @Kudos 注解标注的类生成优化版本的无参构造器
-    id(&quot;com.kanyun.kudos&quot;)
-}
+<h3 id="register">Register</h3>
+<pre><code>/**
+ * 16-bit register:
+ * If load is asserted, the register's value is set to in;
+ * Otherwise, the register maintains its current value:
+ * if (load(t)) out(t+1) = int(t), else out(t+1) = out(t)
+ */
+CHIP Register {
+    IN in[16], load;
+    OUT out[16];
 
-kudos {
-    // 启用 Kudos.Gson. 为被 @Kudos 标注的类同时生成 @JsonAdapter 注解，并添加 kudos-gson 依赖.
-    gson = true
-    // 启用 Kudos.Jackson. 添加 kudos-jackson 依赖.
-    jackson = true
-    // 启用 Kudos.AndroidJsonReader. 添加 kudos-android-json-reader 依赖.
-    androidJsonReader = true
+    PARTS:
+    Bit(in = in[0], load = load, out = out[0]);
+    Bit(in = in[1], load = load, out = out[1]);
+    Bit(in = in[2], load = load, out = out[2]);
+    Bit(in = in[3], load = load, out = out[3]);
+    Bit(in = in[4], load = load, out = out[4]);
+    Bit(in = in[5], load = load, out = out[5]);
+    Bit(in = in[6], load = load, out = out[6]);
+    Bit(in = in[7], load = load, out = out[7]);
+    Bit(in = in[8], load = load, out = out[8]);
+    Bit(in = in[9], load = load, out = out[9]);
+    Bit(in = in[10], load = load, out = out[10]);
+    Bit(in = in[11], load = load, out = out[11]);
+    Bit(in = in[12], load = load, out = out[12]);
+    Bit(in = in[13], load = load, out = out[13]);
+    Bit(in = in[14], load = load, out = out[14]);
+    Bit(in = in[15], load = load, out = out[15]);
 }
 </code></pre>
-<p>我们可以在模块级别配置 Kudos 的功能开关</p>
-<ul>
-<li>当设置<code>gson = true</code>时就会启用 Kudos.Gson，实现更安全的 Gson</li>
-<li>当设置<code>jackson = true</code>时就会启用 Kudos.jackson，实现更安全的 Jackson</li>
-<li>当设置<code>androidJsonReader = true</code>时就会启用 Kudos.AndroidJsonReader，简化 JsonReader 的使用</li>
-</ul>
-<h3 id="kudos_2">为特定类启动 Kudos 的支持</h3>
-<pre><code class="language-kotlin">@Kudos
-data class User(
-    val id: Long, 
-    val name: String,
-    val age: Int = -1,
-    val tel: String = &quot;&quot;
-)
+<h3 id="ram8">RAM8</h3>
+<pre><code>/**
+ * Memory of eight 16-bit registers.
+ * If load is asserted, the value of the register selected by
+ * address is set to in; Otherwise, the value does not change.
+ * The value of the selected register is emitted by out.
+ */
+CHIP RAM8 {
+    IN in[16], load, address[3];
+    OUT out[16];
 
-@Kudos(KUDOS_GSON)
-data class User(
-    val id: Long, 
-    val name: String,
-    val age: Int = -1,
-    val tel: String = &quot;&quot;
-)
-</code></pre>
-<ul>
-<li>对于需要添加 Kudos 解析支持的类型，直接添加<code>@Kudos</code>注解即可</li>
-<li><code>@Kudos</code>注解的类的功能默认与模块配置一致，也可以添加参数例如<code>@Kudos(KUDOS_GSON)</code>实现针对该类只开启特定功能</li>
-</ul>
-<h2 id="_7">原理解析：前置知识</h2>
-<h3 id="_8">编译器插件是什么？</h3>
-<p>Kotlin 的编译过程，简单来说就是将 Kotlin 源代码编译成目标产物的过程，具体步骤如下图所示：</p>
-<p><img alt="" src="https://raw.gitmirror.com/RicardoJiang/resource/main/2023/december/p7.png" /></p>
-<p>Kotlin 编译器插件，通过利用编译过程中提供的各种 Hook 时机，让我们可以在编译过程中插入自己的逻辑，以达到修改编译产物的目的</p>
-<p>Kotlin 编译器插件可以分为 Gradle 插件，编译器插件，IDE 插件三部分，如下图所示</p>
-<p><img alt="" src="https://raw.gitmirror.com/RicardoJiang/resource/main/2023/december/p8.png" /></p>
-<h3 id="k2-k1">K2 编译器与 K1 编译器</h3>
-<p><img alt="" src="https://raw.gitmirror.com/RicardoJiang/resource/main/2023/december/p9.png" /></p>
-<h4 id="_9">编译器前端</h4>
-<p>Kotlin 编译器可以分为编译器前端与编译器后端两部分，目前 Kotlin 编译器前端有两个版本，一个是老版本的 PSI 版本，一个是即将在 Kotlin 2.0 版本稳定的 FIR 版本。</p>
-<p>PSI 即 Program Structure Interface，PSI 原本是 Intellij 平台对各类编程语言语法树的统一抽象，为了快速实现需求，Kotlin 团队在开发初期复用了 Intellij 平台已经有的技术积累。而从 Kotlin 1.6 版本开始，为了实现更好的编译器性能，Kotlin团队开始开发一款全新的前端编译器，即 K2 编译器的 FIR 前端。</p>
-<p>因此当我们开发编译器插件时，在涉及编译器前端的修改时需要同时适配 K1 与 K2 两个版本。</p>
-<h4 id="_10">编译器后端</h4>
-<p>同时 Kotlin 作为一个多平台语言，可以将源代码编译成多个平台的目标代码，比如 Kotlin/Jvm 可以生成 Java 字节码，Kotlin/Js 可以生成 Javascript，Kotlin/Native 可以生成 .so 文件。</p>
-<p>不同的编译器后端之间必然有不少逻辑可以共享，因此为了在不同的后端之间共享逻辑，降低支持新的语言特性的成本，同时方便后续扩展支持新的平台，Kotlin 编译器后端引入了 IR 这一中间层。</p>
-<p>不过由于 Kotlin/Jvm 已经在 Kotlin 1.5 版本支持了 IR，Kotlin/Js 在 Kotlin 1.6 版本支持了 IR，而 Kotlin/Native 在一开始就支持 IR，因此我们在开发编译器插件时，涉及修改 IR 时不需要做什么额外的适配。</p>
-<h3 id="_11">编译器扩展点</h3>
-<p>前面提到 Kotlin 编译器插件，通过利用编译过程中提供的各种扩展点，让我们可以在编译过程中插入自己的逻辑，以达到修改编译产物的目的，下面就介绍一下 Kudos 中使用到的扩展点以及对应的 API</p>
-<table>
-<thead>
-<tr>
-<th>扩展的类名</th>
-<th>编译阶段</th>
-<th>功能说明</th>
-<th>用例</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>SyntheticResolveExtension</td>
-<td>前端</td>
-<td>解析生成的类，函数等，可用于给类添加接口或者方法</td>
-<td>Parcelize</td>
-</tr>
-<tr>
-<td>FirExtensionRegistrar</td>
-<td>前端</td>
-<td>FIR 扩展，可用于提供代码声明信息与代码检查</td>
-<td>Parcelize</td>
-</tr>
-<tr>
-<td>StorageComponentContainerContributor</td>
-<td>前端</td>
-<td>可用于编译期代码检查</td>
-<td>Compose</td>
-</tr>
-<tr>
-<td>IrGenerationExtension</td>
-<td>多平台 IR 后端</td>
-<td>生成与修改 IR</td>
-<td>Parcelize、Atomicfu、NoArg</td>
-</tr>
-</tbody>
-</table>
-<p>总得来说，在涉及到修改类或者函数的声明，例如函数的签名信息，给类添加接口等内容时，需要使用到编译器前端的扩展点；而当涉及到方法体的内部实现，类的私有属性等内容时，直接生成或修改 IR 即可。</p>
-<h2 id="kudos_3">Kudos 原理解析</h2>
-<h3 id="_12">项目结构</h3>
-<p><img alt="" src="https://raw.gitmirror.com/RicardoJiang/resource/main/2023/december/p10.png" /></p>
-<p>我们知道，Kudos 是一个 Kotlin 编译器插件，当然也可以分为 Gradle 插件，编译器插件，IDE 插件三部分，为了支持 Jackson，Kudos 也提供了 Maven 集成能力。</p>
-<p>同时 Kudos 添加了对 Gson, Jackson, JsonReader 等框架的增强，针对这些框架的定制化代码封装在特定的 runtime 模块中，只有开启了对应的功能开关才会引入。</p>
-<h3 id="kudos_4">Kudos 如何保证空安全与默认值？</h3>
-<p>前面介绍了 Kotlin 编译器插件相关的前置知识，那么 Kudos 到底是如何保证空安全与默认值的呢？</p>
-<pre><code class="language-kotlin">@Kudos
-data class User(
-    val id: Long, 
-    val name: String,
-    val age: Int = -1,
-    val tel: String = &quot;&quot;
-)
-</code></pre>
-<p>上面这段代码，在编译过后大致相当于</p>
-<pre><code class="language-kotlin">@Kudos
-// 如果启用了 com.kanyun.kudos.gson 插件，则生成 @JsonAdapter 注解
-@JsonAdapter(value = KudosReflectiveTypeAdapterFactory::class)
-data class User(
-    val id: Long, 
-    val name: String,
-    val age: Int = -1,
-    val tel: String = &quot;&quot;
-) : KudosValidator {
-    constructor() { // 生成的默认无参构造器
-        super() // 调用父类默认无参构造器
-        init&lt;User&gt;() // 调用 User 类内部的 init 块（包括定义在内部的属性初始化）
-        this.age = -1 // 使用主构造器的参数默认值初始化属性
-        this.tel = &quot;&quot; // 使用主构造器的参数默认值初始化属性
-    }
+    PARTS:
+    DMux8Way(in = load, sel = address, a = loadA, b = loadB, c = loadC, d = loadD, e = loadE, f = loadF, g = loadG, h = loadH);
 
-    // 生成的用于校验字段空安全的函数
-    override fun validate(status: Map&lt;String, Boolean&gt;) {
-        validateField(&quot;id&quot;, status)
-        validateField(&quot;name&quot;, status)
-    }
+    Register(in = in, load = loadA, out = o1);
+    Register(in = in, load = loadB, out = o2);
+    Register(in = in, load = loadC, out = o3);
+    Register(in = in, load = loadD, out = o4);
+    Register(in = in, load = loadE, out = o5);
+    Register(in = in, load = loadF, out = o6);
+    Register(in = in, load = loadG, out = o7);
+    Register(in = in, load = loadH, out = o8);
+
+    Mux8Way16(a = o1, b = o2, c = o3, d = o4, e = o5, f = o6, g = o7, h = o8, sel = address, out = out);
 }
 </code></pre>
-<ul>
-<li>Kudos 插件会生成默认无参构造器，在其中使用主构造器的参数默认值初始化属性，因此可以避免默认值失效。</li>
-<li>当启用了 Kudos.gson 时，会给类添加<code>@JsonAdapter</code>注解，在自定义的<code>KudosReflectiveTypeAdapterFactory</code>中自定义反序列化逻辑</li>
-<li>Kudos 插件同样会给类添加<code>KudosValidator</code>接口与<code>validate</code>方法，在<code>validate</code>方法体中会给没有默认值的非空属性添加<code>validateField</code>调用</li>
-<li>在<code>KudosReflectiveTypeAdapterFactory</code>中在反序列化完成后会调用<code>KudosValidator</code>的<code>validate</code>方法，以验证声明非空的属性是否不为空，否则会抛出异常</li>
-</ul>
-<h3 id="kudos-jsonreader">Kudos 如何简化 JsonReader 的使用</h3>
-<p>JsonReader 使用起来麻烦的原因就在于要写很多模板代码，我们通过编译器插件来生成这些模板代码就可以解决 JsonReader 使用麻烦的问题。同时当我们开启 Kudos.AndroidJsonReader, 之前的保证默认值生效与空安全的代码也同样能生效。编译过后的代码如下所示：</p>
-<pre><code class="language-kotlin">@Kudos
-data class User(
-    val id: Long, 
-    val name: String,
-    val age: Int = -1,
-    val tel: String = &quot;&quot;
-) : KudosJsonAdapter {
-    private var kudosFieldStatusMap: Map&lt;String, Boolean&gt; = hashMapOf()
+<h3 id="ram64">RAM64</h3>
+<pre><code>/**
+ * Memory of sixty four 16-bit registers.
+ * If load is asserted, the value of the register selected by
+ * address is set to in; Otherwise, the value does not change.
+ * The value of the selected register is emitted by out.
+ */
+CHIP RAM64 {
+    IN in[16], load, address[6];
+    OUT out[16];
 
-    override fun fromJson(jsonReader: JsonReader): User {
-        jsonReader.beginObject()
-        while (jsonReader.hasNext()) {
-            val tmp0 = jsonReader.nextName()
-            if (jsonReader.peek() == JsonToken.NULL) {
-                jsonReader.skipValue()
-                continue
-            }
-            when {
-                tmp0 == &quot;id&quot; -&gt; {
-                    &lt;this&gt;.id = jsonReader.nextLong()
-                    &lt;this&gt;.kudosFieldStatusMap.put(&quot;id&quot;, &lt;this&gt;.id != null)
-                }
-                tmp0 == &quot;name&quot; -&gt; {
-                    &lt;this&gt;.name = jsonReader.nextString()
-                    &lt;this&gt;.kudosFieldStatusMap.put(&quot;name&quot;, &lt;this&gt;.name != null)
-                }
-                // ...
-                else -&gt; {
-                    jsonReader.skipValue()
-                }
-            }
-        }
-        jsonReader.endObject()
-        validate(&lt;this&gt;.kudosFieldStatusMap)
-        return this
-    }
+    PARTS:
+    DMux8Way(in = load, sel = address[3..5], a = loadA, b = loadB, c = loadC, d = loadD, e = loadE, f = loadF, g = loadG, h = loadH);
+
+    RAM8(in = in, load = loadA, address = address[0..2], out = o1);
+    RAM8(in = in, load = loadB, address = address[0..2], out = o2);
+    RAM8(in = in, load = loadC, address = address[0..2], out = o3);
+    RAM8(in = in, load = loadD, address = address[0..2], out = o4);
+    RAM8(in = in, load = loadE, address = address[0..2], out = o5);
+    RAM8(in = in, load = loadF, address = address[0..2], out = o6);
+    RAM8(in = in, load = loadG, address = address[0..2], out = o7);
+    RAM8(in = in, load = loadH, address = address[0..2], out = o8);
+
+    Mux8Way16(a = o1, b = o2, c = o3, d = o4, e = o5, f = o6, g = o7, h = o8, sel = address[3..5], out = out);
 }
 </code></pre>
-<h3 id="kudos-compiler">kudos-compiler 的实现</h3>
-<p><img alt="" src="https://raw.gitmirror.com/RicardoJiang/resource/main/2023/december/p11.png" /></p>
-<p>前面我们介绍了 kudos-compiler 模块要实现的代码，那么作为提供核心能力的模块，kudos-compiler 具体又是如何实现的呢？</p>
-<ul>
-<li>KudosCommandLineProcessor 作为编译件插件的入口，注册 pluginId，同时接收命令行或者 gradle 插件传过来的参数</li>
-<li>KudosCompilerPluginRegistrar 的作用则是用于注册我们所需的各种扩展点</li>
-<li>KudosSyntheticResolveExtension 的作用是在符号引用解析时提供声明信息在符号引用解析时提供声明信息，比如给类添加<code>KudosValidator</code>接口与<code>validate</code>方法</li>
-<li>KudosFirExtensionRegistrar 的作用是在 K2 解析时提供声明信息与代码检查，与 KudosSyntheticResolveExtension 类似，区别在于两者适用的编译器前端版本不同</li>
-<li>KudosComponentContainerContributor 的作用是提供代码编译期检查</li>
-<li>KudosIrGenerationExtension 的作用是在编译产物中提供实现，比如<code>validate</code>与<code>fromJson</code>的方法体</li>
-</ul>
-<h2 id="_13">性能数据</h2>
-<p>基于 Kudos 的工作机制不难想到，Kudos 的运行耗时会略微多于对应的 JSON 序列化框架。</p>
-<p>使用 Jetpack Microbenchmark 库对 Kudos 与其对应的 JSON 序列化框架进行性能对比可以发现，Kudos.Gson 的耗时为 Gson 的 1.1-1.2 倍, Kudos.Jackson, KudosAndroidJsonReader 的情况类似，在可接受的范围之内。</p>
-<h3 id="_14">多次运行测试结果</h3>
-<table>
-<thead>
-<tr>
-<th></th>
-<th>small json</th>
-<th>medium json</th>
-<th>large json</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Gson</td>
-<td>412,375   ns</td>
-<td>1,374,838   ns</td>
-<td>3,641,904   ns</td>
-</tr>
-<tr>
-<td>Kudos-Gson</td>
-<td>517,123   ns</td>
-<td>1,686,568   ns</td>
-<td>4,311,910   ns</td>
-</tr>
-<tr>
-<td>Jackson</td>
-<td>1,035,010   ns</td>
-<td>1,750,709   ns</td>
-<td>3,450,974   ns</td>
-</tr>
-<tr>
-<td>Kudos-Jackson</td>
-<td>1,261,026   ns</td>
-<td>2,030,874   ns</td>
-<td>3,939,600   ns</td>
-</tr>
-<tr>
-<td>JsonReader</td>
-<td>190,302   ns</td>
-<td>1,176,479   ns</td>
-<td>3,464,174   ns</td>
-</tr>
-<tr>
-<td>Kudos-JsonReader</td>
-<td>215,974   ns</td>
-<td>1,359,587   ns</td>
-<td>4,019,024   ns</td>
-</tr>
-</tbody>
-</table>
-<h3 id="_15">一次运行测试结果</h3>
-<table>
-<thead>
-<tr>
-<th></th>
-<th>small json</th>
-<th>medium json</th>
-<th>large json</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Gson</td>
-<td>3,974,219   ns</td>
-<td>4,666,927   ns</td>
-<td>8,271,355   ns</td>
-</tr>
-<tr>
-<td>Kudos-Gson</td>
-<td>4,531,718   ns</td>
-<td>6,244,479   ns</td>
-<td>11,160,782   ns</td>
-</tr>
-<tr>
-<td>Jackson</td>
-<td>12,821,094   ns</td>
-<td>13,930,625   ns</td>
-<td>15,989,791   ns</td>
-</tr>
-<tr>
-<td>Kudos-Jackson</td>
-<td>13,233,750   ns</td>
-<td>15,674,010   ns</td>
-<td>18,641,302   ns</td>
-</tr>
-<tr>
-<td>JsonReader</td>
-<td>662,032   ns</td>
-<td>2,056,666   ns</td>
-<td>4,624,687   ns</td>
-</tr>
-<tr>
-<td>Kudos-JsonReader</td>
-<td>734,907   ns</td>
-<td>2,362,010   ns</td>
-<td>6,212,917   ns</td>
-</tr>
-</tbody>
-</table>
-<h2 id="kotlin">如何学习 Kotlin 编译器插件</h2>
-<p>Kotlin 编译器插件目前还没有稳定，没有稳定的 API 与文档，那么我们该如何学习 Kotlin 编译器插件呢？</p>
-<ul>
-<li>通过 Kotlin 源码学习：由于没有文档，Kotlin 源码实际上就是最新的文档，如果想要学习 KCP，可以先从 Kotlin 官方开发的插件，例如 Parcelize, NoArg 等开始</li>
-<li>通过 AI 学习：当我们在开发编译器插件时，往往是知道想要生成的代码的样式，却由于没有 API 不知道如何实现，这种场景正是 AI 的用武之地了，我们可以提供给 AI 想要生成的代码示例，返回编译器插件的实现。</li>
-<li>学习《深入实践 Kotlin 元编程》：这本书是目前少有的针对 Kotlin 编译器插件做了系统介绍的学习资料，除此之外，还介绍了反射，代码生成，程序静态分析，符号处理器等 Kotlin 元编程技术，想要深入学习 Kotlin 元编程的同学都可以了解下。</li>
-</ul>
-<p><img alt="" src="https://raw.gitmirror.com/RicardoJiang/resource/main/2023/august/p3.png" /></p>
-<h2 id="_16">总结</h2>
-<p>本文主要介绍了如何使用 Kudos ，以及 Kudos 到底是如何实现的，如果有任何问题，欢迎提出 Issue，如果对你有所帮助，欢迎点赞收藏 Star ~</p>
-<h3 id="_17">开源地址</h3>
-<p><a href="https://github.com/kanyun-inc/Kudos">https://github.com/kanyun-inc/Kudos</a></p>
+<h3 id="ram512">RAM512</h3>
+<pre><code>/**
+ * Memory of 512 16-bit registers.
+ * If load is asserted, the value of the register selected by
+ * address is set to in; Otherwise, the value does not change.
+ * The value of the selected register is emitted by out.
+ */
+CHIP RAM512 {
+    IN in[16], load, address[9];
+    OUT out[16];
+
+    PARTS:
+    DMux8Way(in = load, sel = address[6..8], a = loadA, b = loadB, c = loadC, d = loadD, e = loadE, f = loadF, g = loadG, h = loadH);
+
+    RAM64(in = in, load = loadA, address = address[0..5], out = o1);
+    RAM64(in = in, load = loadB, address = address[0..5], out = o2);
+    RAM64(in = in, load = loadC, address = address[0..5], out = o3);
+    RAM64(in = in, load = loadD, address = address[0..5], out = o4);
+    RAM64(in = in, load = loadE, address = address[0..5], out = o5);
+    RAM64(in = in, load = loadF, address = address[0..5], out = o6);
+    RAM64(in = in, load = loadG, address = address[0..5], out = o7);
+    RAM64(in = in, load = loadH, address = address[0..5], out = o8);
+
+    Mux8Way16(a = o1, b = o2, c = o3, d = o4, e = o5, f = o6, g = o7, h = o8, sel = address[6..8], out = out);
+}
+</code></pre>
+<h3 id="ram4k">RAM4K</h3>
+<pre><code>/**
+ * Memory of 4K 16-bit registers.
+ * If load is asserted, the value of the register selected by
+ * address is set to in; Otherwise, the value does not change.
+ * The value of the selected register is emitted by out.
+ */
+CHIP RAM4K {
+    IN in[16], load, address[12];
+    OUT out[16];
+
+    PARTS:
+    DMux8Way(in = load, sel = address[9..11], a = loadA, b = loadB, c = loadC, d = loadD, e = loadE, f = loadF, g = loadG, h = loadH);
+
+    RAM512(in = in, load = loadA, address = address[0..8], out = o1);
+    RAM512(in = in, load = loadB, address = address[0..8], out = o2);
+    RAM512(in = in, load = loadC, address = address[0..8], out = o3);
+    RAM512(in = in, load = loadD, address = address[0..8], out = o4);
+    RAM512(in = in, load = loadE, address = address[0..8], out = o5);
+    RAM512(in = in, load = loadF, address = address[0..8], out = o6);
+    RAM512(in = in, load = loadG, address = address[0..8], out = o7);
+    RAM512(in = in, load = loadH, address = address[0..8], out = o8);
+
+    Mux8Way16(a = o1, b = o2, c = o3, d = o4, e = o5, f = o6, g = o7, h = o8, sel = address[9..11], out = out);
+}
+</code></pre>
+<h3 id="ram16k">RAM16K</h3>
+<pre><code>CHIP RAM16K {
+    IN in[16], load, address[14];
+    OUT out[16];
+
+    PARTS:
+    DMux4Way(in = load, sel = address[12..13], a = loadA, b = loadB, c = loadC, d = loadD);
+
+    RAM4K(in = in, load = loadA, address = address[0..11], out = o1);
+    RAM4K(in = in, load = loadB, address = address[0..11], out = o2);
+    RAM4K(in = in, load = loadC, address = address[0..11], out = o3);
+    RAM4K(in = in, load = loadD, address = address[0..11], out = o4);
+
+    Mux4Way16(a = o1, b = o2, c = o3, d = o4, sel = address[12..13], out = out);
+}
+</code></pre>
+<h3 id="pc">PC</h3>
+<pre><code>/**
+ * A 16-bit counter.
+ * if      reset(t): out(t+1) = 0
+ * else if load(t):  out(t+1) = in(t)
+ * else if inc(t):   out(t+1) = out(t) + 1
+ * else              out(t+1) = out(t)
+ */
+CHIP PC {
+    IN in[16], reset, load, inc;
+    OUT out[16];
+
+    PARTS:
+    Mux16(a = preOut, b = addOut, sel = inc, out = o1);
+
+    Mux16(a = o1, b = in, sel = load, out = o2);
+
+    Mux16(a = o2, b = false, sel = reset, out = o3);
+
+    Register(in = o3, load = true, out = preOut, out = out);
+
+    Inc16(in = preOut, out = addOut);
+}
+</code></pre>
 
   <hr>
 <div class="md-source-file">
@@ -2912,7 +2529,7 @@ data class User(
       <nav class="md-footer__inner md-grid" aria-label="页脚" >
         
           
-          <a href="../json-serialization-speed/" class="md-footer__link md-footer__link--prev" aria-label="上一页: 常用 JSON 库性能对比" rel="prev">
+          <a href="../bool-arithmetic/" class="md-footer__link md-footer__link--prev" aria-label="上一页: 布尔运算" rel="prev">
             <div class="md-footer__button md-icon">
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
             </div>
@@ -2921,20 +2538,20 @@ data class User(
                 上一页
               </span>
               <div class="md-ellipsis">
-                常用 JSON 库性能对比
+                布尔运算
               </div>
             </div>
           </a>
         
         
           
-          <a href="../../memory/memory-usage-analyse/" class="md-footer__link md-footer__link--next" aria-label="下一页: App 内存占用分析" rel="next">
+          <a href="../../framework/activity-start/" class="md-footer__link md-footer__link--next" aria-label="下一页: Activity 启动流程分析" rel="next">
             <div class="md-footer__title">
               <span class="md-footer__direction">
                 下一页
               </span>
               <div class="md-ellipsis">
-                App 内存占用分析
+                Activity 启动流程分析
               </div>
             </div>
             <div class="md-footer__button md-icon">
