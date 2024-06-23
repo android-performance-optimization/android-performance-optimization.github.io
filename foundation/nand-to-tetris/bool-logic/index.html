@@ -16,7 +16,7 @@
         <link rel="prev" href="../introduction/">
       
       
-        <link rel="next" href="../../framework/activity-start/">
+        <link rel="next" href="../bool-arithmetic/">
       
       <link rel="icon" href="../../../assets/favicon.png">
       <meta name="generator" content="mkdocs-1.6.0, mkdocs-material-9.1.16">
@@ -1134,6 +1134,8 @@
         
           
         
+          
+        
       
       
         <label class="md-nav__link" for="__nav_3_5" id="__nav_3_5_label" tabindex="0">
@@ -1364,6 +1366,20 @@
   
 </nav>
       
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../bool-arithmetic/" class="md-nav__link">
+        布尔运算
+      </a>
     </li>
   
 
@@ -2392,7 +2408,12 @@ simulator），它接受输入的HDL 程序，在计算机内存中构建该虚�
 }
 </code></pre>
 <h3 id="mux">Mux</h3>
-<pre><code>CHIP Mux {
+<pre><code>/** 
+ * Multiplexor:
+ * if (sel = 0) out = a, else out = b
+ */
+
+CHIP Mux {
     IN a, b, sel;
     OUT out;
 
@@ -2631,13 +2652,13 @@ simulator），它接受输入的HDL 程序，在计算机内存中构建该虚�
         
         
           
-          <a href="../../framework/activity-start/" class="md-footer__link md-footer__link--next" aria-label="下一页: Activity 启动流程分析" rel="next">
+          <a href="../bool-arithmetic/" class="md-footer__link md-footer__link--next" aria-label="下一页: 布尔运算" rel="next">
             <div class="md-footer__title">
               <span class="md-footer__direction">
                 下一页
               </span>
               <div class="md-ellipsis">
-                Activity 启动流程分析
+                布尔运算
               </div>
             </div>
             <div class="md-footer__button md-icon">

@@ -10,20 +10,20 @@
       
       
       
-        <link rel="canonical" href="https://android-performance-optimization.github.io/foundation/self-cultivation/memory/">
+        <link rel="canonical" href="https://android-performance-optimization.github.io/foundation/nand-to-tetris/bool-arithmetic/">
       
       
-        <link rel="prev" href="../dynamic-link/">
+        <link rel="prev" href="../bool-logic/">
       
       
-        <link rel="next" href="../system-call/">
+        <link rel="next" href="../../framework/activity-start/">
       
       <link rel="icon" href="../../../assets/favicon.png">
       <meta name="generator" content="mkdocs-1.6.0, mkdocs-material-9.1.16">
     
     
       
-        <title>内存 - Android 性能优化手册</title>
+        <title>布尔运算 - Android 性能优化手册</title>
       
     
     
@@ -113,7 +113,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              内存
+              布尔运算
             
           </span>
         </div>
@@ -258,7 +258,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="../elf-file-detail/" class="md-tabs__link md-tabs__link--active">
+      <a href="../../self-cultivation/elf-file-detail/" class="md-tabs__link md-tabs__link--active">
         筑基手册
       </a>
     </li>
@@ -493,16 +493,14 @@
               
   
   
-    
-  
   
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
       
       
       
-      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_1" checked>
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_1" >
       
       
         
@@ -525,7 +523,7 @@
           <span class="md-nav__icon md-icon"></span>
         </label>
       
-      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_1_label" aria-expanded="true">
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_1_label" aria-expanded="false">
         <label class="md-nav__title" for="__nav_3_1">
           <span class="md-nav__icon md-icon"></span>
           程序员的自我修养
@@ -538,7 +536,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../elf-file-detail/" class="md-nav__link">
+      <a href="../../self-cultivation/elf-file-detail/" class="md-nav__link">
         Elf 文件格式详解
       </a>
     </li>
@@ -552,7 +550,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../static-link/" class="md-nav__link">
+      <a href="../../self-cultivation/static-link/" class="md-nav__link">
         静态链接
       </a>
     </li>
@@ -566,7 +564,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../elf-load/" class="md-nav__link">
+      <a href="../../self-cultivation/elf-load/" class="md-nav__link">
         ELF 文件的装载与进程
       </a>
     </li>
@@ -580,7 +578,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../dynamic-link/" class="md-nav__link">
+      <a href="../../self-cultivation/dynamic-link/" class="md-nav__link">
         动态链接
       </a>
     </li>
@@ -592,120 +590,11 @@
               
   
   
-    
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          内存
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../../self-cultivation/memory/" class="md-nav__link">
         内存
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="目录">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      目录
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
-    程序的内存布局
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
-    栈
-  </a>
-  
-    <nav class="md-nav" aria-label="栈">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#_4" class="md-nav__link">
-    什么是栈
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_5" class="md-nav__link">
-    函数调用的过程
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_6" class="md-nav__link">
-    堆与内存管理
-  </a>
-  
-    <nav class="md-nav" aria-label="堆与内存管理">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#_7" class="md-nav__link">
-    什么是堆
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#linux" class="md-nav__link">
-    Linux 进程堆管理
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_8" class="md-nav__link">
-    堆分配算法
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_9" class="md-nav__link">
-    总结
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -717,7 +606,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../system-call/" class="md-nav__link">
+      <a href="../../self-cultivation/system-call/" class="md-nav__link">
         系统调用
       </a>
     </li>
@@ -1228,14 +1117,16 @@
               
   
   
+    
+  
   
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
       
       
       
-      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_5" >
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_5" checked>
       
       
         
@@ -1252,7 +1143,7 @@
           <span class="md-nav__icon md-icon"></span>
         </label>
       
-      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_5_label" aria-expanded="false">
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_5_label" aria-expanded="true">
         <label class="md-nav__title" for="__nav_3_5">
           <span class="md-nav__icon md-icon"></span>
           计算机系统要素
@@ -1265,7 +1156,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../nand-to-tetris/introduction/" class="md-nav__link">
+      <a href="../introduction/" class="md-nav__link">
         前言
       </a>
     </li>
@@ -1279,7 +1170,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../nand-to-tetris/bool-logic/" class="md-nav__link">
+      <a href="../bool-logic/" class="md-nav__link">
         布尔逻辑
       </a>
     </li>
@@ -1291,11 +1182,147 @@
               
   
   
+    
   
-    <li class="md-nav__item">
-      <a href="../../nand-to-tetris/bool-arithmetic/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          布尔运算
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         布尔运算
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    基础知识
+  </a>
+  
+    <nav class="md-nav" aria-label="基础知识">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    二进制数
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    有符号二进制数
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    规范详述
+  </a>
+  
+    <nav class="md-nav" aria-label="规范详述">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    加法器
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#alu" class="md-nav__link">
+    算术逻辑单元(ALU)
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    项目
+  </a>
+  
+    <nav class="md-nav" aria-label="项目">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#halfadder" class="md-nav__link">
+    HalfAdder
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fulladder" class="md-nav__link">
+    FullAdder
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#add16" class="md-nav__link">
+    Add16
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#inc16" class="md-nav__link">
+    Inc16
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#aul" class="md-nav__link">
+    AUL
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -2074,29 +2101,22 @@
       
         <li class="md-nav__item">
   <a href="#_2" class="md-nav__link">
-    程序的内存布局
+    基础知识
+  </a>
+  
+    <nav class="md-nav" aria-label="基础知识">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    二进制数
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
-    栈
-  </a>
-  
-    <nav class="md-nav" aria-label="栈">
-      <ul class="md-nav__list">
         
           <li class="md-nav__item">
   <a href="#_4" class="md-nav__link">
-    什么是栈
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_5" class="md-nav__link">
-    函数调用的过程
+    有符号二进制数
   </a>
   
 </li>
@@ -2107,30 +2127,23 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_6" class="md-nav__link">
-    堆与内存管理
+  <a href="#_5" class="md-nav__link">
+    规范详述
   </a>
   
-    <nav class="md-nav" aria-label="堆与内存管理">
+    <nav class="md-nav" aria-label="规范详述">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#_7" class="md-nav__link">
-    什么是堆
+  <a href="#_6" class="md-nav__link">
+    加法器
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#linux" class="md-nav__link">
-    Linux 进程堆管理
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_8" class="md-nav__link">
-    堆分配算法
+  <a href="#alu" class="md-nav__link">
+    算术逻辑单元(ALU)
   </a>
   
 </li>
@@ -2141,9 +2154,50 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_9" class="md-nav__link">
-    总结
+  <a href="#_7" class="md-nav__link">
+    项目
   </a>
+  
+    <nav class="md-nav" aria-label="项目">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#halfadder" class="md-nav__link">
+    HalfAdder
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fulladder" class="md-nav__link">
+    FullAdder
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#add16" class="md-nav__link">
+    Add16
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#inc16" class="md-nav__link">
+    Inc16
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#aul" class="md-nav__link">
+    AUL
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -2165,92 +2219,212 @@
   
 
 
-<h1 id="_1">内存</h1>
-<p>最近在读《程序员的自我修养：链接，装载与库》，其实这本书跟 Android 开发的联系还挺紧密的，无论是 NDK 开发，或者是性能优化中一些常用的 Native Hoook 手段，都需要了解一些链接，装载相关的知识点。本文为读书笔记。</p>
-<h2 id="_2">程序的内存布局</h2>
-<p>现代的应用程序都运行在一个内存空间里，在 32 位的系统里，这个内存空间拥有 4GB（2的32次方）的寻址能力。</p>
-<p>大多数操作系统都会将 4GB 的内存空间中的一部分挪给内核使用，应用程序无法直接访问这一段内存，这一部分内存地址被称为内核空间。Linux 默认情况下会将高地址的 1GB 空间分配给内核，用户使用的剩下 3GB 的内存空间称为用户空间。</p>
-<p>一般来说，应用程序使用的内存空间里包括如下“默认”的区域：</p>
+<h1 id="_1">布尔运算</h1>
+<p>本章主要介绍了如何基于上一章构建的逻辑门电路构建出 ALU(Arithmetic Logic Unit/算术逻辑单元)</p>
+<p>ALU 是核心的单元，它执行所有的算术和逻辑操作。因此，要理解中央处理器（Central Processing Unit, CPU）以及整个计算机的工作方式，构建 ALU 功能
+模块是很重要的一步。</p>
+<p><img alt="" src="https://raw.gitmirror.com/RicardoJiang/resource/main/2024/june/p14.png" /></p>
+<h2 id="_2">基础知识</h2>
+<h3 id="_3">二进制数</h3>
+<p>计算机是基于二进制系统的，用于两个 n 位数字二进制加法的计算机硬件可以由三位（两个计算位加上一个进位）加法的逻辑门构建而成。</p>
+<h3 id="_4">有符号二进制数</h3>
+<p>n 位二进制系统可以产生2的n次方个不同的组合。如果必须用二进制码表示有符号数，有个简单的方法就是，将这个空间分成两个相同的子集，一个子集用来表示正数，另一个表示负数。从理想的角度来说，编码规则应该按照如下原则来进行：有符号数的引入应该使硬件实现的复杂程度尽可能小。</p>
+<p>有符号数的二进制表示促进了很多编码体系的发展。如今几乎所有计算机都采用称为 2-补码（2's complement）的编码方式，也称为基补码（radix complement）。在n位的二进
+制系统中，数x的补码定义如下：</p>
+<pre><code>if (x != 0){
+    return 2^n-x
+} else {
+    return 0
+}
+</code></pre>
+<p>这种表示法有个特别有吸引力的特征：任何两个用补码表示的有符号数的加法和与正数的加法完全相同。</p>
+<p>简单来说，我们发现补码表示法可以实现任何两个有符号数的加法而不需要特殊的硬件。那么减法是怎样的呢？前面说过，在补码表示里面，对有符号数x的取反，也就是计算 -x，要将 x 的所有位取反然后再加 1。因此，减法可以被看成 x一y = x ＋（一y）。这样，硬件的复杂度也保持在最小。</p>
+<p>这些理论结果的实际含义是很重要的。基本上，它们意味着能用单一芯片（称为算术逻辑单元，ALU 即 Arithmetic Logical Unit）将硬件执行的所有基本算术操作和逻辑操作都封装起来。</p>
+<h2 id="_5">规范详述</h2>
+<h3 id="_6">加法器</h3>
+<p>我们介绍三个加法器，并由此引出多位加法器芯片：
+- 半加器（Half-adder）：用来进行两位加法。
+- 全加器（Full-adder）：用来进行三位加法。
+- 加法器（Adder）：用来进行两个n位加法。</p>
+<p>我们也介绍了一种特殊的加法器，称为增量器（incrementer），用来对指定的数字加1。</p>
 <ul>
-<li>栈：栈用于维护函数调用的上下文，离开了栈函数调用就没法实现。栈通常在用户空间的最高地址处分配，通常有数兆字节的大小。</li>
-<li>堆：堆是用来容纳应用程序动态分配的内存区域，当程序使用 malloc 或 new 分配内存时，得到的内存来自堆里。堆通常存在于栈的下方（低地址方向），在某些时候，堆也可能没有固定统一的存储区域。堆一般比栈大很多，可以有几十至数百兆字节的容量。</li>
-<li>可执行文件映像：这里存储着可执行文件在内存里的映像，由装载器在装载时将可执行文件的内存读取或映射到这里。</li>
-<li>保留区：保留区并不是一个单一的内存区域，而是对内存中受到保护而禁止访问的内存区域的总称，例如，大多数操作系统里，极小的地址通常都是不允许访问的，如NULL。通常 C 语言将无效指针赋值为0也是出于这个考虑，因为0地址上正常情况下不可能有有效的可访问数据。</li>
+<li>半加器：进行二进制数加法的第一步就是要能够对两个二进制位进行相加。我们把结果的LSB(Least Significant Bits 最右边的一位) 位称为sum，MSB(Most Significant Bits 最左边的一位) 位称为 carry。图</li>
+<li>全加器：现在已经知道了如何对两个位进行相加，全加器就是支持进位运算的半加器，用来对三个位相加。跟半加器一样，全加器电路也会产生两个输出：加法的LSB位和进位。</li>
+<li>加法器：存储器和寄存器电路用n-位的形式来表示整数，n可以是16、32、64等等。进行n-位加法的芯片称为多位加法器（multi-bit adder），或者简称为加法器。</li>
+<li>增量器：专门构建一个“对指定数字加1”的电路，这样做会带来很多便利。</li>
 </ul>
-<p><img alt="" src="https://raw.gitmirror.com/RicardoJiang/resource/main/2023/september/p2.jpg" /></p>
-<p>如图所示，栈向低地址增长，堆向高地址增长。当栈或堆现有的大小不够用时，它将按照图中的增长方向扩大自身的尺寸，直到预留的空间被用完为止。</p>
-<h2 id="_3">栈</h2>
-<h3 id="_4">什么是栈</h3>
-<p>栈（stack）是现代计算机程序里最为重要的概念之一，几乎每一个程序都使用了栈，没有栈就没有函数，没有局部变量，也就没有我们如今能够看见的所有的计算机语言。在解释为什么栈会如此重要之前，让我们来先了解一下传统的栈的定义：</p>
-<p>在经典的计算机科学中，栈被定义为一个特殊的容器，用户可以将数据压入栈中（入栈，push），也可以将已经压入栈中的数据弹出（出栈，pop），但栈这个容器必须遵守一条规则：先入栈的数据后出栈（First In Last Out, FIFO），即先进后出。</p>
-<p>而在操作系统中，栈则是一个具有以上属性的动态内存区域。程序可以将数据压入栈中，也可以将数据从栈顶弹出。压栈操作使得栈增大，而弹出操作使栈减小。在经典的操作系统里，栈总是向下增长的。</p>
-<p>栈在程序运行中具有举足轻重的地位。最重要的，栈保存了一个函数调用所需要的维护信息，这常常被称为堆栈帧（Stack Frame）或活动记录（Activate Record）。堆栈帧一般包括如下几方面内容</p>
-<ul>
-<li>函数的返回地址和参数</li>
-<li>临时变量：包括函数的非静态局部变量以及编译器自动生成的其他临时变量。</li>
-<li>保存的上下文：包括在函数调用前后需要保持不变的寄存器。</li>
-</ul>
-<p>在i386中，一个函数的活动记录用 ebp 和 esp 这两个寄存器划定范围。esp 寄存器始终指向栈的顶部，同时也就指向了当前函数的活动记录的顶部。而相对的，ebp 寄存器指向了函数活动记录的一个固定位置，ebp 寄存器又被称为帧指针（Frame Pointer）。一个很常见的活动记录示例如图所示：</p>
-<p><img alt="" src="https://raw.gitmirror.com/RicardoJiang/resource/main/2023/september/p3.jpg" /></p>
-<ul>
-<li>在参数之后的数据（包括参数）即是当前函数的活动记录。</li>
-<li>ebp 固定在图中所示的位置，不随这个函数的执行而变化，相反地，esp始终指向栈顶，因此随着函数的执行，esp会不断变化。</li>
-<li>固定不变的ebp可以用来定位函数活动记录中的各个数据。在ebp之前首先是这个函数的返回地址，它的地址是ebp-4，再往前是压入栈中的参数，它们的地址分别是ebp-8、ebp-12等，视参数数量和大小而定。</li>
-<li>ebp所直接指向的数据是调用该函数前ebp的值，这样在函数返回的时候，ebp可以通过读取这个值恢复到调用前的值。</li>
-</ul>
-<h3 id="_5">函数调用的过程</h3>
-<p>之所以函数的活动记录会形成如上的结构，是因为函数调用本身是如此书写的：一个i386下的函数总是这样调用的：</p>
-<ul>
-<li>把所有或一部分参数压入栈中，如果有其他参数没有入栈，那么使用某些特定的寄存器传递。</li>
-<li>把当前指令的下一条指令的地址压入栈中。</li>
-<li>跳转到函数体执行。</li>
-</ul>
-<p>其中第 2 步和第 3 步由指令call一起执行。跳转到函数体之后即开始执行函数，而i386函数体的“标准”开头是这样的：</p>
-<ul>
-<li>push ebp：把 ebp 压入栈中（称为old ebp）。</li>
-<li>mov ebp, esp：ebp = esp（这时ebp指向栈顶，而此时栈顶就是old ebp）。</li>
-<li>【可选】sub esp, XXX：在栈上分配XXX字节的临时空间。</li>
-<li>【可选】push XXX：如有必要，保存名为XXX寄存器（可重复多个）。</li>
-</ul>
-<p>把 ebp 压入栈中，是为了在函数返回的时候便于恢复以前的 ebp 值。而之所以可能要保存一些寄存器，在于编译器可能要求某些寄存器在调用前后保持不变，那么函数就可以在调用开始时将这些寄存器的值压入栈中，在结束后再取出。而在函数返回时，所进行的“标准”结尾与“标准”开头正好相反</p>
-<ul>
-<li>【可选】pop XXX：如有必要，恢复保存过的寄存器（可重复多个）</li>
-<li>mov esp, ebp：恢复ESP同时回收局部变量空间。</li>
-<li>pop ebp：从栈中恢复保存的ebp的值。</li>
-<li>ret：从栈中取得返回地址，并跳转到该位置。</li>
-</ul>
-<p><img alt="" src="https://raw.gitmirror.com/RicardoJiang/resource/main/2023/september/p4.jpg" /></p>
-<h2 id="_6">堆与内存管理</h2>
-<h3 id="_7">什么是堆</h3>
-<p>光有栈对于面向过程的程序设计还远远不够，因为栈上的数据在函数返回的时候就会被释放掉，所以无法将数据传递至函数外部。而全局变量没有办法动态地产生，只能在编译的时候定义，有很多情况下缺乏表现力。在这种情况下，堆（Heap）是唯一的选择。</p>
-<p>堆是一块巨大的内存空间，常常占据整个虚拟空间的绝大部分。在这片空间里，程序可以请求一块连续内存，并自由地使用，这块内存在程序主动放弃之前都会一直保持有效。</p>
-<p>当程序使用 malloc 或 new 分配内存时，得到的内存来自堆里。那么malloc到底是怎么实现的呢？</p>
-<p>有一种做法是，把进程的内存管理交给操作系统内核去做，既然内核管理着进程的地址空间，那么如果它提供一个系统调用，可以让程序使用这个系统调用申请内存，不就可以了吗？</p>
-<p>这种方式的问题在于性能比较差，因为每次程序申请或者释放堆空间都需要进行系统调用。我们知道系统调用的性能开销是很大的，当程序对堆的操作比较频繁时，这样做的结果会严重影响程序的性能。比较好的做法就是程序向操作系统申请一块适当大小的堆空间，然后由程序自己管理这块空间，而具体来讲，管理着堆空间分配的往往是程序的运行库。</p>
-<p>运行库相当于是向操作系统“批发”了一块较大的堆空间，然后“零售”给程序用。当全部“售完”或程序有大量的内存需求时，再根据实际需求向操作系统“进货”。当然运行库在向程序零售堆空间时，必须管理它批发来的堆空间，不能把同一块地址出售两次，导致地址的冲突。于是运行库需要一个算法来管理堆空间，这个算法就是堆的分配算法。</p>
-<p>不过在了解具体的分配算法之前，我们先来看看运行库是怎么向操作系统批发内存的。</p>
-<h3 id="linux">Linux 进程堆管理</h3>
-<p>Linux 提供了两种堆空间分配方式，即两个系统调用：一个是 brk() 系统调用，另一个是 mmap()。</p>
-<p>brk() 的作用实际上就是设置进程数据段的结束地址，即它可以扩大或者缩小数据段（Linux 下数据段和 BSS 合并在一起统称数据段）。如果我们将数据段的结束地址向高地址移动，那么扩大的那部分空间就可以被我们使用，把这块空间拿来作为堆空间是最常见的做法之一。</p>
-<p>mmap() 的作用就是向操作系统申请一段虚拟地址空间，当然这块虚拟地址空间可以映射到某个文件（这也是这个系统调用的最初的作用），当它不将地址空间映射到某个文件时，我们又称这块空间为匿名（Anonymous）空间，匿名空间就可以拿来作为堆空间。</p>
-<p>glibc 的 malloc 函数是这样处理用户的空间请求的：对于小于 128KB 的请求来说，它会在现有的堆空间里面，按照堆分配算法为它分配一块空间并返回；对于大于 128KB 的请求来说，它会使用 mmap() 函数为它分配一块匿名空间，然后在这个匿名空间中为用户分配空间。</p>
-<h3 id="_8">堆分配算法</h3>
-<p>前面介绍了堆在进程中的地址空间是如何分布的，对于程序来说，堆空间只是程序向操作系统申请划出来的一大块地址空间。而程序在通过malloc申请内存空间时的大小却是不一定的，从数个字节到数个GB都是有可能的。</p>
-<p>于是我们必须将堆空间管理起来，将它分块地按照用户需求出售给最终的程序，并且还可以按照一定的方式收回内存。其实这个问题可以归结为：如何管理一大块连续的内存空间，能够按照需求分配、释放其中的空间，这就是堆分配的算法。</p>
-<p>下面介绍一些简单的堆分配算法：</p>
-<ul>
-<li>空闲链表：空闲链表（Free List）的方法实际上就是把堆中各个空闲的块按照链表的方式连接起来，当用户请求一块空间时，可以遍历整个列表，直到找到合适大小的块并且将它拆分；当用户释放空间时将它合并到空闲链表中。</li>
-<li>位图：其核心思想是将整个堆划分为大量的块（block），每个块的大小相同。当用户请求内存的时候，总是分配整数个块的空间给用户，第一个块我们称为已分配区域的头（Head），其余的称为已分配区域的主体（Body）。而我们可以使用一个整数数组来记录块的使用情况，由于每个块只有头/主体/空闲三种状态，因此仅仅需要两位即可表示一个块，因此称为位图。</li>
-<li>对象池：对象池的思路很简单，如果每一次分配的空间大小都一样，那么就可以按照这个每次请求分配的大小作为一个单位，把整个堆空间划分为大量的小块，每次请求的时候只需要找到一个小块就可以了。对象池的管理方法可以采用空闲链表，也可以采用位图，与它们的区别仅仅在于它假定了每次请求的都是一个固定的大小，因此实现起来很容易。由于每次总是只请求一个单位的内存，因此请求得到满足的速度非常快，无须查找一个足够大的空间。</li>
-</ul>
-<p>实际上很多现实应用中，堆的分配算法往往是采取多种算法复合而成的。比如对于 glibc 来说，它对于小于 64 字节的空间申请是采用类似于对象池的方法；而对于大于 512 字节的空间申请采用的是最佳适配算法；对于大于 64 字节而小于 512 字节的，它会根据情况采取上述方法中的最佳折中策略；对于大于 128KB 的申请，它会使用 mmap 机制直接向操作系统申请空间。</p>
-<h2 id="_9">总结</h2>
-<p>内存是程序运行的基础运行环境之一，了解程序如何使用内存，对于程序本身的理解也非常重要，本文主要包括以下内容：</p>
-<ul>
-<li>介绍了 i386 体系结构下程序的基本内存布局</li>
-<li>什么是栈，以及栈在函数调用过程中的作用</li>
-<li>什么是堆，Linux 进程的堆管理机制，以及主要的堆分配算法</li>
-</ul>
+<h3 id="alu">算术逻辑单元(ALU)</h3>
+<p>接下来就是构建 Hack 计算的 ALU 模块了</p>
+<p><img alt="" src="https://raw.gitmirror.com/RicardoJiang/resource/main/2024/june/p15.png" /></p>
+<p>Hack 的ALU 计算一组固定的函数out=f（，y），这里x和y是芯片的两个 16-位输入，out是芯片的16-位输出，f是位于一个函数表中的函数，该函数表由18个固定函数组成。</p>
+<p>我们通过设置六个称为控制位（control bits）的输入位来告诉 ALU 用哪一个函数来进行何种函数计算。下图给出了用伪代码表示的详细的输入/输出规范。</p>
+<p>要注意的是，这6个控制位的每一位指示ALU 来执行某个基本操作。这些操作的各种组合可以让 ALU 计算多种有用的函数。因为全部操作都是由6个控制位引起的，那么
+ALU 可以对 2^6=64个不同的函数进行操作。下图列出了这些函数中的18种。</p>
+<p>可以看到，我们是通过将6个控制位设置成函数f（x，y）所对应的编码，来指示 ALU 计算该函数。从这点来看，下面描述的ALU 内部逻辑应该产生如图中列出的f（x,y）的
+输出值。当然，这不是碰巧产生的，而是精心设计的结果！</p>
+<p><img alt="" src="https://raw.gitmirror.com/RicardoJiang/resource/main/2024/june/p16.png" /></p>
+<p><img alt="" src="https://raw.gitmirror.com/RicardoJiang/resource/main/2024/june/p17.png" /></p>
+<p>对这个特殊ALU 的设计过程的描述是很有启发意义的。首先，我们制作了一张函数列表，其中包含了所有我们希望计算机能够执行的原始函数。接着，应用倒推法得出如何
+在二进制模式下操作x，y来实现期望的操作。这些处理要求以及“使ALU 逻辑尽可能简单”的目标，导致我们的在设计中使用6个控制位，每一位都直接对应一个简单的二进制
+操作。这样的 ALU 构造简单且结构良好。从硬件的角度来说，简单的、良好的结构意味着便宜但功能强大的计算机系统。</p>
+<h2 id="_7">项目</h2>
+<h3 id="halfadder">HalfAdder</h3>
+<pre><code>CHIP HalfAdder {
+    IN a, b;    // 1-bit inputs
+    OUT sum,    // Right bit of a + b 
+        carry;  // Left bit of a + b
+
+    PARTS:
+    Xor(a = a, b = b, out = sum);
+    And(a = a, b = b, out = carry);
+}
+</code></pre>
+<h3 id="fulladder">FullAdder</h3>
+<pre><code>CHIP FullAdder {
+    IN a, b, c;  // 1-bit inputs
+    OUT sum,     // Right bit of a + b + c
+        carry;   // Left bit of a + b + c
+
+    PARTS:
+    HalfAdder(a = a, b = b, sum = s1, carry = c1);
+    HalfAdder(a = s1, b = c, sum = sum, carry = c2);
+    Xor(a = c1, b = c2, out = carry);
+}
+</code></pre>
+<h3 id="add16">Add16</h3>
+<pre><code>CHIP Add16 {
+    IN a[16], b[16];
+    OUT out[16];
+
+    PARTS:
+    HalfAdder(a = a[0], b = b[0], sum = out[0], carry = c0);
+    FullAdder(a = a[1], b = b[1], c = c0, sum = out[1], carry = c1);
+    FullAdder(a = a[2], b = b[2], c = c1, sum = out[2], carry = c2);
+    FullAdder(a = a[3], b = b[3], c = c2, sum = out[3], carry = c3);
+    FullAdder(a = a[4], b = b[4], c = c3, sum = out[4], carry = c4);
+    FullAdder(a = a[5], b = b[5], c = c4, sum = out[5], carry = c5);
+    FullAdder(a = a[6], b = b[6], c = c5, sum = out[6], carry = c6);
+    FullAdder(a = a[7], b = b[7], c = c6, sum = out[7], carry = c7);
+    FullAdder(a = a[8], b = b[8], c = c7, sum = out[8], carry = c8);
+    FullAdder(a = a[9], b = b[9], c = c8, sum = out[9], carry = c9);
+    FullAdder(a = a[10], b = b[10], c = c9, sum = out[10], carry = c10);
+    FullAdder(a = a[11], b = b[11], c = c10, sum = out[11], carry = c11);
+    FullAdder(a = a[12], b = b[12], c = c11, sum = out[12], carry = c12);
+    FullAdder(a = a[13], b = b[13], c = c12, sum = out[13], carry = c13);
+    FullAdder(a = a[14], b = b[14], c = c13, sum = out[14], carry = c14);
+    FullAdder(a = a[15], b = b[15], c = c14, sum = out[15], carry = c15);
+}
+</code></pre>
+<h3 id="inc16">Inc16</h3>
+<pre><code>CHIP Inc16 {
+    IN in[16];
+    OUT out[16];
+
+    PARTS:
+    Add16(a = in, b[0] = true, b[1..15] = false, out = out);
+}
+</code></pre>
+<h3 id="aul">AUL</h3>
+<pre><code>/**
+ * ALU (Arithmetic Logic Unit):
+ * Computes out = one of the following functions:
+ *                0, 1, -1,
+ *                x, y, !x, !y, -x, -y,
+ *                x + 1, y + 1, x - 1, y - 1,
+ *                x + y, x - y, y - x,
+ *                x &amp; y, x | y
+ * on the 16-bit inputs x, y,
+ * according to the input bits zx, nx, zy, ny, f, no.
+ * In addition, computes the two output bits:
+ * if (out == 0) zr = 1, else zr = 0
+ * if (out &lt; 0)  ng = 1, else ng = 0
+ */
+// Implementation: Manipulates the x and y inputs
+// and operates on the resulting values, as follows:
+// if (zx == 1) sets x = 0        // 16-bit constant
+// if (nx == 1) sets x = !x       // bitwise not
+// if (zy == 1) sets y = 0        // 16-bit constant
+// if (ny == 1) sets y = !y       // bitwise not
+// if (f == 1)  sets out = x + y  // integer 2's complement addition
+// if (f == 0)  sets out = x &amp; y  // bitwise and
+// if (no == 1) sets out = !out   // bitwise not
+CHIP ALU {
+    IN  
+        x[16], y[16],  // 16-bit inputs        
+        zx, // zero the x input?
+        nx, // negate the x input?
+        zy, // zero the y input?
+        ny, // negate the y input?
+        f,  // compute (out = x + y) or (out = x &amp; y)?
+        no; // negate the out output?
+    OUT 
+        out[16], // 16-bit output
+        zr,      // if (out == 0) equals 1, else 0
+        ng;      // if (out &lt; 0)  equals 1, else 0
+
+    PARTS:
+     // zx
+    Mux16(a = x, b = false, sel = zx, out = x1);
+
+    // nx
+    Not16(in = x1, out = x2);
+    Mux16(a = x1, b = x2, sel = nx, out = x3);
+
+    // zy
+    Mux16(a = y, b = false, sel = zy, out = y1);
+
+    // ny
+    Not16(in = y1, out = y2);
+    Mux16(a = y1, b = y2, sel = ny, out = y3);
+
+    // f
+    And16(a = x3, b = y3, out = f1);
+    Add16(a = x3, b = y3, out = f2);
+    Mux16(a = f1, b = f2, sel = f, out = o1);
+
+    // no
+    Not16(in = o1, out = o2);
+    Mux16(a = o1, b = o2, sel = no, out = out, out = o3);
+
+    // zr
+    Or16Way(in = o3, out = zr1);
+    Not(in = zr1, out = zr);
+
+    // ng
+    IsNeg(in = o3, out = ng);
+}
+
+CHIP Or16Way {
+    IN in[16];
+    OUT out;
+
+    PARTS:
+    Or(a = in[0], b = in[1], out = o1);
+    Or(a = o1, b = in[2], out = o2);
+    Or(a = o2, b = in[3], out = o3);
+    Or(a = o3, b = in[4], out = o4);
+    Or(a = o4, b = in[5], out = o5);
+    Or(a = o5, b = in[6], out = o6);
+    Or(a = o6, b = in[7], out = o7);
+    Or(a = o7, b = in[8], out = o8);
+    Or(a = o8, b = in[9], out = o9);
+    Or(a = o9, b = in[10], out = o10);
+    Or(a = o10, b = in[11], out = o11);
+    Or(a = o11, b = in[12], out = o12);
+    Or(a = o12, b = in[13], out = o13);
+    Or(a = o13, b = in[14], out = o14);
+    Or(a = o14, b = in[15], out = out);
+}
+
+CHIP IsNeg {
+
+    IN in[16];
+    OUT out;
+
+    PARTS:
+    Or(a = in[15], b = false, out = out);
+}
+</code></pre>
 
   <hr>
 <div class="md-source-file">
@@ -2288,7 +2462,7 @@
       <nav class="md-footer__inner md-grid" aria-label="页脚" >
         
           
-          <a href="../dynamic-link/" class="md-footer__link md-footer__link--prev" aria-label="上一页: 动态链接" rel="prev">
+          <a href="../bool-logic/" class="md-footer__link md-footer__link--prev" aria-label="上一页: 布尔逻辑" rel="prev">
             <div class="md-footer__button md-icon">
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
             </div>
@@ -2297,20 +2471,20 @@
                 上一页
               </span>
               <div class="md-ellipsis">
-                动态链接
+                布尔逻辑
               </div>
             </div>
           </a>
         
         
           
-          <a href="../system-call/" class="md-footer__link md-footer__link--next" aria-label="下一页: 系统调用" rel="next">
+          <a href="../../framework/activity-start/" class="md-footer__link md-footer__link--next" aria-label="下一页: Activity 启动流程分析" rel="next">
             <div class="md-footer__title">
               <span class="md-footer__direction">
                 下一页
               </span>
               <div class="md-ellipsis">
-                系统调用
+                Activity 启动流程分析
               </div>
             </div>
             <div class="md-footer__button md-icon">
