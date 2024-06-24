@@ -2481,6 +2481,8 @@ CHIP PC {
     OUT out[16];
 
     PARTS:
+    Inc16(in = preOut, out = addOut);
+
     Mux16(a = preOut, b = addOut, sel = inc, out = o1);
 
     Mux16(a = o1, b = in, sel = load, out = o2);
@@ -2488,8 +2490,6 @@ CHIP PC {
     Mux16(a = o2, b = false, sel = reset, out = o3);
 
     Register(in = o3, load = true, out = preOut, out = out);
-
-    Inc16(in = preOut, out = addOut);
 }
 </code></pre>
 
@@ -2498,7 +2498,7 @@ CHIP PC {
   <small>
     
       最后更新:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">June 23, 2024</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">June 24, 2024</span>
       
     
   </small>
