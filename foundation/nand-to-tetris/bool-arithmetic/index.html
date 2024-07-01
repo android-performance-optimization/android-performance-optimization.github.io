@@ -2288,7 +2288,7 @@
 <h3 id="alu">算术逻辑单元(ALU)</h3>
 <p>接下来就是构建 Hack 计算的 ALU 模块了</p>
 <p><img alt="" src="https://raw.gitmirror.com/RicardoJiang/resource/main/2024/june/p15.png" /></p>
-<p>Hack 的ALU 计算一组固定的函数out=f（，y），这里x和y是芯片的两个 16-位输入，out是芯片的16-位输出，f是位于一个函数表中的函数，该函数表由18个固定函数组成。</p>
+<p>Hack 的ALU 计算一组固定的函数out=f（x，y），这里x和y是芯片的两个 16-位输入，out是芯片的16-位输出，f是位于一个函数表中的函数，该函数表由18个固定函数组成。</p>
 <p>我们通过设置六个称为控制位（control bits）的输入位来告诉 ALU 用哪一个函数来进行何种函数计算。下图给出了用伪代码表示的详细的输入/输出规范。</p>
 <p>要注意的是，这6个控制位的每一位指示ALU 来执行某个基本操作。这些操作的各种组合可以让 ALU 计算多种有用的函数。因为全部操作都是由6个控制位引起的，那么
 ALU 可以对 2^6=64个不同的函数进行操作。下图列出了这些函数中的18种。</p>
@@ -2431,7 +2431,7 @@ CHIP ALU {
   <small>
     
       最后更新:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">June 29, 2024</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">July 1, 2024</span>
       
     
   </small>
