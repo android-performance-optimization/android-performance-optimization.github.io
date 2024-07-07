@@ -1447,6 +1447,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#io" class="md-nav__link">
+    I/O 处理程序
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -2446,6 +2453,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#io" class="md-nav__link">
+    I/O 处理程序
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -2592,6 +2606,62 @@ D;JGT
 // END PROGRAM
 (END)
 @END
+0;JMP
+</code></pre>
+<h3 id="io">I/O 处理程序</h3>
+<pre><code>// Runs an infinite loop that listens to the keyboard input. 
+// When a key is pressed (any key), the program blackens the screen,
+// i.e. writes &quot;black&quot; in every pixel. When no key is pressed, the
+// program clears the screen, i.e. writes &quot;white&quot; in every pixel.
+
+// Put your code here.
+@i
+M=0
+
+(LOOP)
+@KBD
+D=M
+@BLACK
+D;JGT    // key&gt;0 JUMP BLACK
+@WHITE
+D;JEQ    // key=0 JUMP WHITE
+
+(BLACK)
+@i
+D=M
+@8191
+D=D-A
+@LOOP
+D;JGT   // if MAX Then do noting
+@i
+D=M
+@SCREEN
+A=D+A
+M=-1
+@i
+M=M+1
+@LOOP
+0;JMP
+
+(WHITE)
+@i
+D=M
+@RESET
+D;JLT   // if MIN Then do noting
+@i
+D=M
+@SCREEN
+A=D+A
+M=0
+@i
+M=M-1
+@LOOP
+0;JMP
+
+(RESET)
+@i
+M=0
+@LOOP
 0;JMP
 </code></pre>
 
