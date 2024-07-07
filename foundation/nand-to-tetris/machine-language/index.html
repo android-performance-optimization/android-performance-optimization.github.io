@@ -1344,6 +1344,101 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#hack" class="md-nav__link">
+    Hack 机器语言规范
+  </a>
+  
+    <nav class="md-nav" aria-label="Hack 机器语言规范">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_12" class="md-nav__link">
+    概述
+  </a>
+  
+    <nav class="md-nav" aria-label="概述">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_13" class="md-nav__link">
+    内存地址空间
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#registers" class="md-nav__link">
+    寄存器（Registers）
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#a" class="md-nav__link">
+    A 指令
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#c" class="md-nav__link">
+    C 指令
+  </a>
+  
+    <nav class="md-nav" aria-label="C 指令">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#computation" class="md-nav__link">
+    Computation 规范(计算规范)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#destination" class="md-nav__link">
+    Destination 规范(目的地规范)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#jump" class="md-nav__link">
+    Jump 规范(跳转规范)
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_14" class="md-nav__link">
+    符号
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_15" class="md-nav__link">
+    项目
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -2235,6 +2330,101 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#hack" class="md-nav__link">
+    Hack 机器语言规范
+  </a>
+  
+    <nav class="md-nav" aria-label="Hack 机器语言规范">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_12" class="md-nav__link">
+    概述
+  </a>
+  
+    <nav class="md-nav" aria-label="概述">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_13" class="md-nav__link">
+    内存地址空间
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#registers" class="md-nav__link">
+    寄存器（Registers）
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#a" class="md-nav__link">
+    A 指令
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#c" class="md-nav__link">
+    C 指令
+  </a>
+  
+    <nav class="md-nav" aria-label="C 指令">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#computation" class="md-nav__link">
+    Computation 规范(计算规范)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#destination" class="md-nav__link">
+    Destination 规范(目的地规范)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#jump" class="md-nav__link">
+    Jump 规范(跳转规范)
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_14" class="md-nav__link">
+    符号
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_15" class="md-nav__link">
+    项目
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -2290,14 +2480,54 @@
 </ul>
 <h4 id="_11">控制流程</h4>
 <p>程序通常以线性方式，一个命令接着一个命令执行，但偶尔也包含分支，执行其他地方的命令。分支能够实现好几种结构，包括反复（repetition，跳回到循环的初始位置）、有条件的执行（conditional execution，如果布尔条件是false，则向前跳到“if-then”语句之后的位置），以及子程序调用（subroutine calling，跳到另一代码段的第一条命令处）。为了支持这些程序结构，各种机器语言都可以有条件（conditional）或无条件（unconditional）地跳转到程序指定的地址。</p>
-<p>在汇编语言中，程序中的位置也用一些符号表示。</p>
+<h2 id="hack">Hack 机器语言规范</h2>
+<h3 id="_12">概述</h3>
+<p>Hack 是一个基于冯•诺伊曼架构的16-位计算机，由一个CPU、两个独立的内存模块（instruction memory 即指令内存和 data memory 即数据内存），以及两个内存映射1/O设备
+（显示器和键盘）组成。</p>
+<h4 id="_13">内存地址空间</h4>
+<p>Hack 程序员要了解，有两个不同的地址空间：指令地址空间（instruction memory，以下称为指令内存），数据地址空间（data memory，以下称为数据内存）。</p>
+<p>两个内存区都是16-位宽，有15-位地址空间，这意味着两个内存可用的最大地址都是32K 的 16-bit word。</p>
+<h4 id="registers">寄存器（Registers）</h4>
+<p>Hack 程序员要接触两个称为D和A的16-位寄存器。这些寄存器能够被算术和逻辑指令显式地操控，比如 A=D-1或 D=！A 。</p>
+<p>D 仅用来储存数据值，A既可作为数据寄存器也可作为地址寄存器。也就是说，根据指令的上下文含义，A 中的内容可以被解释为数值或数据存储器中的地址，或者作为
+指令存储器中的地址。</p>
+<h3 id="a">A 指令</h3>
+<p>A-指令用来为 A 寄存器设置15-位的值。</p>
+<p>A-指令主要有三种不同的用途。首先，在程序控制下，它提供了唯一一种“将常数输入计算机”的方法：其次，通过将目标数据内存单元的地址放入 A 寄存器，来为将对该内
+存单元进行操作的C-指令提供必要的条件；其三，通过将跳转的目的地址放入A 寄存器来为执行跳转的C-指令提供条件。</p>
+<h3 id="c">C 指令</h3>
+<p>C-指令是 Hack 平台程序的重点，几乎包含要做的所有事情。</p>
+<p>指令代码的描述可以说是对以下三种问题的回答：（a）计算什么；（b）将计算后的值存储到什么地方；（c）下一步做什么。</p>
+<p>随同 A-指令一起，这些描述几乎决定了计算机所有可能的操作。</p>
+<p><img alt="" src="https://raw.gitmirror.com/RicardoJiang/resource/main/2024/july/p1.png" /></p>
+<p>指令编码最左边起第一位为1，则表示该指令是C-指令。接着的两位没有被使用。剩下的位构成了三个域，分别代表指令符号表述的三个部分。</p>
+<p>符号指令 dest = comp:jump 的終个语义可以如下表示。</p>
+<ul>
+<li>Comp 域告诉 ALU 计算什么。</li>
+<li>Dest 域指明计算后的结果（ALU的输出）将被存储到什么地方。</li>
+<li>Jump 域描述了转移条件，即接下来要取出并执行哪一条命令。</li>
+</ul>
+<h4 id="computation">Computation 规范(计算规范)</h4>
+<p><img alt="" src="https://raw.gitmirror.com/RicardoJiang/resource/main/2024/july/p2.png" /></p>
+<h4 id="destination">Destination 规范(目的地规范)</h4>
+<p><img alt="" src="https://raw.gitmirror.com/RicardoJiang/resource/main/2024/july/p3.png" /></p>
+<h4 id="jump">Jump 规范(跳转规范)</h4>
+<p><img alt="" src="https://raw.gitmirror.com/RicardoJiang/resource/main/2024/july/p4.png" /></p>
+<h3 id="_14">符号</h3>
+<p>汇编命令可以使用常数或符号来表示内存单元位置（地址）。通过以下三种方式应用到汇编语言中：</p>
+<ul>
+<li>预定义符号：包括虚拟寄存器，预定义指针，I/O 指针等。</li>
+<li>标签符号</li>
+<li>变量符号</li>
+</ul>
+<h2 id="_15">项目</h2>
 
   <hr>
 <div class="md-source-file">
   <small>
     
       最后更新:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">July 5, 2024</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">July 7, 2024</span>
       
     
   </small>
