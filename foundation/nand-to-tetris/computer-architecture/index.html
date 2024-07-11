@@ -10,20 +10,20 @@
       
       
       
-        <link rel="canonical" href="https://android-performance-optimization.github.io/foundation/kotlin-meta-programming/meta-data-introduction/">
+        <link rel="canonical" href="https://android-performance-optimization.github.io/foundation/nand-to-tetris/computer-architecture/">
       
       
-        <link rel="prev" href="../meta-programming-basic/">
+        <link rel="prev" href="../machine-language/">
       
       
-        <link rel="next" href="../runtime-reflect/">
+        <link rel="next" href="../../framework/activity-start/">
       
       <link rel="icon" href="../../../assets/favicon.png">
       <meta name="generator" content="mkdocs-1.6.0, mkdocs-material-9.1.16">
     
     
       
-        <title>元数据简介 - Android 性能优化手册</title>
+        <title>计算机体系结构 - Android 性能优化手册</title>
       
     
     
@@ -113,7 +113,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              元数据简介
+              计算机体系结构
             
           </span>
         </div>
@@ -625,16 +625,14 @@
               
   
   
-    
-  
   
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
       
       
       
-      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2" checked>
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2" >
       
       
         
@@ -661,7 +659,7 @@
           <span class="md-nav__icon md-icon"></span>
         </label>
       
-      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_2_label" aria-expanded="true">
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_2_label" aria-expanded="false">
         <label class="md-nav__title" for="__nav_3_2">
           <span class="md-nav__icon md-icon"></span>
           深入实践 Kotlin 元编程
@@ -674,7 +672,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../meta-programming-basic/" class="md-nav__link">
+      <a href="../../kotlin-meta-programming/meta-programming-basic/" class="md-nav__link">
         元编程概述
       </a>
     </li>
@@ -686,187 +684,11 @@
               
   
   
-    
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          元数据简介
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../../kotlin-meta-programming/meta-data-introduction/" class="md-nav__link">
         元数据简介
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="目录">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      目录
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
-    基本概念
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
-    注解
-  </a>
-  
-    <nav class="md-nav" aria-label="注解">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#_4" class="md-nav__link">
-    注解的概念
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_5" class="md-nav__link">
-    源代码可见的注解
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_6" class="md-nav__link">
-    二进制可见的注解
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_7" class="md-nav__link">
-    运行时可见的注解
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#kotlin-metadata" class="md-nav__link">
-    Kotlin 的 Metadata
-  </a>
-  
-    <nav class="md-nav" aria-label="Kotlin 的 Metadata">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#kotlin-jvm-metadata" class="md-nav__link">
-    Kotlin JVM 当中的 @Metadata 注解
-  </a>
-  
-    <nav class="md-nav" aria-label="Kotlin JVM 当中的 @Metadata 注解">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#metadata" class="md-nav__link">
-    @Metadata 注解的定义
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#kotlin-metadata_1" class="md-nav__link">
-    Kotlin 反射与 @Metadata
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#kotlin-jvm-metadata_1" class="md-nav__link">
-    Kotlin JVM 库当中的 metadata
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#kotlin" class="md-nav__link">
-    Kotlin 的语法树
-  </a>
-  
-    <nav class="md-nav" aria-label="Kotlin 的语法树">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#ir" class="md-nav__link">
-    连接前后端编译器的 IR
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#java-kotlin" class="md-nav__link">
-    Java 和 Kotlin 的符号树
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#kotlin_1" class="md-nav__link">
-    Kotlin 的编译产物
-  </a>
-  
-    <nav class="md-nav" aria-label="Kotlin 的编译产物">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#jvm" class="md-nav__link">
-    JVM
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -878,7 +700,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../runtime-reflect/" class="md-nav__link">
+      <a href="../../kotlin-meta-programming/runtime-reflect/" class="md-nav__link">
         运行时的反射
       </a>
     </li>
@@ -892,7 +714,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../code-generate/" class="md-nav__link">
+      <a href="../../kotlin-meta-programming/code-generate/" class="md-nav__link">
         源代码生成
       </a>
     </li>
@@ -906,7 +728,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../symbol-process/" class="md-nav__link">
+      <a href="../../kotlin-meta-programming/symbol-process/" class="md-nav__link">
         编译时的符号处理
       </a>
     </li>
@@ -920,7 +742,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../code-static-analyse/" class="md-nav__link">
+      <a href="../../kotlin-meta-programming/code-static-analyse/" class="md-nav__link">
         程序静态分析
       </a>
     </li>
@@ -934,7 +756,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../compiler-extension/" class="md-nav__link">
+      <a href="../../kotlin-meta-programming/compiler-extension/" class="md-nav__link">
         编译器插件
       </a>
     </li>
@@ -948,7 +770,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../meta-programming-debug/" class="md-nav__link">
+      <a href="../../kotlin-meta-programming/meta-programming-debug/" class="md-nav__link">
         元程序的开发和调试
       </a>
     </li>
@@ -1295,14 +1117,16 @@
               
   
   
+    
+  
   
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
       
       
       
-      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_5" >
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_5" checked>
       
       
         
@@ -1325,7 +1149,7 @@
           <span class="md-nav__icon md-icon"></span>
         </label>
       
-      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_5_label" aria-expanded="false">
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_5_label" aria-expanded="true">
         <label class="md-nav__title" for="__nav_3_5">
           <span class="md-nav__icon md-icon"></span>
           计算机系统要素
@@ -1338,7 +1162,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../nand-to-tetris/introduction/" class="md-nav__link">
+      <a href="../introduction/" class="md-nav__link">
         前言
       </a>
     </li>
@@ -1352,7 +1176,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../nand-to-tetris/bool-logic/" class="md-nav__link">
+      <a href="../bool-logic/" class="md-nav__link">
         布尔逻辑
       </a>
     </li>
@@ -1366,7 +1190,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../nand-to-tetris/bool-arithmetic/" class="md-nav__link">
+      <a href="../bool-arithmetic/" class="md-nav__link">
         布尔运算
       </a>
     </li>
@@ -1380,7 +1204,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../nand-to-tetris/sequential-logic/" class="md-nav__link">
+      <a href="../sequential-logic/" class="md-nav__link">
         时序逻辑
       </a>
     </li>
@@ -1394,7 +1218,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../nand-to-tetris/machine-language/" class="md-nav__link">
+      <a href="../machine-language/" class="md-nav__link">
         机器语言
       </a>
     </li>
@@ -1406,11 +1230,134 @@
               
   
   
+    
   
-    <li class="md-nav__item">
-      <a href="../../nand-to-tetris/computer-architecture/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          计算机体系结构
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         计算机体系结构
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    背景知识
+  </a>
+  
+    <nav class="md-nav" aria-label="背景知识">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    存储程序概念
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    冯诺依曼架构
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    内存
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    中央处理器
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    寄存器
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hack" class="md-nav__link">
+    Hack 平台硬件规范详述
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    实现
+  </a>
+  
+    <nav class="md-nav" aria-label="实现">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    中央处理器
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    计算机
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_11" class="md-nav__link">
+    项目
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -2205,43 +2152,43 @@
       
         <li class="md-nav__item">
   <a href="#_2" class="md-nav__link">
-    基本概念
+    背景知识
   </a>
   
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
-    注解
-  </a>
-  
-    <nav class="md-nav" aria-label="注解">
+    <nav class="md-nav" aria-label="背景知识">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    存储程序概念
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#_4" class="md-nav__link">
-    注解的概念
+    冯诺依曼架构
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#_5" class="md-nav__link">
-    源代码可见的注解
+    内存
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#_6" class="md-nav__link">
-    二进制可见的注解
+    中央处理器
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#_7" class="md-nav__link">
-    运行时可见的注解
+    寄存器
   </a>
   
 </li>
@@ -2252,70 +2199,30 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#kotlin-metadata" class="md-nav__link">
-    Kotlin 的 Metadata
+  <a href="#hack" class="md-nav__link">
+    Hack 平台硬件规范详述
   </a>
-  
-    <nav class="md-nav" aria-label="Kotlin 的 Metadata">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#kotlin-jvm-metadata" class="md-nav__link">
-    Kotlin JVM 当中的 @Metadata 注解
-  </a>
-  
-    <nav class="md-nav" aria-label="Kotlin JVM 当中的 @Metadata 注解">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#metadata" class="md-nav__link">
-    @Metadata 注解的定义
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#kotlin-metadata_1" class="md-nav__link">
-    Kotlin 反射与 @Metadata
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#kotlin-jvm-metadata_1" class="md-nav__link">
-    Kotlin JVM 库当中的 metadata
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#kotlin" class="md-nav__link">
-    Kotlin 的语法树
+  <a href="#_8" class="md-nav__link">
+    实现
   </a>
   
-    <nav class="md-nav" aria-label="Kotlin 的语法树">
+    <nav class="md-nav" aria-label="实现">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#ir" class="md-nav__link">
-    连接前后端编译器的 IR
+  <a href="#_9" class="md-nav__link">
+    中央处理器
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#java-kotlin" class="md-nav__link">
-    Java 和 Kotlin 的符号树
+  <a href="#_10" class="md-nav__link">
+    计算机
   </a>
   
 </li>
@@ -2326,22 +2233,9 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#kotlin_1" class="md-nav__link">
-    Kotlin 的编译产物
+  <a href="#_11" class="md-nav__link">
+    项目
   </a>
-  
-    <nav class="md-nav" aria-label="Kotlin 的编译产物">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#jvm" class="md-nav__link">
-    JVM
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
@@ -2363,77 +2257,72 @@
   
 
 
-<h1 id="_1">元数据简介</h1>
-<p>本文为《深入实践 kotlin 元编程》读书笔记，想要深入了解 kotlin 元编程的同学可以阅读原书。</p>
-<h2 id="_2">基本概念</h2>
-<p>元数据(Metadata)是指描述其他数据的信息的数据，不包含被描述的数据的内容。例如 一个字符串一共有 10 个字符，这里的 10 个字符的长度就是这个字符串的元数据。</p>
-<p>具体到我们讨论的 Kotlin 元编程的范畴，元数据可以理解为描述目标程序本身的信息，例如代码的行数、语法树，甚至编译后的产物等等。按照元数据的产生途径，我们可以简单将其分为两种类型，即语法结构和编译产物。</p>
-<h2 id="_3">注解</h2>
-<p>注解(Annotation)是一种可以在源码当中添加元数据的语法。注解在 Kotlin 元编程 中扮演了非常重要的角色。</p>
-<h3 id="_4">注解的概念</h3>
-<p>注解和注释是两个措辞和功能都比较接近的概念，不同之处在于注解是一种有着严格的语法定义和使用约束的结构化信息，是专门为元编程设计的语法结构。</p>
-<p>根据注解在程序不同阶段的可见性，我们可以将其分为三类：</p>
+<h1 id="_1">计算机体系结构</h1>
+<p>本章将在第1至3章中构建的所有芯片整合起来，集成为一台通用计算机，使之能够运行用机器语言编写的程序。</p>
+<h2 id="_2">背景知识</h2>
+<h3 id="_3">存储程序概念</h3>
+<p>存储程序概念的基本思想其实相当简单：计算机基于固定的硬件平台，能够执行固定的指令集。同时，这些指令能够被当成构件模块，组成任意的程序。</p>
+<p>不同于1930年以前的机械计算机，这些程序的逻辑并没有被嵌入到硬件中，而是被存储到计算机的存储设备（memory）里，跟数据一样，成为所谓的“软件（softwoare）”。
+因为计算机的操作是通过当前正在执行的软件来向用户展示其功能，所以每次向计算机中载入不同的程序时，同样的硬件平台可以实现完全不同的功能。</p>
+<h3 id="_4">冯诺依曼架构</h3>
+<p>存储程序概念是很多抽象的、应用型计算机模型的关键，其中最著名的是通用图灵机（1936）和冯•诺依曼机（1945）。图灵机是描述虚拟的简单计算机的抽象机，主要用来分析计算机系统的逻辑基础。相比之下，冯•诺依曼机是实际应用型的体系结构，它几乎是今天所有计算机平台的基础。</p>
+<p>冯•诺依曼体系结构的基础是一个中央处理单元（CPU，Central Processing Unit），它与记忆设备（memory device） 即内存”进行交互，负责从输入设备（input device） 接收数据，
+向输出设备（output device）发送数据。</p>
+<p>这个体系结构的核心是存储程序的概念：计算机内存不仅存储着要进行操作的数据，还存储着指示计算机运行的指令。</p>
+<p><img alt="" src="https://raw.gitmirror.com/RicardoJiang/resource/main/2024/july/p5.png" /></p>
+<h3 id="_5">内存</h3>
+<p>冯•诺依曼机的内存中存有两种类型的信息：数据项（data items）和程序指令（programming instructions）。</p>
+<p>对这两种信息通常采用不同的方式来处理，在某些计算机里，它们被分被别存储到不同的内存区中。尽管它们具有不同功能，但两种信息都以二进制数形式存储在具有通用结构的随机存储器中（一个连续的固定宽度的单元阵列，也称为字即word，或者存储单元，每个单元都有一个独立的地址）表示。因此，一个独立的字（代表一个数据项或者一条指令）通过它的地址来指定。</p>
+<h3 id="_6">中央处理器</h3>
+<p>CPU 是计算机体系的核心，负责执行已被加载到指令内存中的指令。这些指令告诉 CPU 去执行不同的计算，对内存进行读/写操作，以及根据条件跳转去执行程序中其他指令。</p>
+<p>CPU 通过使用三个主要的硬件要素来执行这些任务：算术逻辑单元（ALU，Arithmetic-Logic LInit），一组寄存器 （registers）和控制单元 （control unit）。</p>
 <ul>
-<li>源代码可见的注解</li>
-<li>二进制可见的注解</li>
-<li>运行时可见的注解</li>
+<li>算术逻辑单元（ALU） ALU 负责执行计算机中所有底层的算术操作和逻辑操作。</li>
+<li>寄存器（Registers）CPU 的设计是为了能够快速地执行简单计算。为了提高它的性能，将这些和运算相关的数据暂存到某个局部存储器中是十分必要的，这远比从内存中搬
+进搬出要好。因此，每个CPU 都配有一组高速寄存器，每个寄存器都能保存一个单独的字。</li>
+<li>控制单元（Control Unit） 计算机指令用二进制代码来表示，通常具有16、32或64位宽。在指令能够被执行之前，须对其进行解码，指令里面包含的信息向不同的硬件设备（ALU，寄存器，内存）发送信号，指使它们如何执行指令。指令的解码过程是通过某些控制单元（control unit）完成的。这些控制单元还负责决定下一步需要取出和执行哪一条指令。</li>
 </ul>
-<h3 id="_5">源代码可见的注解</h3>
-<p>源代码可见的注解在定义时，需要将 @Retention 的参数设置为 AnnotationRetention.SOURCE。此类注解不会存在于编译产物当中，可以用来做代码提示， 编译配置，也可以在编译时使用 KAPT、KSP 或者编译器插件实现代码生成、代码检查等功能。</p>
-<h3 id="_6">二进制可见的注解</h3>
-<p>二进制可见的注解在定义时，需要将 @Retention 的值设置为 AnnotationRetention.BINARY。此类注解会存在于编译产物当中，但对运行时不可见，除适用于源代码可见的注解的所有使用场景以外，也适用于对编译产物进行处理的场景。</p>
-<h3 id="_7">运行时可见的注解</h3>
-<p>运行时可见的注解在定义时，需要将 @Retention 的值设置为 AnnotationRetention.RUNTIME。此类注解会存在于编译产物当中，并对运行时可见，除适用于二进制可见的注解的全部使用场景以外，也可在运行时通过反射访问。</p>
-<h2 id="kotlin-metadata">Kotlin 的 Metadata</h2>
-<p>Kotlin 有自己专属的 Metadata 设计，主要用于为编译产物提供完善的 Kotlin 语法信息。</p>
-<h3 id="kotlin-jvm-metadata">Kotlin JVM 当中的 @Metadata 注解</h3>
-<p>Kotlin 提供了很多 Java 不支持的特性，这些特性也很难直接使用 JVM 字节码进行等 价的描述。为了确保发布的二进制产物当中包含完整的 Kotlin 的语法信息，Kotlin 编译器 为每一个类生成一个 @Metadata 注解，同时也会为模块内所有的顶级声明生成一个模块专属的 metadata 文件，这些文件通常以 kotlin_module 为后缀。</p>
-<h4 id="metadata">@Metadata 注解的定义</h4>
-<pre><code>public annotation class Metadata( 
-// metadata 的类型，共 5 种 @get:JvmName(&quot;k&quot;)
-val kind: Int = 1,
-
-// metadata 的版本 @get:JvmName(&quot;mv&quot;)
-val metadataVersion: IntArray = [],
-
-// metadata 的自定义格式数据，格式取决于 kind @get:JvmName(&quot;d1&quot;)
-val data1: Array&lt;String&gt; = [],
-
-// data1 的补充，内容是字符串常量，可以直接存入常量池方便复用 @get:JvmName(&quot;d2&quot;)
-val data2: Array&lt;String&gt; = [],
-... // 省略部分字段 )
-</code></pre>
-<h4 id="kotlin-metadata_1">Kotlin 反射与 @Metadata</h4>
-<p>Kotlin 反射之所以可以在运行时获取到 Kotlin 特有的各种语法信息，也正是得益于对 @Metadata 注解所包含的信息的读取。</p>
-<p>由于需要处理 @Metadata 注解的反序列化，Kotlin 反射相比 Java 反射在初始化对应 类型时会稍慢一些，后续的使用当中二者的性能则差异不大。</p>
-<h4 id="kotlin-jvm-metadata_1">Kotlin JVM 库当中的 metadata</h4>
-<p>在 Kotlin JVM 模块中，后缀为 kotlin_module 的文件存储了模块内 JVM 字节码不 支持的顶级声明的信息，包括函数、属性、类型别名等。如果我们在打包发布自己的模块时没有携带&lt;模块名&gt;.kotlin_module 文件，就会导致这些顶级声明无法正常被其他调用者使用。</p>
-<h2 id="kotlin">Kotlin 的语法树</h2>
-<p>Kotlin 源代码在编译时，经过词法分析、语法分析之后，会生成相应的语法树。</p>
-<p>第一代 Kotlin 编译器基于 IntelliJ 平台的 PSI 实现了自己的语法树;第二代 Kotlin 编译器(即 K2 Compiler，下称 K2 编译器)则设计实现了一套全新的语法结构， 称为 FIR(Front-end IR，前端中间代码表示)。</p>
-<p>FE1.0 的语法树之所以选择基于 IntelliJ 平台的 PSI 实现，好处自然是可以尽可能地复用 IntelliJ 平台已有的技术积累，在早期可以快速实现需求。但长久来看，这也会使得 Kotlin 编译器严重依赖于 IntelliJ 平台自身的迭代而难以实现针对性的优化。为了解决这 个问题，Kotlin 团队从 1.6 开始就在持续研发一款新的前端编译器，也就是 K2 编译器的 FIR 前端。</p>
-<p>在 FE1.0 中，前端编译器的输出包含 PSI 树和 BindingContext 两部分，其中 BindingContext 实际上就是语义分析结果的映射表，包含了 PSI 节点到对应的语义信息的 映射关系。相比之下，FIR 的节点当中包含了完整的语义分析结果，因此在获取语义分析时无须反复查表，无论从代码的可读性上还是从执行效率上都有很大的提升。</p>
-<h3 id="ir">连接前后端编译器的 IR</h3>
-<p>Kotlin IR(Intermediate Representation，中间表示)最早在 Kotlin Native 的编译器当中设计实现。IR 对于 Kotlin 编译器的实现非常重要，这可以使得 Kotlin 的前 后端编译器分离，各自优化和迭代。同时，不同目标平台的后端编译器均可以使用 Kotlin IR 作为统一的输入，这也为后续扩展新平台提供了非常便利的条件。</p>
-<p>自 Kotlin 1.5 以来，Kotlin JVM 和 JS 的后端编译器也已经陆续迁移至 IR 编译 器，WASM 的后端编译器也基于 Kotlin IR 做了重新实现。</p>
-<p><img alt="" src="https://raw.gitmirror.com/RicardoJiang/resource/main/2024/march/p15.png" /></p>
-<p>IR 最初由 PSI 或者 FIR 转换而来，接着由编译器插件的处理，之后再经过一系列降级(Lowering)，最终交由目标程序生成器生成最终的目标程序。降级操作非常多，每一个降级阶段都只是一个独立且细节的优化步骤。</p>
-<h3 id="java-kotlin">Java 和 Kotlin 的符号树</h3>
-<p>APT 是 Java 当中最重要的元编程技术之一，它本质上是 Java 编译器提供的元编程 API。</p>
-<p>Kotlin 从 1.0 开始就逐步实现了对 APT 的支持，即 KAPT。KAPT 实际上是一个编译 器插件，它先将 Kotlin 代码转成 Java 存根(Java Stubs)，作为 Java 编译器的输入进 而支持 APT。</p>
-<p>因此，使用 KAPT 对 Kotlin 源码进行处理时，我们能够访问到的实际上就是 Java 符号树，即使源代码是使用 Kotlin 编写的。</p>
-<p>随着 Kotlin 的日益普及，KAPT 这个“曲线救国”方案的弊端也逐渐显现。一方面 Java 符号很难反应真实的 Kotlin 源代码当中的符号信息，因而我们不得不经常借助 @Metadata 注解来还原真实的 Kotlin 符号;另一方面，KAPT 总是需要先生成 Java 存根，这对于有一定规模的项目来说简直就是灾难。</p>
-<p>为了解决这个问题，Google 开源了 KSP(Kotlin Symbol Processing，Kotlin 符 号处理器)，基于 Kotlin 编译器插件将 Kotlin 的语法树抽象成符号树，完美地解决了 KAPT 存在的问题。</p>
-<p>KSP 除了支持 Kotlin 之外，也会把 Java 符号抽象成 Kotlin 符号，因此我们完全
-可以使用 KSP 来替代 KAPT。</p>
-<h2 id="kotlin_1">Kotlin 的编译产物</h2>
-<h3 id="jvm">JVM</h3>
-<p>严格意义上来讲，对于 Kotlin 编译器的编译产物的处理不属于典型的 Kotlin 元编程 的范畴。不过，由于 Kotlin 广泛应用于 JVM 环境当中，因此 JVM 字节码分析和编辑技术 也是 Kotlin 开发者经常需要面对的元编程场景。</p>
-<p>通过编辑 JVM 字节码可以应对的需求场景有很多。例如:</p>
-<ol>
-<li>去除 @Metadata 注解。Kotlin 标准库和反射库在编译时就会使用 ASM 来去除自身无用的 @Metadata 注解，以减少产物体积。</li>
-<li>拦截或者替换方法调用。我们经常希望应用内部对某些特定 API 的访问是可控的，对于第三方 SDK，我们就可以使用字节码编辑技术来实现“偷梁换柱”。</li>
-</ol>
+<p>CPU 操作现在可以被描述成一个重复的循环：从内存中取一条指令（字）：将其解码；执行该指令，取下一条指令；如此反复循环。</p>
+<p>指令的执行过程可能包含下面的一些子任务：让 ALU 计算一些值，控制内部寄存器，从存储设备中读取一个字，或向存储设备中写入一个字。在执行这些任务的过程中，CPU 也会计算出下一步该读取并执行哪一条指令。</p>
+<h3 id="_7">寄存器</h3>
+<p>内存访问是很慢的过程。寄存器也能提供同样的数据访问功能，但没有来回的数据传递和寻址开销。</p>
+<p>首先，寄存器位于CPU 芯片内部，所以对它们的访问几乎可以瞬间完成：其次，与数百万个内存单元相比，寄存器数量非常少。因此，机器语言指令可以使用短短的几个位就能指定要操作的寄存器在什么位置，这样指令格式也更短。</p>
+<p>基于不同的目的，不同的CPU 采用不同数量、不同类型的寄存器。</p>
+<ul>
+<li>数据寄存器（Data registers） 这些寄存器为 CPU 提供短期记忆（memory）服务。</li>
+<li>寻址寄存器（Addressing registers） 为了进行读写，CPU 必须连续访问内存中的数据。这样我们必须确定被访问的内存字（word）所在的内存地址。在某些情况下这个地址
+作为当前指令的一个部分给出，而其他某些情况下它依赖于前面一条指令的执行结果。对于后者，这个地址应该被存储到某个寄存器中，使得该寄存器的内容在今后的操作中能够
+被当作存储单元的地址——这就需要用到寻址寄存器。</li>
+<li>程序计数寄存器（Program counter register） 执行程序时，CPU 必须总是知道下一条指令在指令内存中的地址。这个地址保存在一个特殊的寄存器即程序计数器中（或称 PC，
+Program Counter）。</li>
+</ul>
+<h2 id="hack">Hack 平台硬件规范详述</h2>
+<p>Hack 平台是 16-位冯•诺依曼机，包括一个 CPU、两个独立的内存模块（指令内存和数据内存）和两个内存映像IO 设备（屏幕和键盘）。这个体系结构中的某些部分—一尤
+其是它的机器语言——曾在第4章中介绍过。为了便于参考，这里给出了这些内容的概要。</p>
+<p>Hack 的CPU 由第2章介绍的 ALU 和三个分别称数据寄存器（D，data register）、地址寄存器 （A,address register）、程序计数器（PC,program counter）的寄存器组成。</p>
+<p>计算机体系结构以这样的方式来进行连接：PC（程序计数器）芯片的输出端被连接到 ROM 芯片的地址输入端。如此一来，ROM芯片总是输出 ROM[PC]（大小为一个 word），即“PC所指向的指令内存单元”的地址。这个值称为当前指令（current instruction）。那么，每个时钟周期内整个计算机的操作可以表示为：</p>
+<ul>
+<li>执行（Execute）：当前指令中不同的bit 位域被同时被送入计算机中不同的芯片。如果其是地址指令（即 MSB=0），则A寄存器被置为指令中内含的15-位常数。如果其是计算
+指令（即 MSB=1），则指令中内含的a-位域、c-位域、d-位域和-位域被当作是控制位，导致 ALU 和寄存器会相应的去执行该指令。</li>
+<li>取指令（Fetch）：计算机下一步取哪一条指令，取决于当前指令的jump 位和 ALU 的输出。这些值共同决定了是否去执行跳转。如果是要执行跳转，则PC被置为A 寄存器的
+值：否则就将PC的值加1。在下一个时钟周期，PC指向的指令在 ROM 的输出中出现，如此不断循环。</li>
+</ul>
+<p><img alt="" src="https://raw.gitmirror.com/RicardoJiang/resource/main/2024/july/p6.png" /></p>
+<h2 id="_8">实现</h2>
+<p><img alt="" src="https://raw.gitmirror.com/RicardoJiang/resource/main/2024/july/p7.png" /></p>
+<p><img alt="" src="https://raw.gitmirror.com/RicardoJiang/resource/main/2024/july/p8.png" /></p>
+<h3 id="_9">中央处理器</h3>
+<p>CPU 的实现目标是建立逻辑门结构，其能够执行指定的Hack 指令和读取下一条要执行的指令。</p>
+<p><img alt="" src="https://raw.gitmirror.com/RicardoJiang/resource/main/2024/july/p9.png" /></p>
+<p>上图中没有给出的部分是CPU 的控制逻辑，用来执行下面的任务：</p>
+<ul>
+<li>指令解码 （Instruction decoding）：解析出指令所代表意思（指令的功能）。</li>
+<li>指令执行（Instruction execution）：发信号指示计算机的各个部分应该做什么工作来执行指令（指令的功能）。</li>
+<li>读取下一条指令 （Next instruction fetching）：指出下一步执行哪一条指令（指令的功能以及 ALU 的输出）。</li>
+</ul>
+<h3 id="_10">计算机</h3>
+<p><img alt="" src="https://raw.gitmirror.com/RicardoJiang/resource/main/2024/july/p10.png" /></p>
+<h2 id="_11">项目</h2>
 
   <hr>
 <div class="md-source-file">
@@ -2471,7 +2360,7 @@ val data2: Array&lt;String&gt; = [],
       <nav class="md-footer__inner md-grid" aria-label="页脚" >
         
           
-          <a href="../meta-programming-basic/" class="md-footer__link md-footer__link--prev" aria-label="上一页: 元编程概述" rel="prev">
+          <a href="../machine-language/" class="md-footer__link md-footer__link--prev" aria-label="上一页: 机器语言" rel="prev">
             <div class="md-footer__button md-icon">
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
             </div>
@@ -2480,20 +2369,20 @@ val data2: Array&lt;String&gt; = [],
                 上一页
               </span>
               <div class="md-ellipsis">
-                元编程概述
+                机器语言
               </div>
             </div>
           </a>
         
         
           
-          <a href="../runtime-reflect/" class="md-footer__link md-footer__link--next" aria-label="下一页: 运行时的反射" rel="next">
+          <a href="../../framework/activity-start/" class="md-footer__link md-footer__link--next" aria-label="下一页: Activity 启动流程分析" rel="next">
             <div class="md-footer__title">
               <span class="md-footer__direction">
                 下一页
               </span>
               <div class="md-ellipsis">
-                运行时的反射
+                Activity 启动流程分析
               </div>
             </div>
             <div class="md-footer__button md-icon">
