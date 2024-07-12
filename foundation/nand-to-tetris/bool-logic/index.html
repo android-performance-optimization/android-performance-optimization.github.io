@@ -2579,7 +2579,12 @@ CHIP DMux {
 }
 </code></pre>
 <h3 id="mux16">Mux16</h3>
-<pre><code>CHIP Mux16 {
+<pre><code>/**
+ * 16-bit multiplexor: 
+ * for i = 0, ..., 15:
+ * if (sel = 0) out[i] = a[i], else out[i] = b[i]
+ */
+CHIP Mux16 {
     IN a[16], b[16], sel;
     OUT out[16];
 
@@ -2618,7 +2623,14 @@ CHIP DMux {
 }
 </code></pre>
 <h3 id="mux4way16">Mux4Way16</h3>
-<pre><code>CHIP Mux4Way16 {
+<pre><code>/**
+ * 4-way 16-bit multiplexor:
+ * out = a if sel = 00
+ *       b if sel = 01
+ *       c if sel = 10
+ *       d if sel = 11
+ */
+CHIP Mux4Way16 {
     IN a[16], b[16], c[16], d[16], sel[2];
     OUT out[16];
 
@@ -2655,7 +2667,14 @@ CHIP Mux8Way16 {
 }
 </code></pre>
 <h3 id="dmux4way">DMux4Way</h3>
-<pre><code>CHIP DMux4Way {
+<pre><code>/**
+ * 4-way demultiplexor:
+ * [a, b, c, d] = [in, 0, 0, 0] if sel = 00
+ *                [0, in, 0, 0] if sel = 01
+ *                [0, 0, in, 0] if sel = 10
+ *                [0, 0, 0, in] if sel = 11
+ */
+CHIP DMux4Way {
     IN in, sel[2];
     OUT a, b, c, d;
 
@@ -2696,7 +2715,7 @@ CHIP DMux8Way {
   <small>
     
       最后更新:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">July 11, 2024</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">July 12, 2024</span>
       
     
   </small>
