@@ -1369,6 +1369,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#computer" class="md-nav__link">
+    Computer
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -2274,6 +2281,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#computer" class="md-nav__link">
+    Computer
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -2476,6 +2490,30 @@ CHIP CPU {
     And(a=jump012, b=instruction[15], out=jump);
 
     PC(in=PCin, reset=reset, load=jump, inc=true, out[0..14]=pc);
+}
+</code></pre>
+<h3 id="computer">Computer</h3>
+<pre><code>/**
+ * The Hack computer, consisting of CPU, ROM and RAM.
+ * When reset = 0, the program stored in the ROM executes.
+ * When reset = 1, the program's execution restarts. 
+ * Thus, to start running the currently loaded program,
+ * set reset to 1, and then set it to 0. 
+ * From this point onwards, the user is at the mercy of the software.
+ * Depending on the program's code, and whether the code is correct,
+ * the screen may show some output, the user may be expected to enter
+ * some input using the keyboard, or the program may do some procerssing. 
+ */
+CHIP Computer {
+
+    IN reset;
+
+    PARTS:
+    //// Replace this comment with your code.
+    ROM32K(address=pc, out=instruction);
+    CPU(inM=memOut, instruction=instruction, reset=reset, outM=outM, writeM=writeM, addressM=addressM, pc=pc);
+    Memory(in=outM, load=writeM, address=addressM, out=memOut);
+}
 </code></pre>
 
   <hr>
