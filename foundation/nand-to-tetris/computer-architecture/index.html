@@ -2441,72 +2441,41 @@ CHIP CPU {
 
     PARTS:
     //// Replace this comment with your code.
-    // instruction[15] = 1 时，为 C指令
-    And(a=instruction[15], b=instruction[0], out=j3); // j3
-    And(a=instruction[15], b=instruction[1], out=j2); // j2
-    And(a=instruction[15], b=instruction[2], out=j1); // j1
+    Mux16(a=instruction, b=outALU, sel=instruction[15], out=inA);
 
-    And(a=instruction[15], b=instruction[3], out=d3); // d3
-    And(a=instruction[15], b=instruction[4], out=d2); // d2
-    And(a=instruction[15], b=instruction[5], out=d1); // d1
+    Not(in=instruction[15], out=notinstruction);
+    Or(a=notinstruction, b=instruction[5], out=loadA);
+    ARegister(in=inA, load=loadA, out=outA, out[0..14]=addressM, out=PCin);
 
-    And(a=instruction[15], b=instruction[6], out=c6); // c6
-    And(a=instruction[15], b=instruction[7], out=c5); // c5
-    And(a=instruction[15], b=instruction[8], out=c4); // c4
-    And(a=instruction[15], b=instruction[9], out=c3); // c3
-    And(a=instruction[15], b=instruction[10], out=c2); // c2
-    And(a=instruction[15], b=instruction[11], out=c1); // c1
-    And(a=instruction[15], b=instruction[12], out=ca); // a
-    //instruction[13] 忽略，默认给1
-    //instruction[14] 忽略，默认给1
+    And(a=instruction[15], b=instruction[3], out=writeM);
+    Mux16(a=outA, b=inM, sel=instruction[12], out=outAM);
 
-    // A Register 部分 简化版
-    Not( in = instruction[15], out = not1out );
-    //And( a = instruction[15], b = d1, out  = andout );
-    Mux16( a = ALUout, b = instruction, sel = not1out, out = mux1out );
-    Or( a = not1out, b = d1, out = or1out );
-    ARegister( in = mux1out, load = or1out, out = ARout,out[0..14]=addressM);
+    DRegister(in=outALU, load=instruction[4], out=outD);
 
-    // ALU 部分
-    DRegister( in = ALUout,load = d2,out = DRout);
-    Mux16(a = ARout, b = inM, sel = ca, out = mux2out);
-    ALU(x = DRout, y = mux2out, zx = c1,nx = c2,zy = c3,ny = c4,f = c5,no = c6, out = ALUout, out = outM, zr = zr, ng = ng);
+    // If not instruction then return D in ALU
+    And(a=instruction[11], b=instruction[15], out=zx);   // default 0
+    And(a=instruction[10], b=instruction[15], out=nx);   // default 0
+    Or(a=instruction[9], b=notinstruction, out=zy);      // default 1
+    Or(a=instruction[8], b=notinstruction, out=ny);      // default 1
+    And(a=instruction[7], b=instruction[15], out=f);     // default 0
+    And(a=instruction[6], b=instruction[15], out=no);    // default 0
 
-    // PC 部分
-    Not(in = zr, out = notzr);
-    Not(in = ng, out = notng);
+    ALU(x=outD, y=outAM,
+        zx=zx, nx=nx, zy=zy, ny=ny, f=f, no=no,
+        out=outALU, out=outM,
+        zr=zero, ng=negative);
 
-    // ALU输出结果 判断
-    And(a = notzr, b = notng, out = positive);// zr=0， ng=0时，结果大于0
-    And(a = zr, b = notng, out = zero); // zr=1， ng=0  时，结果等于0
-    And(a = notzr, b = ng, out = negative); // zr=0，ng=1 时，结果小于0
+    Or(a=negative, b=zero, out=notpositive);
+    Not(in=notpositive, out=positive);
 
-    // 三种跳转情况 
-    And(a = j3, b = positive, out = POSjump);
-    And(a = j2, b = zero, out = ZRjump);
-    And(a = j1, b = negative, out = NEGjump);
-    // 无条件跳转
-    And(a = j1, b = j2 ,out = and1out);
-    And(a = and1out , b = j3, out = UCDTjump); //uncondition jump
+    And(a=instruction[2], b=negative, out=jump0);
+    And(a=instruction[1], b=zero, out=jump1);
+    And(a=instruction[0], b=positive, out=jump2);
+    Or(a=jump0, b=jump1, out=jump01);
+    Or(a=jump01, b=jump2, out=jump012);
+    And(a=jump012, b=instruction[15], out=jump);
 
-    // 四种跳转情况 满足一种就跳转
-    Or(a = POSjump, b = ZRjump, out = or2out);
-    Or(a = or2out, b = NEGjump, out = or3out);
-    Or(a = or3out, b = UCDTjump, out = or4out);
-    And(a = instruction[15], b = or4out, out = load); //最后判断一下是不是C指令
-
-    // 不是跳转，那就自加
-    Not(in = load, out = inc); 
-
-    PC(in = ARout , reset = reset, load = load, inc = inc, out[0..14] = pc);
-
-    // 最后有三个跟RAM有关的部分
-    // ALU输出的结果 是否写入M
-    And(a=instruction[15], b=d3, out=writeM); 
-    // ALU输出的结果
-    //And16(a=ALUout, b=ALUout, out=outM); // 这块直接写在ALU里了
-    // ALU输出的结果 存在哪
-    // And16(a=ARout, b=ARout, out[0..14]=addressM); //直接写在ARegister里了
+    PC(in=PCin, reset=reset, load=jump, inc=true, out[0..14]=pc);
 </code></pre>
 
   <hr>
