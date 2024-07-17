@@ -1295,6 +1295,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    测试
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -2105,6 +2112,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    测试
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -2137,19 +2151,94 @@
 </ul>
 <h2 id="_3">实现</h2>
 <p>Hack 汇编编译器的输入是名为 Prog.asm 的文本文件，该文件包含一个 Hack 汇编程序，编译器输出名为 Prog.hack的文本文件，该文件包含编译后的 Hack 机器代码。输入文件的名字作为一个命令行参数提供给汇编编译器。</p>
-<p>我们这里提出一个基于 4 个模块的汇编编译器的实现：语法分析器（Parser）模块用来对输入文件进行语法分析：编码（Code）模块用来提供所有汇编命令所对应的二进制代码；符号表（SybolTable）模块用来处理符号。另外还有一个主程序用来驱动整个编译过程。</p>
+<p>我们这里提出一个基于 4 个模块的汇编编译器的实现：语法分析器（Parser）模块用来对输入文件进行语法分析：编码（Code）模块用来提供所有汇编命令所对应的二进制代码；符号表（SymbolTable）模块用来处理符号。另外还有一个主程序用来驱动整个编译过程。</p>
 <ul>
 <li>Parser：封装对输入代码的访问操作。功能包括：读取汇编语言命令并对其进行解析；提供“方便访问汇编命令成分（域和符号）”的方案；去掉所有的空格和注释。</li>
 <li>Code： 将 Hack 汇编语言助记符翻译成二进制码。</li>
 <li>SymbolTable：在符号标签（symbolic labels）和数字地址之间建立关联。</li>
+<li>Assembler: 驱动整个编译过程。</li>
 </ul>
+<h2 id="_4">测试</h2>
+<p>将生成的汇编代码与预期的汇编代码进行比较，如果相同则测试通过。</p>
+<pre><code class="language-kotlin">class AssemblerTest {
+    @Test
+    fun testAdd() {
+        val path = &quot;testData/assembler/add/add.asm&quot;
+        Assembler().assemble(path)
+        val outputPath = &quot;testData/assembler/add/add.hack&quot;
+        val comparePath = &quot;testData/assembler/add/add.hack.compare&quot;
+        compareFile(outputPath, comparePath)
+    }
+
+    @Test
+    fun testMax() {
+        val path = &quot;testData/assembler/max/Max.asm&quot;
+        Assembler().assemble(path)
+        val outputPath = &quot;testData/assembler/max/Max.hack&quot;
+        val comparePath = &quot;testData/assembler/max/Max.hack.compare&quot;
+        compareFile(outputPath, comparePath)
+    }
+
+    @Test
+    fun testMaxL() {
+        val path = &quot;testData/assembler/max/MaxL.asm&quot;
+        Assembler().assemble(path)
+        val outputPath = &quot;testData/assembler/max/MaxL.hack&quot;
+        val comparePath = &quot;testData/assembler/max/MaxL.hack.compare&quot;
+        compareFile(outputPath, comparePath)
+    }
+
+    @Test
+    fun testRect() {
+        val path = &quot;testData/assembler/rect/Rect.asm&quot;
+        Assembler().assemble(path)
+        val outputPath = &quot;testData/assembler/rect/Rect.hack&quot;
+        val comparePath = &quot;testData/assembler/rect/Rect.hack.compare&quot;
+        compareFile(outputPath, comparePath)
+    }
+
+    @Test
+    fun testRectL() {
+        val path = &quot;testData/assembler/rect/RectL.asm&quot;
+        Assembler().assemble(path)
+        val outputPath = &quot;testData/assembler/rect/RectL.hack&quot;
+        val comparePath = &quot;testData/assembler/rect/RectL.hack.compare&quot;
+        compareFile(outputPath, comparePath)
+    }
+
+    @Test
+    fun testPong() {
+        val path = &quot;testData/assembler/pong/Pong.asm&quot;
+        Assembler().assemble(path)
+        val outputPath = &quot;testData/assembler/pong/Pong.hack&quot;
+        val comparePath = &quot;testData/assembler/pong/Pong.hack.compare&quot;
+        compareFile(outputPath, comparePath)
+    }
+
+    @Test
+    fun testPongL() {
+        val path = &quot;testData/assembler/pong/PongL.asm&quot;
+        Assembler().assemble(path)
+        val outputPath = &quot;testData/assembler/pong/PongL.hack&quot;
+        val comparePath = &quot;testData/assembler/pong/PongL.hack.compare&quot;
+        compareFile(outputPath, comparePath)
+    }
+
+    private fun compareFile(outputPath: String, comparePath: String) {
+        val output = File(outputPath).readText()
+        val compare = File(comparePath).readText()
+        assert(output == compare)
+    }
+
+}
+</code></pre>
 
   <hr>
 <div class="md-source-file">
   <small>
     
       最后更新:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">July 16, 2024</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">July 17, 2024</span>
       
     
   </small>
