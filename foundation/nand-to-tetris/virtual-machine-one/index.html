@@ -1365,6 +1365,26 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    实现
+  </a>
+  
+    <nav class="md-nav" aria-label="实现">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    程序结构
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -2229,6 +2249,26 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    实现
+  </a>
+  
+    <nav class="md-nav" aria-label="实现">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    程序结构
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -2283,6 +2323,24 @@
 </ul>
 <h3 id="jack-vm-hack">Jack-VM-Hack 平台中的程序要素</h3>
 <p><img alt="" src="https://raw.gitmirror.com/RicardoJiang/resource/main/2024/july/p16.png" /></p>
+<h2 id="_7">实现</h2>
+<p>Hack 计算机的数据内存由32K个 16-位字组成。前16K 作为通用RAM。下一个16K 包含 1/O 设备的内存映像。VM 实现应该使用如下的间隔分配方式：</p>
+<p><img alt="" src="https://raw.gitmirror.com/RicardoJiang/resource/main/2024/july/p17.png" /></p>
+<p><img alt="" src="https://raw.gitmirror.com/RicardoJiang/resource/main/2024/july/p18.png" /></p>
+<ul>
+<li>local,argument,this,that ：每一个这样的段都被直接映射到 RAM；通过专用寄存器（分别为 LCL、ARG、THIS、THAT）来保存，其物理基地址，就可以维持其在RAM
+中的位置。如此一来，对这些段的第；个数据项的访问，应该被翻译成“获取 RAM 中地址为 （base+i） 的值的汇编代码，这里 base是存储在各段专有寄存器中的当前值。</li>
+<li>pointer, temp ：这些段被直接映射在 RAM中的一个固定区域上。pointer段被映射在 RAM位置3~4（也称內 THIS 和 THAT）上，temp 段被映射在 RAM位置5～12（也称为R5,R6.R12）上。因此访问 point i 应该被翻译成访问 RAM位置3+i 的汇编代码，访问 temp i应该被翻译成访问 RAM 位置5+i 的汇编代码。</li>
+<li>Constant：这个段是真正虚拟的，因为它不占用目标平台上的任何物理存储空间。VM实现通过简单地提供常数i来处理任何VM对 <constant i> 的访问。</li>
+<li>static ：根据Hack 机器语言规范，在汇编程序中每遇到一个新的符号时，编译器就为其分配一个新的RAM单元，从地址16处开始。利用这个规定，使用汇编语言符号f.j来表示VM文件王中的每个静态变量数字j。例如，假设文件 xxx.vm包含命令push static 3。该命令能被翻译成Hack 汇编命令exxx.3 和D=M，接下来的汇编代码将D的值压入堆栈。该static 段的实现方式有点机巧诡异，但确实起作用。</li>
+</ul>
+<p><img alt="" src="https://raw.gitmirror.com/RicardoJiang/resource/main/2024/july/p19.png" /></p>
+<h3 id="_8">程序结构</h3>
+<ul>
+<li>Parser：分析.vm 文件，封装对输入代码的访问。它读取 VM命令并解析，然后为它们的各个部分提供方便的访问入口。除此之外，它还移除代码中所有的空格和注释。</li>
+<li>CodeWriter：将VM命令翻译成 Hack 汇编代码。</li>
+<li>主程序：主程序应该构造一个 Parser 和一个 codevriter ;Parser 用来解析 VM输入文件；codewriter 用来将生成的 hack 汇编代码写入相应的输出文件.asm 文件中。另外，主程序应该读取输入文件中的每一条命令并为其生成对应的汇编代码。</li>
+</ul>
 
   <hr>
 <div class="md-source-file">
