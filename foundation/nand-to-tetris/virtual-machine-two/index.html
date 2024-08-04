@@ -10,20 +10,20 @@
       
       
       
-        <link rel="canonical" href="https://android-performance-optimization.github.io/foundation/kotlin-meta-programming/meta-programming-debug/">
+        <link rel="canonical" href="https://android-performance-optimization.github.io/foundation/nand-to-tetris/virtual-machine-two/">
       
       
-        <link rel="prev" href="../compiler-extension/">
+        <link rel="prev" href="../virtual-machine-one/">
       
       
-        <link rel="next" href="../../kotlin-compiler-learn/learning-resource/">
+        <link rel="next" href="../../framework/activity-start/">
       
       <link rel="icon" href="../../../assets/favicon.png">
       <meta name="generator" content="mkdocs-1.6.0, mkdocs-material-9.1.16">
     
     
       
-        <title>元程序的开发和调试 - Android 性能优化手册</title>
+        <title>虚拟机 2： 程序控制 - Android 性能优化手册</title>
       
     
     
@@ -75,7 +75,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#_1" class="md-skip">
+        <a href="#2" class="md-skip">
           跳转至
         </a>
       
@@ -113,7 +113,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              元程序的开发和调试
+              虚拟机 2： 程序控制
             
           </span>
         </div>
@@ -625,16 +625,14 @@
               
   
   
-    
-  
   
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
       
       
       
-      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2" checked>
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2" >
       
       
         
@@ -661,7 +659,7 @@
           <span class="md-nav__icon md-icon"></span>
         </label>
       
-      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_2_label" aria-expanded="true">
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_2_label" aria-expanded="false">
         <label class="md-nav__title" for="__nav_3_2">
           <span class="md-nav__icon md-icon"></span>
           深入实践 Kotlin 元编程
@@ -674,7 +672,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../meta-programming-basic/" class="md-nav__link">
+      <a href="../../kotlin-meta-programming/meta-programming-basic/" class="md-nav__link">
         元编程概述
       </a>
     </li>
@@ -688,7 +686,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../meta-data-introduction/" class="md-nav__link">
+      <a href="../../kotlin-meta-programming/meta-data-introduction/" class="md-nav__link">
         元数据简介
       </a>
     </li>
@@ -702,7 +700,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../runtime-reflect/" class="md-nav__link">
+      <a href="../../kotlin-meta-programming/runtime-reflect/" class="md-nav__link">
         运行时的反射
       </a>
     </li>
@@ -716,7 +714,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../code-generate/" class="md-nav__link">
+      <a href="../../kotlin-meta-programming/code-generate/" class="md-nav__link">
         源代码生成
       </a>
     </li>
@@ -730,7 +728,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../symbol-process/" class="md-nav__link">
+      <a href="../../kotlin-meta-programming/symbol-process/" class="md-nav__link">
         编译时的符号处理
       </a>
     </li>
@@ -744,7 +742,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../code-static-analyse/" class="md-nav__link">
+      <a href="../../kotlin-meta-programming/code-static-analyse/" class="md-nav__link">
         程序静态分析
       </a>
     </li>
@@ -758,7 +756,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../compiler-extension/" class="md-nav__link">
+      <a href="../../kotlin-meta-programming/compiler-extension/" class="md-nav__link">
         编译器插件
       </a>
     </li>
@@ -770,93 +768,11 @@
               
   
   
-    
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          元程序的开发和调试
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../../kotlin-meta-programming/meta-programming-debug/" class="md-nav__link">
         元程序的开发和调试
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="目录">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      目录
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#kotlin-compile-testing" class="md-nav__link">
-    使用 kotlin-compile-testing 编写单元测试
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
-    在实际项目当中集成
-  </a>
-  
-    <nav class="md-nav" aria-label="在实际项目当中集成">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
-    工程的组织形式
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#kotlin" class="md-nav__link">
-    单步调试 Kotlin 编译器
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#kotlin_1" class="md-nav__link">
-    Kotlin 编译器的日志输出
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_4" class="md-nav__link">
-    本章小结
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -1201,14 +1117,16 @@
               
   
   
+    
+  
   
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
       
       
       
-      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_5" >
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_5" checked>
       
       
         
@@ -1237,7 +1155,7 @@
           <span class="md-nav__icon md-icon"></span>
         </label>
       
-      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_5_label" aria-expanded="false">
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_5_label" aria-expanded="true">
         <label class="md-nav__title" for="__nav_3_5">
           <span class="md-nav__icon md-icon"></span>
           计算机系统要素
@@ -1250,7 +1168,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../nand-to-tetris/introduction/" class="md-nav__link">
+      <a href="../introduction/" class="md-nav__link">
         前言
       </a>
     </li>
@@ -1264,7 +1182,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../nand-to-tetris/bool-logic/" class="md-nav__link">
+      <a href="../bool-logic/" class="md-nav__link">
         布尔逻辑
       </a>
     </li>
@@ -1278,7 +1196,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../nand-to-tetris/bool-arithmetic/" class="md-nav__link">
+      <a href="../bool-arithmetic/" class="md-nav__link">
         布尔运算
       </a>
     </li>
@@ -1292,7 +1210,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../nand-to-tetris/sequential-logic/" class="md-nav__link">
+      <a href="../sequential-logic/" class="md-nav__link">
         时序逻辑
       </a>
     </li>
@@ -1306,7 +1224,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../nand-to-tetris/machine-language/" class="md-nav__link">
+      <a href="../machine-language/" class="md-nav__link">
         机器语言
       </a>
     </li>
@@ -1320,7 +1238,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../nand-to-tetris/computer-architecture/" class="md-nav__link">
+      <a href="../computer-architecture/" class="md-nav__link">
         计算机体系结构
       </a>
     </li>
@@ -1334,7 +1252,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../nand-to-tetris/assembler/" class="md-nav__link">
+      <a href="../assembler/" class="md-nav__link">
         汇编编译器
       </a>
     </li>
@@ -1348,7 +1266,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../nand-to-tetris/virtual-machine-one/" class="md-nav__link">
+      <a href="../virtual-machine-one/" class="md-nav__link">
         虚拟机 1：堆栈运算
       </a>
     </li>
@@ -1360,11 +1278,140 @@
               
   
   
+    
   
-    <li class="md-nav__item">
-      <a href="../../nand-to-tetris/virtual-machine-two/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          虚拟机 2： 程序控制
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         虚拟机 2： 程序控制
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    背景知识
+  </a>
+  
+    <nav class="md-nav" aria-label="背景知识">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    子程序调用
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#vm" class="md-nav__link">
+    VM 规范详述（第二部分）
+  </a>
+  
+    <nav class="md-nav" aria-label="VM 规范详述（第二部分）">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    程序控制流命令
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    函数调用命令
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    函数调用协议
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    实现
+  </a>
+  
+    <nav class="md-nav" aria-label="实现">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#hack-vm" class="md-nav__link">
+    Hack 平台上的标准 VM 映射
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    函数调用协议实现
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    汇编语言符号
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    范例
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -2174,37 +2221,16 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#kotlin-compile-testing" class="md-nav__link">
-    使用 kotlin-compile-testing 编写单元测试
+  <a href="#_1" class="md-nav__link">
+    背景知识
   </a>
   
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
-    在实际项目当中集成
-  </a>
-  
-    <nav class="md-nav" aria-label="在实际项目当中集成">
+    <nav class="md-nav" aria-label="背景知识">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
-    工程的组织形式
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#kotlin" class="md-nav__link">
-    单步调试 Kotlin 编译器
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#kotlin_1" class="md-nav__link">
-    Kotlin 编译器的日志输出
+  <a href="#_2" class="md-nav__link">
+    子程序调用
   </a>
   
 </li>
@@ -2215,9 +2241,77 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_4" class="md-nav__link">
-    本章小结
+  <a href="#vm" class="md-nav__link">
+    VM 规范详述（第二部分）
   </a>
+  
+    <nav class="md-nav" aria-label="VM 规范详述（第二部分）">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    程序控制流命令
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    函数调用命令
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    函数调用协议
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    实现
+  </a>
+  
+    <nav class="md-nav" aria-label="实现">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#hack-vm" class="md-nav__link">
+    Hack 平台上的标准 VM 映射
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    函数调用协议实现
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    汇编语言符号
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    范例
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -2239,39 +2333,53 @@
   
 
 
-<h1 id="_1">元程序的开发和调试</h1>
-<p>本文为《深入实践 kotlin 元编程》读书笔记，想要深入了解 kotlin 元编程的同学可以阅读原书。</p>
-<h2 id="kotlin-compile-testing">使用 kotlin-compile-testing 编写单元测试</h2>
-<p>元编程的逻辑通常较为抽象，我们可以通过单元测试将各种边界用例记录下来，并在功能迭代之时不断对元程序进行验证，为元程序提供可靠性保证。同时，我们也能在运行单元测试时通
-过断点调试、日志输出的方式对编译器内部的结构和逻辑进行深入分析，以加深对编译器内部细节的认识和理解，降低开发难度和成本。</p>
+<h1 id="2">虚拟机 2： 程序控制</h1>
+<p>在计算机科学领域的竞赛中，堆栈处理（stack processing）绝对是进入决赛的强大选手。前面的章节已介绍算术表达式和布尔表达式是如何利用基本堆栈操作来进行计算的。本章将继续介绍这个简单的数据结构如何支持像嵌套子程序调用、参数传递、递归和内存分配技术这样的复杂任务。大多数程序员不希望在这些功能上花功夫，而指望编译器来帮他们实现。现在我们就打开这个黑盒子，揭示这些基本编程机制是如何被基于堆栈的虚拟机实现的。</p>
+<h2 id="_1">背景知识</h2>
+<p>当我们在高级语言中调用一个简单的函数时，在底层有很多细节需要处理：</p>
 <ul>
-<li>编译器的调用和调试</li>
-<li>检查 KAPT 的输出</li>
-<li>添加对 KSP 的支持</li>
-<li>运行编译后的程序</li>
-<li>打印变换之后的 IR</li>
-<li>多模块编译</li>
+<li>将参数从调用者（caller）传递给被调用者（called subroutine）</li>
+<li>在跳转并执行被调用者之前，先保存调用者的状态</li>
+<li>为被调用者使用的局部变量分配空间</li>
+<li>跳转并执行被调用者</li>
+<li>将被调用者的运行结果返回给调用者</li>
+<li>在从被调用者返回之前，回收其使用的内存空间</li>
+<li>恢复调用者的状态</li>
+<li>返回到调用语句之后的下一条语句继续执行</li>
 </ul>
-<h2 id="_2">在实际项目当中集成</h2>
-<p>在元编程项目的开发过程中，采用单元测试可以应对绝大多数的调试和测试场景。</p>
-<p>不过，在实际项目当中进行集成也是比较重要的开发和调试手段。有些时候我们希望能够快速结合实际项目完成一些想法的验证，直接集成开发甚至似乎是一个更好的办法。</p>
-<h3 id="_3">工程的组织形式</h3>
-<p>在本地开发时，为了实现集成调试，通常我们最容易想到的做法就是先将元程序发布到 Maven 的本地仓库，然后在业务项目引入。这种做法足够简单，但对于需要频繁修改元程序进
-行功能验证的场景又显得比较笨重。</p>
-<p>为了应对这样的开发场景，Gradle 提供了一套混合编译（CompositeBuild）机制，它使得我们无需修改业务代码当中的依赖配置即可实现与依赖项目的源码依赖。</p>
-<h3 id="kotlin">单步调试 Kotlin 编译器</h3>
-<p>集成开发的时候，通常我们会通过调试 Gradle 进程的方式来调试整个编译流程。调试 Gradle 时我们可以对 Gradle 自身和 Gradle 插件进行单步调试。</p>
-<p>在 IntelliJ IDEA 当中调试 Gradle 非常简单，我们只需要在相应的源码当中打好断点，然后选择好合适的 Gradle 任务，点击调试运行按钮即可。</p>
-<p>Java 编译器也运行在 Gradle 的进程当中，因此我们也可以在 Java 编译器的源码当中打断点对 Java 编译器进行单步调试</p>
-<p>不过，默认情况下我们不能直接对 Kotlin 编译器进行单步调试，因为 Kotlin 编译器默认运行在一个独立的进程当中。不过，我们只需要将 Kotlin 编译器的运行策略配置为 In process，问题就可以得到解决。</p>
-<h3 id="kotlin_1">Kotlin 编译器的日志输出</h3>
-<p>在默认的 Kotlin 编译器运行策略下，除了无法单步调试以外，通过 println(...) 打印到标准输出流的内容也不会出现在 Gradle 的运行输出当中。</p>
-<p>这其实也不难理解，默认情况下 println(...) 会将内容打印到 Kotlin 编译器守护进程的标准输出流，我们自然无法在 Gradle 的运行输出当中看到它们。在将 Kotlin 的编译
-器运行策略修改为 In process 之后，问题也就可以得到暂时的解决。</p>
-<p>不过，修改 Kotlin 编译器运行策略的方法只适用于开发调试时。当我们将符号处理器或者编译器插件发布之后，Kotlin 编译器的运行策略由接入方决定，如果我们希望输出一些日志
-方便接入方查看符号处理器或者编译器插件的运行状态，就需要使用对应的日志收集器了。</p>
-<h2 id="_4">本章小结</h2>
-<p>本章介绍了如何为元程序编写单元测试以及如何对元程序进行调试。元编程的场景通常较为抽象，掌握便捷的途径对程序的结果进行有效的验证，往往可以产生事半功倍的效果。</p>
+<p>要考虑这些琐碎的事情是很头疼的，好在编译器把高级语言程序员从中解脱出来。那么编译器是如何做到这些的呢？如果我们用堆栈机（stack machine）来完成底层操作，那么以上工作的处理就很简单了，事实上堆栈结构本身的优势就在于处理这种类似任务。</p>
+<p>本节剩余的内容将描述程序控制流 （program flow）命令和子程序调用（subroutinecalling）命令是如何在堆栈机上实现的。</p>
+<h3 id="_2">子程序调用</h3>
+<p>在cal1 xxx 操作的底层实现中，先将调用者的帧保存到堆栈中，然后为子程序（xxx）的局部变量分配堆栈空间，最后跳到子程序 xxx开始执行其代码。</p>
+<p>最后一步“大跳转”并不难实现。因为目标子程序的名字在 ca11 命令中已经被指定了，这样在调用过程中可以将这个目标程序名解析成一个内存地址，然后跳转到以该内存地址为基址的代码段（该代码段就是子程序的代码段）开始执行。</p>
+<p>而通过 return 命令从子程序中返回的过程却暗藏玄机，因为命令中并未指定返回地址。事实上，在所有调用子程序的过程中，调用者的返回地址都没有显式地给出。比如，因为像 power（x, y）或sqzt（x）这样的子程序可以被任何调用者调用，那么它们的代码中就不可能给出具体的返回地址。所以，return 命令应该按如下方式来解释：它将程序的执行重定向到调用语句ca11 命令的下一条命令所在的内存地址（不论这条命令的内存位置具体在哪），即称为返回地址 （return address）。</p>
+<p>我们用 ca11 xxx指令执行调用操作时，应该知道准确的返回地址：指令ca11 xxx 的下一条指令的内存地址。因此，我们将该指令内存地址作为返回地址压入堆栈保存，然后去执行子程序。当我们最终遇到return命令时，我们就将先前保存在堆栈中的返回地址弹出来，然后只用简单的goto 命令跳转到这个地址就可以了。换句话说就是返回地址也可以保存在调用者的帧里面。</p>
+<h2 id="vm">VM 规范详述（第二部分）</h2>
+<h3 id="_3">程序控制流命令</h3>
+<p>VM 语言有三种形式的程序控制流命令：
+- label：该命令标记程序中某条指令的位置，在程序中的跳转指令只能跳转到被 label label 命令所标示的位置
+- goto label：该命令执行无条件跳转操作，使得程序跳转到label label 命令标示的位置那里继续执行。跳转的目的地址必须位于同一个程序之内。
+- if-goto label：该命令执行条件跳转操作。首先，将布尔表达式的运算结果从堆栈顶端弹出，如果该值非 0，那么程序就跳转到label 标示的位置继续执行；否则，继续执行程序中的下一条命令。跳转的目的地址必须位于同一个函数内。</p>
+<h3 id="_4">函数调用命令</h3>
+<p>VM语言有三种函数相关的命令：</p>
+<ul>
+<li>function f n：一段函数名为f的代码，该函数有n个参数；</li>
+<li>call f m: 调用函数f，其m个参数已经被调用者压入堆栈：</li>
+<li>return: 返回到调用者。</li>
+</ul>
+<h3 id="_5">函数调用协议</h3>
+<p><img alt="" src="https://raw.gitmirror.com/RicardoJiang/resource/main/2024/august/p1.png" /></p>
+<h2 id="_6">实现</h2>
+<h3 id="hack-vm">Hack 平台上的标准 VM 映射</h3>
+<p>全局堆栈：VM 的内存资源是通过维护一个全局的堆栈来得到的。每当调用一个函数时，该函数对应的帧（frame）就被压入全局堆栈。该帧包括被调用函数（called function）
+将要使用的参数：一组用于保存调用者状态的指针（pointers）：被调用函数的局部变量（被初始化为0）：以及一个被调用函数将要使用的工作堆栈（当前为空）。</p>
+<p><img alt="" src="https://raw.gitmirror.com/RicardoJiang/resource/main/2024/august/p2.png" /></p>
+<h3 id="_7">函数调用协议实现</h3>
+<p><img alt="" src="https://raw.gitmirror.com/RicardoJiang/resource/main/2024/august/p3.png" /></p>
+<h3 id="_8">汇编语言符号</h3>
+<p><img alt="" src="https://raw.gitmirror.com/RicardoJiang/resource/main/2024/august/p4.png" /></p>
+<h3 id="_9">范例</h3>
+<p><img alt="" src="https://raw.gitmirror.com/RicardoJiang/resource/main/2024/august/p5.png" /></p>
 
   <hr>
 <div class="md-source-file">
@@ -2309,7 +2417,7 @@
       <nav class="md-footer__inner md-grid" aria-label="页脚" >
         
           
-          <a href="../compiler-extension/" class="md-footer__link md-footer__link--prev" aria-label="上一页: 编译器插件" rel="prev">
+          <a href="../virtual-machine-one/" class="md-footer__link md-footer__link--prev" aria-label="上一页: 虚拟机 1：堆栈运算" rel="prev">
             <div class="md-footer__button md-icon">
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
             </div>
@@ -2318,20 +2426,20 @@
                 上一页
               </span>
               <div class="md-ellipsis">
-                编译器插件
+                虚拟机 1：堆栈运算
               </div>
             </div>
           </a>
         
         
           
-          <a href="../../kotlin-compiler-learn/learning-resource/" class="md-footer__link md-footer__link--next" aria-label="下一页: Kotlin 编译器相关学习资源" rel="next">
+          <a href="../../framework/activity-start/" class="md-footer__link md-footer__link--next" aria-label="下一页: Activity 启动流程分析" rel="next">
             <div class="md-footer__title">
               <span class="md-footer__direction">
                 下一页
               </span>
               <div class="md-ellipsis">
-                Kotlin 编译器相关学习资源
+                Activity 启动流程分析
               </div>
             </div>
             <div class="md-footer__button md-icon">
