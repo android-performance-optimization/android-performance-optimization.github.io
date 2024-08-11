@@ -2282,6 +2282,11 @@
 <p>从官方对于 NDK 对 16K Page Size 提供的描述看，Android V 其实还是允许 OEM 厂商自己选择 16K 还是 4K ，而其实按照 Page Size 逻辑，16K 的 so 本来就兼容 4K 的设备，因为它 16 本身就是 4 的整数倍，所以我们也不需要同时构建 16K 和 4K  版本的库，只需要 16K 就够了。</p>
 <p>但是 Google Play 计划明年就要求 16K Page Size，出海的 App 需要尽快适配。</p>
 <p><img alt="" src="https://raw.gitmirror.com/RicardoJiang/resource/main/2024/july/p26.webp" /></p>
+<p>在适配过程中，我们需要做的主要就是：
+- 确保代码里没有 mmap 、sysconf  等写死 4096(0x1000)  地方的代码
+- 确保不是假对齐，例如低版本 NDK 编译下的 0x10000(65536)  64k 对齐不一定可信
+- 4K 可运行的情况下， 16K 在确定 so 都是地址对齐的情况下，高度怀疑 NDK 问题
+- 升级 NDK or 工具链合集，首选升级为 Clang/LLVM 相关</p>
 
   <hr>
 <div class="md-source-file">
