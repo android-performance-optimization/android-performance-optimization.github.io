@@ -71,6 +71,11 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://android-performance-optimization.github.io/foundation/nand-to-tetris/compiler-one/</loc>
+         <lastmod>2024-08-14</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://android-performance-optimization.github.io/foundation/nand-to-tetris/computer-architecture/</loc>
          <lastmod>2024-08-14</lastmod>
          <changefreq>daily</changefreq>
