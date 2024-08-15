@@ -1305,9 +1305,94 @@
         
       
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          编译器 1：语法分析
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <a href="./" class="md-nav__link md-nav__link--active">
         编译器 1：语法分析
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    背景知识
+  </a>
+  
+    <nav class="md-nav" aria-label="背景知识">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    词法分析
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    语法
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    语法分析
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    规范详述
+  </a>
+  
+    <nav class="md-nav" aria-label="规范详述">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#jack" class="md-nav__link">
+    Jack 语言语法
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    实现
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -2111,6 +2196,75 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    背景知识
+  </a>
+  
+    <nav class="md-nav" aria-label="背景知识">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    词法分析
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    语法
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    语法分析
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    规范详述
+  </a>
+  
+    <nav class="md-nav" aria-label="规范详述">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#jack" class="md-nav__link">
+    Jack 语言语法
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    实现
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -2135,13 +2289,44 @@
 语法来重构程序的逻辑。第一个任务通常称为语法分析（syntax analysis）</li>
 <li>第二个任务，即代码生成（code generation）</li>
 </ul>
+<h2 id="_1">背景知识</h2>
+<p>典型的编译器由两个主要模块组成：语法分析（syntax analysis）模块和代码生成（code generation）模块。语法分析任务通常可以进一步分成两个模块：</p>
+<ul>
+<li>字元化（tokenizing）：模块将输入的字符分组成语言原子元素（language atoms）：</li>
+<li>然后由语法分析 （parsing）模块将所得到的语言原子元素集合同语法规则相匹配。</li>
+</ul>
+<p><img alt="" src="https://raw.gitmirror.com/RicardoJiang/resource/main/2024/august/p6.png" /></p>
+<h3 id="_2">词法分析</h3>
+<p>程序最简单的语法形式就是存储在文本文件中的一系列字符。对程序进行语法分析的第一步，是将字符分组成字元（由语言语法所定义），忽略空格和注释。这一步通常称为词法分析 （lexical analysis）、扫描（scanning）或字元化 （tokenizing）。一旦程序被分组成字元，字元（而不是字符）就被看作程序的基本原子，字元集合就成为编译器的输入。</p>
+<h3 id="_3">语法</h3>
+<p>一旦对程序进行语法分析，形成一系列字元（即字元流，token stream），就面临更具挑战性的任务，即将字元进行分析，理解成对应的规范结构。换句话说，必须想办法考虑如何将这些字元分组成变量声明、语句、表达式等等的语言结构。通过将字元集合按照预定义的规则集（set of rules），即语法（grammar）进行组合匹配，就可以实现分组和分类任务。</p>
+<p>几乎所有的编程语言，以及大多数用于描述复杂文件类型语法的其他的形式语言，都可以使用上下文无关语法 （context-free grammars）来描述。上下文无关语法是一组规则，用来指定语言中的语法元素如何由更简单的元素组成。</p>
+<p>比如，Java 语法允许将基本元素 100、count 和 &lt;= 联合成表达式 count&lt;=100。同样的，Java 语法允许确定文本 count&lt;=100 是正确的Java表达式。事实上，每种语法都可以从两个方面来考察。从声明的观点来看，语法规定了可行的方案，来将字元（token，也称终结符，terminals）组合成更高级的语法元素（也称为非终结符，non-terminals）。从分析的观点来看，语法是用于执行反向任务的规则：将给定的输入，即通过字元化阶段（tokenizing phase）得到的字元集合，解析成非终结符、较低级的非终结符，以及最后不能继续分解的终结符。</p>
+<h3 id="_4">语法分析</h3>
+<p>检查语法是否将所输入的文本看作合法输入，这个过程称为语法分析（parsing）。正如前面提到的，“分析给定的文本”意味着，决定文本和给定语法规则之间的一致性。因为语法规则是分层的，所以语法分析器（parser）生成的输出可以用称 语法分析树（parse tree）或导出树（derivation tree）的树状数据结构来描述。</p>
+<p><strong>递归下降分析（Recursive Descent Parsing）</strong>：自顶向下的方法，也称为递归下降分析，是应用由语法规则描述的嵌套结构来尝试递归地分析字元集合形成的输入流（token stream）。现在来考虑如何编写实现该功能的语法分析器程序（parser program）。对于语法中每个描述非终结符的规则，可以为语法分析器程序配备递归子程序，该子程序用米递归地分析非终结符。如果非终结符仅由终结符原子构成，该程序就很容易处理它们。否则，对于规则右边的每个非终结符构建块（building block），程序可以递归地调用“分析该非终结符”的程序。整个处理过程递归进行，直到所有终结符原子元素全部被处理完毕。</p>
+<p><img alt="" src="https://raw.gitmirror.com/RicardoJiang/resource/main/2024/august/p7.png" /></p>
+<p><strong>LL（0）</strong>语法：递归分析算法是简单高效的算法。唯一可能的复杂性在于分析的非终结符有多种可选的解释。例如，当 parsestatement（）试图分析一条语句时，它预先不知道该语句是 while-语句、if-语句还是用花括号括起来的一串语句。可能性的范围由语法来决定，在某些情况下很容易辨别是哪一种选择。我们的观点可归纳如下：每当一个非终结符有多种可选择的导出规则时，其第一个字元足以确定该非终结符所属的表达式类型，而不会出现不确定的情况。具有这种属性的语法称为 LL（O）。递归下降算法可以简洁明了地处理这类语法。</p>
+<h2 id="_5">规范详述</h2>
+<p>Jack 语法规范有如下约定</p>
+<p><img alt="" src="https://raw.gitmirror.com/RicardoJiang/resource/main/2024/august/p8.png" /></p>
+<h3 id="jack">Jack 语言语法</h3>
+<p><img alt="" src="https://raw.gitmirror.com/RicardoJiang/resource/main/2024/august/p9.png" /></p>
+<p><img alt="" src="https://raw.gitmirror.com/RicardoJiang/resource/main/2024/august/p10.png" /></p>
+<h2 id="_6">实现</h2>
+<p>本节将给出语法分析器的软件架构。建议将实现分成三个模块：</p>
+<ul>
+<li>JackAnalyzer: 建立和调用其他模块的项层驱动模块</li>
+<li>JackTokenizer: 字元转换器（字元化）模块</li>
+<li>CompilationEngine: 自项向下的递归语法分析器。</li>
+</ul>
 
   <hr>
 <div class="md-source-file">
   <small>
     
       最后更新:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">August 14, 2024</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">August 15, 2024</span>
       
     
   </small>
