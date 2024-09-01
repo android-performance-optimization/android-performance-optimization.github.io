@@ -10,20 +10,20 @@
       
       
       
-        <link rel="canonical" href="https://android-performance-optimization.github.io/foundation/self-cultivation/system-call/">
+        <link rel="canonical" href="https://android-performance-optimization.github.io/foundation/nand-to-tetris/compiler-two/">
       
       
-        <link rel="prev" href="../memory/">
+        <link rel="prev" href="../compiler-one/">
       
       
-        <link rel="next" href="../../kotlin-meta-programming/meta-programming-basic/">
+        <link rel="next" href="../../framework/activity-start/">
       
       <link rel="icon" href="../../../assets/favicon.png">
       <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.1.16">
     
     
       
-        <title>系统调用 - Android 性能优化手册</title>
+        <title>编译器 2: 代码生成 - Android 性能优化手册</title>
       
     
     
@@ -75,7 +75,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#_1" class="md-skip">
+        <a href="#2" class="md-skip">
           跳转至
         </a>
       
@@ -113,7 +113,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              系统调用
+              编译器 2: 代码生成
             
           </span>
         </div>
@@ -258,7 +258,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="../elf-file-detail/" class="md-tabs__link md-tabs__link--active">
+      <a href="../../self-cultivation/elf-file-detail/" class="md-tabs__link md-tabs__link--active">
         筑基手册
       </a>
     </li>
@@ -493,16 +493,14 @@
               
   
   
-    
-  
   
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
       
       
       
-      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_1" checked>
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_1" >
       
       
         
@@ -525,7 +523,7 @@
           <span class="md-nav__icon md-icon"></span>
         </label>
       
-      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_1_label" aria-expanded="true">
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_1_label" aria-expanded="false">
         <label class="md-nav__title" for="__nav_3_1">
           <span class="md-nav__icon md-icon"></span>
           程序员的自我修养
@@ -538,7 +536,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../elf-file-detail/" class="md-nav__link">
+      <a href="../../self-cultivation/elf-file-detail/" class="md-nav__link">
         Elf 文件格式详解
       </a>
     </li>
@@ -552,7 +550,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../static-link/" class="md-nav__link">
+      <a href="../../self-cultivation/static-link/" class="md-nav__link">
         静态链接
       </a>
     </li>
@@ -566,7 +564,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../elf-load/" class="md-nav__link">
+      <a href="../../self-cultivation/elf-load/" class="md-nav__link">
         ELF 文件的装载与进程
       </a>
     </li>
@@ -580,7 +578,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../dynamic-link/" class="md-nav__link">
+      <a href="../../self-cultivation/dynamic-link/" class="md-nav__link">
         动态链接
       </a>
     </li>
@@ -594,7 +592,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../memory/" class="md-nav__link">
+      <a href="../../self-cultivation/memory/" class="md-nav__link">
         内存
       </a>
     </li>
@@ -606,120 +604,11 @@
               
   
   
-    
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          系统调用
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../../self-cultivation/system-call/" class="md-nav__link">
         系统调用
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="目录">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      目录
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
-    系统调用介绍
-  </a>
-  
-    <nav class="md-nav" aria-label="系统调用介绍">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
-    什么是系统调用
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#linux" class="md-nav__link">
-    Linux 系统调用
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_4" class="md-nav__link">
-    系统调用的弊端
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_5" class="md-nav__link">
-    系统调用原理
-  </a>
-  
-    <nav class="md-nav" aria-label="系统调用原理">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#_6" class="md-nav__link">
-    特权级与中断
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#int-linux" class="md-nav__link">
-    基于 int 的经典 linux 系统调用
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#linux_1" class="md-nav__link">
-    linux 的新型系统调用机制
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_7" class="md-nav__link">
-    总结
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -1228,14 +1117,16 @@
               
   
   
+    
+  
   
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
       
       
       
-      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_5" >
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_5" checked>
       
       
         
@@ -1268,7 +1159,7 @@
           <span class="md-nav__icon md-icon"></span>
         </label>
       
-      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_5_label" aria-expanded="false">
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_5_label" aria-expanded="true">
         <label class="md-nav__title" for="__nav_3_5">
           <span class="md-nav__icon md-icon"></span>
           计算机系统要素
@@ -1281,7 +1172,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../nand-to-tetris/introduction/" class="md-nav__link">
+      <a href="../introduction/" class="md-nav__link">
         前言
       </a>
     </li>
@@ -1295,7 +1186,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../nand-to-tetris/bool-logic/" class="md-nav__link">
+      <a href="../bool-logic/" class="md-nav__link">
         布尔逻辑
       </a>
     </li>
@@ -1309,7 +1200,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../nand-to-tetris/bool-arithmetic/" class="md-nav__link">
+      <a href="../bool-arithmetic/" class="md-nav__link">
         布尔运算
       </a>
     </li>
@@ -1323,7 +1214,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../nand-to-tetris/sequential-logic/" class="md-nav__link">
+      <a href="../sequential-logic/" class="md-nav__link">
         时序逻辑
       </a>
     </li>
@@ -1337,7 +1228,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../nand-to-tetris/machine-language/" class="md-nav__link">
+      <a href="../machine-language/" class="md-nav__link">
         机器语言
       </a>
     </li>
@@ -1351,7 +1242,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../nand-to-tetris/computer-architecture/" class="md-nav__link">
+      <a href="../computer-architecture/" class="md-nav__link">
         计算机体系结构
       </a>
     </li>
@@ -1365,7 +1256,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../nand-to-tetris/assembler/" class="md-nav__link">
+      <a href="../assembler/" class="md-nav__link">
         汇编编译器
       </a>
     </li>
@@ -1379,7 +1270,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../nand-to-tetris/virtual-machine-one/" class="md-nav__link">
+      <a href="../virtual-machine-one/" class="md-nav__link">
         虚拟机 1：堆栈运算
       </a>
     </li>
@@ -1393,7 +1284,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../nand-to-tetris/virtual-machine-two/" class="md-nav__link">
+      <a href="../virtual-machine-two/" class="md-nav__link">
         虚拟机 2： 程序控制
       </a>
     </li>
@@ -1407,7 +1298,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../nand-to-tetris/compiler-one/" class="md-nav__link">
+      <a href="../compiler-one/" class="md-nav__link">
         编译器 1：语法分析
       </a>
     </li>
@@ -1419,11 +1310,92 @@
               
   
   
+    
   
-    <li class="md-nav__item">
-      <a href="../../nand-to-tetris/compiler-two/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          编译器 2: 代码生成
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         编译器 2: 代码生成
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    背景知识
+  </a>
+  
+    <nav class="md-nav" aria-label="背景知识">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    数据翻译
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    命令翻译
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    规范详述
+  </a>
+  
+    <nav class="md-nav" aria-label="规范详述">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    虚拟机平台之上的标准映射
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -2249,30 +2221,23 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
-    系统调用介绍
+  <a href="#_1" class="md-nav__link">
+    背景知识
   </a>
   
-    <nav class="md-nav" aria-label="系统调用介绍">
+    <nav class="md-nav" aria-label="背景知识">
       <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    数据翻译
+  </a>
+  
+</li>
         
           <li class="md-nav__item">
   <a href="#_3" class="md-nav__link">
-    什么是系统调用
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#linux" class="md-nav__link">
-    Linux 系统调用
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_4" class="md-nav__link">
-    系统调用的弊端
+    命令翻译
   </a>
   
 </li>
@@ -2283,43 +2248,22 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_5" class="md-nav__link">
-    系统调用原理
+  <a href="#_4" class="md-nav__link">
+    规范详述
   </a>
   
-    <nav class="md-nav" aria-label="系统调用原理">
+    <nav class="md-nav" aria-label="规范详述">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#_6" class="md-nav__link">
-    特权级与中断
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#int-linux" class="md-nav__link">
-    基于 int 的经典 linux 系统调用
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#linux_1" class="md-nav__link">
-    linux 的新型系统调用机制
+  <a href="#_5" class="md-nav__link">
+    虚拟机平台之上的标准映射
   </a>
   
 </li>
         
       </ul>
     </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_7" class="md-nav__link">
-    总结
-  </a>
   
 </li>
       
@@ -2341,55 +2285,48 @@
   
 
 
-<h1 id="_1">系统调用</h1>
-<p>最近在读《程序员的自我修养：链接，装载与库》，其实这本书跟 Android 开发的联系还挺紧密的，无论是 NDK 开发，或者是性能优化中一些常用的 Native Hoook 手段，都需要了解一些链接，装载相关的知识点。本文为读书笔记。</p>
-<h2 id="_2">系统调用介绍</h2>
-<p>系统调用是应用程序（运行库也是应用程序的一部分）与操作系统内核之间的接口，它决定了应用程序是如何与内核打交道的。无论程序是直接进行系统调用，还是通过运行库，最终还是会到达系统调用这个层面上。</p>
-<h3 id="_3">什么是系统调用</h3>
-<p>在现代的操作系统里，程序运行的时候，本身是没有权利访问多少系统资源的。由于系统有限的资源有可能被多个不同的应用程序同时访问，因此，如果不加以保护，那么各个应用程序难免产生冲突。所以现代操作系统都将可能产生冲突的系统资源给保护起来，阻止应用程序直接访问。这些系统资源包括文件、网络、IO、各种设备等。</p>
-<p>举个例子，无论在 Windows 下还是 Linux 下，程序员都没有机会擅自去访问硬盘的某扇区上面的数据，而必须通过文件系统；也不能擅自修改任意文件，所有的这些操作都必须经由操作系统所规定的方式来进行，比如我们使用 fopen 去打开一个没有权限的文件就会发生失败。</p>
-<p>为了让应用程序有能力访问系统资源，也为了让程序借助操作系统做一些必须由操作系统支持的行为，每个操作系统都会提供一套接口，以供应用程序使用。这些接口往往通过中断来实现，比如 Linux 使用 0x80 号中断作为系统调用的入口，Windows 采用 0x2E 号中断作为系统调用入口。</p>
-<h3 id="linux">Linux 系统调用</h3>
-<p>下面让我们来看看 Linux 系统调用的定义：在 x86 下，系统调用由 0x80 中断完成，各个通用寄存器用于传递参数，EAX 寄存器用于表示系统调用的接口号，比如 EAX = 1 表示退出进程（exit）；EAX = 2表示创建进程（fork）；EAX = 3表示读取文件或IO（read）；EAX = 4表示写文件或 IO（write）等，每个系统调用都对应于内核源代码中的一个函数，它们都是以“sys_”开头的，比如 exit 调用对应内核中的 sys_exit 函数。当系统调用返回时，EAX 又作为调用结果的返回值。</p>
-<h3 id="_4">系统调用的弊端</h3>
-<p>系统调用完成了应用程序和内核交流的工作，因此理论上只需要系统调用就可以完成一些程序，但是其也有一些缺陷</p>
+<h1 id="2">编译器 2: 代码生成</h1>
+<h2 id="_1">背景知识</h2>
+<p>程序本质上就是一系列操纵数据的操作。因此，将高级程序编译成低级语言主要涉及两个主要的问题：数据的翻译和命令的翻译。</p>
+<h3 id="_2">数据翻译</h3>
+<p>程序能操纵很多变量类型（types），包括整型和布尔型等简单类型，以及数组和对象等复杂类型。另一个需要讨论的重要内容是变量的生命周期和作用域（scope）--即局部变量、全局变量、参数、对象成员字段等等。</p>
+<p>对于程序中遇到的每个变量，编译器必须将其映射到目标平台中适合描述其类型的等价表示上。此外，编译器必须管理变量的生命周期和作用域，这与它的类型相关。因此这里就需要用到符号表。</p>
+<p>符号表（Symbol Table） 高级程序引入并操纵很多标识符（identifiers）。当编译器遇到标识符 xxx时，它需要知道 xxx代表什么。它是变量名、类名称，还是函数名？如果它是变量，那么 xxx 是某个对象的成员字段，还是某个函数的参数？变量的种类又是什么，整数、布尔数、字符或某种数据类型？在编译器能用目标语言表达xxx 的语义之前，必须解决这些问题。另外，每当在源代码中遇到 xxx 时，所有以上这些问题都必须被回答（用于代码生成）。</p>
+<p>显然有必要了解程序引入的所有标识符，并且记录每个标识符在源程序中代表的内容及其被映射到目标语言中的何种结构上。大多数编译器通过使用符号表（symbol table）抽象来保存这些信息。在源代码中第一次遇到一个新标识符时（比如在符号声明中），编译器将它的描述添加到表中。在代码的其他地方遇到标识符时，编译器在符号表中查找该标识符，然后得到关于它的所有必要信息。</p>
+<p><strong>变量处理</strong>：编译器所面对的基本挑战之一是，如何将源程序中声明的各种变量类型映射到目标平台的内存中去。首先，不同的变量类型需要不同大小的内存块，因此这种映射不是一对一的。其次，不同的变量有不同的生命周期。例如，应该在程序的整个运行期中保持每个静态变量的单一副本。相比之下，对于对象的所有实例变量（成员字段），类的每个对象实例都应该保存有其各自的副本，在清除对象时，应该收回其内存。同样，每次调用子程序时，必须为其局部变量和参数变量创建新的副本。</p>
+<p>上面说的算是坏消息。好消息是，我们已经解决了所有这些困难。在双层编译器架构中，变量的内存分配任务交给了 VM后端程序。前面构建的虚拟机包含了用于提供标准类型变量的存储机制。这些标准变量类型包括：静态变量、局部变量、参数变量以及对象的成员字段，它们都是大多数高级语言所需要的。通过使用全局堆栈和虚拟内存段，这些变量的所有分配和去配细节已经在VM 层被处理了。</p>
+<p>这种功能并不是很轻易就实现的。实际上，必须费很大的劲儿去构建 VM的实现，它将全局堆栈和虚拟内存段映射到最终的硬件平台上。然而付出的努力是值得的：对于任何给定的语言L，任何L-VM编译器现在都已经完全从复杂的底层内存管理中解脱出来了。编译器所需要做的唯一的事情就是将源程序中的变量映射到虚拟内存段上，然后用VM命令来表达操控这些变量的高级命令，这就变成相对简单的任务了。</p>
+<h3 id="_3">命令翻译</h3>
+<p>现在来描述高级命令是如何被翻译成目标语言的。因为已经讨论了变量、对象和数组的处理，所以现在只有两个问题需要讨论：表达式求值 （expression eoaluation）和程序流程控制
+(control flow).</p>
+<h2 id="_4">规范详述</h2>
+<h3 id="_5">虚拟机平台之上的标准映射</h3>
+<p>编译器将每个.jack 文件翻译成对应的.vm 文件，对于.jack 文件中的每个构造函数、函数、方法，该.vm 文件包含了相对应的VM 函数。如此一来，每个 Jack 编译器必须遵循下面的代码生成约定。文件命名和函数命名 每个.jack 文件被编译成独立的.vm 文件。Jack 子程序（函数，方法，和构造函数）被编译成下列的 VM函数：</p>
 <ul>
-<li>使用不便。操作系统提供的系统调用接口往往过于原始，程序员须要了解很多与操作系统相关的细节。如果没有进行很好的包装，使用起来不方便。</li>
-<li>各个操作系统之间系统调用不兼容。首先 Windows 系统和 Linux 系统之间的系统调用就基本上完全不同，虽然它们的内容很多都一样，但是定义和实现大不一样。即使是同系列的操作系统的系统调用都不一样，比如 Linux 和 UNIX 就不相同。</li>
+<li>在Jack 程序中，类Yyy 中的Jack 子程序 xxx（）被编译成名为 Yyy.xxx 的VM 函数。</li>
+<li>拥有k个参数的Jack 函数或构造函数被编译成对k个参数进行操作的 VM 函数。</li>
+<li>拥有k 个参数的 Jack方法被编译成对k+1个参数进行操作的VM 函数。第一个参数（参数0）总是指针 this（用来引用当前对象）。</li>
 </ul>
-<p>为了解决这个问题，我们需要引入一个中间层：“解决计算机的问题可以通过增加层来实现”，于是运行库挺身而出，它作为系统调用与程序之间的一个抽象层具有以下特点：</p>
+<p><strong>内存分配和访问</strong></p>
 <ul>
-<li>使用简便。因为运行库本身就是语言级别的，它一般都设计相对比较友好。</li>
-<li>形式统一。运行库有它的标准，叫做标准库，凡是所有遵循这个标准的运行库理论上都是相互兼容的，不会随着操作系统或编译器的变化而变化。</li>
+<li>Jack 子程序的局部变量被分配到 local 虚拟段，并通过该段对其进行访问。</li>
+<li>Jack 子程序的参数变量被分配到 argument 虚拟段，并通过该段对其进行访问。</li>
+<li>jack类文件的静态变量被分配到相应的.vm 文件的static 虚拟段，并通过该段对其进行访问。</li>
+<li>在Jack 方法或构造函数相应的VM 函数中，要想访问this 对象的字段，首先通过使用pointer0来将以 this 指针指向的虚拟内存段（this 虚拟段）映射为存储当前对象的内存段上（实际就是使this指针指向存储当前对象内存段的基地址），然后通过this index 来访问对象中的各个成员，这里index 是非负数。</li>
+<li>在VM 函数中，要想访问数组的数据项，同访问对象的方法相似，首先通过使用 pointer1 使得that 指针指向数组的第一个元素，然后通过 that 指针来访问数组中的数据项</li>
 </ul>
-<p>这样，当我们使用运行库提供的接口写程序时，就不会面临这些问题，至少是可以很大程度上掩盖直接使用系统调用的弊端。</p>
-<p>运行时库将不同的操作系统的系统调用包装为统一固定的接口，使得同样的代码，在不同的操作系统下都可以直接编译，并产生一致的效果。这就是源代码级上的可移植性。</p>
-<p>但是运行库也有运行库的缺陷，比如 C 语言的运行库为了保证多个平台之间能够相互通用，于是它只能取各个平台之间功能的交集。比如 Windows 和 Linux 都支持文件读写，那么运行库就可以有文件读写的功能；但是 Windows 原生支持图形和用户交互系统，而 Linux 却不是原生支持的（通过 XWindows），那么 CRT 就只能把这部分功能省去。</p>
-<h2 id="_5">系统调用原理</h2>
-<h3 id="_6">特权级与中断</h3>
-<p>现代的 CPU 常常可以在多种截然不同的特权级别下执行指令，在现代操作系统中，通常也据此有两种特权级别，分别为用户模式（User Mode）和内核模式（Kernel Mode），也被称为用户态和内核态。由于有多种特权模式的存在，操作系统就可以让不同的代码运行在不同的模式上，以限制它们的权力，提高稳定性和安全性。普通应用程序运行在用户态的模式下，诸多操作将受到限制，这些操作包括访问硬件设备、开关中断、改变特权模式等。</p>
-<p>一般来说，运行在高特权级的代码将自己降至低特权级是允许的，但反过来低特权级的代码将自己提升至高特权级则不是轻易就能进行的，否则特权级的作用就有名无实了。在将低特权级的环境转为高特权级时，须要使用一种较为受控和安全的形式，以防止低特权模式的代码破坏高特权模式代码的执行。</p>
-<p>系统调用是运行在内核态的，而应用程序基本都是运行在用户态的。用户态的程序如何运行内核态的代码呢？</p>
-<p>操作系统一般是通过中断（Interrupt）来从用户态切换到内核态。什么是中断呢？中断是一个硬件或软件发出的请求，要求CPU暂停当前的工作转手去处理更加重要的事情。举一个例子，当你在编辑文本文件的时候，键盘上的键不断地被按下，CPU如何获知这一点的呢？一种方法称为轮询（Poll），即CPU每隔一小段时间（几十到几百毫秒）去询问键盘是否有键被按下，但除非用户是疯狂打字员，否则大部分的轮询行为得到的都是“没有键被按下”的回应，这样操作就被浪费掉了。另外一种方法是CPU不去理睬键盘，而当键盘上有键被按下时，键盘上的芯片发送一个信号给 CPU，CPU 接收到信号之后就知道键盘被按下了，然后再去询问键盘被按下的键是哪一个。 这样的信号就是一种中断。</p>
-<p>中断一般具有两个属性，一个称为中断号（从0开始），一个称为中断处理程序（Interrupt Service Routine, ISR）。不同的中断具有不同的中断号，而同时一个中断处理程序一一对应一个中断号。在内核中，有一个数组称为中断向量表（Interrupt Vector Table），这个数组的第 n 项包含了指向第 n 号中断的中断处理程序的指针。当中断到来时，CPU 会暂停当前执行的代码，根据中断的中断号，在中断向量表中找到对应的中断处理程序，并调用它。中断处理程序执行完成之后，CPU 会继续执行之前的代码。</p>
-<p><img alt="" src="https://raw.gitmirror.com/RicardoJiang/resource/main/2023/september/p5.jpg" /></p>
-<p>通常意义上，中断有两种类型，一种称为硬件中断，这种中断来自于硬件的异常或其他事件的发生，如电源掉电、键盘被按下等。另一种称为软件中断，软件中断通常是一条指令（i386下是int），带有一个参数记录中断号，使用这条指令用户可以手动触发某个中断并执行其中断处理程序。例如在 i386 下，int 0x80 这条指令会调用第0x80号中断的处理程序。</p>
-<p>由于中断号是很有限的，操作系统不会舍得用一个中断号来对应一个系统调用，而更倾向于用一个或少数几个中断号来对应所有的系统调用。例如，i386 下 Windows 里绝大多数系统调用都是由 int 0x2e 来触发的，而 Linux 则使用 int 0x80 来触发所有的系统调用。</p>
-<p>对于同一个中断号，操作系统如何知道是哪一个系统调用要被调用呢？和中断一样，系统调用都有一个系统调用号，就像身份标识一样来表明是哪一个系统调用，这个系统调用号通常就是系统调用在系统调用表中的位置，例如 Linux 里 fork 的系统调用号是 2。这个系统调用号在执行 int 指令前会被放置在某个固定的寄存器里，对应的中断代码会取得这个系统调用号，并且调用正确的函数。以 Linux 的 int 0x80 为例，系统调用号是由 eax 来传入的。用户将系统调用号放入 eax，然后使用 int 0x80 调用中断，中断服务程序就可以从 eax 里取得系统调用号，进而调用对应的函数。</p>
-<h3 id="int-linux">基于 int 的经典 linux 系统调用</h3>
-<p>下面我们介绍一下，当应用程序调用系统调用时，程序是如何一步步进入操作系统内核调用相应函数的。</p>
-<p><img alt="" src="https://raw.gitmirror.com/RicardoJiang/resource/main/2023/september/p6.png" /></p>
+<p><strong>子程序调用</strong></p>
 <ul>
-<li>触发中断</li>
-<li>切换堆栈</li>
-<li>中断处理程序</li>
+<li>在调用VM函数之前，调用者（本身也是VM 函数）必须将函数的参数压入堆栈。如果被调用的 VM 函数是Jack 方法，那么首先压入的参数必须是该方法操作对象的引用（reference）。</li>
+<li>将Jack 方法编译成 VM 函数时，编译器必须插入适当的 VM 代码来设置this 虚拟段的基地址。同样，在编译 Jack 构造函数时，编译器也必须插入 VM 代码，该代码为新对象分配一个内存段然后将this 指向这个内存段的基地址。</li>
 </ul>
-<p>整个调用过程如下图所示：</p>
-<p><img alt="" src="https://raw.gitmirror.com/RicardoJiang/resource/main/2023/september/p7.png" /></p>
-<h3 id="linux_1">linux 的新型系统调用机制</h3>
-<p>由于基于 int 指令的系统调用在奔腾4代处理器上性能不佳，Linux 在2.5版本起开始支持一种新型的系统调用机制。这种新机制使用 Intel 在奔腾2代处理器就开始支持的一组专门针对系统调用的指令—— sysenter 和 sysexit。</p>
-<h2 id="_7">总结</h2>
-<p>系统调用是应用程序与操作系统内核之间的接口，它决定了应用程序是如何与内核打交道的。无论程序是直接进行系统调用，还是通过运行库，最终还是会到达系统调用这个层面上。因此要真正了解程序的运行，也很有必要了解一下系统调用的原理。</p>
+<p>从返回类型为 void 的方法及函数返回 高级 void 子程序并不返回值。这个抽象按如下方式来处理：</p>
+<ul>
+<li>返回类型为void 的方法和函数所对应的VM 函数必须返回常数0作为其返回值。</li>
+<li>编译 do sub 语句时（sub 是返回类型void 的方法或函数），对应的调用者必须弹出（并忽略）该返回值（该值总是常数O）。</li>
+</ul>
+<p><strong>常数</strong></p>
+<p>null 和 false 被映射到常数 0。true 被映射到常数 -1（该常数可以通过 pushconstant 1，再对其进行 neg操作来得到）。</p>
 
   <hr>
 <div class="md-source-file">
@@ -2427,7 +2364,7 @@
       <nav class="md-footer__inner md-grid" aria-label="页脚" >
         
           
-          <a href="../memory/" class="md-footer__link md-footer__link--prev" aria-label="上一页: 内存" rel="prev">
+          <a href="../compiler-one/" class="md-footer__link md-footer__link--prev" aria-label="上一页: 编译器 1：语法分析" rel="prev">
             <div class="md-footer__button md-icon">
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
             </div>
@@ -2436,20 +2373,20 @@
                 上一页
               </span>
               <div class="md-ellipsis">
-                内存
+                编译器 1：语法分析
               </div>
             </div>
           </a>
         
         
           
-          <a href="../../kotlin-meta-programming/meta-programming-basic/" class="md-footer__link md-footer__link--next" aria-label="下一页: 元编程概述" rel="next">
+          <a href="../../framework/activity-start/" class="md-footer__link md-footer__link--next" aria-label="下一页: Activity 启动流程分析" rel="next">
             <div class="md-footer__title">
               <span class="md-footer__direction">
                 下一页
               </span>
               <div class="md-ellipsis">
-                元编程概述
+                Activity 启动流程分析
               </div>
             </div>
             <div class="md-footer__button md-icon">
