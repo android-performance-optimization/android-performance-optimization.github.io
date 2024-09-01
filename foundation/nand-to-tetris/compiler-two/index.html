@@ -1392,6 +1392,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    实现
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -2267,6 +2274,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    实现
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -2327,6 +2341,15 @@
 </ul>
 <p><strong>常数</strong></p>
 <p>null 和 false 被映射到常数 0。true 被映射到常数 -1（该常数可以通过 pushconstant 1，再对其进行 neg操作来得到）。</p>
+<h2 id="_6">实现</h2>
+<p>现在要为整个编译器打造软件架构。该架构建立于第10 章所描述的语法分析器之基础上。事实上，当前架构的基础正是逐步将语法分析器发展成完整编译器的过程。因此整个编译器由5个模块构成：</p>
+<ul>
+<li>JackCompiler:建立和调用其他模块的顶层驱动模块；</li>
+<li>JackTokenizer : 字元转换器；</li>
+<li>SymbolTable : 符号表；</li>
+<li>Vwriter：生成 VM 代码的输出模块；</li>
+<li>CompilationEngine : 自顶向下的递归式编译引擎。</li>
+</ul>
 
   <hr>
 <div class="md-source-file">
