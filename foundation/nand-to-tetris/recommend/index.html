@@ -1368,6 +1368,40 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    配套资料
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    内容简介
+  </a>
+  
+    <nav class="md-nav" aria-label="内容简介">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    总体结构
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    原始门：计算机中的最基础单元
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -2203,6 +2237,40 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    配套资料
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    内容简介
+  </a>
+  
+    <nav class="md-nav" aria-label="内容简介">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    总体结构
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    原始门：计算机中的最基础单元
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -2236,6 +2304,27 @@
 <blockquote>
 <p>本书介绍的计算机系统是实际可用的系统，可被实际地构建出来，并能够正常运作。只要读者跟随本书的脚步，逐步构建出这个计算机系统，就会对计算机系统有更透彻的理解，这与只阅读而不动手实践所达到的学习效果相比有天壞之别。因此，本书在内容的编排和选择上着重针对那些卷起袖子准备动手实践，从零开始构建计算机系统的读者。</p>
 </blockquote>
+<h2 id="_3">配套资料</h2>
+<ul>
+<li><a href="https://book.douban.com/subject/1998341/">计算机系统要素：从零开始构建现代计算机</a></li>
+<li><a href="https://www.coursera.org/learn/build-a-computer">配套课程：从第一原理构建现代计算机：从 Nand 到俄罗斯方块</a></li>
+<li><a href="https://www.nand2tetris.org/">课程官网</a></li>
+<li><a href="https://nand2tetris.github.io/web-ide/chip/">在线 IDE</a></li>
+<li><a href="https://github.com/woai3c/nand2tetris">项目代码 1</a></li>
+<li><a href="https://reionchan.github.io/2015/08/27/the-elements-of-computing-systems/">项目代码 2</a></li>
+<li><a href="https://www.jianshu.com/u/55c13cb0d3f8">学习笔记</a></li>
+</ul>
+<h2 id="_4">内容简介</h2>
+<h3 id="_5">总体结构</h3>
+<p><img alt="" src="https://raw.gitmirror.com/RicardoJiang/resource/main/2024/july/p12.png" /></p>
+<p>本书总体路线图如上所示，采用自下而上的方式，从最基本的元素（原始逻辑门）开始，然后一直向上层进发，直到最后构建完整的计算机系统。在这个过程中，你将学习到计算机系统的各个层次，包括组合芯片，时序芯片，计算机体系结构，机器语言，汇编编译器，虚拟机，编译器，操作系统，高级编程语言等。</p>
+<p><img alt="" src="https://raw.gitmirror.com/RicardoJiang/resource/refs/heads/main/2024/september/p7.png" /></p>
+<h3 id="_6">原始门：计算机中的最基础单元</h3>
+<p>程序员写的代码为什么能够被计算机所执行？毕竟对于初学者而言，程序只是一堆存储在文本文件中的字符而已，计算机是无法直接理解这些字符的。</p>
+<p>因此我们必须要做的第一件事情就是对该文本进行语法分析，揭示其语义，然后用某种计算机能理解的低级语言来重新表达程序。这个翻译过程（即编译，compilation）产生的结果就是生成另外一个包含机器代码的文本文件。</p>
+<p>当然，机器语言也是一种抽象，是一组计算机能理解的二进制代码。为了将该抽象形式具体化，就必须由某种硬件体系（hardroare architecture）来实现。这个硬件体系又是由芯片组（chip set）—寄存器、内存单元、ALU 等——来实现的。其中每个硬件设备都是由许多基本逻辑门 （logic gates）集成构建出来的。而这些门又是由诸如 Nand 和 Nor这样的原始门（primitive gates）构建而成的。</p>
+<p>当然，每个原始门又是由若干晶体管组成，但是这部分内容不属于计算机科学的内容，而是属于物理学的范畴。因此，我们在这里就不再深究下去了。</p>
+<p>因此我们可以认为，原始门就是计算机中的最基础单元。</p>
 
   <hr>
 <div class="md-source-file">
