@@ -1944,6 +1944,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#quickjs" class="md-nav__link">
+    QuickJS的垃圾回收算法
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -2284,6 +2291,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#quickjs" class="md-nav__link">
+    QuickJS的垃圾回收算法
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -2383,6 +2397,28 @@
 <li>成功设计与业务理解：强调成功的设计来自对业务问题的深刻理解，DDD 能帮助从业务分析视角看待复用的成本和效益，做出更好的决策。</li>
 </ul>
 <p><img alt="" src="https://raw.gitmirror.com/RicardoJiang/resource/refs/heads/main/2024/november/p1.webp" /></p>
+<p><img alt="" src="https://raw.gitmirror.com/RicardoJiang/resource/refs/heads/main/2024/november/p2.webp" /></p>
+<h3 id="quickjs"><a href="https://mp.weixin.qq.com/s/h0pSSVltIdM0dETI_R_-CA">QuickJS的垃圾回收算法</a></h3>
+<p>文章主要介绍了 QuickJS 的垃圾回收算法，具体内容如下：</p>
+<ul>
+<li>常见 GC 算法简介</li>
+<li>垃圾评定算法<ul>
+<li>引用计数法（RC）：在对象头添加计数器，记录对象被引用情况，引用时计数器 ++，释放时 --，当计数器为 0 时回收对象，但存在循环引用导致内存泄漏的问题。</li>
+<li>可达性分析：以 GC Roots（如当前栈上变量、全局变量等）为起点遍历对象，未被遍历到的为垃圾。</li>
+</ul>
+</li>
+<li>垃圾回收算法
+    GC 标记清除法：先通过可达性分析标记存活对象，再清除未标记对象。
+    GC 复制算法：将对象分配空间分为两块，申请内存在 from 空间，回收时将存活对象复制到 to 空间，回收 from 空间并交换两块空间身份。
+    GC 标记压缩法：前两步同标记清除，之后增加内存整理工作减少碎片。
+    分代算法：根据经验将 heap 分为年轻代和老年代，大部分时间只遍历年轻代，多次 GC 未回收的年轻代对象晋升到老年代，内存整体触发阈值时回收整块内存。</li>
+<li>QuickJS 的垃圾回收算法<ul>
+<li>引用计数算法（RC）实现：在对象头添加ref_count计数器，创建对象时设为 1，引用时 ++，释放时 --，ref_count&lt;=0 时回收对象。</li>
+</ul>
+</li>
+<li>引用计数的问题：循环引用会导致内存泄漏，如对象 A 引用 B，B 引用 C，C 又引用 A 时，三个对象计数器永远 &gt;=1。</li>
+<li>QuickJS 解决循环引用的方法：内存上涨触发阈值时，通过JS_RunGC函数执行解环操作，包括遍历gc_obj_list标记对象、处理子对象计数器并将入度为 1 的对象挂到tmp_obj_list，重新遍历恢复标记和计数器，最后回收tmp_obj_list上的对象。</li>
+</ul>
 
   <hr>
 <div class="md-source-file">
