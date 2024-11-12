@@ -10,20 +10,20 @@
       
       
       
-        <link rel="canonical" href="https://android-performance-optimization.github.io/foundation/pointers-on-c/operators-and-expressions/">
+        <link rel="canonical" href="https://android-performance-optimization.github.io/foundation/kotlin-compiler-learn/kotlin-compiler-start/">
       
       
-        <link rel="prev" href="../statement/">
+        <link rel="prev" href="../learning-resource/">
       
       
-        <link rel="next" href="../pointer/">
+        <link rel="next" href="../../pointers-on-c/environment-config/">
       
       <link rel="icon" href="../../../assets/favicon.png">
       <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.1.16">
     
     
       
-        <title>操作符和表达式 - Android 性能优化手册</title>
+        <title>Kotlin 编译器源码阅读 - Android 性能优化手册</title>
       
     
     
@@ -75,7 +75,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#_1" class="md-skip">
+        <a href="#kotlin" class="md-skip">
           跳转至
         </a>
       
@@ -113,7 +113,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              操作符和表达式
+              Kotlin 编译器源码阅读
             
           </span>
         </div>
@@ -789,14 +789,16 @@
               
   
   
+    
+  
   
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
       
       
       
-      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_3" >
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_3" checked>
       
       
         
@@ -811,7 +813,7 @@
           <span class="md-nav__icon md-icon"></span>
         </label>
       
-      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_3_label" aria-expanded="false">
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_3_label" aria-expanded="true">
         <label class="md-nav__title" for="__nav_3_3">
           <span class="md-nav__icon md-icon"></span>
           Kolin 编译器学习
@@ -824,7 +826,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../kotlin-compiler-learn/learning-resource/" class="md-nav__link">
+      <a href="../learning-resource/" class="md-nav__link">
         Kotlin 编译器相关学习资源
       </a>
     </li>
@@ -836,11 +838,66 @@
               
   
   
+    
   
-    <li class="md-nav__item">
-      <a href="../../kotlin-compiler-learn/kotlin-compiler-start/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Kotlin 编译器源码阅读
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         Kotlin 编译器源码阅读
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    产物构建
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#kotlin_1" class="md-nav__link">
+    如何调试 Kotlin 编译器
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#kotlinjs" class="md-nav__link">
+    Kotlin/JS 编译器调试
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -857,16 +914,14 @@
               
   
   
-    
-  
   
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
       
       
       
-      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_4" checked>
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_4" >
       
       
         
@@ -907,7 +962,7 @@
           <span class="md-nav__icon md-icon"></span>
         </label>
       
-      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_4_label" aria-expanded="true">
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_4_label" aria-expanded="false">
         <label class="md-nav__title" for="__nav_3_4">
           <span class="md-nav__icon md-icon"></span>
           C 和指针
@@ -920,7 +975,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../environment-config/" class="md-nav__link">
+      <a href="../../pointers-on-c/environment-config/" class="md-nav__link">
         环境搭建
       </a>
     </li>
@@ -934,7 +989,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../quick-start/" class="md-nav__link">
+      <a href="../../pointers-on-c/quick-start/" class="md-nav__link">
         快速上手
       </a>
     </li>
@@ -948,7 +1003,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../basic-concept/" class="md-nav__link">
+      <a href="../../pointers-on-c/basic-concept/" class="md-nav__link">
         基本概念
       </a>
     </li>
@@ -962,7 +1017,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../data-type/" class="md-nav__link">
+      <a href="../../pointers-on-c/data-type/" class="md-nav__link">
         数据类型
       </a>
     </li>
@@ -976,7 +1031,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../statement/" class="md-nav__link">
+      <a href="../../pointers-on-c/statement/" class="md-nav__link">
         语句
       </a>
     </li>
@@ -988,141 +1043,11 @@
               
   
   
-    
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          操作符和表达式
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../../pointers-on-c/operators-and-expressions/" class="md-nav__link">
         操作符和表达式
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="目录">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      目录
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
-    操作符
-  </a>
-  
-    <nav class="md-nav" aria-label="操作符">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
-    算术操作符
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_4" class="md-nav__link">
-    移位操作符
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_5" class="md-nav__link">
-    位操作符
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_6" class="md-nav__link">
-    赋值
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_7" class="md-nav__link">
-    其它操作符
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_8" class="md-nav__link">
-    布尔值
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_9" class="md-nav__link">
-    左值和右值
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_10" class="md-nav__link">
-    编程练习
-  </a>
-  
-    <nav class="md-nav" aria-label="编程练习">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#1" class="md-nav__link">
-    练习 1
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#2" class="md-nav__link">
-    练习 2
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#3" class="md-nav__link">
-    练习3
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -1134,7 +1059,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../pointer/" class="md-nav__link">
+      <a href="../../pointers-on-c/pointer/" class="md-nav__link">
         指针
       </a>
     </li>
@@ -1148,7 +1073,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../function/" class="md-nav__link">
+      <a href="../../pointers-on-c/function/" class="md-nav__link">
         函数
       </a>
     </li>
@@ -1162,7 +1087,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../array/" class="md-nav__link">
+      <a href="../../pointers-on-c/array/" class="md-nav__link">
         数组
       </a>
     </li>
@@ -1176,7 +1101,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../char-and-string/" class="md-nav__link">
+      <a href="../../pointers-on-c/char-and-string/" class="md-nav__link">
         字符串、字符和字节
       </a>
     </li>
@@ -1190,7 +1115,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../struct-and-union/" class="md-nav__link">
+      <a href="../../pointers-on-c/struct-and-union/" class="md-nav__link">
         结构和联合
       </a>
     </li>
@@ -1204,7 +1129,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../dynamic-memory/" class="md-nav__link">
+      <a href="../../pointers-on-c/dynamic-memory/" class="md-nav__link">
         动态内存分配
       </a>
     </li>
@@ -1218,7 +1143,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../struct-and-pointer/" class="md-nav__link">
+      <a href="../../pointers-on-c/struct-and-pointer/" class="md-nav__link">
         使用结构和指针
       </a>
     </li>
@@ -1232,7 +1157,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../advanced-pointer/" class="md-nav__link">
+      <a href="../../pointers-on-c/advanced-pointer/" class="md-nav__link">
         高级指针话题
       </a>
     </li>
@@ -1246,7 +1171,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../preprocessor/" class="md-nav__link">
+      <a href="../../pointers-on-c/preprocessor/" class="md-nav__link">
         预处理器
       </a>
     </li>
@@ -2334,98 +2259,23 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
-    操作符
-  </a>
-  
-    <nav class="md-nav" aria-label="操作符">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
-    算术操作符
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_4" class="md-nav__link">
-    移位操作符
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_5" class="md-nav__link">
-    位操作符
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_6" class="md-nav__link">
-    赋值
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_7" class="md-nav__link">
-    其它操作符
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_8" class="md-nav__link">
-    布尔值
+  <a href="#_1" class="md-nav__link">
+    产物构建
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#_9" class="md-nav__link">
-    左值和右值
+  <a href="#kotlin_1" class="md-nav__link">
+    如何调试 Kotlin 编译器
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#_10" class="md-nav__link">
-    编程练习
+  <a href="#kotlinjs" class="md-nav__link">
+    Kotlin/JS 编译器调试
   </a>
-  
-    <nav class="md-nav" aria-label="编程练习">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#1" class="md-nav__link">
-    练习 1
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#2" class="md-nav__link">
-    练习 2
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#3" class="md-nav__link">
-    练习3
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
@@ -2447,121 +2297,88 @@
   
 
 
-<h1 id="_1">操作符和表达式</h1>
-<p>本文为《C 与 指针读书笔记》，感兴趣的读者可以去看原书。</p>
-<p>C提供了所有你希望编程语言应该拥有的操作符 ，它甚至提供了一些你意想不到的操作符。事实上，C被许多人所诟病的一个缺点就是它品种繁多的操作符。C的这个特点使它很难精通。另一方面，C的许多操作符具有其他语言的操作符无可抗衡的价值，这也是C适用于开发范围极广的应用程序的原因之一。</p>
-<h2 id="_2">操作符</h2>
-<h3 id="_3">算术操作符</h3>
-<p>C提供了所有常用的算术操作符：</p>
-<pre><code>+　　-　　*　　/　　%
+<h1 id="kotlin">Kotlin 编译器源码阅读</h1>
+<h3 id="_1">产物构建</h3>
+<p>通过执行 <code>./gradlew dist</code> 命令，可以将编译器分发到 <code>dist/kotlinc/</code> 目录下。</p>
+<h3 id="kotlin_1">如何调试 Kotlin 编译器</h3>
+<pre><code>java_version=&quot;$(findJavaVersion)&quot;
+if [[ $java_version -ge 9 ]]; then
+    # Workaround the illegal reflective access warning from ReflectionUtil to ResourceBundle.setParent, see IDEA-248785.
+    java_args=(&quot;${java_args[@]}&quot; &quot;--add-opens&quot; &quot;java.base/java.util=ALL-UNNAMED&quot;)
+fi
+
+if [ -n &quot;$KOTLIN_RUNNER&quot; ]; then
+    java_args=(&quot;${java_args[@]}&quot; &quot;-Dkotlin.home=${KOTLIN_HOME}&quot;)
+    kotlin_app=(&quot;${KOTLIN_HOME}/lib/kotlin-runner.jar&quot; &quot;org.jetbrains.kotlin.runner.Main&quot;)
+else
+    [ -n &quot;$KOTLIN_COMPILER&quot; ] || KOTLIN_COMPILER=org.jetbrains.kotlin.cli.jvm.K2JVMCompiler
+
+    if [[ $java_version &lt; 13 ]]; then
+        java_args=(&quot;${java_args[@]}&quot; &quot;-noverify&quot;)
+    fi
+
+    declare additional_classpath=&quot;&quot;
+    if [ -n &quot;$KOTLIN_TOOL&quot; ]; then
+        additional_classpath=&quot;:${KOTLIN_HOME}/lib/${KOTLIN_TOOL}&quot;
+    fi
+
+    kotlin_app=(&quot;${KOTLIN_HOME}/lib/kotlin-preloader.jar&quot; &quot;org.jetbrains.kotlin.preloading.Preloader&quot; &quot;-cp&quot; &quot;${KOTLIN_HOME}/lib/kotlin-compiler.jar${additional_classpath}&quot; $KOTLIN_COMPILER)
+fi
+
+&quot;${JAVACMD:=java}&quot; $JAVA_OPTS &quot;${java_args[@]}&quot; -cp &quot;${kotlin_app[@]}&quot; &quot;${kotlin_args[@]}&quot;
 </code></pre>
-<h3 id="_4">移位操作符</h3>
-<p>汇编语言程序员对于移位操作已经是非常熟悉了。对于那些适应能力强的读者，这里作一简单介绍。移位操作只是简单地把一个值的位向左或向右移动。在左移位中，值最左边的几位被丢弃，右边多出来的几个空位则由0补齐。</p>
-<h3 id="_5">位操作符</h3>
-<p>位操作符对它们的操作数的各个位执行AND、OR和XOR（异或）等逻辑操作。</p>
-<p>当两个位进行AND操作时，如果两个位都是1，结果为1，否则结果为0。当两个位进行OR操作时，如果两个位都是0，结果为0，否则结果为1。最后，当两个位进行XOR操作时，如果两个位不同，结果为1，如果两个位相同，结果为0。</p>
-<p>位操作符有：</p>
-<pre><code>&amp;　　|　　^
+<p>通过查看 kotlinc 源码可知，<code>org.jetbrains.kotlin.preloading.Preloader</code> 类是编译器的预加载器，它会加载编译器的主类 <code>org.jetbrains.kotlin.cli.jvm.K2JVMCompiler</code>。因此我们修改<code>Preloader</code>类，运行它的<code>main</code>方法，即可启动与调试编译器，示例如下所示:</p>
+<pre><code class="language-java">String[] testArgs = {&quot;-cp&quot;,  &quot;./dist/kotlinc/lib/kotlin-compiler.jar&quot;, &quot;org.jetbrains.kotlin.cli.jvm.K2JVMCompiler&quot;,
+                    &quot;./compilerTestData/Test.kt&quot;, &quot;-include-runtime&quot;,
+                    &quot;-d&quot;, &quot;./compilerTestData/Test.jar&quot;
+            };
+            run(testArgs);
 </code></pre>
-<h3 id="_6">赋值</h3>
-<p>最后，我们讨论赋值操作符，它用一个等号表示。赋值是表达式的一种，而不是某种类型的语句。所以，只要是允许出现表达式的地方，都允许进行赋值。</p>
-<p>赋值操作符把右操作数的值存储于左操作数指定的位置。但赋值也是个表达式，表达式就具有一个值。赋值表达式的值就是左操作数的新值，它可以作为其他赋值操作符的操作数，如下面的语句所示：</p>
-<pre><code class="language-c">a = x = y + 3;
+<h3 id="kotlinjs">Kotlin/JS 编译器调试</h3>
+<pre><code>export KOTLIN_COMPILER=org.jetbrains.kotlin.cli.js.K2JSCompiler
+
+DIR=&quot;${BASH_SOURCE[0]%/*}&quot;
+: ${DIR:=&quot;.&quot;}
+
+&quot;${DIR}&quot;/kotlinc &quot;$@&quot;
 </code></pre>
-<h3 id="_7">其它操作符</h3>
-<p>本章还介绍了其他一些操作符</p>
-<ul>
-<li>单目操作符</li>
-<li>逻辑操作符</li>
-<li>条件操作符</li>
-<li>逗号操作符</li>
-<li>下标引用</li>
-</ul>
-<h2 id="_8">布尔值</h2>
-<p>C并不具备显式的布尔类型，所以使用整数来代替。其规则是：零是假，任何非零值皆为真。</p>
-<h2 id="_9">左值和右值</h2>
-<p>为了理解有些操作符存在的限制，你必须理解左值 (L-value)和右值 (R-value)之间的区别。这两个术语是多年前由编译器设计者所创造并沿用至今，尽管它们的定义并不与C语言严格吻合。</p>
-<p>左值就是那些能够出现在赋值符号左边的东西。右值就是那些可以出现在赋值符号右边的东西。</p>
-<h2 id="_10">编程练习</h2>
-<h3 id="1">练习 1</h3>
-<p>编写一个程序，从标准输入读取字符，并把它们写到标准输出中。除了大写字母字符要转换为小写字母之外，所有字符的输出形式应该和它的输入形式完全相同。</p>
-<pre><code class="language-c">#include &lt;stdio.h&gt;
-#include &lt;ctype.h&gt; // 为了使用tolower函数
+<p>通过以上代码可知，<code>org.jetbrains.kotlin.cli.js.K2JSCompiler</code> 是 Kotlin/JS 编译器的主类，我们可以通过修改<code>K2JSCompiler</code>类，运行它的<code>main</code>方法，即可启动与调试 Kotlin/JS 编译器。</p>
+<p>需要注意的是，K2 版本编译器不还不支持直接把 Kotlin 代码编译成 JS 代码，因此需要先把代码编译成 Klib，再把 Klib 编译成 JS 代码，同时 outputDir 不支持相对路径，只支持绝对路径，如下所示</p>
+<pre><code>#!/bin/sh
 
-int main() {
-    int c; // 使用int来存储字符，是因为EOF通常定义为-1，无法用char表示
+set -e
 
-    // 使用getchar读取单个字符直到EOF
-    while((c = getchar()) != EOF) {
-        // 如果字符是大写字母，转换为小写
-        if(c &gt;= 'A' &amp;&amp; c &lt;= 'Z') {
-            c = tolower(c);
-        }
-        // 输出字符
-        putchar(c);
-    }
+KOTLIN_HOME= # it should point to Kotlin home directory
+BUILD_DIR=`pwd`/build # it must be absolute path
 
-    return 0;
-}
+rm -rf $BUILD_DIR
+mkdir -p $BUILD_DIR/libs # there should be two separate directories for KLIBs and JS
+mkdir -p $BUILD_DIR/app
+
+## first, build KLIB
+$KOTLIN_HOME/bin/kotlinc-js \
+  -Xir-produce-klib-file \
+  -libraries $KOTLIN_HOME/lib/kotlin-stdlib-js.klib \
+  -ir-output-dir $BUILD_DIR/libs \
+  -ir-output-name main \
+  main.kt
+
+## then, build JS
+$KOTLIN_HOME/bin/kotlinc-js \
+  -Xir-produce-js \
+  -libraries $KOTLIN_HOME/lib/kotlin-stdlib-js.klib \
+  -Xinclude=$BUILD_DIR/libs/main.klib \
+  -ir-output-dir $BUILD_DIR/app \
+  -ir-output-name app
 </code></pre>
-<h3 id="2">练习 2</h3>
-<p>编写一个程序，从标准输入读取字符，并把它们写到标准输出中。所有非字母字符都完全按照它的输入形式输出，字母字符在输出前进行加密。</p>
-<p>加密方法很简单：每个字母被修改为在字母表上距其13个位置（前或后）的字母。例如，A被修改为N，B被修改为O，Z被修改为M，以此类推。注意大小写字母都应该被转换</p>
-<pre><code class="language-c">#include &lt;stdio.h&gt;
-
-// 函数声明，用于ROT13加密
-char rot13_char(char c);
-
-int main() {
-    int c;  // 使用int来接收字符，以便能处理EOF情况
-
-    // 从标准输入中逐字符读取，直到EOF
-    while ((c = getchar()) != EOF) {
-        // 打印加密后的字符
-        putchar(rot13_char(c));
-    }
-
-    return 0;
-}
-
-// 实现ROT13加密的函数
-char rot13_char(char c) {
-    // 处理大写字母
-    if (c &gt;= 'A' &amp;&amp; c &lt;= 'Z') {
-        return 'A' + (c - 'A' + 13) % 26;
-    }
-    // 处理小写字母
-    else if (c &gt;= 'a' &amp;&amp; c &lt;= 'z') {
-        return 'a' + (c - 'a' + 13) % 26;
-    }
-    // 非字母字符不变
-    return c;
-}
-</code></pre>
-<h3 id="3">练习3</h3>
-<p>编写一个函数，这个函数的返回值是把value的二进制位模式从左到右变换一下后的值，编写函数时要注意不要让它依赖于你的机器上整型值的长度。</p>
-<pre><code class="language-c">#include &lt;stdio.h&gt;
-
-// 函数声明
-unsigned int reverse_bits(unsigned int value) {
-    unsigned int result = 0;
-    unsigned int i;
-    for (i = 0; i &lt; sizeof(value) * 8; i++) { // 遍历 value 的每一位
-        result &lt;&lt;= 1;  // 将 result 左移一位，为下一位做好空间
-        result |= (value &amp; 1); // 将 value 的最低位加到 result 的最低位
-        value &gt;&gt;= 1;  // 将 value 右移一位，准备处理下一位
-    }
-    return result;
-}
-
-int main() {
-    unsigned int num = 1; // 测试示例
-    printf(&quot;Original number: %u\n&quot;, num);
-    unsigned int reversed = reverse_bits(num);
-    printf(&quot;Reversed bits: %u\n&quot;, reversed);
-
-    return 0;
-}
+<p>因此我们可以通过修改 preloader 类，运行它的 main 方法，即可启动与调试 Kotlin/JS 编译器。</p>
+<pre><code>String[] testArgs = {&quot;-cp&quot;,  &quot;./dist/kotlinc/lib/kotlin-compiler.jar&quot;, &quot;org.jetbrains.kotlin.cli.js.K2JSCompiler&quot;,
+                    &quot;-libraries&quot;,&quot;./dist/kotlinc/lib/kotlin-stdlib-js.klib&quot;,
+                    &quot;-ir-output-dir&quot;,&quot;/Users/xxx/AndroidProject/leo/kotlin/compilerTestData&quot;,&quot;-ir-output-name&quot;,&quot;TestKotlin&quot;,
+                    &quot;-Xir-produce-klib-file&quot;,
+                    &quot;./compilerTestData/Test.kt&quot;,
+            };
+            run(testArgs);
 </code></pre>
 
   <hr>
@@ -2600,7 +2417,7 @@ int main() {
       <nav class="md-footer__inner md-grid" aria-label="页脚" >
         
           
-          <a href="../statement/" class="md-footer__link md-footer__link--prev" aria-label="上一页: 语句" rel="prev">
+          <a href="../learning-resource/" class="md-footer__link md-footer__link--prev" aria-label="上一页: Kotlin 编译器相关学习资源" rel="prev">
             <div class="md-footer__button md-icon">
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
             </div>
@@ -2609,20 +2426,20 @@ int main() {
                 上一页
               </span>
               <div class="md-ellipsis">
-                语句
+                Kotlin 编译器相关学习资源
               </div>
             </div>
           </a>
         
         
           
-          <a href="../pointer/" class="md-footer__link md-footer__link--next" aria-label="下一页: 指针" rel="next">
+          <a href="../../pointers-on-c/environment-config/" class="md-footer__link md-footer__link--next" aria-label="下一页: 环境搭建" rel="next">
             <div class="md-footer__title">
               <span class="md-footer__direction">
                 下一页
               </span>
               <div class="md-ellipsis">
-                指针
+                环境搭建
               </div>
             </div>
             <div class="md-footer__button md-icon">
