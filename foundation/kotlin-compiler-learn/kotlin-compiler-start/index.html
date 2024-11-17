@@ -16,7 +16,7 @@
         <link rel="prev" href="../learning-resource/">
       
       
-        <link rel="next" href="../../pointers-on-c/environment-config/">
+        <link rel="next" href="../kotlin-compiler-source/">
       
       <link rel="icon" href="../../../assets/favicon.png">
       <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.1.16">
@@ -806,6 +806,8 @@
         
           
         
+          
+        
       
       
         <label class="md-nav__link" for="__nav_3_3" id="__nav_3_3_label" tabindex="0">
@@ -898,6 +900,20 @@
   
 </nav>
       
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../kotlin-compiler-source/" class="md-nav__link">
+        破解 Kotlin 编译器
+      </a>
     </li>
   
 
@@ -2298,9 +2314,9 @@
 
 
 <h1 id="kotlin">Kotlin 编译器源码阅读</h1>
-<h3 id="_1">产物构建</h3>
+<h2 id="_1">产物构建</h2>
 <p>通过执行 <code>./gradlew dist</code> 命令，可以将编译器分发到 <code>dist/kotlinc/</code> 目录下。</p>
-<h3 id="kotlin_1">如何调试 Kotlin 编译器</h3>
+<h2 id="kotlin_1">如何调试 Kotlin 编译器</h2>
 <pre><code>java_version=&quot;$(findJavaVersion)&quot;
 if [[ $java_version -ge 9 ]]; then
     # Workaround the illegal reflective access warning from ReflectionUtil to ResourceBundle.setParent, see IDEA-248785.
@@ -2334,7 +2350,7 @@ fi
             };
             run(testArgs);
 </code></pre>
-<h3 id="kotlinjs">Kotlin/JS 编译器调试</h3>
+<h2 id="kotlinjs">Kotlin/JS 编译器调试</h2>
 <pre><code>export KOTLIN_COMPILER=org.jetbrains.kotlin.cli.js.K2JSCompiler
 
 DIR=&quot;${BASH_SOURCE[0]%/*}&quot;
@@ -2386,7 +2402,7 @@ $KOTLIN_HOME/bin/kotlinc-js \
   <small>
     
       最后更新:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">November 12, 2024</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">November 17, 2024</span>
       
     
   </small>
@@ -2433,13 +2449,13 @@ $KOTLIN_HOME/bin/kotlinc-js \
         
         
           
-          <a href="../../pointers-on-c/environment-config/" class="md-footer__link md-footer__link--next" aria-label="下一页: 环境搭建" rel="next">
+          <a href="../kotlin-compiler-source/" class="md-footer__link md-footer__link--next" aria-label="下一页: 破解 Kotlin 编译器" rel="next">
             <div class="md-footer__title">
               <span class="md-footer__direction">
                 下一页
               </span>
               <div class="md-ellipsis">
-                环境搭建
+                破解 Kotlin 编译器
               </div>
             </div>
             <div class="md-footer__button md-icon">

@@ -10,20 +10,20 @@
       
       
       
-        <link rel="canonical" href="https://android-performance-optimization.github.io/foundation/kotlin-meta-programming/runtime-reflect/">
+        <link rel="canonical" href="https://android-performance-optimization.github.io/foundation/kotlin-compiler-learn/kotlin-compiler-source/">
       
       
-        <link rel="prev" href="../meta-data-introduction/">
+        <link rel="prev" href="../kotlin-compiler-start/">
       
       
-        <link rel="next" href="../code-generate/">
+        <link rel="next" href="../../pointers-on-c/environment-config/">
       
       <link rel="icon" href="../../../assets/favicon.png">
       <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.1.16">
     
     
       
-        <title>运行时的反射 - Android 性能优化手册</title>
+        <title>破解 Kotlin 编译器 - Android 性能优化手册</title>
       
     
     
@@ -75,7 +75,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#_1" class="md-skip">
+        <a href="#kotlin" class="md-skip">
           跳转至
         </a>
       
@@ -113,7 +113,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              运行时的反射
+              破解 Kotlin 编译器
             
           </span>
         </div>
@@ -625,16 +625,14 @@
               
   
   
-    
-  
   
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
       
       
       
-      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2" checked>
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2" >
       
       
         
@@ -661,7 +659,7 @@
           <span class="md-nav__icon md-icon"></span>
         </label>
       
-      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_2_label" aria-expanded="true">
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_2_label" aria-expanded="false">
         <label class="md-nav__title" for="__nav_3_2">
           <span class="md-nav__icon md-icon"></span>
           深入实践 Kotlin 元编程
@@ -674,7 +672,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../meta-programming-basic/" class="md-nav__link">
+      <a href="../../kotlin-meta-programming/meta-programming-basic/" class="md-nav__link">
         元编程概述
       </a>
     </li>
@@ -688,8 +686,164 @@
   
   
     <li class="md-nav__item">
-      <a href="../meta-data-introduction/" class="md-nav__link">
+      <a href="../../kotlin-meta-programming/meta-data-introduction/" class="md-nav__link">
         元数据简介
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../kotlin-meta-programming/runtime-reflect/" class="md-nav__link">
+        运行时的反射
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../kotlin-meta-programming/code-generate/" class="md-nav__link">
+        源代码生成
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../kotlin-meta-programming/symbol-process/" class="md-nav__link">
+        编译时的符号处理
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../kotlin-meta-programming/code-static-analyse/" class="md-nav__link">
+        程序静态分析
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../kotlin-meta-programming/compiler-extension/" class="md-nav__link">
+        编译器插件
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../kotlin-meta-programming/meta-programming-debug/" class="md-nav__link">
+        元程序的开发和调试
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_3" checked>
+      
+      
+        
+          
+        
+          
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_3_3" id="__nav_3_3_label" tabindex="0">
+          Kolin 编译器学习
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_3_label" aria-expanded="true">
+        <label class="md-nav__title" for="__nav_3_3">
+          <span class="md-nav__icon md-icon"></span>
+          Kolin 编译器学习
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../learning-resource/" class="md-nav__link">
+        Kotlin 编译器相关学习资源
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../kotlin-compiler-start/" class="md-nav__link">
+        Kotlin 编译器源码阅读
       </a>
     </li>
   
@@ -712,12 +866,12 @@
       
       
         <label class="md-nav__link md-nav__link--active" for="__toc">
-          运行时的反射
+          破解 Kotlin 编译器
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <a href="./" class="md-nav__link md-nav__link--active">
-        运行时的反射
+        破解 Kotlin 编译器
       </a>
       
         
@@ -736,91 +890,16 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#java" class="md-nav__link">
-    Java 反射
+  <a href="#_1" class="md-nav__link">
+    一般的编译流程
   </a>
-  
-    <nav class="md-nav" aria-label="Java 反射">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
-    基本功能
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
-    解除访问限制
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_4" class="md-nav__link">
-    动态代理
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_5" class="md-nav__link">
-    对注解的支持
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_6" class="md-nav__link">
-    对方法参数名的支持
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#kotlin" class="md-nav__link">
-    访问 Kotlin 代码
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#kotlin_1" class="md-nav__link">
-    Kotlin 反射
+    Kotlin 编译器如何调试?
   </a>
-  
-    <nav class="md-nav" aria-label="Kotlin 反射">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#_7" class="md-nav__link">
-    基本功能
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_8" class="md-nav__link">
-    属性引用和函数引用
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#typeof" class="md-nav__link">
-    typeOf
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
@@ -828,160 +907,6 @@
   
 </nav>
       
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../code-generate/" class="md-nav__link">
-        源代码生成
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../symbol-process/" class="md-nav__link">
-        编译时的符号处理
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../code-static-analyse/" class="md-nav__link">
-        程序静态分析
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../compiler-extension/" class="md-nav__link">
-        编译器插件
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../meta-programming-debug/" class="md-nav__link">
-        元程序的开发和调试
-      </a>
-    </li>
-  
-
-            
-          
-        </ul>
-      </nav>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    
-    <li class="md-nav__item md-nav__item--nested">
-      
-      
-      
-      
-      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_3" >
-      
-      
-        
-          
-        
-          
-        
-          
-        
-      
-      
-        <label class="md-nav__link" for="__nav_3_3" id="__nav_3_3_label" tabindex="0">
-          Kolin 编译器学习
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_3_label" aria-expanded="false">
-        <label class="md-nav__title" for="__nav_3_3">
-          <span class="md-nav__icon md-icon"></span>
-          Kolin 编译器学习
-        </label>
-        <ul class="md-nav__list" data-md-scrollfix>
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../kotlin-compiler-learn/learning-resource/" class="md-nav__link">
-        Kotlin 编译器相关学习资源
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../kotlin-compiler-learn/kotlin-compiler-start/" class="md-nav__link">
-        Kotlin 编译器源码阅读
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../kotlin-compiler-learn/kotlin-compiler-source/" class="md-nav__link">
-        破解 Kotlin 编译器
-      </a>
     </li>
   
 
@@ -2343,91 +2268,16 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#java" class="md-nav__link">
-    Java 反射
+  <a href="#_1" class="md-nav__link">
+    一般的编译流程
   </a>
-  
-    <nav class="md-nav" aria-label="Java 反射">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
-    基本功能
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
-    解除访问限制
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_4" class="md-nav__link">
-    动态代理
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_5" class="md-nav__link">
-    对注解的支持
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_6" class="md-nav__link">
-    对方法参数名的支持
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#kotlin" class="md-nav__link">
-    访问 Kotlin 代码
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#kotlin_1" class="md-nav__link">
-    Kotlin 反射
+    Kotlin 编译器如何调试?
   </a>
-  
-    <nav class="md-nav" aria-label="Kotlin 反射">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#_7" class="md-nav__link">
-    基本功能
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_8" class="md-nav__link">
-    属性引用和函数引用
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#typeof" class="md-nav__link">
-    typeOf
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
@@ -2449,39 +2299,51 @@
   
 
 
-<h1 id="_1">运行时的反射</h1>
-<p>本文为《深入实践 kotlin 元编程》读书笔记，想要深入了解 kotlin 元编程的同学可以阅读原书。</p>
-<p>反射是指程序可以分析、修改自身数据结构的能力。</p>
-<p>反射为静态语言提供了动态能力的补充，使得我们可以通过类名、函数名、字段名就可以获得操作类、函数、字段的对象，进而实现对这些程序结构的访问和修改。反射广泛应用于数据序 列化、软件测试等场景当中。</p>
-<h2 id="java">Java 反射</h2>
-<p>Java 反射是专门设计用来支持 Java 运行时元编程的特性的。</p>
-<h3 id="_2">基本功能</h3>
-<p>Java 1.1 引入反射，提供了绝大多数我们现在可以用到的反射 API，包括 Class、 Method、Field 这些核心类型以及其成员，使得我们可以使用反射来实现几乎所有通过编码来 实现的程序功能。</p>
-<h3 id="_3">解除访问限制</h3>
-<p>Java 1.2 中引入了 AccessibleObject 作为 Method 和 Field 等类型的父类(这 些类在 Java 1.2 之前直接继承自 Object 类)。如此一来，我们就可以通过 setAccessible 来解除 Java 类的私有成员的访问限制。这次更新使得反射的能力得到了 “史诗级”增强，也使得开发者可以在任意位置访问几乎任意类型的私有成员。</p>
-<h3 id="_4">动态代理</h3>
-<p>Java 1.3 引入了 Proxy 类型，支持了运行时动态代理。将动态代理与反射配合使用， 我们可以在运行时动态实现 Java 接口，使程序的灵活性得到大大地提升。动态代理可以用于 实现 AOP(面向切面编程)、模拟接口、拦截方法调用等用途。</p>
-<h3 id="_5">对注解的支持</h3>
-<p>Java 5 引入了注解，同时也在反射中增加了处理注解的 API。注解可以为源代码提供元信息，我们既可以在编译时解析注解，也可以在运行时使用反射访问注解。</p>
-<h3 id="_6">对方法参数名的支持</h3>
-<p>Java 8 以前，Java 编译器不会将 Java 方法的参数名编译到 JVM 字节码当中，因而 我们也无法使用反射访问到参数的名字。对于这样的场景，广大框架设计者常用的办法就是使用 注解将参数名添加到方法参数上，在运行时读取注解的值来获取参数名。</p>
-<p>Java 8 为编译器增加了参数 -parameters，以及 Parameter 类来获取方法参数名。</p>
-<p>在这种情况下，我们无须借助注解也可以读取到方法的参数名。</p>
-<h3 id="kotlin">访问 Kotlin 代码</h3>
-<p>在 Kotlin JVM 程序中，可以使用 Java 反射来访问 Kotlin 类型。只不过 Java 反 射对 Kotlin 的语法特性一无所知，它只能以 Java 的视角来观察 Kotlin 语法，因此使用 Java 反射访问 Kotlin 的类型及其成员时，本质上是在访问 Kotlin 代码编译生成的字节码所对应的 Java 类型。</p>
-<h2 id="kotlin_1">Kotlin 反射</h2>
-<p>Kotlin 反射是专门为 Kotlin 的语法特性设计实现的运行时元编程技术，它的出现解决了 Java 反射无法识别 Kotlin 语法特性的问题。</p>
-<h3 id="_7">基本功能</h3>
-<p>Kotlin 反射的设计与 Java 反射如出一辙。KClass 在公共标准库中的定义非常简单，只有三个成员。Kotlin JS 和 Kotlin Native 当中的实现也是如此，这意味着 Kotlin 在除了 JVM 以外的所有平台上提供的反射能力都极其有限。</p>
-<p>也正是因为如此，通常我们提到 Kotlin 反射，都是特指 Kotlin JVM 上的反射。</p>
-<h3 id="_8">属性引用和函数引用</h3>
-<p>属性引用和函数引用可以分别通过类名::属性和类名::函数名的语法获取，其中类名部分在属性和函数是顶级声明的情况下缺省。</p>
-<p>通过类名获取的引用是没有绑定 receiver 的，因此在调用时需要传入对应类型的实例。</p>
-<p>我们也可以通过实例直接获取引用，语法为实例::属性名和实例::函数名，通过实例获取的引用是绑定了 receiver 的引用。</p>
-<h3 id="typeof">typeOf</h3>
-<p>typeOf 是一个函数，调用时，它会返回具体化(reified)之后的类型 T 对应的 KType 实例。</p>
-<p>有读者可能会有疑问，T 不是已经具体化了吗?我们为什么不直接使用 T::class 来获取 KClass 实例呢?显然，KClass 和 KType 还是有很大的差异的，前者是泛型擦除之后的运行时类型表示，后者则包含了泛型信息，可以用于序列化或者反序列化等场景。</p>
-<p>typeOf 主要应对的就是需要获取 KType 或者在 JVM 上获取 Type 的场景， 也经常与 inline 和 reified 一起使用来编写库函数。</p>
+<h1 id="kotlin">破解 Kotlin 编译器</h1>
+<h2 id="_1">一般的编译流程</h2>
+<p>编译器一般由以下几个部分组成：</p>
+<ul>
+<li>词法分析器（Lexical Analyzer）：也称为扫描器（Scanner），它负责将源代码转化为一系列的记号（tokens）。每一个记号代表源代码中的最小有意义单元，如关键字、标识符、操作符、分隔符等。</li>
+<li>语法分析器（Syntax Analyzer）：也称为解析器（Parser），它根据词法分析器生成的记号，按照一定的语法规则生成语法树（或称为解析树）。语法树表达了输入程序的语法结构。</li>
+<li>语义分析器（Semantic Analyzer）：在这一步，编译器检查语法树中是否存在语义错误，比如类型检查、作用域检查等。语义分析可能会生成某种形式的中间表示（Intermediate Representation, IR）。</li>
+<li>中间代码生成器（Intermediate Code Generator）：将高层的源代码转换为较低层的、机器无关的中间代码。这种中间代码便于优化和翻译成机器码。</li>
+<li>代码优化器（Code Optimizer）：对中间代码进行优化，目的是提高程序的执行效率或减少代码的占用空间。优化方法包括移除无用代码、进行常量传播、循环优化等。</li>
+<li>目标代码生成器（Code Generator）：将优化后的中间代码转换为目标机器代码或汇编代码（assembly code）。</li>
+</ul>
+<h2 id="kotlin_1">Kotlin 编译器如何调试?</h2>
+<pre><code>java_version=&quot;$(findJavaVersion)&quot;
+if [[ $java_version -ge 9 ]]; then
+    # Workaround the illegal reflective access warning from ReflectionUtil to ResourceBundle.setParent, see IDEA-248785.
+    java_args=(&quot;${java_args[@]}&quot; &quot;--add-opens&quot; &quot;java.base/java.util=ALL-UNNAMED&quot;)
+fi
+
+if [ -n &quot;$KOTLIN_RUNNER&quot; ]; then
+    java_args=(&quot;${java_args[@]}&quot; &quot;-Dkotlin.home=${KOTLIN_HOME}&quot;)
+    kotlin_app=(&quot;${KOTLIN_HOME}/lib/kotlin-runner.jar&quot; &quot;org.jetbrains.kotlin.runner.Main&quot;)
+else
+    [ -n &quot;$KOTLIN_COMPILER&quot; ] || KOTLIN_COMPILER=org.jetbrains.kotlin.cli.jvm.K2JVMCompiler
+
+    if [[ $java_version &lt; 13 ]]; then
+        java_args=(&quot;${java_args[@]}&quot; &quot;-noverify&quot;)
+    fi
+
+    declare additional_classpath=&quot;&quot;
+    if [ -n &quot;$KOTLIN_TOOL&quot; ]; then
+        additional_classpath=&quot;:${KOTLIN_HOME}/lib/${KOTLIN_TOOL}&quot;
+    fi
+
+    kotlin_app=(&quot;${KOTLIN_HOME}/lib/kotlin-preloader.jar&quot; &quot;org.jetbrains.kotlin.preloading.Preloader&quot; &quot;-cp&quot; &quot;${KOTLIN_HOME}/lib/kotlin-compiler.jar${additional_classpath}&quot; $KOTLIN_COMPILER)
+fi
+
+&quot;${JAVACMD:=java}&quot; $JAVA_OPTS &quot;${java_args[@]}&quot; -cp &quot;${kotlin_app[@]}&quot; &quot;${kotlin_args[@]}&quot;
+</code></pre>
+<p>通过查看 kotlinc 源码可知，<code>org.jetbrains.kotlin.preloading.Preloader</code> 类是编译器的预加载器，它会加载编译器的主类 <code>org.jetbrains.kotlin.cli.jvm.K2JVMCompiler</code>。因此我们修改<code>Preloader</code>类，运行它的<code>main</code>方法，即可启动与调试编译器，示例如下所示:</p>
+<pre><code class="language-java">String[] testArgs = {&quot;-cp&quot;,  &quot;./dist/kotlinc/lib/kotlin-compiler.jar&quot;, &quot;org.jetbrains.kotlin.cli.jvm.K2JVMCompiler&quot;,
+                    &quot;./compilerTestData/Test.kt&quot;, &quot;-include-runtime&quot;,
+                    &quot;-d&quot;, &quot;./compilerTestData/Test.jar&quot;
+            };
+            run(testArgs);
+</code></pre>
 
   <hr>
 <div class="md-source-file">
@@ -2519,7 +2381,7 @@
       <nav class="md-footer__inner md-grid" aria-label="页脚" >
         
           
-          <a href="../meta-data-introduction/" class="md-footer__link md-footer__link--prev" aria-label="上一页: 元数据简介" rel="prev">
+          <a href="../kotlin-compiler-start/" class="md-footer__link md-footer__link--prev" aria-label="上一页: Kotlin 编译器源码阅读" rel="prev">
             <div class="md-footer__button md-icon">
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
             </div>
@@ -2528,20 +2390,20 @@
                 上一页
               </span>
               <div class="md-ellipsis">
-                元数据简介
+                Kotlin 编译器源码阅读
               </div>
             </div>
           </a>
         
         
           
-          <a href="../code-generate/" class="md-footer__link md-footer__link--next" aria-label="下一页: 源代码生成" rel="next">
+          <a href="../../pointers-on-c/environment-config/" class="md-footer__link md-footer__link--next" aria-label="下一页: 环境搭建" rel="next">
             <div class="md-footer__title">
               <span class="md-footer__direction">
                 下一页
               </span>
               <div class="md-ellipsis">
-                源代码生成
+                环境搭建
               </div>
             </div>
             <div class="md-footer__button md-icon">
