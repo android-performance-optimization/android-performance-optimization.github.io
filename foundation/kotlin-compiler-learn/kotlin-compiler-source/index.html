@@ -2363,10 +2363,10 @@ fi
 <p>转换的过程是通过扫描源代码，根据 Kotlin 的词法规则，将源代码分割成一个个的词法单元。这个过程是由词法分析器（Lexical Analyzer）完成的。</p>
 <p>由于词法分析器已经是一个比较成熟的技术，因此我们可以直接使用现成的工具来生成词法分析器。比如，Kotlin 就是使用了 <a href="https://jflex.de/">JFlex</a> 来生成词法分析器，通过编写 JFlex 规范文件 <a href="https://github.com/JetBrains/kotlin/blob/5f70647879916e79704ac3dd4a3c60ff27554503/compiler/psi/src/org/jetbrains/kotlin/lexer/Kotlin.flex#L4">/Kotlin.flex</a>，然后使用 JFlex 工具即可生成词法分析器。</p>
 <blockquote>
-<p>JFlex 是一个词法分析器生成器（也称为扫描器生成器），使用 Java 编写。
-一个词法分析器生成器的输入是一个包含一组正则表达式及其相应动作的规范。它生成一个程序（词法分析器），该程序读取输入，将输入与规范文件中的正则表达式进行匹配，如果某个正则表达式匹配成功，则执行相应的动作。词法分析器通常是编译器的第一个前端步骤，用于匹配关键字、注释、操作符等，并为解析器生成输入的标记流。
-JFlex 的词法分析器基于确定性有限自动机（DFA）。它们运行快速，没有昂贵的回溯操作。
-JFlex 设计用于与 Scott Hudson 的 LALR 解析器生成器 CUP 共同使用，以及用于 Bob Jamison 修改自 Berkeley Yacc 的 Java 版本 BYacc/J。它也可以与其他解析器生成器（如 ANTLR）一起使用，或者作为独立工具使用。</p>
+<p>JFlex 是一个词法分析器生成器（也称为扫描器生成器），使用 Java 编写。</p>
+<p>一个词法分析器生成器的输入是一个包含一组正则表达式及其相应动作的规范。它生成一个程序（词法分析器），该程序读取输入，将输入与规范文件中的正则表达式进行匹配，如果某个正则表达式匹配成功，则执行相应的动作。词法分析器通常是编译器的第一个前端步骤，用于匹配关键字、注释、操作符等，并为解析器生成输入的标记流。</p>
+<p>JFlex 的词法分析器基于确定性有限自动机（DFA）。它们运行快速，没有昂贵的回溯操作。</p>
+<p>JFlex 设计用于与 Scott Hudson 的 LALR 解析器生成器 CUP 共同使用，以及用于 Bob Jamison 修改自 Berkeley Yacc 的 Java 版本 BYacc/J。它也可以与其他解析器生成器（如 ANTLR）一起使用，或者作为独立工具使用。</p>
 </blockquote>
 <p>// TODO 字元化画图</p>
 
