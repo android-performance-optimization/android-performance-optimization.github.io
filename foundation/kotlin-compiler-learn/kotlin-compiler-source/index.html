@@ -910,6 +910,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    语法分析
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -2311,6 +2318,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    语法分析
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -2385,13 +2399,57 @@ fi
 <p>JFlex 设计用于与 Scott Hudson 的 LALR 解析器生成器 CUP 共同使用，以及用于 Bob Jamison 修改自 Berkeley Yacc 的 Java 版本 BYacc/J。它也可以与其他解析器生成器（如 ANTLR）一起使用，或者作为独立工具使用。</p>
 </blockquote>
 <p>// TODO 字元化画图</p>
+<h2 id="_3">语法分析</h2>
+<p>这一步的输入是 Tokens, 根据 Kotlin 的语法规则处理 Tokens，输出 AST(abstrace syntax tree)。</p>
+<p>Kotlin 的语法规则可见：<a href="https://kotlinlang.org/docs/reference/grammar.html">https://kotlinlang.org/docs/reference/grammar.html</a>。以下是 class 的定义，当遍历 tokens 列表时，如果碰到了 class 或者 interface 关键字，后续的 tokens 则按类或者 interface 来解析，其他语法规则也是如此，如果碰到不符合语法规则的语句则会报错。</p>
+<pre><code>classDeclaration (used by declaration)
+  : modifiers? ('class' | ('fun'? 'interface'))
+    simpleIdentifier typeParameters?
+    primaryConstructor?
+    (':' delegationSpecifiers)?
+    typeConstraints?
+    (classBody | enumClassBody)?
+  ;
+</code></pre>
+<p>K1 与 K2 在语法分析阶段的输出略有不同, K2 在语法分析阶段会返回一个更加轻量级的语法树，构建速度更快，但后续无法创建 PSI。</p>
+<pre><code>  /**
+   * 返回解析的结果。在调用此方法之前，所有的标记必须已经完成或被丢弃。
+   *
+   * @return 构建的 AST 树
+   */
+  @NotNull
+  ASTNode getTreeBuilt();
+
+  /**
+   * 与 getTreeBuilt() 相同，但返回一个轻量级的树，构建速度更快，产生的垃圾更少，但无法创建一个 PSI（程序结构接口）。
+   *
+   * @return 轻量级的语法树
+   */
+  @NotNull
+  FlyweightCapableTreeStructure&lt;LighterASTNode&gt; getLightTree();
+</code></pre>
+<p>相比 ASTNode，LighterASTNode 更加轻量化，接口中只有几个方法。</p>
+<pre><code>public interface LighterASTNode {
+  LighterASTNode[] EMPTY_ARRAY = new LighterASTNode[0];
+
+  IElementType getTokenType();
+
+  int getStartOffset();
+
+  int getEndOffset();
+
+  default int getTextLength() {
+    return getEndOffset() - getStartOffset();
+  }
+}
+</code></pre>
 
   <hr>
 <div class="md-source-file">
   <small>
     
       最后更新:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">November 30, 2024</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">December 1, 2024</span>
       
     
   </small>
