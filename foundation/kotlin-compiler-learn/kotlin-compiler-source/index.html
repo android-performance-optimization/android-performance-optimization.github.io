@@ -23,7 +23,7 @@
     
     
       
-        <title>破解 Kotlin 编译器 - Android 性能优化手册</title>
+        <title>Kotlin 编译器浅析 - Android 性能优化手册</title>
       
     
     
@@ -113,7 +113,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              破解 Kotlin 编译器
+              Kotlin 编译器浅析
             
           </span>
         </div>
@@ -866,12 +866,12 @@
       
       
         <label class="md-nav__link md-nav__link--active" for="__toc">
-          破解 Kotlin 编译器
+          Kotlin 编译器浅析
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <a href="./" class="md-nav__link md-nav__link--active">
-        破解 Kotlin 编译器
+        Kotlin 编译器浅析
       </a>
       
         
@@ -914,6 +914,26 @@
   <a href="#_3" class="md-nav__link">
     语法分析
   </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    语义分析
+  </a>
+  
+    <nav class="md-nav" aria-label="语义分析">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#k1" class="md-nav__link">
+    K1
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -2325,6 +2345,26 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    语义分析
+  </a>
+  
+    <nav class="md-nav" aria-label="语义分析">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#k1" class="md-nav__link">
+    K1
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -2343,7 +2383,7 @@
   
 
 
-<h1 id="kotlin">破解 Kotlin 编译器</h1>
+<h1 id="kotlin">Kotlin 编译器浅析</h1>
 <h2 id="_1">一般的编译流程</h2>
 <p>编译器一般由以下几个部分组成：</p>
 <ul>
@@ -2443,13 +2483,21 @@ fi
   }
 }
 </code></pre>
+<h2 id="_4">语义分析</h2>
+<h3 id="k1">K1</h3>
+<p>SlicedMap 的设计允许编译器：
+1. 高效地存储和访问编译过程中的各种映射关系
+通过不同的 Slice 类型支持不同的数据访问模式
+3. 提供类型安全的数据访问
+支持灵活的重写策略
+支持值的延迟计算</p>
 
   <hr>
 <div class="md-source-file">
   <small>
     
       最后更新:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">December 1, 2024</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">December 4, 2024</span>
       
     
   </small>
