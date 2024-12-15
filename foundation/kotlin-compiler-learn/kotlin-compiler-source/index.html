@@ -915,6 +915,39 @@
     语法分析
   </a>
   
+    <nav class="md-nav" aria-label="语法分析">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#k2" class="md-nav__link">
+    K2
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#k1" class="md-nav__link">
+    K1
+  </a>
+  
+    <nav class="md-nav" aria-label="K1">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#psi" class="md-nav__link">
+    PSI
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
@@ -926,14 +959,41 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#k1" class="md-nav__link">
+  <a href="#k1_1" class="md-nav__link">
     K1
+  </a>
+  
+    <nav class="md-nav" aria-label="K1">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#bindingcontext" class="md-nav__link">
+    BindingContext
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#moduledescriptor-" class="md-nav__link">
+    ModuleDescriptor - 模块级别的信息：
   </a>
   
 </li>
         
       </ul>
     </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ir" class="md-nav__link">
+    IR 生成
+  </a>
   
 </li>
       
@@ -2343,6 +2403,39 @@
     语法分析
   </a>
   
+    <nav class="md-nav" aria-label="语法分析">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#k2" class="md-nav__link">
+    K2
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#k1" class="md-nav__link">
+    K1
+  </a>
+  
+    <nav class="md-nav" aria-label="K1">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#psi" class="md-nav__link">
+    PSI
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
@@ -2354,14 +2447,41 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#k1" class="md-nav__link">
+  <a href="#k1_1" class="md-nav__link">
     K1
+  </a>
+  
+    <nav class="md-nav" aria-label="K1">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#bindingcontext" class="md-nav__link">
+    BindingContext
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#moduledescriptor-" class="md-nav__link">
+    ModuleDescriptor - 模块级别的信息：
   </a>
   
 </li>
         
       </ul>
     </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ir" class="md-nav__link">
+    IR 生成
+  </a>
   
 </li>
       
@@ -2452,6 +2572,7 @@ fi
   ;
 </code></pre>
 <p>K1 与 K2 在语法分析阶段的输出略有不同, K2 在语法分析阶段会返回一个更加轻量级的语法树，构建速度更快，但后续无法创建 PSI。</p>
+<h3 id="k2">K2</h3>
 <pre><code>  /**
    * 返回解析的结果。在调用此方法之前，所有的标记必须已经完成或被丢弃。
    *
@@ -2483,21 +2604,82 @@ fi
   }
 }
 </code></pre>
-<h2 id="_4">语义分析</h2>
 <h3 id="k1">K1</h3>
+<pre><code class="language-kotlin">package compilerTestData
+
+fun sample(a: Int, b: Int) {
+    val c = a + b
+    println(&quot;result:&quot; + c)
+}
+</code></pre>
+<p><img alt="" src="https://raw.gitmirror.com/RicardoJiang/resource/refs/heads/main/2024/december/p5.png" /></p>
+<h4 id="psi">PSI</h4>
+<pre><code>    override fun createElement(astNode: ASTNode): PsiElement {
+        val elementType = astNode.elementType
+
+        return when (elementType) {
+            is KtStubElementType&lt;*, *&gt; -&gt; elementType.createPsiFromAst(astNode)
+            KtNodeTypes.TYPE_CODE_FRAGMENT, KtNodeTypes.EXPRESSION_CODE_FRAGMENT, KtNodeTypes.BLOCK_CODE_FRAGMENT -&gt; ASTWrapperPsiElement(
+                astNode
+            )
+            is KDocElementType -&gt; elementType.createPsi(astNode)
+            KDocTokens.MARKDOWN_LINK -&gt; KDocLink(astNode)
+            else -&gt; (elementType as KtNodeType).createPsi(astNode)
+        }
+    }
+</code></pre>
+<h2 id="_4">语义分析</h2>
+<h3 id="k1_1">K1</h3>
+<h4 id="bindingcontext">BindingContext</h4>
+<p>BindingContext - 存储分析过程中收集的所有信息：
+声明到描述符的映射
+表达式类型信息
+诊断信息
+解析的导入
+作用域信息</p>
 <p>SlicedMap 的设计允许编译器：
 1. 高效地存储和访问编译过程中的各种映射关系
 通过不同的 Slice 类型支持不同的数据访问模式
 3. 提供类型安全的数据访问
 支持灵活的重写策略
 支持值的延迟计算</p>
+<h4 id="moduledescriptor-">ModuleDescriptor - 模块级别的信息：</h4>
+<ol>
+<li>结构信息：
+包层次结构
+依赖关系图
+模块组织结构
+类型系统：
+内建类型支持
+平台特定类型
+类型别名
+多平台支持：
+平台特定代码
+expect/actual 声明
+跨平台兼容性
+访问控制：
+模块间可见性
+包级别访问
+内部成员控制
+扩展性：
+模块能力系统
+自定义特性支持
+平台扩展
+这种设计使得 ModuleDescriptor 能够：
+支持模块化开发
+提供类型安全
+管理依赖关系
+控制代码访问
+支持多平台项目</li>
+</ol>
+<h2 id="ir">IR 生成</h2>
 
   <hr>
 <div class="md-source-file">
   <small>
     
       最后更新:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">December 5, 2024</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">December 15, 2024</span>
       
     
   </small>
