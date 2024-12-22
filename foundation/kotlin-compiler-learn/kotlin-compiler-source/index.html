@@ -2593,7 +2593,7 @@ fi
 <p>JFlex 的词法分析器基于确定性有限自动机（DFA）。它们运行快速，没有昂贵的回溯操作。</p>
 <p>JFlex 设计用于与 Scott Hudson 的 LALR 解析器生成器 CUP 共同使用，以及用于 Bob Jamison 修改自 Berkeley Yacc 的 Java 版本 BYacc/J。它也可以与其他解析器生成器（如 ANTLR）一起使用，或者作为独立工具使用。</p>
 </blockquote>
-<p>// TODO 字元化画图</p>
+<p><img alt="" src="https://raw.gitmirror.com/RicardoJiang/resource/refs/heads/main/2024/december/p7.png" /></p>
 <h2 id="_3">语法分析</h2>
 <p>这一步的输入是 Tokens, 根据 Kotlin 的语法规则处理 Tokens，输出 AST(abstrace syntax tree)。</p>
 <p>Kotlin 的语法规则可见：<a href="https://kotlinlang.org/docs/reference/grammar.html">https://kotlinlang.org/docs/reference/grammar.html</a>。以下是 class 的定义，当遍历 tokens 列表时，如果碰到了 class 或者 interface 关键字，后续的 tokens 则按类或者 interface 来解析，其他语法规则也是如此，如果碰到不符合语法规则的语句则会报错。</p>
