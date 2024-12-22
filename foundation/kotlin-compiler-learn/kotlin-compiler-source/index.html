@@ -2544,7 +2544,9 @@
 <li>代码优化器（Code Optimizer）：对中间代码进行优化，目的是提高程序的执行效率或减少代码的占用空间。优化方法包括移除无用代码、进行常量传播、循环优化等。</li>
 <li>目标代码生成器（Code Generator）：将优化后的中间代码转换为目标机器代码或汇编代码（assembly code）。</li>
 </ul>
+<p>Kotlin 的编译器其实也是由这些部分组成的，下面就按这几个部分来介绍一下 Kotlin 的编译流程</p>
 <h2 id="kotlin">Kotlin 编译器如何调试?</h2>
+<p>首先，当我们通过 kotlinc 编译 kotlin 源代码的时候发生了什么呢？我们可以首先看看 kotlinc 脚本的源码：</p>
 <pre><code>java_version=&quot;$(findJavaVersion)&quot;
 if [[ $java_version -ge 9 ]]; then
     # Workaround the illegal reflective access warning from ReflectionUtil to ResourceBundle.setParent, see IDEA-248785.
@@ -2574,10 +2576,12 @@ fi
 <p>通过查看 kotlinc 源码可知，<code>org.jetbrains.kotlin.preloading.Preloader</code> 类是编译器的预加载器，它会加载编译器的主类 <code>org.jetbrains.kotlin.cli.jvm.K2JVMCompiler</code>。因此我们修改<code>Preloader</code>类，运行它的<code>main</code>方法，即可启动与调试编译器，示例如下所示:</p>
 <pre><code class="language-java">String[] testArgs = {&quot;-cp&quot;,  &quot;./dist/kotlinc/lib/kotlin-compiler.jar&quot;, &quot;org.jetbrains.kotlin.cli.jvm.K2JVMCompiler&quot;,
                     &quot;./compilerTestData/Test.kt&quot;, &quot;-include-runtime&quot;,
-                    &quot;-d&quot;, &quot;./compilerTestData/Test.jar&quot;
+                    &quot;-d&quot;, &quot;./compilerTestData/Test.jar&quot;,
+                    //&quot;-language-version&quot;,&quot;1.9&quot; 当需要使用 K1 编译器时添加此参数。
             };
             run(testArgs);
 </code></pre>
+<p>通过以上代码，就可以通过 IDE 调试 kotlin 的编译过程。</p>
 <h2 id="_2">词法分析</h2>
 <p>这一步的输入是源代码，输出是一系列的记号（tokens），每个记号代表源代码中的词法单元，如关键字、标识符、操作符、分隔符，注释等。</p>
 <p>转换的过程是通过扫描源代码，根据 Kotlin 的词法规则，将源代码分割成一个个的词法单元。这个过程是由词法分析器（Lexical Analyzer）完成的。</p>
