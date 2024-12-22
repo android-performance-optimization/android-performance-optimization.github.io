@@ -990,6 +990,20 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#lowering" class="md-nav__link">
+    lowering
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    目标代码生成
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -2471,6 +2485,20 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#lowering" class="md-nav__link">
+    lowering
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    目标代码生成
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -2678,6 +2706,76 @@ public interface SlicedMap {
 <li>性能优化：SliceMap 内部进行了一系列优化适配编译器场景，在编译器场景下可以带来更好的读写性能。</li>
 </ul>
 <h2 id="ir">IR 生成</h2>
+<p>这一步的输入是带有语义信息的语法树，输出则是 IR 树。IR（Intermediate Representation，中间表示）是一个介于源代码和目标代码码之间的抽象层，通过引入 IR，Kotlin 可以更加高效的支持多平台。</p>
+<pre><code>abstract class IrFile : IrPackageFragment(), IrMutableAnnotationContainer, IrMetadataSourceOwner {
+    abstract override val symbol: IrFileSymbol
+
+    abstract var module: IrModuleFragment
+
+    abstract var fileEntry: IrFileEntry
+
+    override fun &lt;R, D&gt; accept(visitor: IrElementVisitor&lt;R, D&gt;, data: D): R =
+        visitor.visitFile(this, data)
+
+    override fun &lt;D&gt; transform(transformer: IrElementTransformer&lt;D&gt;, data: D): IrFile =
+        accept(transformer, data) as IrFile
+
+    override fun &lt;D&gt; acceptChildren(visitor: IrElementVisitor&lt;Unit, D&gt;, data: D) {
+        declarations.forEach { it.accept(visitor, data) }
+    }
+
+    override fun &lt;D&gt; transformChildren(transformer: IrElementTransformer&lt;D&gt;, data: D) {
+        declarations.transformInPlace(transformer, data)
+    }
+}
+</code></pre>
+<p>IR 树的声明如上所示，IR 树可以通过访问者模式来遍历子节点，也可以通过<code>dump</code>方法直接打印出来，<code>dump</code>后结果如下所示：</p>
+<pre><code>MODULE_FRAGMENT name:&lt;main&gt;
+  FILE fqName:compilerTestData fileName:/Users/jiangjunxiang/AndroidProject/leo/kotlin/compilerTestData/Test.kt
+    FUN name:sample visibility:public modality:FINAL &lt;&gt; (a:kotlin.Int, b:kotlin.Int) returnType:kotlin.Unit
+      VALUE_PARAMETER name:a index:0 type:kotlin.Int
+      VALUE_PARAMETER name:b index:1 type:kotlin.Int
+      BLOCK_BODY
+        VAR name:c type:kotlin.Int [val]
+          CALL 'public final fun plus (other: kotlin.Int): kotlin.Int [operator] declared in kotlin.Int' type=kotlin.Int origin=PLUS
+            $this: GET_VAR 'a: kotlin.Int declared in compilerTestData.sample' type=kotlin.Int origin=null
+            other: GET_VAR 'b: kotlin.Int declared in compilerTestData.sample' type=kotlin.Int origin=null
+        CALL 'public final fun println (message: kotlin.Any?): kotlin.Unit [inline] declared in kotlin.io.ConsoleKt' type=kotlin.Unit origin=null
+          message: CALL 'public final fun plus (other: kotlin.Any?): kotlin.String [operator] declared in kotlin.String' type=kotlin.String origin=PLUS
+            $this: CONST String type=kotlin.String value=&quot;result:&quot;
+            other: GET_VAR 'val c: kotlin.Int [val] declared in compilerTestData.sample' type=kotlin.Int origin=null
+</code></pre>
+<h2 id="lowering">lowering</h2>
+<p><code>lowering</code> 是指将高级的 Kotlin 代码转换成更加底层的、容易被后续编译阶段或目标平台（如 JVM 字节码、JavaScript、原生代码等）理解并处理的代码的过程。这个过程通常包括将更抽象、高级的语言特性分解成更基础的元素。具体来说，lowering 会涉及到以下几点：</p>
+<ul>
+<li>语法糖的展开（Desugaring）： 将语法糖形式（syntactic sugar）的代码转换成更基础的代码。例如，Kotlin 中的 lambda 表达式、扩展函数、高阶函数等高级特性，在 lowering 过程中会被转换成相应的普通函数或方法调用。</li>
+<li>内联函数（Inlining）： 内联函数在 lowering 阶段会被替换成函数体自身的代码，以减少函数调用的开销。</li>
+<li>协程转换（Coroutine Transformation）： Kotlin 的挂起函数（suspend function）和协程（coroutines）特性在 lowering 阶段会被转换成状态机形式，以便在目标平台上高效运行。</li>
+<li>类和对象相关转换： 将对象表达式、匿名对象、伴生对象等高级特性转换成可以被目标平台理解的普通类结构。</li>
+<li>其他变换： 将局部返回、智能类型转换等 Kotlin 特性转换成更基础的构造。</li>
+</ul>
+<p>比如代码中字符串的<code>+</code>操作，在<code>lowering</code>之后就转化为了<code>append</code>方法</p>
+<pre><code>MODULE_FRAGMENT name:&lt;main&gt;
+  FILE fqName:compilerTestData fileName:/Users/jiangjunxiang/AndroidProject/leo/kotlin/compilerTestData/Test.kt
+    CLASS FILE_CLASS CLASS name:TestKt modality:FINAL visibility:public superTypes:[kotlin.Any]
+      $this: VALUE_PARAMETER INSTANCE_RECEIVER name:&lt;this&gt; type:compilerTestData.TestKt
+      FUN name:sample visibility:public modality:FINAL &lt;&gt; (a:kotlin.Int, b:kotlin.Int) returnType:kotlin.Unit
+        VALUE_PARAMETER name:a index:0 type:kotlin.Int
+        VALUE_PARAMETER name:b index:1 type:kotlin.Int
+        BLOCK_BODY
+          VAR name:c type:kotlin.Int [val]
+            CALL 'public final fun plus (other: kotlin.Int): kotlin.Int [operator] declared in kotlin.Int' type=kotlin.Int origin=PLUS
+              $this: GET_VAR 'a: kotlin.Int declared in compilerTestData.TestKt.sample' type=kotlin.Int origin=null
+              other: GET_VAR 'b: kotlin.Int declared in compilerTestData.TestKt.sample' type=kotlin.Int origin=null
+          CALL 'public final fun println (message: kotlin.Any?): kotlin.Unit [inline] declared in kotlin.io.ConsoleKt' type=kotlin.Unit origin=null
+            message: CALL 'public final fun toString (): kotlin.String declared in java.lang.StringBuilder' type=kotlin.String origin=null
+              $this: CALL 'public final fun append (value: kotlin.Int): java.lang.StringBuilder declared in java.lang.StringBuilder' type=java.lang.StringBuilder origin=null
+                $this: CALL 'public final fun append (value: kotlin.String?): java.lang.StringBuilder declared in java.lang.StringBuilder' type=java.lang.StringBuilder origin=null
+                  $this: CONSTRUCTOR_CALL 'public constructor &lt;init&gt; () declared in java.lang.StringBuilder' type=java.lang.StringBuilder origin=null
+                  value: CONST String type=kotlin.String value=&quot;result:&quot;
+                value: GET_VAR 'val c: kotlin.Int [val] declared in compilerTestData.TestKt.sample' type=kotlin.Int origin=null
+</code></pre>
+<h2 id="_5">目标代码生成</h2>
 
   <hr>
 <div class="md-source-file">
