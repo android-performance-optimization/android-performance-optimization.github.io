@@ -923,19 +923,6 @@
     K1 版本语法分析
   </a>
   
-    <nav class="md-nav" aria-label="K1 版本语法分析">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#psi" class="md-nav__link">
-    创建 PSI
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
 </li>
         
           <li class="md-nav__item">
@@ -965,6 +952,13 @@
   
     <nav class="md-nav" aria-label="K1 版本语义分析">
       <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#psi" class="md-nav__link">
+    PSI
+  </a>
+  
+</li>
         
           <li class="md-nav__item">
   <a href="#bindingcontext" class="md-nav__link">
@@ -2432,19 +2426,6 @@
     K1 版本语法分析
   </a>
   
-    <nav class="md-nav" aria-label="K1 版本语法分析">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#psi" class="md-nav__link">
-    创建 PSI
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
 </li>
         
           <li class="md-nav__item">
@@ -2474,6 +2455,13 @@
   
     <nav class="md-nav" aria-label="K1 版本语义分析">
       <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#psi" class="md-nav__link">
+    PSI
+  </a>
+  
+</li>
         
           <li class="md-nav__item">
   <a href="#bindingcontext" class="md-nav__link">
@@ -2640,8 +2628,27 @@ fun sample(a: Int, b: Int) {
 </code></pre>
 <p>以上代码，语法分析后创建的 ASTNode 语法树如下所示</p>
 <p><img alt="" src="https://raw.gitmirror.com/RicardoJiang/resource/refs/heads/main/2024/december/p5.png" /></p>
-<h4 id="psi">创建 PSI</h4>
-<p>在 K1 编译器中，创建语法树时需要先创建 ASTNode 树，然后再通过<code>createElement</code>转化为 PsiElemet 树。</p>
+<h3 id="k2">K2 版本语法分析</h3>
+<p>相比之下，K2 编译器在语法分析阶段只需要通过<code>getLightTree</code>创建一个 LightTree，<code>LighterASTNode</code> 比 <code>ASTNode</code> 更加轻量化，接口中只有几个方法。</p>
+<pre><code>public interface LighterASTNode {
+  LighterASTNode[] EMPTY_ARRAY = new LighterASTNode[0];
+
+  IElementType getTokenType();
+
+  int getStartOffset();
+
+  int getEndOffset();
+
+  default int getTextLength() {
+    return getEndOffset() - getStartOffset();
+  }
+}
+</code></pre>
+<h2 id="_4">语义分析</h2>
+<p>这一步的输入是语法树，输出则是带有语义信息的语法树。K1 与 K2 阶段略有不同。</p>
+<h3 id="k1_1">K1 版本语义分析</h3>
+<h4 id="psi">PSI</h4>
+<p>在 K1 编译器中，语义分析阶段需要将 ASTNode 树再通过<code>createElement</code>转化为 PsiElemet 树。</p>
 <pre><code>    override fun createElement(astNode: ASTNode): PsiElement {
         val elementType = astNode.elementType
 
@@ -2664,25 +2671,6 @@ fun sample(a: Int, b: Int) {
 <p>实际上 PSI 在 IDEA 语法分析，代码补全等场景中大量使用，同时 IDEA 也支持自定义语言的支持，详情可见：<a href="https://plugins.jetbrains.com/docs/intellij/custom-language-support.html">Custom Language Support</a></p>
 <p>Kotlin 在开发之初，应该是为了复用 IDEA 生态而使用了 PSI。但是 IDE 场景与编译器场景其实有些不同，IDE 会有频繁更新代码，快速导航等应用场景，因此 PSI 需要支持缓存，懒加载，
 增量更新，导航等功能，而这些功能自然有一定成本，而在编译过程中实际并不需要，自然也会影响编译性能。</p>
-<h3 id="k2">K2 版本语法分析</h3>
-<p>相比 ASTNode，LighterASTNode 更加轻量化，接口中只有几个方法。</p>
-<pre><code>public interface LighterASTNode {
-  LighterASTNode[] EMPTY_ARRAY = new LighterASTNode[0];
-
-  IElementType getTokenType();
-
-  int getStartOffset();
-
-  int getEndOffset();
-
-  default int getTextLength() {
-    return getEndOffset() - getStartOffset();
-  }
-}
-</code></pre>
-<h2 id="_4">语义分析</h2>
-<p>这一步的输入是语法树，输出则是带有语义信息的语法树。</p>
-<h3 id="k1_1">K1 版本语义分析</h3>
 <h4 id="bindingcontext">BindingContext</h4>
 <p>在 K1 编译器中，分析过程中收集的语义信息会存储到 BindingContext 中，具体包括以下内容：</p>
 <ul>
@@ -2736,7 +2724,22 @@ public interface SlicedMap {
 <li>性能优化：SliceMap 内部进行了一系列优化适配编译器场景，在编译器场景下可以带来更好的读写性能。</li>
 </ul>
 <h3 id="k2_1">K2 版本语义分析</h3>
-<p>与 K1 版本相比，K2 版本生成的是带有语义信息的语法树，分析过程中收集的语义信息会存储到语法树的<code>symbol</code>中，而不是一个庞大的<code>BindingContext</code>中</p>
+<p>K2 编译器中，语义分析分为两步</p>
+<ul>
+<li>将<code>lightTree</code>转化为 Fir 树</li>
+<li>进行代码分析和检查，并将语义信息写入到 Fir 树中</li>
+</ul>
+<pre><code class="language-kotlin">fun buildResolveAndCheckFirViaLightTree(
+    session: FirSession,
+    ktFiles: Collection&lt;KtSourceFile&gt;,
+    diagnosticsReporter: BaseDiagnosticsCollector,
+    countFilesAndLines: KFunction2&lt;Int, Int, Unit&gt;?
+): ModuleCompilerAnalyzedOutput {
+    val firFiles = session.buildFirViaLightTree(ktFiles, diagnosticsReporter, countFilesAndLines)
+    return resolveAndCheckFir(session, firFiles, diagnosticsReporter)
+}
+</code></pre>
+<p>与 K1 版本相比，K2 版本生成的是带有语义信息的语法树，通过 Fir 树中的<code>symbol</code>就可以获取语义信息，而需要从庞大的<code>BindingContext</code>中去查询。</p>
 <pre><code class="language-kotlin">sealed class FirDeclaration : FirElementWithResolveState(), FirAnnotationContainer {
     abstract override val source: KtSourceElement?
     abstract override val annotations: List&lt;FirAnnotation&gt;
@@ -2837,8 +2840,8 @@ public interface SlicedMap {
 <h2 id="k2-k1">为什么 K2 比 K1 快？</h2>
 <p><img alt="" src="https://raw.gitmirror.com/RicardoJiang/resource/refs/heads/main/2024/december/p6.png" /></p>
 <p>根据 jetbrains 的 benchmark，K2 的性能比起 K1 在分析阶段有着显著的提升，那么是为什么呢？</p>
-<p>从我们上面的分析来看，一部分原因在于 K1 不仅需要创建 ASTNode 树, 还需要创建 PsiElement 树，相比于 K2 的 LighterASTNode 树明显更重。</p>
-<p>此外根据 <a href="https://app.slack.com/client/T09229ZC6/C7L3JB43G">Dmitriy Novozhilov [JetBrains] 在 Slack 中的解释</a>, K1 编译器的代码在代码局部性和内存局部性上也存在一些问题。</p>
+<p>从我们上面的分析来看，一部分原因在于 K1 编译器直接复用了 IDEA 生态，但是 IDE 会有频繁更新代码，快速导航等应用场景，这些在编译场景并不需要的功能会带来一定的性能开销，自然会对编译速度产生一定的影响。</p>
+<p>此外根据 <a href="https://app.slack.com/client/T09229ZC6/C7L3JB43G">Dmitriy Novozhilov [JetBrains] 在 Slack 中的解释</a>, K1 编译器在代码局部性和内存局部性上也存在一些问题。</p>
 <blockquote>
 <p>FE 1.0 性能的主要问题与非常差的代码局部性和内存局部性有关。所有描述符都是延迟加载的，因此编译器总是在不同的代码部分之间跳转，这破坏了许多即时编译（JIT）优化。
 此外，所有关于解析的信息都存储在一个巨大的映射嵌套映射（绑定上下文）中，所以 CPU 不能很好地缓存对象。</p>
