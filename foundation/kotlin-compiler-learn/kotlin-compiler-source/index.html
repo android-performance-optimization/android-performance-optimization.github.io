@@ -1012,6 +1012,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    总结
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -2515,6 +2522,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    总结
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -2544,7 +2558,7 @@
 <li>代码优化器（Code Optimizer）：对中间代码进行优化，目的是提高程序的执行效率或减少代码的占用空间。优化方法包括移除无用代码、进行常量传播、循环优化等。</li>
 <li>目标代码生成器（Code Generator）：将优化后的中间代码转换为目标机器代码或汇编代码（assembly code）。</li>
 </ul>
-<p>Kotlin 的编译器其实也是由这些部分组成的，下面就按这几个部分来介绍一下 Kotlin 的编译流程</p>
+<p>Kotlin 的编译器其实也是由这些部分组成的，下面就按这几个部分来介绍一下 Kotlin 的编译流程。本文基于 Kotlin 2.1 源码分析。</p>
 <h2 id="kotlin">Kotlin 编译器如何调试?</h2>
 <p>要想了解 Kotlin 的编译过程，最好的方式就是通过 IDEA debug 来了解这一过程。为了实现这点，首先我们需要找到 kotlin 编译的入口类，然后通过修改入口类传入我们自定义的 kt 源代码。</p>
 <p>我们可以通过分析 kotlinc 的编译过程来找到入口类，当我们通过 kotlinc 编译 kotlin 源代码的时候发生了什么呢？我们可以首先看看 kotlinc 脚本的源码：</p>
@@ -2849,6 +2863,8 @@ public interface SlicedMap {
 <p>FE 1.0 性能的主要问题与非常差的代码局部性和内存局部性有关。所有描述符都是延迟加载的，因此编译器总是在不同的代码部分之间跳转，这破坏了许多即时编译（JIT）优化。
 此外，所有关于解析的信息都存储在一个巨大的映射嵌套映射（绑定上下文）中，所以 CPU 不能很好地缓存对象。</p>
 </blockquote>
+<h2 id="_6">总结</h2>
+<p><img alt="" src="https://raw.gitmirror.com/RicardoJiang/resource/refs/heads/main/2024/december/p8.png" /></p>
 
   <hr>
 <div class="md-source-file">
