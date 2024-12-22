@@ -919,29 +919,29 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#k2" class="md-nav__link">
-    K2
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
   <a href="#k1" class="md-nav__link">
-    K1
+    K1 版本语法分析
   </a>
   
-    <nav class="md-nav" aria-label="K1">
+    <nav class="md-nav" aria-label="K1 版本语法分析">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
   <a href="#psi" class="md-nav__link">
-    PSI
+    创建 PSI
   </a>
   
 </li>
         
       </ul>
     </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#k2" class="md-nav__link">
+    K2 版本语法分析
+  </a>
   
 </li>
         
@@ -960,10 +960,10 @@
         
           <li class="md-nav__item">
   <a href="#k1_1" class="md-nav__link">
-    K1
+    K1 版本语义分析
   </a>
   
-    <nav class="md-nav" aria-label="K1">
+    <nav class="md-nav" aria-label="K1 版本语义分析">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -975,6 +975,13 @@
         
       </ul>
     </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#k2_1" class="md-nav__link">
+    K2 版本语义分析
+  </a>
   
 </li>
         
@@ -1000,6 +1007,13 @@
         <li class="md-nav__item">
   <a href="#_5" class="md-nav__link">
     目标代码生成
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#k2-k1" class="md-nav__link">
+    为什么 K2 比 K1 快？
   </a>
   
 </li>
@@ -2414,29 +2428,29 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#k2" class="md-nav__link">
-    K2
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
   <a href="#k1" class="md-nav__link">
-    K1
+    K1 版本语法分析
   </a>
   
-    <nav class="md-nav" aria-label="K1">
+    <nav class="md-nav" aria-label="K1 版本语法分析">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
   <a href="#psi" class="md-nav__link">
-    PSI
+    创建 PSI
   </a>
   
 </li>
         
       </ul>
     </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#k2" class="md-nav__link">
+    K2 版本语法分析
+  </a>
   
 </li>
         
@@ -2455,10 +2469,10 @@
         
           <li class="md-nav__item">
   <a href="#k1_1" class="md-nav__link">
-    K1
+    K1 版本语义分析
   </a>
   
-    <nav class="md-nav" aria-label="K1">
+    <nav class="md-nav" aria-label="K1 版本语义分析">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -2470,6 +2484,13 @@
         
       </ul>
     </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#k2_1" class="md-nav__link">
+    K2 版本语义分析
+  </a>
   
 </li>
         
@@ -2495,6 +2516,13 @@
         <li class="md-nav__item">
   <a href="#_5" class="md-nav__link">
     目标代码生成
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#k2-k1" class="md-nav__link">
+    为什么 K2 比 K1 快？
   </a>
   
 </li>
@@ -2586,7 +2614,6 @@ fi
   ;
 </code></pre>
 <p>K1 与 K2 在语法分析阶段的输出略有不同, K2 在语法分析阶段会返回一个更加轻量级的语法树，构建速度更快，但后续无法创建 PSI。</p>
-<h3 id="k2">K2</h3>
 <pre><code>  /**
    * 返回解析的结果。在调用此方法之前，所有的标记必须已经完成或被丢弃。
    *
@@ -2603,6 +2630,41 @@ fi
   @NotNull
   FlyweightCapableTreeStructure&lt;LighterASTNode&gt; getLightTree();
 </code></pre>
+<h3 id="k1">K1 版本语法分析</h3>
+<pre><code class="language-kotlin">package compilerTestData
+
+fun sample(a: Int, b: Int) {
+    val c = a + b
+    println(&quot;result:&quot; + c)
+}
+</code></pre>
+<p>以上代码，语法分析后创建的 ASTNode 语法树如下所示</p>
+<p><img alt="" src="https://raw.gitmirror.com/RicardoJiang/resource/refs/heads/main/2024/december/p5.png" /></p>
+<h4 id="psi">创建 PSI</h4>
+<p>在 K1 编译器中，创建语法树时需要先创建 ASTNode 树，然后再通过<code>createElement</code>转化为 PsiElemet 树。</p>
+<pre><code>    override fun createElement(astNode: ASTNode): PsiElement {
+        val elementType = astNode.elementType
+
+        return when (elementType) {
+            is KtStubElementType&lt;*, *&gt; -&gt; elementType.createPsiFromAst(astNode)
+            KtNodeTypes.TYPE_CODE_FRAGMENT, KtNodeTypes.EXPRESSION_CODE_FRAGMENT, KtNodeTypes.BLOCK_CODE_FRAGMENT -&gt; ASTWrapperPsiElement(
+                astNode
+            )
+            is KDocElementType -&gt; elementType.createPsi(astNode)
+            KDocTokens.MARKDOWN_LINK -&gt; KDocLink(astNode)
+            else -&gt; (elementType as KtNodeType).createPsi(astNode)
+        }
+    }
+</code></pre>
+<p>在 IntelliJ Platform 中，解析文件是一个两步走的过程：</p>
+<p>第一步，构建抽象语法树（AST），定义程序的结构。AST 节点由 IDE 内部创建，由 ASTNode 类的实例表示。每个 AST 节点都有一个关联的元素类型（IElementType 实例），这些元素类型由语言插件定义。文件的 AST 树顶层节点需要有一个特殊的元素类型，该类型继承自 IFileElementType 类。</p>
+<p>ST 节点与底层文档中的文本范围有直接的映射关系。AST 的最底层节点匹配词法分析器返回的单个词法单元（token），而更高层的节点则匹配多个词法单元的片段。对 AST 树节点执行的操作（如插入、删除、重新排序节点等）会立即反映为底层文档文本的变化。</p>
+<p>第二步，在 AST 之上构建程序结构接口（PSI）树，添加语义和用于操作特定语言结构的方法。PSI 树的节点由实现 PsiElement 接口的类表示，这些类由语言插件在 ParserDefinition.createElement() 方法中创建。文件的 PSI 树顶层节点需要实现 PsiFile 接口，并在 ParserDefinition.createFile() 方法中创建。</p>
+<p>看起来 AST 和 PSI 都是代表语法树，那么为什么要再多一层呢？</p>
+<p>实际上 PSI 在 IDEA 语法分析，代码补全等场景中大量使用，同时 IDEA 也支持自定义语言的支持，详情可见：<a href="https://plugins.jetbrains.com/docs/intellij/custom-language-support.html">Custom Language Support</a></p>
+<p>Kotlin 在开发之初，应该是为了复用 IDEA 生态而使用了 PSI。但是 IDE 场景与编译器场景其实有些不同，IDE 会有频繁更新代码，快速导航等应用场景，因此 PSI 需要支持缓存，懒加载，
+增量更新，导航等功能，而这些功能自然有一定成本，而在编译过程中实际并不需要，自然也会影响编译性能。</p>
+<h3 id="k2">K2 版本语法分析</h3>
 <p>相比 ASTNode，LighterASTNode 更加轻量化，接口中只有几个方法。</p>
 <pre><code>public interface LighterASTNode {
   LighterASTNode[] EMPTY_ARRAY = new LighterASTNode[0];
@@ -2618,43 +2680,11 @@ fi
   }
 }
 </code></pre>
-<h3 id="k1">K1</h3>
-<pre><code class="language-kotlin">package compilerTestData
-
-fun sample(a: Int, b: Int) {
-    val c = a + b
-    println(&quot;result:&quot; + c)
-}
-</code></pre>
-<p><img alt="" src="https://raw.gitmirror.com/RicardoJiang/resource/refs/heads/main/2024/december/p5.png" /></p>
-<h4 id="psi">PSI</h4>
-<pre><code>    override fun createElement(astNode: ASTNode): PsiElement {
-        val elementType = astNode.elementType
-
-        return when (elementType) {
-            is KtStubElementType&lt;*, *&gt; -&gt; elementType.createPsiFromAst(astNode)
-            KtNodeTypes.TYPE_CODE_FRAGMENT, KtNodeTypes.EXPRESSION_CODE_FRAGMENT, KtNodeTypes.BLOCK_CODE_FRAGMENT -&gt; ASTWrapperPsiElement(
-                astNode
-            )
-            is KDocElementType -&gt; elementType.createPsi(astNode)
-            KDocTokens.MARKDOWN_LINK -&gt; KDocLink(astNode)
-            else -&gt; (elementType as KtNodeType).createPsi(astNode)
-        }
-    }
-</code></pre>
-<p>在 IntelliJ Platform 中，解析文件是一个两步走的过程：
-第一步，构建抽象语法树（AST），定义程序的结构。AST 节点由 IDE 内部创建，由 ASTNode 类的实例表示。每个 AST 节点都有一个关联的元素类型（IElementType 实例），这些元素类型由语言插件定义。文件的 AST 树顶层节点需要有一个特殊的元素类型，该类型继承自 IFileElementType 类。</p>
-<p>ST 节点与底层文档中的文本范围有直接的映射关系。AST 的最底层节点匹配词法分析器返回的单个词法单元（token），而更高层的节点则匹配多个词法单元的片段。对 AST 树节点执行的操作（如插入、删除、重新排序节点等）会立即反映为底层文档文本的变化。</p>
-<p>第二步，在 AST 之上构建程序结构接口（PSI）树，添加语义和用于操作特定语言结构的方法。PSI 树的节点由实现 PsiElement 接口的类表示，这些类由语言插件在 ParserDefinition.createElement() 方法中创建。文件的 PSI 树顶层节点需要实现 PsiFile 接口，并在 ParserDefinition.createFile() 方法中创建。</p>
-<p>看起来 AST 和 PSI 都是代表语法树，那么为什么要再多一层呢？</p>
-<p>实际上 PSI 在 IDEA 语法分析，代码补全等场景中大量使用，同时 IDEA 也支持自定义语言的支持，详情可见：<a href="https://plugins.jetbrains.com/docs/intellij/custom-language-support.html">Custom Language Support</a></p>
-<p>Kotlin 在开发之初，应该是为了复用 IDEA 生态而使用了 PSI。但是 IDE 场景与编译器场景其实有些不同，IDE 会有频繁更新代码，快速导航等应用场景，因此 PSI 需要支持缓存，懒加载，
-增量更新，导航等功能，而这些功能自然有一定成本，而在编译过程中实际并不需要，自然也会影响编译性能。</p>
 <h2 id="_4">语义分析</h2>
 <p>这一步的输入是语法树，输出则是带有语义信息的语法树。</p>
-<h3 id="k1_1">K1</h3>
+<h3 id="k1_1">K1 版本语义分析</h3>
 <h4 id="bindingcontext">BindingContext</h4>
-<p>在 K1 编译器中，存储分析过程中收集的语义信息会存储到 BindingContext 中，具体包括以下内容：</p>
+<p>在 K1 编译器中，分析过程中收集的语义信息会存储到 BindingContext 中，具体包括以下内容：</p>
 <ul>
 <li>声明到描述符的映射</li>
 <li>表达式类型信息</li>
@@ -2705,6 +2735,28 @@ public interface SlicedMap {
 <li>关注点分离：通过使用切片，SlicedMap 将不同类型的数据分离到不同的切片中，使代码更加模块化，易于管理。 </li>
 <li>性能优化：SliceMap 内部进行了一系列优化适配编译器场景，在编译器场景下可以带来更好的读写性能。</li>
 </ul>
+<h3 id="k2_1">K2 版本语义分析</h3>
+<p>与 K1 版本相比，K2 版本生成的是带有语义信息的语法树，分析过程中收集的语义信息会存储到语法树的<code>symbol</code>中，而不是一个庞大的<code>BindingContext</code>中</p>
+<pre><code class="language-kotlin">sealed class FirDeclaration : FirElementWithResolveState(), FirAnnotationContainer {
+    abstract override val source: KtSourceElement?
+    abstract override val annotations: List&lt;FirAnnotation&gt;
+    abstract val symbol: FirBasedSymbol&lt;FirDeclaration&gt;
+    abstract override val moduleData: FirModuleData
+    abstract val origin: FirDeclarationOrigin
+    abstract val attributes: FirDeclarationAttributes
+
+    override fun &lt;R, D&gt; accept(visitor: FirVisitor&lt;R, D&gt;, data: D): R =
+        visitor.visitDeclaration(this, data)
+
+    @Suppress(&quot;UNCHECKED_CAST&quot;)
+    override fun &lt;E : FirElement, D&gt; transform(transformer: FirTransformer&lt;D&gt;, data: D): E =
+        transformer.transformDeclaration(this, data) as E
+
+    abstract override fun replaceAnnotations(newAnnotations: List&lt;FirAnnotation&gt;)
+
+    abstract override fun &lt;D&gt; transformAnnotations(transformer: FirTransformer&lt;D&gt;, data: D): FirDeclaration
+}
+</code></pre>
 <h2 id="ir">IR 生成</h2>
 <p>这一步的输入是带有语义信息的语法树，输出则是 IR 树。IR（Intermediate Representation，中间表示）是一个介于源代码和目标代码码之间的抽象层，通过引入 IR，Kotlin 可以更加高效的支持多平台。</p>
 <pre><code>abstract class IrFile : IrPackageFragment(), IrMutableAnnotationContainer, IrMetadataSourceOwner {
@@ -2782,6 +2834,15 @@ public interface SlicedMap {
 <li>字节码优化：生成的字节码通过 OptimizationMethodVisitor 和其他 ASM 工具进行进一步优化，确保字节码质量和执行效率。</li>
 <li>类文件生成： 将字节码写入 .class 文件，这是 JVM 能够直接加载和执行的格式。</li>
 </ul>
+<h2 id="k2-k1">为什么 K2 比 K1 快？</h2>
+<p><img alt="" src="https://raw.gitmirror.com/RicardoJiang/resource/refs/heads/main/2024/december/p6.png" /></p>
+<p>根据 jetbrains 的 benchmark，K2 的性能比起 K1 在分析阶段有着显著的提升，那么是为什么呢？</p>
+<p>从我们上面的分析来看，一部分原因在于 K1 不仅需要创建 ASTNode 树, 还需要创建 PsiElement 树，相比于 K2 的 LighterASTNode 树明显更重。</p>
+<p>此外根据 <a href="https://app.slack.com/client/T09229ZC6/C7L3JB43G">Dmitriy Novozhilov [JetBrains] 在 Slack 中的解释</a>, K1 编译器的代码在代码局部性和内存局部性上也存在一些问题。</p>
+<blockquote>
+<p>FE 1.0 性能的主要问题与非常差的代码局部性和内存局部性有关。所有描述符都是延迟加载的，因此编译器总是在不同的代码部分之间跳转，这破坏了许多即时编译（JIT）优化。
+此外，所有关于解析的信息都存储在一个巨大的映射嵌套映射（绑定上下文）中，所以 CPU 不能很好地缓存对象。</p>
+</blockquote>
 
   <hr>
 <div class="md-source-file">
