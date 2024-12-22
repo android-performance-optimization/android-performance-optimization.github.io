@@ -23,7 +23,7 @@
     
     
       
-        <title>Kotlin 编译器浅析 - Android 性能优化手册</title>
+        <title>Kotlin/JVM 编译流程浅析 - Android 性能优化手册</title>
       
     
     
@@ -75,7 +75,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#kotlin" class="md-skip">
+        <a href="#kotlinjvm" class="md-skip">
           跳转至
         </a>
       
@@ -113,7 +113,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Kotlin 编译器浅析
+              Kotlin/JVM 编译流程浅析
             
           </span>
         </div>
@@ -866,12 +866,12 @@
       
       
         <label class="md-nav__link md-nav__link--active" for="__toc">
-          Kotlin 编译器浅析
+          Kotlin/JVM 编译流程浅析
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <a href="./" class="md-nav__link md-nav__link--active">
-        Kotlin 编译器浅析
+        Kotlin/JVM 编译流程浅析
       </a>
       
         
@@ -897,7 +897,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#kotlin_1" class="md-nav__link">
+  <a href="#kotlin" class="md-nav__link">
     Kotlin 编译器如何调试?
   </a>
   
@@ -969,13 +969,6 @@
           <li class="md-nav__item">
   <a href="#bindingcontext" class="md-nav__link">
     BindingContext
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#moduledescriptor-" class="md-nav__link">
-    ModuleDescriptor - 模块级别的信息：
   </a>
   
 </li>
@@ -2385,7 +2378,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#kotlin_1" class="md-nav__link">
+  <a href="#kotlin" class="md-nav__link">
     Kotlin 编译器如何调试?
   </a>
   
@@ -2461,13 +2454,6 @@
   
 </li>
         
-          <li class="md-nav__item">
-  <a href="#moduledescriptor-" class="md-nav__link">
-    ModuleDescriptor - 模块级别的信息：
-  </a>
-  
-</li>
-        
       </ul>
     </nav>
   
@@ -2503,7 +2489,7 @@
   
 
 
-<h1 id="kotlin">Kotlin 编译器浅析</h1>
+<h1 id="kotlinjvm">Kotlin/JVM 编译流程浅析</h1>
 <h2 id="_1">一般的编译流程</h2>
 <p>编译器一般由以下几个部分组成：</p>
 <ul>
@@ -2514,7 +2500,7 @@
 <li>代码优化器（Code Optimizer）：对中间代码进行优化，目的是提高程序的执行效率或减少代码的占用空间。优化方法包括移除无用代码、进行常量传播、循环优化等。</li>
 <li>目标代码生成器（Code Generator）：将优化后的中间代码转换为目标机器代码或汇编代码（assembly code）。</li>
 </ul>
-<h2 id="kotlin_1">Kotlin 编译器如何调试?</h2>
+<h2 id="kotlin">Kotlin 编译器如何调试?</h2>
 <pre><code>java_version=&quot;$(findJavaVersion)&quot;
 if [[ $java_version -ge 9 ]]; then
     # Workaround the illegal reflective access warning from ReflectionUtil to ResourceBundle.setParent, see IDEA-248785.
@@ -2637,49 +2623,60 @@ fun sample(a: Int, b: Int) {
 <p>Kotlin 在开发之初，应该是为了复用 IDEA 生态而使用了 PSI。但是 IDE 场景与编译器场景其实有些不同，IDE 会有频繁更新代码，快速导航等应用场景，因此 PSI 需要支持缓存，懒加载，
 增量更新，导航等功能，而这些功能自然有一定成本，而在编译过程中实际并不需要，自然也会影响编译性能。</p>
 <h2 id="_4">语义分析</h2>
+<p>这一步的输入是语法树，输出则是带有语义信息的语法树。</p>
 <h3 id="k1_1">K1</h3>
 <h4 id="bindingcontext">BindingContext</h4>
-<p>BindingContext - 存储分析过程中收集的所有信息：
-声明到描述符的映射
-表达式类型信息
-诊断信息
-解析的导入
-作用域信息</p>
-<p>SlicedMap 的设计允许编译器：
-1. 高效地存储和访问编译过程中的各种映射关系
-通过不同的 Slice 类型支持不同的数据访问模式
-3. 提供类型安全的数据访问
-支持灵活的重写策略
-支持值的延迟计算</p>
-<h4 id="moduledescriptor-">ModuleDescriptor - 模块级别的信息：</h4>
-<ol>
-<li>结构信息：
-包层次结构
-依赖关系图
-模块组织结构
-类型系统：
-内建类型支持
-平台特定类型
-类型别名
-多平台支持：
-平台特定代码
-expect/actual 声明
-跨平台兼容性
-访问控制：
-模块间可见性
-包级别访问
-内部成员控制
-扩展性：
-模块能力系统
-自定义特性支持
-平台扩展
-这种设计使得 ModuleDescriptor 能够：
-支持模块化开发
-提供类型安全
-管理依赖关系
-控制代码访问
-支持多平台项目</li>
-</ol>
+<p>在 K1 编译器中，存储分析过程中收集的语义信息会存储到 BindingContext 中，具体包括以下内容：</p>
+<ul>
+<li>声明到描述符的映射</li>
+<li>表达式类型信息</li>
+<li>诊断信息</li>
+<li>解析的导入</li>
+<li>作用域信息</li>
+</ul>
+<p>在 BindingContext 内部使用 SlicedMap 来存储语义信息</p>
+<pre><code class="language-kotlin">public interface BindingContext {
+  // ...
+  WritableSlice&lt;KtReferenceExpression, DeclarationDescriptor&gt; REFERENCE_TARGET = new BasicWritableSlice&lt;&gt;(DO_NOTHING);
+
+  // ...
+  @Nullable
+  &lt;K, V&gt; V get(ReadOnlySlice&lt;K, V&gt; slice, K key);
+}
+
+public interface SlicedMap {
+
+    SlicedMap DO_NOTHING = new SlicedMap() {
+        @Override
+        public &lt;K, V&gt; V get(ReadOnlySlice&lt;K, V&gt; slice, K key) {
+            return slice.computeValue(this, key, null, true);
+        }
+
+        @Override
+        public &lt;K, V&gt; Collection&lt;K&gt; getKeys(WritableSlice&lt;K, V&gt; slice) {
+            return Collections.emptySet();
+        }
+
+        @Override
+        public void forEach(@NotNull Function3&lt;WritableSlice, Object, Object, Void&gt; f) {
+        }
+    };
+
+    &lt;K, V&gt; V get(ReadOnlySlice&lt;K, V&gt; slice, K key);
+}
+</code></pre>
+<p>可以看出，SlicedMap 中使用切片来存储数据，在获取语义信息时，我们通过需要传入切片类型与 PsiElement，如下所示</p>
+<pre><code>override fun visitReferenceExpression(expression: KtReferenceExpression) {
+    val descriptor = bindingContext[BindingContext.REFERENCE_TARGET, expression])
+    // ...
+}
+</code></pre>
+<p>相比直接使用 Map，使用 SlicedMap 有以下几个优势：</p>
+<ul>
+<li>类型安全：SlicedMap 通过使用切片来定义键和值的类型，从而实现类型安全的存储和检索。这减少了类型错误的风险。</li>
+<li>关注点分离：通过使用切片，SlicedMap 将不同类型的数据分离到不同的切片中，使代码更加模块化，易于管理。 </li>
+<li>性能优化：SliceMap 内部进行了一系列优化适配编译器场景，在编译器场景下可以带来更好的读写性能。</li>
+</ul>
 <h2 id="ir">IR 生成</h2>
 
   <hr>
@@ -2687,7 +2684,7 @@ expect/actual 声明
   <small>
     
       最后更新:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">December 19, 2024</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">December 22, 2024</span>
       
     
   </small>
