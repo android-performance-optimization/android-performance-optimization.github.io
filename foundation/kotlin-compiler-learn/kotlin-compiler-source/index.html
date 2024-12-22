@@ -2669,13 +2669,11 @@ fun sample(a: Int, b: Int) {
     }
 </code></pre>
 <p>在 IntelliJ Platform 中，解析文件是一个两步走的过程：</p>
-<p>第一步，构建抽象语法树（AST），定义程序的结构。AST 节点由 IDE 内部创建，由 ASTNode 类的实例表示。每个 AST 节点都有一个关联的元素类型（IElementType 实例），这些元素类型由语言插件定义。文件的 AST 树顶层节点需要有一个特殊的元素类型，该类型继承自 IFileElementType 类。</p>
-<p>ST 节点与底层文档中的文本范围有直接的映射关系。AST 的最底层节点匹配词法分析器返回的单个词法单元（token），而更高层的节点则匹配多个词法单元的片段。对 AST 树节点执行的操作（如插入、删除、重新排序节点等）会立即反映为底层文档文本的变化。</p>
-<p>第二步，在 AST 之上构建程序结构接口（PSI）树，添加语义和用于操作特定语言结构的方法。PSI 树的节点由实现 PsiElement 接口的类表示，这些类由语言插件在 ParserDefinition.createElement() 方法中创建。文件的 PSI 树顶层节点需要实现 PsiFile 接口，并在 ParserDefinition.createFile() 方法中创建。</p>
+<p>第一步，构建抽象语法树（AST），定义程序的结构。AST 节点由 IDE 内部创建，由 ASTNode 类的实例表示。每个 AST 节点都有一个关联的元素类型（IElementType 实例），这些元素类型由语言插件定义。</p>
+<p>第二步，在 AST 之上构建程序结构接口（PSI）树，添加语义和用于操作特定语言结构的方法。PSI 树的节点由实现 PsiElement 接口的类表示，这些类由语言插件在 ParserDefinition.createElement() 方法中创建。</p>
 <p>看起来 AST 和 PSI 都是代表语法树，那么为什么要再多一层呢？</p>
 <p>实际上 PSI 在 IDEA 语法分析，代码补全等场景中大量使用，同时 IDEA 也支持自定义语言的支持，详情可见：<a href="https://plugins.jetbrains.com/docs/intellij/custom-language-support.html">Custom Language Support</a></p>
-<p>Kotlin 在开发之初，应该是为了复用 IDEA 生态而使用了 PSI。但是 IDE 场景与编译器场景其实有些不同，IDE 会有频繁更新代码，快速导航等应用场景，因此 PSI 需要支持缓存，懒加载，
-增量更新，导航等功能，而这些功能自然有一定成本，而在编译过程中实际并不需要，自然也会影响编译性能。</p>
+<p>Kotlin 在开发之初，应该是为了复用 IDEA 生态而使用了 PSI。但是 IDE 场景与编译器场景其实有些不同，IDE 会有频繁更新代码，快速导航等应用场景，因此 PSI 需要支持缓存，懒加载，增量更新，导航等功能，而这些功能自然有一定成本，而在编译过程中实际并不需要，自然也会影响编译性能。</p>
 <h4 id="bindingcontext">BindingContext</h4>
 <p>在 K1 编译器中，分析过程中收集的语义信息会存储到 BindingContext 中，具体包括以下内容：</p>
 <ul>
