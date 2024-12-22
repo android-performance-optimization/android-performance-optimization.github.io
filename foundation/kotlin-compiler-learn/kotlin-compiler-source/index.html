@@ -2546,7 +2546,8 @@
 </ul>
 <p>Kotlin 的编译器其实也是由这些部分组成的，下面就按这几个部分来介绍一下 Kotlin 的编译流程</p>
 <h2 id="kotlin">Kotlin 编译器如何调试?</h2>
-<p>首先，当我们通过 kotlinc 编译 kotlin 源代码的时候发生了什么呢？我们可以首先看看 kotlinc 脚本的源码：</p>
+<p>要想了解 Kotlin 的编译过程，最好的方式就是通过 IDEA debug 来了解这一过程。为了实现这点，首先我们需要找到 kotlin 编译的入口类，然后通过修改入口类传入我们自定义的 kt 源代码。</p>
+<p>我们可以通过分析 kotlinc 的编译过程来找到入口类，当我们通过 kotlinc 编译 kotlin 源代码的时候发生了什么呢？我们可以首先看看 kotlinc 脚本的源码：</p>
 <pre><code>java_version=&quot;$(findJavaVersion)&quot;
 if [[ $java_version -ge 9 ]]; then
     # Workaround the illegal reflective access warning from ReflectionUtil to ResourceBundle.setParent, see IDEA-248785.
