@@ -2776,6 +2776,12 @@ public interface SlicedMap {
                 value: GET_VAR 'val c: kotlin.Int [val] declared in compilerTestData.TestKt.sample' type=kotlin.Int origin=null
 </code></pre>
 <h2 id="_5">目标代码生成</h2>
+<p>最后一步当然就是生成目标代码了，具体到 Kotlin/JVM 也就是生成 Java 字节码。在这一步，主要通过遍历 IrFile 及其子节点，通过 ASM 生成字节码，最后将生成的字节码写入 .class 文件也就完成了，具体包括以下几步。</p>
+<ul>
+<li>字节码生成: 通过 ClassCodegen 执行字节码生成逻辑，包括类生成，方法生成，字节码指令生成等。</li>
+<li>字节码优化：生成的字节码通过 OptimizationMethodVisitor 和其他 ASM 工具进行进一步优化，确保字节码质量和执行效率。</li>
+<li>类文件生成： 将字节码写入 .class 文件，这是 JVM 能够直接加载和执行的格式。</li>
+</ul>
 
   <hr>
 <div class="md-source-file">
