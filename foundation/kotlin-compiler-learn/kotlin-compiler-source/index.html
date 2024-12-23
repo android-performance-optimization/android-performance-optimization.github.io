@@ -2858,7 +2858,7 @@ public interface SlicedMap {
 <h2 id="k2-k1">为什么 K2 比 K1 快？</h2>
 <p><img alt="" src="https://raw.gitmirror.com/RicardoJiang/resource/refs/heads/main/2024/december/p6.png" /></p>
 <p>根据 jetbrains 的 benchmark，K2 的性能比起 K1 在分析阶段有着显著的提升，那么是为什么呢？</p>
-<p>从我们上面的分析来看，一部分原因在于 K1 编译器为了复用了 IDEA 生态使用了 PSI 这一套，但是 IDE 会有频繁更新代码，快速导航等应用场景，这些在编译场景并不需要的功能会带来一定的性能开销，自然会对编译速度产生一定的影响。</p>
+<p>从我们上面的分析来看，一部分原因在于 K1 编译器为了复用了 IDEA 生态使用了 PSI ，但是 IDE 会有频繁更新代码，快速导航等应用场景，这些在编译场景并不需要的功能会带来一定的性能开销，自然会对编译速度产生一定的影响。</p>
 <p>此外根据 <a href="https://app.slack.com/client/T09229ZC6/C7L3JB43G">Dmitriy Novozhilov [JetBrains] 在 Slack 中的解释</a>, K1 编译器在代码局部性和内存局部性上也存在一些问题。</p>
 <blockquote>
 <p>FE 1.0 性能的主要问题与非常差的代码局部性和内存局部性有关。所有描述符都是延迟加载的，因此编译器总是在不同的代码部分之间跳转，这破坏了许多即时编译（JIT）优化。
