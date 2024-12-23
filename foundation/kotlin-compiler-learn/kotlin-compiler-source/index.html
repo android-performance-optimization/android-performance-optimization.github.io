@@ -2596,11 +2596,12 @@ fi
             };
             run(testArgs);
 </code></pre>
-<p>通过以上代码，就可以通过 IDE 调试 kotlin 的编译过程。</p>
+<p>通过以上步骤，就可以实现 IDE 调试 kotlin 的编译过程。</p>
 <h2 id="_2">词法分析</h2>
 <p>这一步的输入是源代码，输出是一系列的记号（tokens），每个记号代表源代码中的词法单元，如关键字、标识符、操作符、分隔符，注释等。</p>
 <p>转换的过程是通过扫描源代码，根据 Kotlin 的词法规则，将源代码分割成一个个的词法单元。这个过程是由词法分析器（Lexical Analyzer）完成的。</p>
-<p>由于词法分析器已经是一个比较成熟的技术，因此我们可以直接使用现成的工具来生成词法分析器。比如，Kotlin 就是使用了 <a href="https://jflex.de/">JFlex</a> 来生成词法分析器，通过编写 JFlex 规范文件 <a href="https://github.com/JetBrains/kotlin/blob/5f70647879916e79704ac3dd4a3c60ff27554503/compiler/psi/src/org/jetbrains/kotlin/lexer/Kotlin.flex#L4">/Kotlin.flex</a>，然后使用 JFlex 工具即可生成词法分析器。</p>
+<p>由于词法分析器已经是一个比较成熟的技术，因此我们可以直接使用现成的工具来生成词法分析器。</p>
+<p>Kotlin 就是使用了 <a href="https://jflex.de/">JFlex</a> 来生成词法分析器，通过编写 JFlex 规范文件 <a href="https://github.com/JetBrains/kotlin/blob/5f70647879916e79704ac3dd4a3c60ff27554503/compiler/psi/src/org/jetbrains/kotlin/lexer/Kotlin.flex#L4">/Kotlin.flex</a>，然后使用 JFlex 工具即可生成词法分析器。</p>
 <blockquote>
 <p>JFlex 是一个词法分析器生成器（也称为扫描器生成器），使用 Java 编写。</p>
 <p>一个词法分析器生成器的输入是一个包含一组正则表达式及其相应动作的规范。它生成一个程序（词法分析器），该程序读取输入，将输入与规范文件中的正则表达式进行匹配，如果某个正则表达式匹配成功，则执行相应的动作。词法分析器通常是编译器的第一个前端步骤，用于匹配关键字、注释、操作符等，并为解析器生成输入的标记流。</p>
@@ -2648,7 +2649,7 @@ fun sample(a: Int, b: Int) {
 <p>以上代码，语法分析后创建的 ASTNode 语法树如下所示</p>
 <p><img alt="" src="https://raw.gitmirror.com/RicardoJiang/resource/refs/heads/main/2024/december/p5.png" /></p>
 <h3 id="k2">K2 版本语法分析</h3>
-<p>相比之下，K2 编译器在语法分析阶段只需要通过<code>getLightTree</code>创建一个 LightTree，<code>LighterASTNode</code> 比 <code>ASTNode</code> 更加轻量化，接口中只有几个方法。</p>
+<p>相比之下，K2 编译器在语法分析阶段会通过<code>getLightTree</code>创建一个 LightTree，<code>LighterASTNode</code> 比 <code>ASTNode</code> 更加轻量化，接口中只有几个方法，后续无法创建 PSI</p>
 <pre><code>public interface LighterASTNode {
   LighterASTNode[] EMPTY_ARRAY = new LighterASTNode[0];
 
@@ -2667,7 +2668,7 @@ fun sample(a: Int, b: Int) {
 <p>这一步的输入是语法树，输出则是带有语义信息的语法树。K1 与 K2 阶段略有不同。</p>
 <h3 id="k1_1">K1 版本语义分析</h3>
 <h4 id="psi">PSI</h4>
-<p>在 K1 编译器中，语义分析阶段需要将 ASTNode 树再通过<code>createElement</code>转化为 PsiElemet 树。</p>
+<p>在 K1 编译器中，语义分析阶段需要首先将 ASTNode 树再通过<code>createElement</code>转化为 PsiElemet 树。</p>
 <pre><code>    override fun createElement(astNode: ASTNode): PsiElement {
         val elementType = astNode.elementType
 
@@ -2756,7 +2757,7 @@ public interface SlicedMap {
     return resolveAndCheckFir(session, firFiles, diagnosticsReporter)
 }
 </code></pre>
-<p>与 K1 版本相比，K2 版本生成的是带有语义信息的语法树，通过 Fir 树中的<code>symbol</code>就可以获取语义信息，而需要从庞大的<code>BindingContext</code>中去查询。</p>
+<p>与 K1 版本相比，K2 版本生成的是带有语义信息的语法树，通过 Fir 树中的<code>symbol</code>就可以获取语义信息，而不需要从庞大的<code>BindingContext</code>中去查询。</p>
 <pre><code class="language-kotlin">sealed class FirDeclaration : FirElementWithResolveState(), FirAnnotationContainer {
     abstract override val source: KtSourceElement?
     abstract override val annotations: List&lt;FirAnnotation&gt;
@@ -2857,7 +2858,7 @@ public interface SlicedMap {
 <h2 id="k2-k1">为什么 K2 比 K1 快？</h2>
 <p><img alt="" src="https://raw.gitmirror.com/RicardoJiang/resource/refs/heads/main/2024/december/p6.png" /></p>
 <p>根据 jetbrains 的 benchmark，K2 的性能比起 K1 在分析阶段有着显著的提升，那么是为什么呢？</p>
-<p>从我们上面的分析来看，一部分原因在于 K1 编译器直接复用了 IDEA 生态，但是 IDE 会有频繁更新代码，快速导航等应用场景，这些在编译场景并不需要的功能会带来一定的性能开销，自然会对编译速度产生一定的影响。</p>
+<p>从我们上面的分析来看，一部分原因在于 K1 编译器为了复用了 IDEA 生态使用了 PSI 这一套，但是 IDE 会有频繁更新代码，快速导航等应用场景，这些在编译场景并不需要的功能会带来一定的性能开销，自然会对编译速度产生一定的影响。</p>
 <p>此外根据 <a href="https://app.slack.com/client/T09229ZC6/C7L3JB43G">Dmitriy Novozhilov [JetBrains] 在 Slack 中的解释</a>, K1 编译器在代码局部性和内存局部性上也存在一些问题。</p>
 <blockquote>
 <p>FE 1.0 性能的主要问题与非常差的代码局部性和内存局部性有关。所有描述符都是延迟加载的，因此编译器总是在不同的代码部分之间跳转，这破坏了许多即时编译（JIT）优化。
@@ -2871,7 +2872,7 @@ public interface SlicedMap {
   <small>
     
       最后更新:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">December 22, 2024</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">December 23, 2024</span>
       
     
   </small>
