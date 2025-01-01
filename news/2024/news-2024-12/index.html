@@ -1973,6 +1973,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#android-r8" class="md-nav__link">
+    Android R8 耗时优化
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -2334,6 +2341,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#android-r8" class="md-nav__link">
+    Android R8 耗时优化
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -2379,6 +2393,10 @@
 <li>通过dumpsys window | grep 'Window #' -A 10查看当前有哪些window</li>
 </ul>
 <p><img alt="" src="https://raw.gitmirror.com/RicardoJiang/resource/refs/heads/main/2025/january/p1.webp" /></p>
+<h3 id="android-r8"><a href="https://juejin.cn/post/7451881149419012131">Android R8 耗时优化</a></h3>
+<p>作者在进行全源码编译时，Release 包编译时间过长，其中 minifyReleaseWithR8 任务耗时近 14 分钟。作者对编译过程进行分析，尝试了多种方法但效果不佳，最后选择优化 r8 来提高编译速度。</p>
+<p>具体方法是使用 GraalVM 将 r8.jar 编译成二进制文件，并通过参数传递、获取 r8、生成二进制文件以及 hook AGP 中的 runR8 方法等步骤来实现。</p>
+<p>发现通过二进制运行，速度有一定的提升，优化前 13m40s, 优化后 7m45s，提升 40% 左右。</p>
 
   <hr>
 <div class="md-source-file">
