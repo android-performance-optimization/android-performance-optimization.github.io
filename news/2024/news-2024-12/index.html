@@ -1966,6 +1966,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#bug" class="md-nav__link">
+    记一次手机厂商的BUG排查
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -2320,6 +2327,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#bug" class="md-nav__link">
+    记一次手机厂商的BUG排查
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -2352,8 +2366,19 @@
 <ul>
 <li>Android日志：当程序发生了 Native Crash 错误，Android 的日志会输出到 log crash buffer 上，因此我们通过adb logcat -b crash 抓取到相应的错误报告，而日志本身能提供的信息是有限的，仅仅是错误堆栈，与当前线程的寄存器信息。</li>
 <li>Tombstone 定位：tombstone 文件保存的信息有错误程序的体系结构，通俗的说 arm、arm64 等，发生时间点，程序名，错误类型，错误程序的进程号、线程号，错误现场寄存器，堆栈和部分寄存器地址附近的内存信息，程序内存映射表 /proc/self/maps ，FD 信息以及发生错误时该程序输出的日志。线上需要 root 权限才能获取到 tombstone 文件。</li>
-<li>Coredump ：Coredump 文件是一个二进制文件，包含进程在崩溃时的完整内存镜像和状态信息。其主要用于在调试器（如 gdb）中进行详细调试。开启起来更为麻烦</li>
+<li>Coredump ：Coredump 文件是一个二进制文件，包含进程在崩溃时的完整内存镜像和状态信息。其主要用于在调试器（如 gdb）中进行详细调试。开启起来更为麻烦, 需要修改内核配置并重新编译内核。</li>
 </ul>
+<h3 id="bug">记一次手机厂商的BUG排查</h3>
+<p><a href="https://juejin.cn/post/7453092837866225700">记一次手机厂商的BUG排查，App码农如何自证清白，不背锅：关于排除全面屏手势区域不生效的问题</a></p>
+<p>这篇文章主要讲述了作者对全面屏手势区域不生效问题的排查过程。作者通过多种方法调试，最终发现是 MIUI 的 launcher 添加的透明窗口导致部分排除区域被系统忽略。问题其实不算复杂，排查方法和思路值得借鉴。</p>
+<ul>
+<li>通过开启“显示指针位置”功能，显示触摸位置小白点</li>
+<li>通过 Pine 去 hook AIDL 接口，确认系统接口是否调用成功</li>
+<li>通过 grep -r 'reportSystemGestureExclusionChanged' 查找手机系统中的源码</li>
+<li>通过开启指针位置隐藏功能，把系统已排除了的手势区域标记为红色</li>
+<li>通过dumpsys window | grep 'Window #' -A 10查看当前有哪些window</li>
+</ul>
+<p><img alt="" src="https://raw.gitmirror.com/RicardoJiang/resource/refs/heads/main/2025/january/p1.webp" /></p>
 
   <hr>
 <div class="md-source-file">
