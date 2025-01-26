@@ -1953,6 +1953,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#agp80" class="md-nav__link">
+    AGP8.0 插件适配中 学到的一些知识点
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -2388,6 +2395,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#agp80" class="md-nav__link">
+    AGP8.0 插件适配中 学到的一些知识点
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -2439,6 +2453,19 @@
 4）SuccessRateTrend &lt; 0.2；之前的0.1导致模型的结果切换过于频繁，最终调整到了0.2。</p>
 <p><img alt="" src="https://raw.gitmirror.com/RicardoJiang/resource/refs/heads/main/2025/january/p7.png" /></p>
 <p><img alt="" src="https://raw.gitmirror.com/RicardoJiang/resource/refs/heads/main/2025/january/p8.png" /></p>
+<h3 id="agp80"><a href="https://juejin.cn/post/7462172820459798539">AGP8.0 插件适配中 学到的一些知识点</a></h3>
+<p>文章主要分享 AGP8.0 插件适配过程中的知识与经验，内容如下：</p>
+<ul>
+<li>gradle 依赖：插件开发时，gradle-api 依赖稳定但 API 少，建议直接用 gradle 依赖。</li>
+<li>任务相关：可查询任务实现；任务可无输入但必有输出，输入输出类型不对应，同时介绍了相关注解；任务状态有执行、未执行等多种。</li>
+<li>文件集合差异：FileCollection 无文件树形结构，FileTree 保存了该结构。</li>
+<li>Artifacts API：AGP8.0 后旧任务插入机制失效，推荐用 Artifacts API 编排任务，如修改 manifest 文件，并介绍了相关 Artifact 类型。</li>
+<li>字节码处理：AGP8.0 + 中，asm 字节码修改更简单，javaassist 稍复杂，分别给出示例。</li>
+<li>遗留问题：AGP8.0 + 中 artifact 不支持 mergeResources 任务，无法在编译期压缩图片资源。</li>
+</ul>
+<pre><code>./gradlew help --task &lt;taskName&gt; 
+</code></pre>
+<p><img alt="" src="https://raw.gitmirror.com/RicardoJiang/resource/refs/heads/main/2025/january/p9.png" /></p>
 
   <hr>
 <div class="md-source-file">
