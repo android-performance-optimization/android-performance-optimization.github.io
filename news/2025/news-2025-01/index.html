@@ -1940,29 +1940,15 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#anr" class="md-nav__link">
-    抖音 ANR 自动归因平台建设实践
+  <a href="#android-quic-okhttp-cronet" class="md-nav__link">
+    Android QUIC 实践 - 基于 OKHttp 扩展出 Cronet 拦截器
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#android" class="md-nav__link">
-    抖音 Android 启动调度框架探索
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#art" class="md-nav__link">
-    抖音 ART 虚拟机优化
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
-    抖音厂商合作性能优化
+  <a href="#app" class="md-nav__link">
+    移动端弱网优化：携程APP移动网络优化实践（弱网识别篇）
   </a>
   
 </li>
@@ -2389,29 +2375,15 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#anr" class="md-nav__link">
-    抖音 ANR 自动归因平台建设实践
+  <a href="#android-quic-okhttp-cronet" class="md-nav__link">
+    Android QUIC 实践 - 基于 OKHttp 扩展出 Cronet 拦截器
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#android" class="md-nav__link">
-    抖音 Android 启动调度框架探索
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#art" class="md-nav__link">
-    抖音 ART 虚拟机优化
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
-    抖音厂商合作性能优化
+  <a href="#app" class="md-nav__link">
+    移动端弱网优化：携程APP移动网络优化实践（弱网识别篇）
   </a>
   
 </li>
@@ -2443,18 +2415,30 @@
 <p>每个月都会有一些 Android 性能优化相关的优质内容发布，然而，碎片化阅读使得这些知识难以形成完整体系，且容易被遗忘。为解决这些问题，我决定尝试使用技术月报的形式，总结我在最近一个月内查阅的 Android 性能优化相关的优质内容。</p>
 <p>月报的主要内容包括：整理展示我在最近一个月所查阅的 Android 性能优化领域的最新技术动态、精选博客，精选视频等内容。</p>
 <h2 id="_1">精选博客</h2>
-<h3 id="anr"><a href="https://www.bilibili.com/video/BV1B64y1N7K2/">抖音 ANR 自动归因平台建设实践</a></h3>
-<p>相比于 Crash 问题，ANR 问题存在缺少信息归因困难，ANR 发生时堆栈抓取不准确等问题，本视频介绍了抖音 ANR 自动化归因平台建设的一些经验。</p>
-<p><img alt="" src="https://raw.gitmirror.com/RicardoJiang/resource/main/2024/february/p1.png" /></p>
-<h3 id="android"><a href="https://www.bilibili.com/video/BV1B64y1N7K2/">抖音 Android 启动调度框架探索</a></h3>
-<p>启动优化是性能优化中的常见主题，本视频介绍了抖音在 Android 启动调度框架方面做的一些实践。</p>
-<p><img alt="" src="https://raw.gitmirror.com/RicardoJiang/resource/main/2024/february/p2.png" /></p>
-<h3 id="art"><a href="https://www.bilibili.com/video/BV1B64y1N7K2/">抖音 ART 虚拟机优化</a></h3>
-<p>内存优化是性能优化中的一个重要方向，本视频介绍了抖音在 ART 虚拟机优化方面的一些实践。</p>
-<p><img alt="" src="https://raw.gitmirror.com/RicardoJiang/resource/main/2024/february/p3.png" /></p>
-<h3 id="_2"><a href="https://www.bilibili.com/video/BV1B64y1N7K2/">抖音厂商合作性能优化</a></h3>
-<p>在做性能优化时，除了 app 本身的优化，有时与厂商合作，也会有不错的效果，本视频介绍了抖音与厂商合作做的一些性能优化。</p>
-<p><img alt="" src="https://raw.gitmirror.com/RicardoJiang/resource/main/2024/february/p4.png" /></p>
+<h3 id="android-quic-okhttp-cronet"><a href="https://juejin.cn/post/7308909489154015247">Android QUIC 实践 - 基于 OKHttp 扩展出 Cronet 拦截器</a></h3>
+<p>文章主要介绍了在 Android 中基于 OKHttp 扩展出 Cronet 拦截器以实现 QUIC 实践</p>
+<ul>
+<li>QUIC 概述：Google 开发的实验性传输层协议，基于 UDP，具备多路复用、减少延迟等特性，旨在取代 TCP。</li>
+<li>Cronet 引入：引入方式有 gradle 引用（版本有限）和从 Google Cloud 下载（版本新但不稳定）。</li>
+<li>搭配 OKHttp 原因：为降低风险、减少成本，便于快速回退，许多项目深度依赖 OKHttp，可后续再考虑替换或融合。</li>
+<li>实现方案 - Cronet 逻辑：自定义 Cronet 拦截器，实现请求转换、请求处理、响应转换和性能统计，涵盖多个功能类。</li>
+<li>实现方案 - 嵌入操作：在 OKHttp 的 Builder 中添加 CronetInterceptor，完成 QUIC 协议栈接入。</li>
+<li>后续工作：上线 QUIC 还需完善性能监控、报警、容灾机制，优化 Cronet 或替换网络库。</li>
+</ul>
+<h3 id="app"><a href="https://cloud.tencent.com/developer/article/2465622">移动端弱网优化：携程APP移动网络优化实践（弱网识别篇）</a></h3>
+<p>对于网络质量识别，业内做的比较早的是Google的NQE（Network Quality Estimator），国内大多数网络质量识别方案也都参考了Google NQE，NQE中识别模型的输入主要是HttpRTT、TransportRTT、DownstreamThroughput这三个指标。</p>
+<p>对于上述提到了三个输入指标，携程从如下网络行为中进行数据采集：</p>
+<p>1）TransportRTT：通道心跳耗时、Tcp通道建联耗时、Http通道建联耗时（
+2）HttpRTT：标准Http请求的responseHeader开始接收时间减去RequestHeader的开始发送时间、自定义网络通道请求的开始接收时间减去开始发送时间；
+3）NetworkSuccessRate：Tcp建联成功状态、Quic建联成功状态、心跳成功状态、Http请求是否完整接收到Response。</p>
+<p>获取到以上数据之后，先过滤无效数据，采用半衰期动态权重计算，RTT 用加权中值、成功率用加权平均计算，引入成功率趋势提升实时性。</p>
+<p>最终携程90%准确率的模型对应的弱网阈值如下（不同业务场景的网络请求差别较大，仅供大家参考）：</p>
+<p>1）HttpRTT &gt; 1220ms；这个值是线上HttpRTT的TP98值，与弱网占比相近；
+2）TransportRTT &gt; 520ms；同线上TP98值；
+3）NetworkSuccessRate &lt; 90%；
+4）SuccessRateTrend &lt; 0.2；之前的0.1导致模型的结果切换过于频繁，最终调整到了0.2。</p>
+<p><img alt="" src="https://raw.gitmirror.com/RicardoJiang/resource/refs/heads/main/2025/january/p7.png" /></p>
+<p><img alt="" src="https://raw.gitmirror.com/RicardoJiang/resource/refs/heads/main/2025/january/p8.png" /></p>
 
   <hr>
 <div class="md-source-file">
