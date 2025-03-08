@@ -13,10 +13,10 @@
         <link rel="canonical" href="https://android-performance-optimization.github.io/news/2025/news-2025-02/">
       
       
-        <link rel="prev" href="../news-2025-01/">
+        <link rel="prev" href="../../../practical/memory/memory-usage-analyse/">
       
       
-        <link rel="next" href="../../2024/news-2024-12/">
+        <link rel="next" href="../news-2025-01/">
       
       <link rel="icon" href="../../../assets/favicon.png">
       <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.1.16">
@@ -304,7 +304,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="../news-2025-01/" class="md-tabs__link md-tabs__link--active">
+      <a href="./" class="md-tabs__link md-tabs__link--active">
         技术月报
       </a>
     </li>
@@ -1898,20 +1898,6 @@
               
   
   
-  
-    <li class="md-nav__item">
-      <a href="../news-2025-01/" class="md-nav__link">
-        Android 性能优化技术月报 | 2025 年 1 月
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
     
   
   
@@ -1972,12 +1958,39 @@
     精选博客
   </a>
   
+    <nav class="md-nav" aria-label="精选博客">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#java30qps" class="md-nav__link">
+    快手Java透明协程：实现零代码修改提升30%QPS
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
     </ul>
   
 </nav>
       
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../news-2025-01/" class="md-nav__link">
+        Android 性能优化技术月报 | 2025 年 1 月
+      </a>
     </li>
   
 
@@ -2407,6 +2420,19 @@
     精选博客
   </a>
   
+    <nav class="md-nav" aria-label="精选博客">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#java30qps" class="md-nav__link">
+    快手Java透明协程：实现零代码修改提升30%QPS
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
     </ul>
@@ -2437,6 +2463,14 @@
 本书基于 Android 14 撰写，但也会涉及 Android 14 以外的其他 Android 版本的源码。</p>
 <p><img alt="" src="https://raw.gitmirror.com/RicardoJiang/resource/refs/heads/main/2025/march/p1.jpg" /></p>
 <h2 id="_2">精选博客</h2>
+<h3 id="java30qps"><a href="https://mp.weixin.qq.com/s/UqwcpQ2iqJoH0kKR_ZUT5w">快手Java透明协程：实现零代码修改提升30%QPS</a></h3>
+<p>本文主要介绍了快手基于社区开源版本自研的 Java17 透明协程技术，实现了零代码修改提升 30% QPS 的效果。</p>
+<ul>
+<li>协程技术发展与挑战：协程思想可追溯至 1963 年，虽未成为并发编程主流，但随着互联网业务发展重新受青睐。Java 协程起步晚，Oracle 官方的 Loom 协程方案备受瞩目。传统并发编程模型有线程和异步两种，协程融合两者优点。协程主要优势在于减少内核线程上下文切换指令开销和改善内核 CFS 的调度延迟。</li>
+<li>快手 Java 透明协程技术的演进之路：快手启动 Java 透明协程项目，意义重大，包括提升运行效率、编程效率和适应云原生架构演进。在方案选型上，综合考虑选择了基于 Dragonwell 社区的 Wisp 协程方案，并对其架构进行了演进，包括社区协程架构及缺陷、调度 CPU 优化、调度抢占优化、IO 模型优化等，最终完成了快手 Java 协程架构的整体升级。</li>
+<li>协程落地成果与未来展望：快手在 Java17 上实现了透明协程，服务极限 QPS 提升 30% 以上，节省了数千万服务器成本。未来将致力于与 Loom 的深度融合以及调度策略与调度器的解耦等方面的探索与改进。</li>
+</ul>
+<p><img alt="" src="https://raw.gitmirror.com/RicardoJiang/resource/refs/heads/main/2025/march/p2.webp" /></p>
 
   <hr>
 <div class="md-source-file">
@@ -2474,7 +2508,7 @@
       <nav class="md-footer__inner md-grid" aria-label="页脚" >
         
           
-          <a href="../news-2025-01/" class="md-footer__link md-footer__link--prev" aria-label="上一页: Android 性能优化技术月报 | 2025 年 1 月" rel="prev">
+          <a href="../../../practical/memory/memory-usage-analyse/" class="md-footer__link md-footer__link--prev" aria-label="上一页: App 内存占用分析" rel="prev">
             <div class="md-footer__button md-icon">
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
             </div>
@@ -2483,20 +2517,20 @@
                 上一页
               </span>
               <div class="md-ellipsis">
-                Android 性能优化技术月报 | 2025 年 1 月
+                App 内存占用分析
               </div>
             </div>
           </a>
         
         
           
-          <a href="../../2024/news-2024-12/" class="md-footer__link md-footer__link--next" aria-label="下一页: Android 性能优化技术月报 | 2024 年 12 月" rel="next">
+          <a href="../news-2025-01/" class="md-footer__link md-footer__link--next" aria-label="下一页: Android 性能优化技术月报 | 2025 年 1 月" rel="next">
             <div class="md-footer__title">
               <span class="md-footer__direction">
                 下一页
               </span>
               <div class="md-ellipsis">
-                Android 性能优化技术月报 | 2024 年 12 月
+                Android 性能优化技术月报 | 2025 年 1 月
               </div>
             </div>
             <div class="md-footer__button md-icon">
