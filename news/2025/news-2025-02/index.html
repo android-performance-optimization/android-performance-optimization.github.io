@@ -1968,6 +1968,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#java-nullpointerexception" class="md-nav__link">
+    Java程序中的潜在危机: 深入探讨NullPointerException
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -2430,6 +2437,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#java-nullpointerexception" class="md-nav__link">
+    Java程序中的潜在危机: 深入探讨NullPointerException
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -2471,6 +2485,16 @@
 <li>协程落地成果与未来展望：快手在 Java17 上实现了透明协程，服务极限 QPS 提升 30% 以上，节省了数千万服务器成本。未来将致力于与 Loom 的深度融合以及调度策略与调度器的解耦等方面的探索与改进。</li>
 </ul>
 <p><img alt="" src="https://raw.gitmirror.com/RicardoJiang/resource/refs/heads/main/2025/march/p2.webp" /></p>
+<h3 id="java-nullpointerexception"><a href="https://mp.weixin.qq.com/s/2AfUT0TcpOkZ34MSDgu1gA">Java程序中的潜在危机: 深入探讨NullPointerException</a></h3>
+<p>本文深入探讨了 Java 语言中的空引用（NullPointerException）问题，包括其起源、虚拟机处理方式、隐含风险以及 JDK 的改进措施等方面，最后对异常处理机制进行了总结和展望。</p>
+<ul>
+<li>NullPointerException 的起源：1965 年 Tony Hoare 在设计 ALGOL W 语言时引入空引用概念，初衷是方便表示无值或未知值，且借助编译器自动检测确保引用使用安全、实现简单。但后来他反思这是个十亿美元的错误，Java 等语言也受此影响。</li>
+<li>空引用检查：Java 虚拟机不主动识别空引用，采用类似于 Try-Catch 的方案，只有在发生空引用时才处理（抛出 NullPointerException）。检查细节中，JDK8 虚拟机内部判别是否需要检查空引用，采用基于 signal 的方式，最终如果空引用，访问内存时会触发操作系统层面的异常。</li>
+<li>空引用操作系统处理：当发生空引用时，会触发操作系统层面的 SIGSEGV 信号。Java 虚拟机在启动时注册信号捕获 SIGSEGV，设置回调函数，在不同架构下有不同实现。捕获后的行为是设置拦截后的跳转代码，抛出 Java 层面的 NullPointerException，或者在某些情况下终止进程。</li>
+<li>使用信号量的隐含风险：频繁的空引用会使处理路径变长变慢，但虚拟机开发者假设正常系统不应有大量空指针异常。同时，如果 JVM 加载的第三方 JNI 中也捕获了 SIGSEGV 信号，会导致虚拟机自身的捕获失效，系统可能崩溃。</li>
+<li>JDK 的改进：JDK8 引入 Optional 容器类，提供更安全清晰的方式处理可能为空的值，减少 NullPointerException 的发生，增强代码健壮性和可读性。JDK14 生效的提案 JEP 358 可增强 JVM 生成的 NullPointerException 的可用性，给出详细信息指明空对象。</li>
+<li>结语：深入了解虚拟机处理 NullPointerException 的过程，能更好理解异常处理机制的内在原理，提升编程技能，为处理类似问题提供深刻视角和解决方案。</li>
+</ul>
 
   <hr>
 <div class="md-source-file">
