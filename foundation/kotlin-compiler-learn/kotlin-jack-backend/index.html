@@ -2755,6 +2755,7 @@ class IrFileToJackTransformer : BaseIrElementToJackTransformer {
 // ...
 </code></pre>
 <p>在 backend-jack 模块中，我们主要通过访问者模式实现了 ir 转化为 Jack 字节码的逻辑，通过访问 ir 的不同节点，生成对应的 Jack 字节码。具体的代码就不在这里展示了，感兴趣的同学可以查看源码：<a href="https://github.com/RicardoJiang/kotlin/tree/jack">https://github.com/RicardoJiang/kotlin/tree/jack</a></p>
+<p>在这里我们只实现了基本的变量声明与赋值，函数声明与调用，条件分支，while 循环支持等逻辑，更复杂的对象创建与销毁、字符串支持、数组支持等可以根据 Jack 字节码规范自行实现。</p>
 <h3 id="jack_2">生成与运行 Jack 字节码</h3>
 <p>当我们完成 backend-jack 模块的开发后，我们就可以直接运行<code>org.jetbrains.kotlin.preloading.Preloader</code>类来编译 Kotlin 代码生成 Jack 字节码了。</p>
 <pre><code>package org.jetbrains.kotlin.preloading;
