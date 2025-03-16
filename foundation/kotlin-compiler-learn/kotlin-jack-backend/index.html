@@ -2726,7 +2726,7 @@ function Main.main 1
     }
 }
 </code></pre>
-<p>cli-jack 模块主要实现了解析命令行参数，串起编译的整体逻辑，其中参数解析，生成 fir，fir 转化为 ir 的逻辑与 Kotlin/Js 一致，因此我们只需要实现 ir 转化为 Jack 字节码的逻辑即可。</p>
+<p>cli-jack 模块主要实现了解析命令行参数，串起编译的整体逻辑，其中参数解析，生成 fir，fir 转化为 ir 的逻辑基本可以复用，我们这里复用了 Kotlin/Js 的逻辑，因此我们只需要实现 ir 转化为 Jack 字节码的逻辑即可。</p>
 <h3 id="backend-jack">添加 backend-jack 模块</h3>
 <p>backend-jack 模块主要实现了 ir 转化为 Jack 字节码的逻辑，这里我们需要实现一个 IrModuleToJackTransformer 类，负责将 ir 转化为 Jack 字节码。</p>
 <pre><code class="language-kotlin">class IrModuleToJackTransformer {
