@@ -1966,6 +1966,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#activityviewmodel" class="md-nav__link">
+    如何让不同Activity之间共享同一个ViewModel
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -2442,6 +2449,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#activityviewmodel" class="md-nav__link">
+    如何让不同Activity之间共享同一个ViewModel
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -2500,6 +2514,59 @@ at java.net.InetAddress.getAllByName(InetAddress.java:1154)
 #00 pc 000000000003b938  /system/lib64/libc.so (android_detectaddrtype+1164)
 #01 pc 000000000003b454  /system/lib64/libc.so (android_getaddrinfofornet+72)
 #02 pc 000000000002b5f4  /system/lib64/libjavacore.so (_ZL25Linux_android_getaddrinfoP7_JNIEnvP8_jobjectP8_jstringS2_i+336)
+</code></pre>
+<h3 id="activityviewmodel"><a href="https://juejin.cn/post/7366913974624059427">如何让不同Activity之间共享同一个ViewModel</a></h3>
+<p>该文本主要讨论了在 Android 开发中，两个 Activity 之间共享数据时遇到的问题及解决思路。问题是不同的 Activity 根据不同的 LifecycleOwner 创建出的 ViewModel 是不同实例，无法共享。通过分析 ViewModel 的构造过程，提出了解决思路，即重写一个 ViewModelProvider，将其中的 ViewModelStore 定义成单例供所有 LifecycleOwner 共享，并定义 ViewModel 的销毁时机为所有 LifecycleOwner 走到 onDestroy 时。最后给出了具体实现和使用方法。</p>
+<pre><code class="language-kotlin">// 需要放到lifecycle这个包，否则访问不到ViewModelStore
+package androidx.lifecycle
+
+class GlobalViewModelProvider(factory: Factory = NewInstanceFactory()) :  
+ViewModelProvider(globalStore, factory) {  
+    companion object {  
+        private val globalStore = ViewModelStore()  
+        private val globalLifecycleMap = HashMap&lt;String, MutableSet&lt;Lifecycle&gt;&gt;()  
+        private const val DEFAULT_KEY = &quot;androidx.lifecycle.ViewModelProvider.DefaultKey&quot;  
+    }  
+
+    @MainThread  
+    fun &lt;T: ViewModel&gt; get(lifecycle: Lifecycle, modelClass: Class&lt;T&gt;): T {  
+        val canonicalName = modelClass.canonicalName ?: throw IllegalArgumentException(&quot;Local and anonymous classes can not be ViewModels&quot;)  
+        return get(lifecycle, &quot;$DEFAULT_KEY:$canonicalName&quot;, modelClass)  
+    }  
+
+    @MainThread  
+    fun &lt;T: ViewModel&gt; get(lifecycle: Lifecycle, key: String, modelClass: Class&lt;T&gt;): T {  
+        if (lifecycle.currentState == Lifecycle.State.DESTROYED) {  
+            throw IllegalStateException(&quot;Could not get viewmodel when lifecycle was destroyed&quot;)  
+        }  
+        val viewModel = super.get(key, modelClass)  
+        val lifecycleList = globalLifecycleMap.getOrElse(key) { mutableSetOf() }  
+        globalLifecycleMap[key] = lifecycleList  
+        if (!lifecycleList.contains(lifecycle)) {  
+            lifecycleList.add(lifecycle)  
+            lifecycle.addObserver(ClearNegativeVMObserver(lifecycle, key, globalStore, globalLifecycleMap))  
+        }  
+        return viewModel  
+    }  
+
+    private class ClearNegativeVMObserver(  
+        private val lifecycle: Lifecycle,  
+        private val key: String,  
+        private val store: ViewModelStore,  
+        private val map: HashMap&lt;String, MutableSet&lt;Lifecycle&gt;&gt;,  
+    ): LifecycleEventObserver { 
+        override fun onStateChanged(source: LifecycleOwner, event: Lifecycle.Event) { 
+            if (event == Lifecycle.Event.ON_DESTROY) {  
+                val lifecycleList = map.getOrElse(key) { mutableSetOf() }  
+                lifecycleList.remove(lifecycle)  
+                if (lifecycleList.isEmpty()) {  
+                    store.put(key, null)  
+                    map.remove(key)  
+                }  
+            }  
+        }  
+    }  
+}
 </code></pre>
 <h2 id="_2">精选视频</h2>
 <h3 id="android"><a href="https://www.bilibili.com/video/BV1UP411Y7Jn/">打造优质 Android 相机体验</a></h3>
