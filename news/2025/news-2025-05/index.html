@@ -1990,6 +1990,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#2025" class="md-nav__link">
+    2025 跨平台框架更新和发布对比，这是你没看过的全新版本
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -2494,6 +2501,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#2025" class="md-nav__link">
+    2025 跨平台框架更新和发布对比，这是你没看过的全新版本
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -2550,6 +2564,16 @@ detectCleartextNetwork &gt;= API 23 网路操作明文检测，未使用SSL/TLS�
 detectUntaggedSockets &gt;= API 26 为标记Socket连接，TrafficStats
 detectContentUriWithoutPermission &gt;= API 26 对外暴露content://时，未做权限要求
 </code></pre>
+<h3 id="2025"><a href="https://juejin.cn/post/7505578411492474915">2025 跨平台框架更新和发布对比，这是你没看过的全新版本</a></h3>
+<p>2025 年可以说又是一个跨平台的元年，其中不妨有「鸿蒙 Next」 平台刺激的原因，也有大厂技术积累“达到瓶颈”的可能，又或者“开猿截流、降本增笑”的趋势的影响，2025 年上半年确实让跨平台框架又成为最活跃的时刻。本文详细对比了当下热门的跨平台框架：</p>
+<ul>
+<li>Flutter 的特性与局限：作为自绘领域的跨平台框架，Flutter 凭借 “自绘” 和 “AOT 模式” 在平台统一性和性能上表现出色，2025 年的更新如平台和 UI 线程合并，为 Dart 与原生语言同步互操作提供基础。其核心竞争力 Impeller 解决了 Skia 着色器编译卡顿问题，在类游戏场景支持良好。但它存在文字排版不如原生、内存占用高、官方不支持热更新等局限，鸿蒙版本落后，在不同平台也有各自推进缓慢的问题。</li>
+<li>React Native 的变革与不足：2025 年 React Native 借助 Skia 和 WebGPU 实现重大突破，新架构解决诸多性能瓶颈，如 JSI 可切换 JS 引擎、Fabric 支持并发渲染、TurboModules 按需加载插件等。同时支持热重载，能快速对齐新 React 特性。在动画和图像处理等场景借 Skia 和 WebGPU 获得强力补充，在 PC 和小程序领域也有一定支持。不过，它面临平台 UI 一致性问题、第三方库新旧框架支持风险、版本升级风险以及平台 API 兼容复杂度高等局限。</li>
+<li>Compose Multiplatform 的优势与挑战：Compose Multiplatform 以 Kotlin 为语言基础，使用 Skia 绘制 UI，实现了不同平台的 UI 一致性，在 Android 上依赖系统 skia 使 apk 体积较小，在 PC 平台也有一定可用性。Kotlin 强大的编译器是其核心优势，能灵活适配各平台。但它在鸿蒙适配方面缺乏官方支持，适配成本高，小程序领域需第三方支持，iOS 平台存在着色器问题，第三方包适配难度较高，hotload 仅支持 PC 桌面，还面临内存占用和官方热更新缺失等问题。</li>
+<li>Kuikly 的独特之处与局限：Kuikly 属于 KMP 体系，与 CMP 不同在于绘制采用类 RN 方式，通过自研 DSL 构建 UI，支持 Kotlin/JS 和 Kotlin/Native 两种模式，有 “薄原生层” 设计，将大部分 UI 逻辑提升到共享 Kotlin 层，减少平台差异。它还表示后续支持全平台小程序，能与腾讯热更新管理平台集成。但它 UI 理解有额外成本，不支持 PC 平台，基于原生 OEM 存在部分不一致，在原有 App 集成时功能受限，动态化场景也存在诸多限制。</li>
+<li>Lynx 的创新与待完善之处：Lynx 是面向 Web 前端的跨平台全家桶，当前开源的 ReactLynx 是类 RN 框架，未来计划支持自渲染及多种前端框架。其 “双线程架构” 和深度定制的 PrimJS 引擎是主要技术特点，对即时首帧渲染和流畅交互体验有优势，支持多平台。然而，它非常年轻，社区、生态系统和第三方库有待发展，对客户端开发学习成本高，除部分平台外其他平台支持和自绘能力不明确，开发环境对 Windows 和 Linux 兼容性需打磨。</li>
+<li>uniapp x 的模式与局限：uniapp x 是 DCloud 的新尝试，基于 Web 技术栈，将 js（uts）代码在打包时编译成原生代码，可直接引用平台原生 API，实现 “代码混写”。在 UI 上编译为原生体系，性能与原生相当。但它面临不同平台翻译成本高、API 需删减、插件生态割裂、不支持 PC 和 HBuilderX IDE 等局限，iOS 平台为兼顾插件生态保留 js 老模式，增加了模式选择的复杂性。</li>
+</ul>
 
   <hr>
 <div class="md-source-file">
