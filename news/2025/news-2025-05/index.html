@@ -1980,6 +1980,19 @@
     精选博客
   </a>
   
+    <nav class="md-nav" aria-label="精选博客">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    严格模式也能干大事
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
     </ul>
@@ -2471,6 +2484,19 @@
     精选博客
   </a>
   
+    <nav class="md-nav" aria-label="精选博客">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    严格模式也能干大事
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
     </ul>
@@ -2499,6 +2525,31 @@
 <p><a href="https://weread.qq.com/web/reader/f1132250813ab9eb6g01271b#outline?noScroll=1">Android性能优化之道：从底层原理到一线实践</a></p>
 <p>这是一套从Android性能优化本质入手，指导读者实现从硬件层到操作系统层再到应用层全面优化的实战方法论。本书由Android方向Google开发者专家撰写，融合了作者10年大厂实战经验，其中不仅包括作者实操过的监控、优化、防劣化等方向的各种典型案例，还包括多个实战小技巧，可以帮助读者解决工作中遇到的90%以上的能优化问题。 本书内存、速度和流畅性、稳定性、包体积、耗电、磁盘占用、流量、降级这8个方向的性能优化内容。这些内容方向均从原理和实战两个维度进行解读。其中，原理部分直指优化的本质，不仅包括相关基础知识，还包括性能优化的底层逻辑；实战部分以指导读者实操为主要目标，以案例为主要讲解形式，深度解读作者精心总结的各种实战案例中用到的技术和原理。</p>
 <h2 id="_2">精选博客</h2>
+<h3 id="_3"><a href="https://hacktons.cn/books/performance/laggy/strict-mode.html">严格模式也能干大事</a></h3>
+<p>StrictMode按字面翻译，也称作严格模式，可以用于检测UI线程上的磁盘操作和网络请求等。</p>
+<p>检测两大类型，分别是线程相关setThreadPolicy和虚拟机相关setVmPolicy。</p>
+<p>setThreadPolicy, 设置线程需要检测的策略（当前线程实际就是main线程）；
+设置检测命中后的警告方式，如日志输出，弹框，杀死进程，屏幕闪烁
+具体来说，目前支持如下几种检测：</p>
+<pre><code>detectDiskReads 磁盘读操作
+detectDiskWrites 磁盘写操作
+detectNetwork 网络连接
+detectCustomSlowCalls 自定义的耗时操作
+detectResourceMismatches &gt;=API 23 资源类型不匹配
+detectUnbufferedIo &gt;= API 26 未缓冲的IO
+</code></pre>
+<p>setVmPolicy, 设置虚拟机进程检测的策略(包括进程内的任意线程)
+设置检测命中后的警告方式，如日志输出，弹框，杀死进程，屏幕闪烁
+具体来说，目前支持如下几种检测：</p>
+<pre><code>detectActivityLeaks Activity泄漏
+detectLeakedClosableObjects 未调用关闭方法，比如Closeable的close
+detectLeakedRegistrationObjects 为注销监听/注册，比如BroadcastReceiver
+detectLeakedSqlLiteObjects sql游标未关闭
+detectFileUriExposure &gt;= API 18 对外暴露file://
+detectCleartextNetwork &gt;= API 23 网路操作明文检测，未使用SSL/TLS加密
+detectUntaggedSockets &gt;= API 26 为标记Socket连接，TrafficStats
+detectContentUriWithoutPermission &gt;= API 26 对外暴露content://时，未做权限要求
+</code></pre>
 
   <hr>
 <div class="md-source-file">
