@@ -2564,6 +2564,22 @@
 - 自动修复的准确率高达 66%</p>
 <p><img alt="" src="https://hub.gitmirror.com/raw.githubusercontent.com/RicardoJiang/resource/refs/heads/main/2025/june/p7.webp" /></p>
 <h3 id="solid-android"><a href="https://mp.weixin.qq.com/s/o4Aj-AnTVl_UkgBBAk3Eqg">SOLID 设计原则在 Android 中的实战应用</a></h3>
+<p>大多数开发者都听说过 SOLID 设计原则，这些原则由鲍勃大叔（罗伯特・C・马丁）提出，有助于提高代码的可测试性和关注点分离。Android 开发者的对话中热衷讨论 MVVM，MVP，却很少提及 SOLID。但其实这些设计原则早已渗透在 Android 开发的方方面了，是一名高阶 Android 开发者必备的思想基础。本文通过多个示例为大家介绍了 SOLID 在 Android 开发中的应用场景。</p>
+<ul>
+<li>单一职责原则（SRP），倡导拆分类的职责，避免臃肿，如将 ViewModel 中的业务逻辑分离至 UseCase 等；</li>
+<li>开闭原则（OCP），强调在不修改现有代码前提下扩展功能，像通过密封类继承扩展页面状态，利用依赖注入自定义 ViewModelFactory 等；</li>
+<li>里氏替换原则（LSP），要求子类型能安全替换基类型，例如 BaseFragment 与子 Fragment 的关系、不同 ViewHolder 的替换等；</li>
+<li>接口隔离原则（ISP），主张保持接口简洁，拆分臃肿接口，如拆分 Repository 接口、RecyclerView 点击事件接口等；</li>
+<li>依赖倒置原则（DIP），提倡依赖抽象而非具体实现，像将 UseCase 注入 ViewModel、抽象数据源实现数据源切换等</li>
+</ul>
+<p>SOLID 原则并非只是抽象理论，做一个简单回顾：</p>
+<ul>
+<li>SRP 拆分职责，让类保持专注。</li>
+<li>OCP 在不修改现有代码的情况下安全扩展。</li>
+<li>LSP 确保安全的继承和多态性。</li>
+<li>ISP 有助于拆分臃肿的接口。</li>
+<li>DIP 解耦逻辑，提高可测试性和灵活性。</li>
+</ul>
 
   <hr>
 <div class="md-source-file">
