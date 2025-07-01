@@ -10,20 +10,20 @@
       
       
       
-        <link rel="canonical" href="https://android-performance-optimization.github.io/news/2024/news-2024-08/">
+        <link rel="canonical" href="https://android-performance-optimization.github.io/foundation/kotlin-compiler-learn/kotlin-native-compiler/">
       
       
-        <link rel="prev" href="../news-2024-09/">
+        <link rel="prev" href="../kotlin-jack-backend/">
       
       
-        <link rel="next" href="../news-2024-07/">
+        <link rel="next" href="../../pointers-on-c/environment-config/">
       
       <link rel="icon" href="../../../assets/favicon.png">
       <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.1.16">
     
     
       
-        <title>Android 性能优化技术月报 | 2024 年 8 月 - Android 性能优化手册</title>
+        <title>Kotlin/Native 编译流程浅析 - Android 性能优化手册</title>
       
     
     
@@ -75,7 +75,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#android-2024-8" class="md-skip">
+        <a href="#kotlinnative" class="md-skip">
           跳转至
         </a>
       
@@ -113,7 +113,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Android 性能优化技术月报 | 2024 年 8 月
+              Kotlin/Native 编译流程浅析
             
           </span>
         </div>
@@ -245,6 +245,8 @@
         
   
   
+    
+  
 
 
   
@@ -256,7 +258,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="../../../foundation/self-cultivation/elf-file-detail/" class="md-tabs__link">
+      <a href="../../self-cultivation/elf-file-detail/" class="md-tabs__link md-tabs__link--active">
         筑基手册
       </a>
     </li>
@@ -291,8 +293,6 @@
         
   
   
-    
-  
 
 
   
@@ -304,7 +304,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="../../2025/news-2025-06/" class="md-tabs__link md-tabs__link--active">
+      <a href="../../../news/2025/news-2025-06/" class="md-tabs__link">
         技术月报
       </a>
     </li>
@@ -448,14 +448,16 @@
 
   
   
+    
+  
   
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
       
       
       
-      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
       
       
         
@@ -480,7 +482,7 @@
           <span class="md-nav__icon md-icon"></span>
         </label>
       
-      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
         <label class="md-nav__title" for="__nav_3">
           <span class="md-nav__icon md-icon"></span>
           筑基手册
@@ -534,7 +536,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../foundation/self-cultivation/elf-file-detail/" class="md-nav__link">
+      <a href="../../self-cultivation/elf-file-detail/" class="md-nav__link">
         Elf 文件格式详解
       </a>
     </li>
@@ -548,7 +550,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../foundation/self-cultivation/static-link/" class="md-nav__link">
+      <a href="../../self-cultivation/static-link/" class="md-nav__link">
         静态链接
       </a>
     </li>
@@ -562,7 +564,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../foundation/self-cultivation/elf-load/" class="md-nav__link">
+      <a href="../../self-cultivation/elf-load/" class="md-nav__link">
         ELF 文件的装载与进程
       </a>
     </li>
@@ -576,7 +578,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../foundation/self-cultivation/dynamic-link/" class="md-nav__link">
+      <a href="../../self-cultivation/dynamic-link/" class="md-nav__link">
         动态链接
       </a>
     </li>
@@ -590,7 +592,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../foundation/self-cultivation/memory/" class="md-nav__link">
+      <a href="../../self-cultivation/memory/" class="md-nav__link">
         内存
       </a>
     </li>
@@ -604,7 +606,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../foundation/self-cultivation/system-call/" class="md-nav__link">
+      <a href="../../self-cultivation/system-call/" class="md-nav__link">
         系统调用
       </a>
     </li>
@@ -670,7 +672,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../foundation/kotlin-meta-programming/meta-programming-basic/" class="md-nav__link">
+      <a href="../../kotlin-meta-programming/meta-programming-basic/" class="md-nav__link">
         元编程概述
       </a>
     </li>
@@ -684,7 +686,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../foundation/kotlin-meta-programming/meta-data-introduction/" class="md-nav__link">
+      <a href="../../kotlin-meta-programming/meta-data-introduction/" class="md-nav__link">
         元数据简介
       </a>
     </li>
@@ -698,7 +700,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../foundation/kotlin-meta-programming/runtime-reflect/" class="md-nav__link">
+      <a href="../../kotlin-meta-programming/runtime-reflect/" class="md-nav__link">
         运行时的反射
       </a>
     </li>
@@ -712,7 +714,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../foundation/kotlin-meta-programming/code-generate/" class="md-nav__link">
+      <a href="../../kotlin-meta-programming/code-generate/" class="md-nav__link">
         源代码生成
       </a>
     </li>
@@ -726,7 +728,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../foundation/kotlin-meta-programming/symbol-process/" class="md-nav__link">
+      <a href="../../kotlin-meta-programming/symbol-process/" class="md-nav__link">
         编译时的符号处理
       </a>
     </li>
@@ -740,7 +742,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../foundation/kotlin-meta-programming/code-static-analyse/" class="md-nav__link">
+      <a href="../../kotlin-meta-programming/code-static-analyse/" class="md-nav__link">
         程序静态分析
       </a>
     </li>
@@ -754,7 +756,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../foundation/kotlin-meta-programming/compiler-extension/" class="md-nav__link">
+      <a href="../../kotlin-meta-programming/compiler-extension/" class="md-nav__link">
         编译器插件
       </a>
     </li>
@@ -768,7 +770,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../foundation/kotlin-meta-programming/meta-programming-debug/" class="md-nav__link">
+      <a href="../../kotlin-meta-programming/meta-programming-debug/" class="md-nav__link">
         元程序的开发和调试
       </a>
     </li>
@@ -787,14 +789,16 @@
               
   
   
+    
+  
   
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
       
       
       
-      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_3" >
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_3" checked>
       
       
         
@@ -815,7 +819,7 @@
           <span class="md-nav__icon md-icon"></span>
         </label>
       
-      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_3_label" aria-expanded="false">
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_3_label" aria-expanded="true">
         <label class="md-nav__title" for="__nav_3_3">
           <span class="md-nav__icon md-icon"></span>
           Kolin 编译器学习
@@ -828,7 +832,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../foundation/kotlin-compiler-learn/learning-resource/" class="md-nav__link">
+      <a href="../learning-resource/" class="md-nav__link">
         Kotlin 编译器相关学习资源
       </a>
     </li>
@@ -842,7 +846,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../foundation/kotlin-compiler-learn/kotlin-compiler-start/" class="md-nav__link">
+      <a href="../kotlin-compiler-start/" class="md-nav__link">
         Kotlin 编译器源码阅读
       </a>
     </li>
@@ -856,7 +860,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../foundation/kotlin-compiler-learn/kotlin-compiler-source/" class="md-nav__link">
+      <a href="../kotlin-compiler-source/" class="md-nav__link">
         Kotlin/JVM 编译流程浅析
       </a>
     </li>
@@ -870,7 +874,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../foundation/kotlin-compiler-learn/kotlin-jack-backend/" class="md-nav__link">
+      <a href="../kotlin-jack-backend/" class="md-nav__link">
         如何给 Kotlin 新增一个 target?
       </a>
     </li>
@@ -882,11 +886,52 @@
               
   
   
+    
   
-    <li class="md-nav__item">
-      <a href="../../../foundation/kotlin-compiler-learn/kotlin-native-compiler/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Kotlin/Native 编译流程浅析
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         Kotlin/Native 编译流程浅析
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#kotlinnative_1" class="md-nav__link">
+    Kotlin/Native 编译器如何调试
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -964,7 +1009,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../foundation/pointers-on-c/environment-config/" class="md-nav__link">
+      <a href="../../pointers-on-c/environment-config/" class="md-nav__link">
         环境搭建
       </a>
     </li>
@@ -978,7 +1023,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../foundation/pointers-on-c/quick-start/" class="md-nav__link">
+      <a href="../../pointers-on-c/quick-start/" class="md-nav__link">
         快速上手
       </a>
     </li>
@@ -992,7 +1037,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../foundation/pointers-on-c/basic-concept/" class="md-nav__link">
+      <a href="../../pointers-on-c/basic-concept/" class="md-nav__link">
         基本概念
       </a>
     </li>
@@ -1006,7 +1051,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../foundation/pointers-on-c/data-type/" class="md-nav__link">
+      <a href="../../pointers-on-c/data-type/" class="md-nav__link">
         数据类型
       </a>
     </li>
@@ -1020,7 +1065,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../foundation/pointers-on-c/statement/" class="md-nav__link">
+      <a href="../../pointers-on-c/statement/" class="md-nav__link">
         语句
       </a>
     </li>
@@ -1034,7 +1079,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../foundation/pointers-on-c/operators-and-expressions/" class="md-nav__link">
+      <a href="../../pointers-on-c/operators-and-expressions/" class="md-nav__link">
         操作符和表达式
       </a>
     </li>
@@ -1048,7 +1093,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../foundation/pointers-on-c/pointer/" class="md-nav__link">
+      <a href="../../pointers-on-c/pointer/" class="md-nav__link">
         指针
       </a>
     </li>
@@ -1062,7 +1107,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../foundation/pointers-on-c/function/" class="md-nav__link">
+      <a href="../../pointers-on-c/function/" class="md-nav__link">
         函数
       </a>
     </li>
@@ -1076,7 +1121,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../foundation/pointers-on-c/array/" class="md-nav__link">
+      <a href="../../pointers-on-c/array/" class="md-nav__link">
         数组
       </a>
     </li>
@@ -1090,7 +1135,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../foundation/pointers-on-c/char-and-string/" class="md-nav__link">
+      <a href="../../pointers-on-c/char-and-string/" class="md-nav__link">
         字符串、字符和字节
       </a>
     </li>
@@ -1104,7 +1149,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../foundation/pointers-on-c/struct-and-union/" class="md-nav__link">
+      <a href="../../pointers-on-c/struct-and-union/" class="md-nav__link">
         结构和联合
       </a>
     </li>
@@ -1118,7 +1163,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../foundation/pointers-on-c/dynamic-memory/" class="md-nav__link">
+      <a href="../../pointers-on-c/dynamic-memory/" class="md-nav__link">
         动态内存分配
       </a>
     </li>
@@ -1132,7 +1177,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../foundation/pointers-on-c/struct-and-pointer/" class="md-nav__link">
+      <a href="../../pointers-on-c/struct-and-pointer/" class="md-nav__link">
         使用结构和指针
       </a>
     </li>
@@ -1146,7 +1191,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../foundation/pointers-on-c/advanced-pointer/" class="md-nav__link">
+      <a href="../../pointers-on-c/advanced-pointer/" class="md-nav__link">
         高级指针话题
       </a>
     </li>
@@ -1160,7 +1205,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../foundation/pointers-on-c/preprocessor/" class="md-nav__link">
+      <a href="../../pointers-on-c/preprocessor/" class="md-nav__link">
         预处理器
       </a>
     </li>
@@ -1234,7 +1279,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../foundation/nand-to-tetris/introduction/" class="md-nav__link">
+      <a href="../../nand-to-tetris/introduction/" class="md-nav__link">
         前言
       </a>
     </li>
@@ -1248,7 +1293,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../foundation/nand-to-tetris/bool-logic/" class="md-nav__link">
+      <a href="../../nand-to-tetris/bool-logic/" class="md-nav__link">
         布尔逻辑
       </a>
     </li>
@@ -1262,7 +1307,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../foundation/nand-to-tetris/bool-arithmetic/" class="md-nav__link">
+      <a href="../../nand-to-tetris/bool-arithmetic/" class="md-nav__link">
         布尔运算
       </a>
     </li>
@@ -1276,7 +1321,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../foundation/nand-to-tetris/sequential-logic/" class="md-nav__link">
+      <a href="../../nand-to-tetris/sequential-logic/" class="md-nav__link">
         时序逻辑
       </a>
     </li>
@@ -1290,7 +1335,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../foundation/nand-to-tetris/machine-language/" class="md-nav__link">
+      <a href="../../nand-to-tetris/machine-language/" class="md-nav__link">
         机器语言
       </a>
     </li>
@@ -1304,7 +1349,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../foundation/nand-to-tetris/computer-architecture/" class="md-nav__link">
+      <a href="../../nand-to-tetris/computer-architecture/" class="md-nav__link">
         计算机体系结构
       </a>
     </li>
@@ -1318,7 +1363,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../foundation/nand-to-tetris/assembler/" class="md-nav__link">
+      <a href="../../nand-to-tetris/assembler/" class="md-nav__link">
         汇编编译器
       </a>
     </li>
@@ -1332,7 +1377,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../foundation/nand-to-tetris/virtual-machine-one/" class="md-nav__link">
+      <a href="../../nand-to-tetris/virtual-machine-one/" class="md-nav__link">
         虚拟机 1：堆栈运算
       </a>
     </li>
@@ -1346,7 +1391,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../foundation/nand-to-tetris/virtual-machine-two/" class="md-nav__link">
+      <a href="../../nand-to-tetris/virtual-machine-two/" class="md-nav__link">
         虚拟机 2： 程序控制
       </a>
     </li>
@@ -1360,7 +1405,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../foundation/nand-to-tetris/compiler-one/" class="md-nav__link">
+      <a href="../../nand-to-tetris/compiler-one/" class="md-nav__link">
         编译器 1：语法分析
       </a>
     </li>
@@ -1374,7 +1419,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../foundation/nand-to-tetris/compiler-two/" class="md-nav__link">
+      <a href="../../nand-to-tetris/compiler-two/" class="md-nav__link">
         编译器 2: 代码生成
       </a>
     </li>
@@ -1388,7 +1433,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../foundation/nand-to-tetris/recommend/" class="md-nav__link">
+      <a href="../../nand-to-tetris/recommend/" class="md-nav__link">
         【书籍推荐】如何从最基础原理做出一个计算机
       </a>
     </li>
@@ -1440,7 +1485,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../foundation/framework/activity-start/" class="md-nav__link">
+      <a href="../../framework/activity-start/" class="md-nav__link">
         Activity 启动流程分析
       </a>
     </li>
@@ -1492,7 +1537,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../foundation/tools/native-hook/" class="md-nav__link">
+      <a href="../../tools/native-hook/" class="md-nav__link">
         Native Hook 快速上手
       </a>
     </li>
@@ -1858,16 +1903,14 @@
 
   
   
-    
-  
   
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
       
       
       
-      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" checked>
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
       
       
         
@@ -1884,7 +1927,7 @@
           <span class="md-nav__icon md-icon"></span>
         </label>
       
-      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="true">
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
         <label class="md-nav__title" for="__nav_5">
           <span class="md-nav__icon md-icon"></span>
           技术月报
@@ -1938,7 +1981,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../2025/news-2025-06/" class="md-nav__link">
+      <a href="../../../news/2025/news-2025-06/" class="md-nav__link">
         Android 性能优化技术月报 | 2025 年 6 月
       </a>
     </li>
@@ -1952,7 +1995,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../2025/news-2025-05/" class="md-nav__link">
+      <a href="../../../news/2025/news-2025-05/" class="md-nav__link">
         Android 性能优化技术月报 | 2025 年 5 月
       </a>
     </li>
@@ -1966,7 +2009,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../2025/news-2025-04/" class="md-nav__link">
+      <a href="../../../news/2025/news-2025-04/" class="md-nav__link">
         Android 性能优化技术月报 | 2025 年 4 月
       </a>
     </li>
@@ -1980,7 +2023,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../2025/news-2025-03/" class="md-nav__link">
+      <a href="../../../news/2025/news-2025-03/" class="md-nav__link">
         Android 性能优化技术月报 | 2025 年 3 月
       </a>
     </li>
@@ -1994,7 +2037,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../2025/news-2025-02/" class="md-nav__link">
+      <a href="../../../news/2025/news-2025-02/" class="md-nav__link">
         Android 性能优化技术月报 | 2025 年 2 月
       </a>
     </li>
@@ -2008,7 +2051,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../2025/news-2025-01/" class="md-nav__link">
+      <a href="../../../news/2025/news-2025-01/" class="md-nav__link">
         Android 性能优化技术月报 | 2025 年 1 月
       </a>
     </li>
@@ -2027,16 +2070,14 @@
               
   
   
-    
-  
   
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
       
       
       
-      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_2" checked>
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_2" >
       
       
         
@@ -2071,7 +2112,7 @@
           <span class="md-nav__icon md-icon"></span>
         </label>
       
-      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_2_label" aria-expanded="true">
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_2_label" aria-expanded="false">
         <label class="md-nav__title" for="__nav_5_2">
           <span class="md-nav__icon md-icon"></span>
           2024
@@ -2084,7 +2125,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../news-2024-12/" class="md-nav__link">
+      <a href="../../../news/2024/news-2024-12/" class="md-nav__link">
         Android 性能优化技术月报 | 2024 年 12 月
       </a>
     </li>
@@ -2098,7 +2139,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../news-2024-11/" class="md-nav__link">
+      <a href="../../../news/2024/news-2024-11/" class="md-nav__link">
         Android 性能优化技术月报 | 2024 年 11 月
       </a>
     </li>
@@ -2112,7 +2153,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../news-2024-10/" class="md-nav__link">
+      <a href="../../../news/2024/news-2024-10/" class="md-nav__link">
         Android 性能优化技术月报 | 2024 年 10 月
       </a>
     </li>
@@ -2126,7 +2167,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../news-2024-09/" class="md-nav__link">
+      <a href="../../../news/2024/news-2024-09/" class="md-nav__link">
         Android 性能优化技术月报 | 2024 年 9 月
       </a>
     </li>
@@ -2138,86 +2179,11 @@
               
   
   
-    
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          Android 性能优化技术月报 | 2024 年 8 月
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../../../news/2024/news-2024-08/" class="md-nav__link">
         Android 性能优化技术月报 | 2024 年 8 月
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="目录">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      目录
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#_1" class="md-nav__link">
-    精选博客
-  </a>
-  
-    <nav class="md-nav" aria-label="精选博客">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#toomanyrequestsexception" class="md-nav__link">
-    记一次TooManyRequestsException崩溃排查历程
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#java" class="md-nav__link">
-    Java虚拟线程探究与性能解析
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#js" class="md-nav__link">
-    鸿蒙JS崩溃，如何分析？
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#harmonyos-arkui" class="md-nav__link">
-    HarmonyOS ArkUI工程框架解析
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -2229,7 +2195,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../news-2024-07/" class="md-nav__link">
+      <a href="../../../news/2024/news-2024-07/" class="md-nav__link">
         Android 性能优化技术月报 | 2024 年 7 月
       </a>
     </li>
@@ -2243,7 +2209,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../news-2024-06/" class="md-nav__link">
+      <a href="../../../news/2024/news-2024-06/" class="md-nav__link">
         Android 性能优化技术月报 | 2024 年 6 月
       </a>
     </li>
@@ -2257,7 +2223,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../news-2024-05/" class="md-nav__link">
+      <a href="../../../news/2024/news-2024-05/" class="md-nav__link">
         Android 性能优化技术月报 | 2024 年 5 月
       </a>
     </li>
@@ -2271,7 +2237,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../news-2024-04/" class="md-nav__link">
+      <a href="../../../news/2024/news-2024-04/" class="md-nav__link">
         Android 性能优化技术月报 | 2024 年 4 月
       </a>
     </li>
@@ -2285,7 +2251,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../news-2024-03/" class="md-nav__link">
+      <a href="../../../news/2024/news-2024-03/" class="md-nav__link">
         Android 性能优化技术月报 | 2024 年 3 月
       </a>
     </li>
@@ -2299,7 +2265,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../news-2024-02/" class="md-nav__link">
+      <a href="../../../news/2024/news-2024-02/" class="md-nav__link">
         Android 性能优化技术月报 | 2024 年 2 月
       </a>
     </li>
@@ -2313,7 +2279,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../news-2024-01/" class="md-nav__link">
+      <a href="../../../news/2024/news-2024-01/" class="md-nav__link">
         Android 性能优化技术月报 | 2024 年 1 月
       </a>
     </li>
@@ -2375,7 +2341,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../2023/news-2023-12/" class="md-nav__link">
+      <a href="../../../news/2023/news-2023-12/" class="md-nav__link">
         Android 性能优化技术月报 | 2023 年 12 月
       </a>
     </li>
@@ -2389,7 +2355,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../2023/news-2023-11/" class="md-nav__link">
+      <a href="../../../news/2023/news-2023-11/" class="md-nav__link">
         Android 性能优化技术月报 | 2023 年 11 月
       </a>
     </li>
@@ -2403,7 +2369,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../2023/news-2023-10/" class="md-nav__link">
+      <a href="../../../news/2023/news-2023-10/" class="md-nav__link">
         Android 性能优化技术月报 | 2023 年 10 月
       </a>
     </li>
@@ -2417,7 +2383,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../2023/news-2023-09/" class="md-nav__link">
+      <a href="../../../news/2023/news-2023-09/" class="md-nav__link">
         Android 性能优化技术月报 | 2023 年 9 月
       </a>
     </li>
@@ -2431,7 +2397,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../2023/news-2023-08/" class="md-nav__link">
+      <a href="../../../news/2023/news-2023-08/" class="md-nav__link">
         Android 性能优化技术月报 | 2023 年 8 月
       </a>
     </li>
@@ -2445,7 +2411,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../2023/news-2023-07/" class="md-nav__link">
+      <a href="../../../news/2023/news-2023-07/" class="md-nav__link">
         Android 性能优化技术月报 | 2023 年 7 月
       </a>
     </li>
@@ -2493,43 +2459,9 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#_1" class="md-nav__link">
-    精选博客
+  <a href="#kotlinnative_1" class="md-nav__link">
+    Kotlin/Native 编译器如何调试
   </a>
-  
-    <nav class="md-nav" aria-label="精选博客">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#toomanyrequestsexception" class="md-nav__link">
-    记一次TooManyRequestsException崩溃排查历程
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#java" class="md-nav__link">
-    Java虚拟线程探究与性能解析
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#js" class="md-nav__link">
-    鸿蒙JS崩溃，如何分析？
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#harmonyos-arkui" class="md-nav__link">
-    HarmonyOS ArkUI工程框架解析
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
@@ -2551,55 +2483,13 @@
   
 
 
-<h1 id="android-2024-8">Android 性能优化技术月报 | 2024 年 8 月</h1>
-<p>每个月都会有一些 Android 性能优化相关的优质内容发布，然而，碎片化阅读使得这些知识难以形成完整体系，且容易被遗忘。为解决这些问题，我决定尝试使用技术月报的形式，总结我在最近一个月内查阅的 Android 性能优化相关的优质内容。</p>
-<p>月报的主要内容包括：整理展示我在最近一个月所查阅的 Android 性能优化领域的最新技术动态、精选博客，精选视频等内容。</p>
-<h2 id="_1">精选博客</h2>
-<h3 id="toomanyrequestsexception"><a href="https://juejin.cn/post/7399462326062186506">记一次TooManyRequestsException崩溃排查历程</a></h3>
-<p>本文主要讲述了货拉拉 Android 项目华为鸿蒙设备出现 TooManyRequestsException 问题的排查历程。</p>
+<h1 id="kotlinnative">Kotlin/Native 编译流程浅析</h1>
+<p>之前我们介绍了 Kotlin/JVM 的编译流程，今天我们来看看 Kotlin/Native 的编译流程。</p>
+<h2 id="kotlinnative_1">Kotlin/Native 编译器如何调试</h2>
 <ul>
-<li>问题背景：4 月开始公司 Android 项目线上华为鸿蒙设备出现大量 TooManyRequestsException 问题，社区有零散反馈但无明确解决方案。</li>
-<li>排查过程：从 WorkManager 库的注册网络监听代码入手，发现闪屏广告中使用 WorkManager 下载图片的逻辑与问题有关，下线部分城市闪屏广告后崩溃异常有所下降。</li>
-<li>源码分析：深入剖析了 registerDefaultNetworkCallback 在 Android11 和 Android14 中的源码逻辑，包括相关类和方法的具体实现以及异常抛出的机制。</li>
-<li>解决措施：采取保证成对调用、控制调用数量、插桩收拢管理等方法，有效监控和管理调用，降低出错风险。</li>
-<li>监控指标：由于不确定华为是否改动源码，需线上监控 registerDefaultNetworkCallback 的使用情况，记录调用次数以优化逻辑。</li>
-</ul>
-<h3 id="java"><a href="https://mp.weixin.qq.com/s/G1-qLXqHva193LBJ6pSbgg">Java虚拟线程探究与性能解析</a></h3>
-<p>这篇文章主要介绍了 Java 虚拟线程，包括其背景、实现、使用、注意事项和性能测试等方面，具体内容如下：</p>
-<ul>
-<li>背景：平台线程有限制，IO 密集型请求易导致问题，响应式编程成本高，虚拟线程可可解决这些问题。</li>
-<li>实现：是 java.lang.Thread 的实例，不绑定操作系统线程，运行阻塞 I/O 时会挂起。</li>
-<li>使用：可通过 Thread 类或 Executors 创建，运行时由 Java 运行时调度，某些场景会被固定。</li>
-<li>注意事项：写同步代码和用阻塞 API，不共用虚拟线程，用信号量限制并发，避免缓存昂贵对象，避免长时间频繁固定。</li>
-<li>性能测试：虚拟线程处理请求耗时低，吞吐量高。</li>
-<li>结语：虚拟线程是对并发编程模型的革新，有望成为标准实践之一。</li>
-</ul>
-<p><img alt="" src="https://raw.gitmirror.com/RicardoJiang/resource/main/2024/september/p1.png" /></p>
-<h3 id="js"><a href="https://mp.weixin.qq.com/s/fbrynQBeqOXHzUYuqAVrnQ">鸿蒙JS崩溃，如何分析？</a></h3>
-<p>这篇文章主要介绍了鸿蒙 JS 崩溃的分析方法，包括日志信息、异常类型、堆栈、release 模式编译产物、DevEco Studio 还原堆栈以及 hstack 还原堆栈等内容，具体如下：</p>
-<ul>
-<li>日志信息：介绍了崩溃日志信息中各个字段的解释，如设备信息、版本信息、模块名、异常原因等。</li>
-<li>异常类型：JS 异常根据不同的异常场景，在 Reason 字段进行了分类，包括 Error、TypeError、SyntaxError、RangeError 等错误类型，并对每种类型进行了详细解释。</li>
-<li>堆栈：StackTrace 字段存放的是 JS 异常的调用栈信息，文章介绍了四种调用栈的显示场景，包括可直接通过超链接跳转到对应错误代码行、包含 SourceMap is not initialized yet 提示、打印 native 栈以及出现 Cannot get Source Map info, dump raw stack 信息等。</li>
-<li>release 模式编译产物：在进行堆栈还原之前，需要拿到一些文件，这些文件只在构建 release 包才会有，包括 sourcemap 文件、带调试信息的 so 数据以及反混淆映射表等。</li>
-<li>DevEco Studio 还原堆栈：DevEco Studio 提供了 Release 应用堆栈解析功能，开发者可以利用构建产物中包含 Debug 信息的文件对 Release 应用中 C++ 堆栈、ArkTS 堆栈以及 ArkTS 堆栈中混淆的方法名和文件名进行还原。</li>
-<li>hstack 还原堆栈：hstack 依赖 Node 环境，需要将 Node.js 和 SDK 中的 native\llvm\bin 目录配置到环境变量中，使用指定命令进行堆栈还原，需要注意的是，对于 so 文件，一定要使用包含符号表的 so。</li>
-<li>JS 崩溃案例解析：以 JS 中类似空指针的异常 undefined 为例，介绍了解决方式，即增加保护性判断或在访问前增加 '?' 操作符。</li>
-</ul>
-<p><img alt="" src="https://raw.gitmirror.com/RicardoJiang/resource/main/2024/september/p2.webp" /></p>
-<h3 id="harmonyos-arkui"><a href="https://mp.weixin.qq.com/s/gf-IFcXDc201MpOjlNzGTg">HarmonyOS ArkUI工程框架解析</a></h3>
-<p>文章主要对 HarmonyOS ArkUI 工程框架进行了解析，包括响应式和工程化两方面，具体内容如下：</p>
-<p><strong>响应式：</strong></p>
-<ul>
-<li>示例：HelloWorld 实例中<message>驱动视图变更，<onClick>更改值触发更新。</li>
-<li>机制：编译后重写属性描述器实现响应式，与 Vue 相似但更聚焦细粒度属性更新，抛弃 VDOM DIFF 优化性能。</li>
-<li>更新流程：属性变化标记组件为脏并维护依赖，在<updateDirtyElements>中消费脏节点，渲染管线根据 vSync 信号清理。</li>
-</ul>
-<p><strong>工程化：</strong></p>
-<ul>
-<li>语言：定制语言插件实现声明式语法，DevEcoStudio 的 LSP 服务继承并拓展相关规则，利用 TypeScript 生态包装。</li>
-<li>语法：ArkTS 打包由 Rollup 完成，loader 复用 ts compiler 逻辑处理语法糖和响应式包装，并转换语法树。</li>
-<li>调试：ArkTS 调试依托虚拟机，通过切换调度表和检查断点条件控制程序，将调试模块注入虚拟机。</li>
+<li>构建 Kotlin/Native 编译器: ./gradlew :kotlin-native:dist</li>
+<li>运行编译器: ./kotlin-native/dist/bin/run_konan  konanc ./compilerTestData/Hello.kt -o ./compilerTestData/Hello  -J"-agentlib:jdwp=transport=dt_socket,server=y,suspend=y,address=*:50015"</li>
+<li>上面命令中的-agentlib:jdwp=... 是 JVM 的调试参数，用于开启远程调试支持，运行以上命令后，可以使用 IDEA 附加调试到 50015 端口进行调试。</li>
 </ul>
 
   <hr>
@@ -2638,7 +2528,7 @@
       <nav class="md-footer__inner md-grid" aria-label="页脚" >
         
           
-          <a href="../news-2024-09/" class="md-footer__link md-footer__link--prev" aria-label="上一页: Android 性能优化技术月报 | 2024 年 9 月" rel="prev">
+          <a href="../kotlin-jack-backend/" class="md-footer__link md-footer__link--prev" aria-label="上一页: 如何给 Kotlin 新增一个 target?" rel="prev">
             <div class="md-footer__button md-icon">
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
             </div>
@@ -2647,20 +2537,20 @@
                 上一页
               </span>
               <div class="md-ellipsis">
-                Android 性能优化技术月报 | 2024 年 9 月
+                如何给 Kotlin 新增一个 target?
               </div>
             </div>
           </a>
         
         
           
-          <a href="../news-2024-07/" class="md-footer__link md-footer__link--next" aria-label="下一页: Android 性能优化技术月报 | 2024 年 7 月" rel="next">
+          <a href="../../pointers-on-c/environment-config/" class="md-footer__link md-footer__link--next" aria-label="下一页: 环境搭建" rel="next">
             <div class="md-footer__title">
               <span class="md-footer__direction">
                 下一页
               </span>
               <div class="md-ellipsis">
-                Android 性能优化技术月报 | 2024 年 7 月
+                环境搭建
               </div>
             </div>
             <div class="md-footer__button md-icon">
