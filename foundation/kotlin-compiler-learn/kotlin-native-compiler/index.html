@@ -2721,36 +2721,45 @@ serializerOutput?.let { engine.writeKlib(it) }              // 写入本地 KLib
     }
 </code></pre>
 <h3 id="_2">前端分析</h3>
-<p>从 produceBinary 方法可以看到，这里要再运行一遍<code>runFrontend</code>。这一步的输入是上一阶段生成的 KLib 文件，与依赖的 KLib 文件。输出是前端分析结果，具体包停驶</p>
+<p>从 produceBinary 方法可以看到，这里要再运行一遍<code>runFrontend</code>。这一步的输入是上一阶段生成的 KLib 文件，与依赖的 KLib 文件。输出是前端分析结果，具体包括</p>
 <ul>
 <li>moduleDescriptor: 当前模块的完整描述, 包含所有依赖模块的引用</li>
 <li>bindingContext: 由于没有源码，这里的 bindingContext 为空</li>
 <li>environment： 由于没有源码，这里的 psi 列表也为空</li>
 </ul>
 <p>这个阶段虽然 PSI 和 BindingContext 是空的，但模块级别的元数据是完整的，这是后续 IR 反序列化的基础。</p>
+<pre><code class="language-kotlin">internal val FrontendPhase = createSimpleNamedCompilerPhase(
+        &quot;Frontend&quot;,
+        outputIfNotEnabled = { _, _, _, _ -&gt; FrontendPhaseOutput.ShouldNotGenerateCode }
+) { context: FrontendContext, input: KotlinCoreEnvironment -&gt;
+    // ...
+}
+</code></pre>
 <h3 id="ir">IR 反序列化</h3>
 <p>produceBinary 中的 runPsiToIr 与普通的 PSI 到 IR 转换不同，主要是从 klib 反序列化 IR 模块。</p>
-<pre><code class="language-kotlin">val psiToIrContext = PsiToIrContextImpl(config, frontendOutput.moduleDescriptor, frontendOutput.bindingContext)
-val psiToIrInput = PsiToIrInput(frontendOutput.moduleDescriptor, frontendOutput.environment, isProducingLibrary)
-val output = psiToIrEngine.runPhase(PsiToIrPhase, psiToIrInput)
+<pre><code class="language-kotlin">internal val PsiToIrPhase = createSimpleNamedCompilerPhase&lt;PsiToIrContext, PsiToIrInput, PsiToIrOutput&gt;(
+        &quot;PsiToIr&quot;,
+        postactions = getDefaultIrActions(),
+        outputIfNotEnabled = { _, _, _, _ -&gt; error(&quot;PsiToIr phase cannot be disabled&quot;) }
+) { context, input -&gt;
+    context.psiToIr(input, useLinkerWhenProducingLibrary = false)
+}
 </code></pre>
 <h2 id="_3">后端处理</h2>
 <p>到这一步，才真正开始后端处理的工作了</p>
 <h3 id="ir-ir-lowering-phase">IR 降级阶段（IR Lowering Phase）</h3>
 <p>lowering 是指将高级的 Kotlin 代码转换成更加底层的、容易被后续编译阶段或目标平台（如 JVM 字节码、JavaScript、原生代码等）理解并处理的代码的过程。这个过程通常包括将更抽象、高级的语言特性分解成更基础的元素</p>
-<pre><code class="language-kotlin">   fragmentWithState.forEach { (fragment, state) -&gt; state.runSpecifiedLowerings(fragment, validateIrBeforeLowering) }
-    fragmentWithState.forEach { (fragment, state) -&gt; state.runSpecifiedLowerings(fragment, getLoweringsUpToAndIncludingSyntheticAccessors()) }
-    fragmentWithState.forEach { (fragment, state) -&gt; state.runSpecifiedLowerings(fragment, validateIrAfterInliningOnlyPrivateFunctions) }
-    fragmentWithState.forEach { (fragment, state) -&gt; state.runSpecifiedLowerings(fragment, listOf(inlineAllFunctionsPhase)) }
-    fragmentWithState.forEach { (fragment, state) -&gt; state.runSpecifiedLowerings(fragment, listOf(specialObjCValidationPhase)) }
-    if (context.config.configuration[KlibConfigurationKeys.SYNTHETIC_ACCESSORS_DUMP_DIR] != null) {
-        fragmentWithState.forEach { (fragment, state) -&gt; state.runSpecifiedLowerings(fragment, dumpSyntheticAccessorsPhase) }
-    }
-    fragmentWithState.forEach { (fragment, state) -&gt; state.runSpecifiedLowerings(fragment, validateIrAfterInliningAllFunctions) }
-    fragmentWithState.forEach { (fragment, state) -&gt; state.runSpecifiedLowerings(fragment, listOf(constEvaluationPhase)) }
-    fragmentWithState.forEach { (fragment, state) -&gt; state.runSpecifiedLowerings(fragment, state.context.config.getLoweringsAfterInlining()) }
-    fragmentWithState.forEach { (fragment, state) -&gt; state.runSpecifiedLowerings(fragment, validateIrAfterLowering) }
-</code></pre>
+<ol>
+<li><strong>验证和预处理</strong>: validateIrBeforeLowering</li>
+<li><strong>合成访问器生成</strong>: SyntheticAccessors  </li>
+<li><strong>内联优化</strong>: </li>
+<li>inlineAllFunctionsPhase</li>
+<li>内联私有函数</li>
+<li><strong>平台特定处理</strong>: specialObjCValidationPhase  </li>
+<li><strong>常量计算</strong>: constEvaluationPhase</li>
+<li><strong>后处理降级</strong>: getLoweringsAfterInlining()</li>
+<li><strong>最终验证</strong>: validateIrAfterLowering</li>
+</ol>
 <h3 id="ir-llvm-ircodegenphase">IR 转化为 LLVM IR(CodegenPhase)</h3>
 <p>Kotlin IR 转换为 LLVM IR 的过程也是通过访问者模式遍历 IrFile 及其子节点，然后调用 LLVM 相关的 API 进行转换。</p>
 <p>如下是一个简单的 Kotlin 函数转换为 LLVM IR 的示例：</p>
