@@ -944,10 +944,10 @@
       
         <li class="md-nav__item">
   <a href="#producebinary" class="md-nav__link">
-    生成二进制文件(produceBinary) 入口阶段
+    生成二进制文件(produceBinary)
   </a>
   
-    <nav class="md-nav" aria-label="生成二进制文件(produceBinary) 入口阶段">
+    <nav class="md-nav" aria-label="生成二进制文件(produceBinary)">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -963,19 +963,6 @@
   </a>
   
 </li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
-    后端处理
-  </a>
-  
-    <nav class="md-nav" aria-label="后端处理">
-      <ul class="md-nav__list">
         
           <li class="md-nav__item">
   <a href="#ir-ir-lowering-phase" class="md-nav__link">
@@ -2563,10 +2550,10 @@
       
         <li class="md-nav__item">
   <a href="#producebinary" class="md-nav__link">
-    生成二进制文件(produceBinary) 入口阶段
+    生成二进制文件(produceBinary)
   </a>
   
-    <nav class="md-nav" aria-label="生成二进制文件(produceBinary) 入口阶段">
+    <nav class="md-nav" aria-label="生成二进制文件(produceBinary)">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -2582,19 +2569,6 @@
   </a>
   
 </li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
-    后端处理
-  </a>
-  
-    <nav class="md-nav" aria-label="后端处理">
-      <ul class="md-nav__list">
         
           <li class="md-nav__item">
   <a href="#ir-ir-lowering-phase" class="md-nav__link">
@@ -2708,7 +2682,7 @@ serializerOutput?.let { engine.writeKlib(it) }              // 写入本地 KLib
         ├── kotlin
         └── native
 </code></pre>
-<h2 id="producebinary">生成二进制文件(produceBinary) 入口阶段</h2>
+<h2 id="producebinary">生成二进制文件(produceBinary)</h2>
 <p>在第二阶段，Kotlin/Native 的编译器将中间 KLib 与依赖的 KLib 进行编译链接，最终生成二进制文件。</p>
 <pre><code class="language-kotlin">private fun produceBinary(engine: PhaseEngine&lt;PhaseContext&gt;, config: KonanConfig, environment: KotlinCoreEnvironment) {
         val frontendOutput = performanceManager.tryMeasurePhaseTime(PhaseType.Analysis) { engine.runFrontend(config, environment) } ?: return
@@ -2745,8 +2719,6 @@ serializerOutput?.let { engine.writeKlib(it) }              // 写入本地 KLib
     context.psiToIr(input, useLinkerWhenProducingLibrary = false)
 }
 </code></pre>
-<h2 id="_3">后端处理</h2>
-<p>到这一步，才真正开始后端处理的工作了</p>
 <h3 id="ir-ir-lowering-phase">IR 降级阶段（IR Lowering Phase）</h3>
 <p>lowering 是指将高级的 Kotlin 代码转换成更加底层的、容易被后续编译阶段或目标平台（如 JVM 字节码、JavaScript、原生代码等）理解并处理的代码的过程。这个过程通常包括将更抽象、高级的语言特性分解成更基础的元素</p>
 <ol>
