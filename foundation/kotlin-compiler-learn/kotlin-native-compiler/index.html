@@ -997,6 +997,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    总结
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -2603,6 +2610,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    总结
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -2799,6 +2813,30 @@ internal val WriteBitcodeFilePhase = createSimpleNamedCompilerPhase&lt;PhaseCont
     runLinkerCommands(context, commands, cachingInvolved = !input.resolvedCacheBinaries.isEmpty())
 }
 </code></pre>
+<h2 id="_3">总结</h2>
+<ul>
+<li>入口阶段<ul>
+<li>从 K2Native.main() 开始，经过 doExecute() 和 KonanDriver.run()</li>
+<li>在 splitOntoTwoStages() 中决定采用两阶段编译</li>
+</ul>
+</li>
+<li>第一阶段：KLib 生成<ul>
+<li>FIR 生成：源代码 → 前端中间表示</li>
+<li>IR 转换：FIR → 中间表示</li>
+<li>IR 降级：预序列化处理</li>
+<li>序列化：生成包含 ir/, linkdata/, manifest 等的 KLib 文件</li>
+</ul>
+</li>
+<li>第二阶段：二进制生成<ul>
+<li>前端分析：反序列化 KLib 获取模块描述符</li>
+<li>IR 反序列化：从 KLib 重建 IR 模块</li>
+<li>IR 降级：更抽象、高级的语言特性分解成更基础的元素</li>
+<li>代码生成：IR → LLVM IR 转换</li>
+<li>BC 生成：LLVM IR 序列化为 Bitcode</li>
+<li>编译链接：BC → .o → 最终可执行文件</li>
+</ul>
+</li>
+</ul>
 
   <hr>
 <div class="md-source-file">
