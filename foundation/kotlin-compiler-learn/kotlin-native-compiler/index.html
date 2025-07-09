@@ -2644,6 +2644,7 @@
 <li>上面命令中的-agentlib:jdwp=... 是 JVM 的调试参数，用于开启远程调试支持，运行以上命令后，可以使用 IDEA 附加调试到 50015 端口进行调试。</li>
 </ul>
 <h2 id="_1">入口阶段</h2>
+<p>当我们通过命令行运行 Kotlin/Native 编译器时，首先会调用到 <code>K2Native.main()</code> 方法中。</p>
 <pre><code>K2Native.main() 
     ↓
 K2Native.doExecute()
@@ -2666,9 +2667,9 @@ engine.runFir2IrSerializer(FirSerializerInput(loweredIr))   // 序列化
 serializerOutput?.let { engine.writeKlib(it) }              // 写入本地 KLib 文件
 </code></pre>
 <p>在 K2 的编译流程中，前端编译生成 FIR（前端中间表示），然后将 FIR 转换为 IR（中间表示），接着进行 IR 的降级处理，最后序列化为 KLib。</p>
-<p>其中生成 FIR 与 FIR 转 IR 的过程与 Kotlin/JVM 是复用的，这里就不再赘述。生成的 IR 经过降级后，序列化为如下格式的 klib 文件。</p>
+<p>其中生成 FIR 与 FIR 转 IR 的过程与 Kotlin/JVM 是复用的，可以参照<a href="https://android-performance-optimization.github.io/foundation/kotlin-compiler-learn/kotlin-compiler-source/">Kotlin/JVM 编译流程浅析</a>，这里就不再赘述。生成的 IR 经过降级后，序列化为如下格式的 klib 文件。</p>
 <pre><code>klib
-├── ir
+├── ir                              # IR 相关文件
 │   ├── bodies.knb
 │   ├── debugInfo.knd
 │   ├── files.knf
@@ -2676,7 +2677,7 @@ serializerOutput?.let { engine.writeKlib(it) }              // 写入本地 KLib
 │   ├── signatures.knt
 │   ├── strings.knt
 │   └── types.knt
-├── linkdata
+├── linkdata                        # 链接时元数据
 │   ├── module
 │   ├── package_com
 │   │   └── 0_com.knm
@@ -2688,9 +2689,9 @@ serializerOutput?.let { engine.writeKlib(it) }              // 写入本地 KLib
 │   │   └── 0_infra.knm
 │   └── root_package
 │       └── 0_.knm
-├── manifest
-├── resources
-└── targets
+├── manifest                        # 模块元数据
+├── resources                       # 资源文件
+└── targets                         # 目标平台相关文件
     └── ios_arm64
         ├── included
         ├── kotlin
@@ -2715,7 +2716,7 @@ serializerOutput?.let { engine.writeKlib(it) }              // 写入本地 KLib
 <li>bindingContext: 由于没有源码，这里的 bindingContext 为空</li>
 <li>environment： 由于没有源码，这里的 psi 列表也为空</li>
 </ul>
-<p>这个阶段虽然 PSI 和 BindingContext 是空的，但模块级别的元数据是完整的，这是后续 IR 反序列化的基础。</p>
+<p>这个阶段因为源码列表为空，PSI 和 BindingContext 都是空的，但模块级别的元数据是完整的，这是后续 IR 反序列化的基础。</p>
 <pre><code class="language-kotlin">internal val FrontendPhase = createSimpleNamedCompilerPhase(
         &quot;Frontend&quot;,
         outputIfNotEnabled = { _, _, _, _ -&gt; FrontendPhaseOutput.ShouldNotGenerateCode }
@@ -2843,7 +2844,7 @@ internal val WriteBitcodeFilePhase = createSimpleNamedCompilerPhase&lt;PhaseCont
   <small>
     
       最后更新:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">July 6, 2025</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">July 9, 2025</span>
       
     
   </small>
