@@ -944,6 +944,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#cinterop" class="md-nav__link">
+    调试 CInterop 过程
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -2497,6 +2504,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#cinterop" class="md-nav__link">
+    调试 CInterop 过程
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -2523,13 +2537,16 @@
 <li>代码生成阶段: 生成跨语言调用的胶水代码</li>
 <li>运行时支持阶段: 内存管理与错误处理等</li>
 </ul>
+<h2 id="cinterop">调试 CInterop 过程</h2>
+<pre><code>./kotlin-native/dist/bin/run_konan cinterop -def ./compilerTestData/cinterop/hello.def -o compilerTestData/cinterop/output -J&quot;-agentlib:jdwp=transport=dt_socket,server=y,suspend=y,address=*:50015&quot;
+</code></pre>
 
   <hr>
 <div class="md-source-file">
   <small>
     
       最后更新:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">July 29, 2025</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">August 3, 2025</span>
       
     
   </small>
