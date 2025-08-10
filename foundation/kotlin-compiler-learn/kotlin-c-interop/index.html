@@ -1019,6 +1019,20 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    运行时处理
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    总结
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -2647,6 +2661,20 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    运行时处理
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    总结
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -2666,15 +2694,8 @@
 
 
 <h1 id="kotlin-c">Kotlin 调用 C 语言是如何实现的?</h1>
-<p>Kotlin 通过 C-interop 实现与 C 语言的互操作性，允许 Kotlin 代码调用 C 函数和使用 C 数据结构。C-interop 是 Kotlin/Native 的一部分，提供了一种机制来生成 Kotlin 代码，以便与 C 库进行交互。</p>
-<p>C-interop 的工作原理是通过解析 C 头文件，生成相应的 Kotlin 代码和 KLIB（Kotlin Library）文件。这个过程包括以下几个步骤：</p>
-<ol>
-<li><strong>接口定义</strong>：使用 <code>.def</code> 文件定义 C 接口，包括头文件、编译选项、链接选项等信息。</li>
-<li><strong>绑定生成</strong>：C-interop 工具解析 <code>.def</code> 文件，生成 Kotlin 代码和 KLIB 文件。这些 KLIB 文件包含了 C 函数的声明和数据结构的定义，使得 Kotlin 可以调用 C 函数。</li>
-<li><strong>数据类型转换</strong>：C-interop 处理基础类型（如整数、浮点数等）和复杂类型（如结构体、枚举等）的映射转换。它会生成相应的 Kotlin 类型，以便在 Kotlin 代码中使用 C 数据结构。</li>
-<li><strong>代码生成</strong>：C-interop 工具生成胶水代码，这些代码在 Kotlin 和 C 之间进行调用和数据传递。它会生成必要的函数调用包装器和属性访问器，以便 Kotlin 可以调用 C 函数。</li>
-<li><strong>运行时支持</strong>：C-interop 提供了运行时支持，包括内存管理和错误处理等。它确保 Kotlin 代码可以正确地与 C 代码交互，并处理跨语言调用中的内存分配和释放。    </li>
-</ol>
+<p>Kotlin/Native 通过 C-interop 机制实现与 C 语言的互操作性，允许 Kotlin 代码直接调用 C 函数和使用 C 数据结构。C-interop 通过解析 C 语言头文件自动生成相应的 Kotlin 绑定代码，为 Kotlin 与 C 库的交互提供了无缝的桥梁。</p>
+<p>我们就一起来看下，Kotlin 调用 C 语言具体是如何实现的。</p>
 <h2 id="_1">接口定义</h2>
 <pre><code>headers = hello.h
 
@@ -2846,6 +2867,15 @@ generateCCall(expression: IrCall, builder: IrBuilderWithScope, isInvoke: Boolean
     return result
 }
 </code></pre>
+<h2 id="_7">运行时处理</h2>
+<p>我们知道，Kotlin/Native 使用自动垃圾回收，而 C 语言使用手动内存管理，因此在 Kotlin 调用 C 函数时，可能导致了以下关键问题：</p>
+<ul>
+<li>生命周期不匹配：Kotlin 对象可能被 GC 回收，而 C 代码仍持有引用</li>
+<li>内存泄漏风险：C 代码分配的内存需要手动释放</li>
+<li>数据所有权不明确：谁负责释放内存？</li>
+</ul>
+<p>Kotlin/Native 通过运行时库提供了 C-interop 的支持，处理这些问题。具体原理在介绍 Kotlin/Native 内存管理机制时再介绍。</p>
+<h2 id="_8">总结</h2>
 
   <hr>
 <div class="md-source-file">
