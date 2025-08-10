@@ -2877,9 +2877,11 @@ generateCCall(expression: IrCall, builder: IrBuilderWithScope, isInvoke: Boolean
 <p>Kotlin/Native 通过运行时库提供了 C-interop 的支持，处理这些问题。具体原理在介绍 Kotlin/Native 内存管理机制时再介绍。</p>
 <h2 id="_8">总结</h2>
 <p>Kotlin/Native 与 C 语言的互操作性是其核心特性之一，它通过 <code>cinterop</code> 工具链实现。该过程首先通过一个 <code>.def</code> 配置文件来声明需要交互的 C 库头文件和链接信息。</p>
-<p><code>cinterop</code> 工具会解析这些头文件，并执行以下关键操作：
-1.  <strong>生成 Kotlin IR 存根</strong>：创建 C 函数和类型的 Kotlin 声明，并将其存储为 <code>.klib</code> 中的元数据。这使得 Kotlin 编译器能够识别这些外部符号。
-2.  <strong>生成 C 桥接代码</strong>：创建 C “胶水”函数（wrapper），用于安全地调用原始 C 函数。这些桥接代码随后被编译成原生 LLVM 位码。</p>
+<p><code>cinterop</code> 工具会解析这些头文件，并执行以下关键操作：</p>
+<ol>
+<li><strong>生成 Kotlin IR 存根</strong>：创建 C 函数和类型的 Kotlin 声明，并将其存储为 <code>.klib</code> 中的元数据。这使得 Kotlin 编译器能够识别这些外部符号。</li>
+<li><strong>生成 C 桥接代码</strong>：创建 C “胶水”函数（wrapper），用于安全地调用原始 C 函数。这些桥接代码随后被编译成原生 LLVM 位码。</li>
+</ol>
 <p>最终，Kotlin 元数据和原生位码被一同打包进一个 <code>.klib</code> 文件。当编译器在用户代码中遇到对 C 函数的调用时（通过 <code>@CCall</code> 注解识别），它会链接到 <code>.klib</code> 中对应的桥接函数，从而完成整个调用链路。这个精巧的设计使得开发者可以在 Kotlin 中以类型安全的方式无缝调用底层 C 代码。</p>
 
   <hr>
