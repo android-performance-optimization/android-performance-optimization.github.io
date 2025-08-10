@@ -939,8 +939,82 @@
       
         <li class="md-nav__item">
   <a href="#_1" class="md-nav__link">
-    实现跨语言调用的一般流程
+    接口定义
   </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    绑定生成
+  </a>
+  
+    <nav class="md-nav" aria-label="绑定生成">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    参数解析
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    调用核心生成器
+  </a>
+  
+    <nav class="md-nav" aria-label="调用核心生成器">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#c" class="md-nav__link">
+    获取 C 库定义
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#kotlin-ir" class="md-nav__link">
+    构建 Kotlin IR 存根
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    构建桥接代码
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    原生代码编译
+  </a>
+  
+    <nav class="md-nav" aria-label="原生代码编译">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#klib" class="md-nav__link">
+    生成 KLIB
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -2499,8 +2573,82 @@
       
         <li class="md-nav__item">
   <a href="#_1" class="md-nav__link">
-    实现跨语言调用的一般流程
+    接口定义
   </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    绑定生成
+  </a>
+  
+    <nav class="md-nav" aria-label="绑定生成">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    参数解析
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    调用核心生成器
+  </a>
+  
+    <nav class="md-nav" aria-label="调用核心生成器">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#c" class="md-nav__link">
+    获取 C 库定义
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#kotlin-ir" class="md-nav__link">
+    构建 Kotlin IR 存根
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    构建桥接代码
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    原生代码编译
+  </a>
+  
+    <nav class="md-nav" aria-label="原生代码编译">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#klib" class="md-nav__link">
+    生成 KLIB
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -2530,15 +2678,168 @@
 
 
 <h1 id="kotlin-c">Kotlin 调用 C 语言是如何实现的?</h1>
-<h2 id="_1">实现跨语言调用的一般流程</h2>
-<ul>
-<li>接口定义与绑定生成: 定义目标语言的接口描述，生成调用方语言的绑定代码，建立数据类型映射关系</li>
-<li>数据类型转换：实现基础类型与复杂类型的映射转换</li>
-<li>代码生成阶段: 生成跨语言调用的胶水代码</li>
-<li>运行时支持阶段: 内存管理与错误处理等</li>
-</ul>
+<p>Kotlin 通过 C-interop 实现与 C 语言的互操作性，允许 Kotlin 代码调用 C 函数和使用 C 数据结构。C-interop 是 Kotlin/Native 的一部分，提供了一种机制来生成 Kotlin 代码，以便与 C 库进行交互。</p>
+<p>C-interop 的工作原理是通过解析 C 头文件，生成相应的 Kotlin 代码和 KLIB（Kotlin Library）文件。这个过程包括以下几个步骤：</p>
+<ol>
+<li><strong>接口定义</strong>：使用 <code>.def</code> 文件定义 C 接口，包括头文件、编译选项、链接选项等信息。</li>
+<li><strong>绑定生成</strong>：C-interop 工具解析 <code>.def</code> 文件，生成 Kotlin 代码和 KLIB 文件。这些 KLIB 文件包含了 C 函数的声明和数据结构的定义，使得 Kotlin 可以调用 C 函数。</li>
+<li><strong>数据类型转换</strong>：C-interop 处理基础类型（如整数、浮点数等）和复杂类型（如结构体、枚举等）的映射转换。它会生成相应的 Kotlin 类型，以便在 Kotlin 代码中使用 C 数据结构。</li>
+<li><strong>代码生成</strong>：C-interop 工具生成胶水代码，这些代码在 Kotlin 和 C 之间进行调用和数据传递。它会生成必要的函数调用包装器和属性访问器，以便 Kotlin 可以调用 C 函数。</li>
+<li><strong>运行时支持</strong>：C-interop 提供了运行时支持，包括内存管理和错误处理等。它确保 Kotlin 代码可以正确地与 C 代码交互，并处理跨语言调用中的内存分配和释放。    </li>
+</ol>
+<h2 id="_1">接口定义</h2>
+<pre><code>headers = hello.h
+
+# (For cinterop tool) Path to search for static libraries.
+# Must be relative to the project root.
+libraryPaths = src/nativeInterop/cinterop
+
+# (For final linker) Options to be embedded in the klib.
+# Must be relative to the project root.
+linkerOpts = -Lsrc/nativeInterop/cinterop
+
+# The static library file to be included.
+staticLibraries = libhello.a
+
+# (For cinterop tool) Path to search for header files.
+# Must be relative to the project root.
+compilerOpts = -Isrc/nativeInterop/cinterop
+</code></pre>
+<p>如上所示，<code>.def</code> 文件定义了 C 接口，包括头文件、编译选项、链接选项等信息。C-interop 工具将解析这个文件，并生成相应的 Kotlin 代码和 KLIB 文件。</p>
+<h2 id="_2">绑定生成</h2>
+<pre><code>./kotlin-native/dist/bin/run_konan cinterop -def ./compilerTestData/cinterop/hello.def -o compilerTestData/cinterop/Hello -J&quot;-agentlib:jdwp=transport=dt_socket,server=y,suspend=y,address=*:50015&quot;
+</code></pre>
+<p>当我们执行 C-interop 命令时，实际上是调用了以上命令，这个命令会执行以下操作：</p>
+<h3 id="_3">参数解析</h3>
+<p>执行以上命令行时，会执行到 mainImpl 函数，该函数负责解析命令行参数，并根据参数调用相应的 C-interop 工具。</p>
+<pre><code>private fun mainImpl(args: Array&lt;String&gt;, runFromDaemon: Boolean, konancMain: (Array&lt;String&gt;) -&gt; Unit) {
+    val utilityName = args[0]
+    val utilityArgs = args.drop(1).toTypedArray()
+    when (utilityName) {
+        &quot;cinterop&quot; -&gt; {
+            val konancArgs = invokeInterop(&quot;native&quot;, utilityArgs, runFromDaemon)
+            konancArgs?.let { konancMain(it) }
+        }
+        // ...
+    }
+}
+</code></pre>
+<h3 id="_4">调用核心生成器</h3>
+<p>在解析完参数后，C-interop 工具会调用核心生成器来处理 C 库的绑定生成。这个过程主要由 <code>processCLib</code> 函数完成。</p>
+<p><code>processCLib</code> 的主要职责是：获取 C 库的完整定义，调用 LLVM 解析其头文件，生成所有必要的 Kotlin 和 C 的“胶水代码”（stubs），并将其编译打包，为最终生成 KLIB 做好准备。</p>
+<h4 id="c">获取 C 库定义</h4>
+<p>在 <code>processCLib</code> 函数中，首先会获取 C 库的定义, 这一步通过调用 LLVM 解析 <code>.def</code> 中指定的头文件来完成的。</p>
+<pre><code>// nativeIndex 是一个抽象类，它描述了来自C头文件的定义的IR
+val (nativeIndex, compilation) = buildNativeIndexImpl(library, verbose, allowPrecompiledHeaders = nativeLibsDir != null)
+</code></pre>
+<h4 id="kotlin-ir">构建 Kotlin IR 存根</h4>
+<p>这一步的主要任务是从 C AST 中提取所有声明信息，并将 C 声明转换为 Kotlin IR 存根。</p>
+<pre><code class="language-kotlin">class StubIrBuilder(private val context: StubIrContext) {
+    fun build(): StubIrBuilderResult {
+        // ...
+        nativeIndex.functions.filter { it.name !in excludedFunctions }.forEach { generateStubsForFunction(it) }
+        // ...
+        return StubIrBuilderResult(
+                stubs,
+                buildingContext.declarationMapper,
+                buildingContext.bridgeComponentsBuilder.build(),
+                buildingContext.wrapperComponentsBuilder.build()
+        )
+    }    
+}
+
+// 生成类型映射和函数签名
+fun mirror(declarationMapper: DeclarationMapper, type: Type): TypeMirror = when (type) {
+    is PrimitiveType -&gt; mirrorPrimitiveType(type, declarationMapper)
+    is RecordType -&gt; byRefTypeMirror(declarationMapper.getKotlinClassForPointed(type.decl).type)
+    is EnumType -&gt; // ...
+    is PointerType -&gt; // ...
+    is ArrayType -&gt; // ...
+    is FunctionType -&gt; byRefTypeMirror(KotlinTypes.cFunction.typeWith(getKotlinFunctionType(declarationMapper, type)))
+    is Typedef -&gt; // ...
+    is ObjCPointer -&gt; objCPointerMirror(declarationMapper, type)
+    else -&gt; TODO(type.toString())
+}
+</code></pre>
+<p>这一步会处理基础类型（如整数、浮点数等）和复杂类型（如结构体、枚举等）的映射转换。它会生成相应的 Kotlin 类型，以便在 Kotlin 代码中使用 C 数据结构</p>
+<p>这一步生成的内容实现上就是 CInterop 生成的 knm(kotlin native metadata) 文件，生成的内容就是函数声明，如下所示：</p>
+<pre><code>package hello
+
+@kotlinx.cinterop.internal.CCall 
+@kotlinx.cinterop.ExperimentalForeignApi 
+public external fun hello_from_c(timestamp: kotlin.Long): kotlin.Unit { /* compiled code */ }
+</code></pre>
+<h4 id="_5">构建桥接代码</h4>
+<pre><code>class StubIrDriver(
+        private val context: StubIrContext,
+        private val options: DriverOptions
+) {
+    fun run(): Result {
+        // 生成 Kotlin IR 存根
+        val builderResult = StubIrBuilder(context).build()
+        // 构建桥接代码
+        val bridgeBuilderResult = StubIrBridgeBuilder(context, builderResult).build()
+        // 生成 C 存根文件
+        outCFile.bufferedWriter().use {
+            emitCFile(context, it, entryPoint, bridgeBuilderResult.nativeBridges)
+        }
+        // ...
+    }
+}
+</code></pre>
+<p>这一步的主要作用是生成 Kotlin 和 C 之间的桥接代码并写入 C 存根文件。它会创建函数调用包装器，生成属性访问器，并处理类型转换。</p>
+<p>生成的内容如下所示，可以看到生成了<code>hello_from_c</code> 函数的调用包装器，后续 Kotlin 代码调用这个函数时，会通过这个包装器来调用 C 函数。</p>
+<pre><code class="language-c">// __attribute__((always_inline)): 强制内联优化，减少函数调用开销
+__attribute__((always_inline))
+// 函数名 hello_hello_from_c_wrapper0 由 Kotlin/Native 自动生成
+// 参数 long long p0 对应 Kotlin 的 Long 类型
+void hello_hello_from_c_wrapper0(long long p0) {
+    hello_from_c(p0);
+}
+
+// 声明函数指针变量，用于存储包装器函数的地址
+// __asm(&quot;knifunptr_hello0_hello_from_c&quot;) 指定汇编符号名，避免命名冲突
+const void* knifunptr_hello0_hello_from_c __asm(&quot;knifunptr_hello0_hello_from_c&quot;);
+// 将包装器函数的地址赋值给函数指针变量
+// 这样 Kotlin 代码就可以通过这个函数指针安全地调用 C 函数
+const void* knifunptr_hello0_hello_from_c = (const void*)&amp;hello_hello_from_c_wrapper0;
+</code></pre>
+<h3 id="_6">原生代码编译</h3>
+<p>上面生成的 C 桥接代码，需要通过 LLVM 编译为 bc 文件。</p>
+<pre><code>when (flavor) {
+    KotlinPlatform.NATIVE -&gt; {
+        // 编译为 LLVM 位码 (.bc) 文件
+        val outLib = File(nativeLibsDir, &quot;$libName.bc&quot;)
+        val compilerCmd = arrayOf(compiler, *compilerArgs,
+            &quot;-emit-llvm&quot;, &quot;-x&quot;, library.language.clangLanguageName, 
+            &quot;-c&quot;, &quot;-&quot;, &quot;-o&quot;, outLib.absolutePath)
+        runCmd(compilerCmd, verbose, redirectInputFile = File(outCFile.absolutePath))
+    }
+}
+</code></pre>
+<h4 id="klib">生成 KLIB</h4>
+<p>最后一步是将生成的 Kotlin IR 存根和桥接代码序列化并写入 KLIB 文件。这一步会将库的元数据、IR Stub、manifest 文件等所有内容，按照 .klib 文件格式的标准目录结构，写入到由 -o 参数指定的输出目录中。</p>
+<pre><code class="language-kotlin">when (stubIrOutput) {
+    is StubIrDriver.Result.Metadata -&gt; {
+        createInteropLibrary(
+            metadata = stubIrOutput.metadata,           // Kotlin 元数据
+            nativeBitcodeFiles = compiledFiles + nativeOutputPath,  // 原生位码
+            target = tool.target,                       // 目标平台
+            moduleName = moduleName,                    // 模块名
+            outputPath = outputPath,                    // 输出路径
+            manifest = def.manifestAddendProperties,    // 清单属性
+            dependencies = stdlibDependency + imports.requiredLibraries,
+            nopack = nopack,                           // 是否打包
+            shortName = cinteropArguments.shortModuleName,
+            staticLibraries = resolveLibraries(staticLibraries, libraryPaths)
+        )
+    }
+}
+</code></pre>
 <h2 id="cinterop">调试 CInterop 过程</h2>
-<pre><code>./kotlin-native/dist/bin/run_konan cinterop -def ./compilerTestData/cinterop/hello.def -o compilerTestData/cinterop/output -J&quot;-agentlib:jdwp=transport=dt_socket,server=y,suspend=y,address=*:50015&quot;
+<pre><code>./kotlin-native/dist/bin/run_konan cinterop -def ./compilerTestData/cinterop/hello.def -o compilerTestData/cinterop/Hello -J&quot;-agentlib:jdwp=transport=dt_socket,server=y,suspend=y,address=*:50015&quot;
+
+./kotlin-native/dist/bin/run_konan konanc ./compilerTestData/cinterop/Main.kt -library ./compilerTestData/cinterop/Hello.klib -o ./compilerTestData/cinterop/Hello -J&quot;-agentlib:jdwp=transport=dt_socket,server=y,suspend=y,address=*:50015&quot;
 </code></pre>
 
   <hr>
@@ -2546,7 +2847,7 @@
   <small>
     
       最后更新:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">August 3, 2025</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">August 10, 2025</span>
       
     
   </small>
