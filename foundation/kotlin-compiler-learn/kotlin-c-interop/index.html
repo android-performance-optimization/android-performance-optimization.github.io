@@ -946,10 +946,10 @@
       
         <li class="md-nav__item">
   <a href="#_2" class="md-nav__link">
-    绑定生成
+    绑定与桥接生成
   </a>
   
-    <nav class="md-nav" aria-label="绑定生成">
+    <nav class="md-nav" aria-label="绑定与桥接生成">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -988,18 +988,12 @@
   
 </li>
         
-      </ul>
-    </nav>
-  
-</li>
-        
           <li class="md-nav__item">
   <a href="#_6" class="md-nav__link">
     原生代码编译
   </a>
   
-    <nav class="md-nav" aria-label="原生代码编译">
-      <ul class="md-nav__list">
+</li>
         
           <li class="md-nav__item">
   <a href="#klib" class="md-nav__link">
@@ -1019,8 +1013,8 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#cinterop" class="md-nav__link">
-    调试 CInterop 过程
+  <a href="#ccall" class="md-nav__link">
+    编译器处理 @CCall 函数调用
   </a>
   
 </li>
@@ -2580,10 +2574,10 @@
       
         <li class="md-nav__item">
   <a href="#_2" class="md-nav__link">
-    绑定生成
+    绑定与桥接生成
   </a>
   
-    <nav class="md-nav" aria-label="绑定生成">
+    <nav class="md-nav" aria-label="绑定与桥接生成">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -2622,18 +2616,12 @@
   
 </li>
         
-      </ul>
-    </nav>
-  
-</li>
-        
           <li class="md-nav__item">
   <a href="#_6" class="md-nav__link">
     原生代码编译
   </a>
   
-    <nav class="md-nav" aria-label="原生代码编译">
-      <ul class="md-nav__list">
+</li>
         
           <li class="md-nav__item">
   <a href="#klib" class="md-nav__link">
@@ -2653,8 +2641,8 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#cinterop" class="md-nav__link">
-    调试 CInterop 过程
+  <a href="#ccall" class="md-nav__link">
+    编译器处理 @CCall 函数调用
   </a>
   
 </li>
@@ -2706,7 +2694,7 @@ staticLibraries = libhello.a
 compilerOpts = -Isrc/nativeInterop/cinterop
 </code></pre>
 <p>如上所示，<code>.def</code> 文件定义了 C 接口，包括头文件、编译选项、链接选项等信息。C-interop 工具将解析这个文件，并生成相应的 Kotlin 代码和 KLIB 文件。</p>
-<h2 id="_2">绑定生成</h2>
+<h2 id="_2">绑定与桥接生成</h2>
 <pre><code>./kotlin-native/dist/bin/run_konan cinterop -def ./compilerTestData/cinterop/hello.def -o compilerTestData/cinterop/Hello -J&quot;-agentlib:jdwp=transport=dt_socket,server=y,suspend=y,address=*:50015&quot;
 </code></pre>
 <p>当我们执行 C-interop 命令时，实际上是调用了以上命令，这个命令会执行以下操作：</p>
@@ -2804,7 +2792,7 @@ const void* knifunptr_hello0_hello_from_c __asm(&quot;knifunptr_hello0_hello_fro
 // 这样 Kotlin 代码就可以通过这个函数指针安全地调用 C 函数
 const void* knifunptr_hello0_hello_from_c = (const void*)&amp;hello_hello_from_c_wrapper0;
 </code></pre>
-<h3 id="_6">原生代码编译</h3>
+<h4 id="_6">原生代码编译</h4>
 <p>上面生成的 C 桥接代码，需要通过 LLVM 编译为 bc 文件。</p>
 <pre><code>when (flavor) {
     KotlinPlatform.NATIVE -&gt; {
@@ -2836,10 +2824,27 @@ const void* knifunptr_hello0_hello_from_c = (const void*)&amp;hello_hello_from_c
     }
 }
 </code></pre>
-<h2 id="cinterop">调试 CInterop 过程</h2>
-<pre><code>./kotlin-native/dist/bin/run_konan cinterop -def ./compilerTestData/cinterop/hello.def -o compilerTestData/cinterop/Hello -J&quot;-agentlib:jdwp=transport=dt_socket,server=y,suspend=y,address=*:50015&quot;
+<h2 id="ccall">编译器处理 @CCall 函数调用</h2>
+<p>上面生成的 KLIB 文件，包含了 Kotlin IR 存根和桥接代码。接下来，Kotlin 编译器会处理这个 KLIB 文件，将其与 Kotlin 代码进行链接。通过以下命令行执行 Kotlin 编译器：</p>
+<pre><code>./kotlin-native/dist/bin/run_konan konanc ./compilerTestData/cinterop/Main.kt -library ./compilerTestData/cinterop/Hello.klib -o ./compilerTestData/cinterop/Hello -J&quot;-agentlib:jdwp=transport=dt_socket,server=y,suspend=y,address=*:50015&quot;
+</code></pre>
+<p>同时我们可以看到，上面生成的 knm 中的函数为<code>hello_from_c</code>，而生成的桥接代码中的函数是<code>knifunptr_hello0_hello_from_c</code>，因此 Kotlin 编译器还需要识别<code>@kotlinx.cinterop.internal.CCall</code>函数，并修改调用代码，将其替换为桥接函数。</p>
+<pre><code class="language-kotlin">// 处理 C 函数调用
+if (function.annotations.hasAnnotation(RuntimeNames.cCall)) {
+    return generateCCall(expression)、
+}
 
-./kotlin-native/dist/bin/run_konan konanc ./compilerTestData/cinterop/Main.kt -library ./compilerTestData/cinterop/Hello.klib -o ./compilerTestData/cinterop/Hello -J&quot;-agentlib:jdwp=transport=dt_socket,server=y,suspend=y,address=*:50015&quot;
+generateCCall(expression: IrCall, builder: IrBuilderWithScope, isInvoke: Boolean,
+                                       foreignExceptionMode: ForeignExceptionMode.Mode = ForeignExceptionMode.default): IrExpression {
+    // ...
+    if (isInvoke) {
+        callBuilder.cBridgeBodyLines.add(0, &quot;$targetFunctionVariable = ${targetPtrParameter!!};&quot;)
+    } else {
+        val cCallSymbolName = callee.getAnnotationArgumentValue&lt;String&gt;(RuntimeNames.cCall, &quot;id&quot;)!!
+        this.addC(listOf(&quot;extern const $targetFunctionVariable __asm(\&quot;$cCallSymbolName\&quot;);&quot;)) // Exported from cinterop stubs.
+    }
+    return result
+}
 </code></pre>
 
   <hr>
