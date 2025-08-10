@@ -2771,7 +2771,7 @@ fun mirror(declarationMapper: DeclarationMapper, type: Type): TypeMirror = when 
 }
 </code></pre>
 <p>这一步会处理基础类型（如整数、浮点数等）和复杂类型（如结构体、枚举等）的映射转换。它会生成相应的 Kotlin 类型，以便在 Kotlin 代码中使用 C 数据结构</p>
-<p>这一步生成的内容实现上就是 CInterop 生成的 knm(kotlin native metadata) 文件，生成的内容就是函数声明，如下所示：</p>
+<p>这一步生成的内容实际上就是 CInterop 生成的 knm(kotlin native metadata) 文件，生成的内容就是函数声明，如下所示：</p>
 <pre><code>package hello
 
 @kotlinx.cinterop.internal.CCall 
