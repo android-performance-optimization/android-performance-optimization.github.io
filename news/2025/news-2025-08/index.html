@@ -2015,6 +2015,40 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#ai-codingclaude-code" class="md-nav__link">
+    如何用AI Coding和Claude Code提升开发效率？看我的全流程复盘
+  </a>
+  
+    <nav class="md-nav" aria-label="如何用AI Coding和Claude Code提升开发效率？看我的全流程复盘">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ai-coding" class="md-nav__link">
+    一、AI Coding通用经验
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#claude-code" class="md-nav__link">
+    二、Claude Code专项经验
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    三、其他探索
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -2548,6 +2582,40 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#ai-codingclaude-code" class="md-nav__link">
+    如何用AI Coding和Claude Code提升开发效率？看我的全流程复盘
+  </a>
+  
+    <nav class="md-nav" aria-label="如何用AI Coding和Claude Code提升开发效率？看我的全流程复盘">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ai-coding" class="md-nav__link">
+    一、AI Coding通用经验
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#claude-code" class="md-nav__link">
+    二、Claude Code专项经验
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    三、其他探索
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -2596,6 +2664,23 @@ android.r8.optimizedResourceShrinking=true
 <p>通过内置仓颉 Markdown 渲染引擎，显著提升了长对话的渲染性能，实现了流畅无卡顿的渲染效果，其丝滑的操作体验广受用户好评。</p>
 <p><img alt="" src="https://hub.gitmirror.com/raw.githubusercontent.com/RicardoJiang/resource/refs/heads/main/2025/september/p2.png" /></p>
 <p><img alt="" src="https://hub.gitmirror.com/raw.githubusercontent.com/RicardoJiang/resource/refs/heads/main/2025/september/p3.png" /></p>
+<h3 id="ai-codingclaude-code"><a href="https://mp.weixin.qq.com/s/phoorXCMk6j3pcrPVpc5EQ">如何用AI Coding和Claude Code提升开发效率？看我的全流程复盘</a></h3>
+<h4 id="ai-coding">一、AI Coding通用经验</h4>
+<ol>
+<li><strong>Prompt工程技巧</strong>：需清晰描述需求（避免一句话需求，中文有二义性可中英文混合）；用结构化方式（如COSTAR框架、Claude适配的伪xml）；可借助AI工具优化Prompt。</li>
+<li><strong>任务边界划分</strong>：能力内任务（如CRUD、需求明确的coding）让AI提效；略超能力任务（如跨语言SDK适配）可借助AI；远超能力任务（陌生技术领域）不建议依赖AI。</li>
+<li><strong>开发流程原则</strong>：小步快跑，代码生成后分步验证；必须Review AI生成内容，防幻觉与质量问题；让AI写单元测试但需人工审核；频繁提交git便于回滚。</li>
+<li><strong>上下文管理</strong>：提供精确信息（明确文件路径等）；压缩无效信息（如筛选异常日志关键行）；控制任务粒度，避免超上下文限制；用外部文档或工具（如mem0）辅助记忆；为项目建立知识库（如让AI先写README）。</li>
+</ol>
+<h4 id="claude-code">二、Claude Code专项经验</h4>
+<ol>
+<li><strong>基础认知与安装</strong>：由主模型+15个专用工具（任务管理、文件编辑等）组成；终端执行命令安装，需api key（心流网站申请），可修改配置换模型。</li>
+<li><strong>常用操作与扩展</strong>：启动参数（--dangerously-skip-permissions跳过权限询问、--continue续会话）；交互指令（/memory编辑记忆、/compact压缩上下文）；可装扩展（如ccusage查模型用量）。</li>
+<li><strong>项目配置与管理</strong>：用/init生成CLAUDE.md存项目记忆（核心信息、编码规范等），可分层存储；定期压缩上下文、更新文档，任务后用/clean清除上下文。</li>
+<li><strong>高效开发方法</strong>：复杂项目先plan再code（AI出计划，人纠偏）；用git worktree多实例协作（处理不同任务，避免冲突）；借助MCP扩展能力（如Context7提文档、Figma MCP还原交互稿）。</li>
+</ol>
+<h4 id="_3">三、其他探索</h4>
+<p>Claude Code可拓展场景：生成HTML报告（如行程规划）、制作PPT（用reveal.js）、处理Excel并导出分析结果（如高考志愿填报）。</p>
 
   <hr>
 <div class="md-source-file">
