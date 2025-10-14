@@ -2011,48 +2011,6 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#1" class="md-nav__link">
-    1. 功能定位与核心亮点
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#2" class="md-nav__link">
-    2. 完整工作流
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#3" class="md-nav__link">
-    3. 高效编写技巧
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#4" class="md-nav__link">
-    4. 局限
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#5" class="md-nav__link">
-    5. 适用与不适用场景
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#6" class="md-nav__link">
-    6. 总结
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
   <a href="#llvm" class="md-nav__link">
     盘点近期LLVM加持的国内编译技术新趋势
   </a>
@@ -2600,48 +2558,6 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#1" class="md-nav__link">
-    1. 功能定位与核心亮点
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#2" class="md-nav__link">
-    2. 完整工作流
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#3" class="md-nav__link">
-    3. 高效编写技巧
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#4" class="md-nav__link">
-    4. 局限
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#5" class="md-nav__link">
-    5. 适用与不适用场景
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#6" class="md-nav__link">
-    6. 总结
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
   <a href="#llvm" class="md-nav__link">
     盘点近期LLVM加持的国内编译技术新趋势
   </a>
@@ -2677,37 +2593,14 @@
 <h2 id="_1">精选博客</h2>
 <h3 id="android-studio-journey-test-ai-ui"><a href="https://juejin.cn/post/7558481646861926452">Android Studio 新功能 Journey Test：借助 AI 实现基于自然语言的 UI 测试用例编写</a></h3>
 <p>在 Android 应用开发中，大家经常使用单元测试框架进行 UI 测试。随着技术演进，Android Studio 推出的 Journey Test 功能，依托 Gemini AI，为 UI 测试带来了全新的范式转变。</p>
-<h3 id="1">1. 功能定位与核心亮点</h3>
 <ul>
-<li>是Android Studio依托Gemini AI推出的UI测试新功能，核心是将自然语言描述的测试步骤（如“输入邮箱并验证错误提示”）转化为可执行测试用例，兼顾人类可读性与机器执行力。</li>
+<li>核心能力创新：Journey Test 打破传统 UI 测试需编写复杂代码的模式，借助自然语言和 Gemini AI 能力。开发者像产品经理或 QA 描述计划一样，用自然语言描述如 “在邮箱输入框输入内容并验证错误提示”，Gemini AI 就能转化为可执行测试用例，兼顾人类可读性与机器精准执行，为 UI 测试带来全新思路。</li>
+<li>完整工作流程：创建 Journey 文件通过特定步骤在 Android Studio 生成 XML 文件；编辑测试步骤可在 Design 视图友好操作或在 Code 视图编写自然语言指令，如登录界面测试的 XML 示例展示了全面测试流程；运行与调试时选设备运行，Android Studio 部署应用、调用 Gemini AI 执行并生成便于调试的报告。</li>
+<li>编写技巧与适用场景：编写时分离断言与操作、利用滑动操作指引 Gemini、避免复杂交互能提升测试效率。它适用于需求文档与测试用例协同对齐、原型阶段 UI 流程验证及补充现有测试，不适用于生产环境 CI/CD 流水线、性能敏感高频测试及复杂交互测试，在特定场景下能发挥重要作用。</li>
 </ul>
-<h3 id="2">2. 完整工作流</h3>
-<ul>
-<li><strong>创建文件</strong>：右键项目应用模块→选“New &gt; Test &gt; Journey File”→输入名称描述，生成XML文件。</li>
-<li><strong>编辑步骤</strong>：通过XML的Design（可视化拖动）或Code视图，用自然语言定义测试动作与断言（如验证按钮禁用、输入内容）。</li>
-<li><strong>运行调试</strong>：选目标设备（模拟器/物理机）运行，Android Studio部署应用、调用Gemini AI执行，生成含截图和推理过程的报告。</li>
-</ul>
-<h3 id="3">3. 高效编写技巧</h3>
-<ul>
-<li>分离断言与操作：用“Verify/Assert/Check that”开头定义断言步骤。</li>
-<li>支持滑动操作：描述滑动方向/意图（如滚动内容），可指定滑动区域。</li>
-<li>规避复杂交互：暂不支持多指手势、屏幕旋转等，需避免此类配置。</li>
-</ul>
-<h3 id="4">4. 局限</h3>
-<ul>
-<li>执行慢：比Espresso测试耗时久，不适合CI流水线。</li>
-<li>稳定性差：Gemini可能误解析指令，导致偶发失败。</li>
-<li>文本操作缺陷：长文本输入光标异常、删除不彻底。</li>
-</ul>
-<h3 id="5">5. 适用与不适用场景</h3>
-<ul>
-<li><strong>适用</strong>：需求与测试用例协同对齐、原型阶段UI流程验证、补充Espresso/Compose测试（非核心流程）。</li>
-<li><strong>不适用</strong>：生产环境CI/CD、性能敏感高频测试、复杂交互（多手势、旋转）测试。</li>
-</ul>
-<h3 id="6">6. 总结</h3>
-<ul>
-<li>是Android测试创新尝试，降低UI测试门槛，团队协作与早期验证场景价值显著，未来待Gemini AI迭代优化。</li>
-</ul>
+<pre><code>&lt;action&gt;Type &quot;user@example.com&quot; into the email field.&lt;/action&gt;
+&lt;action&gt;Verify that an error message &quot;Email is required&quot; is displayed.&lt;/action&gt;
+</code></pre>
 <p><img alt="" src="https://hub.gitmirror.com/raw.githubusercontent.com/RicardoJiang/resource/refs/heads/main/2025/september/p13.webp" /></p>
 <h3 id="llvm"><a href="https://mp.weixin.qq.com/s/hFbVSM1czsFJdE5NGPs3pA">盘点近期LLVM加持的国内编译技术新趋势</a></h3>
 <p>近期国内编译界热点频出，字节发布 KMP 运行时与 GC 相关文章、开源 Lynx RN 跨平台引擎；华为在 HDC 2025 开源仓颉编程语言及其编译器、运行时与标准库；蚂蚁开源基于 LLVM 的 JVM JIT 编译器 Jeandle；OPPO 发布 “繁星编译器”。这些技术大多复用 LLVM 编译优化能力，避免了从零自研的巨大工作量，利用开源技术在有限人力下达成业务目标。随着 LLVM 技术发展，编译技术将在更多业务场景发挥作用。</p>
