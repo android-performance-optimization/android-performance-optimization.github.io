@@ -2017,6 +2017,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#android" class="md-nav__link">
+    哔哩哔哩Android视频编辑页的架构升级
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -2564,6 +2571,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#android" class="md-nav__link">
+    哔哩哔哩Android视频编辑页的架构升级
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -2612,6 +2626,9 @@
 <li><strong>OPPO繁星编译器</strong>：9月OPPO发布“繁星编译器”，通过将dex转换为LLVM IR复用其编译优化能力，但引入编译时长和codesize问题，后续可能需大量工程工作来解决以推动技术推广。 </li>
 </ul>
 <p><img alt="" src="https://hub.gitmirror.com/raw.githubusercontent.com/RicardoJiang/resource/refs/heads/main/2025/september/p14.webp" /></p>
+<h3 id="android"><a href="https://mp.weixin.qq.com/s/p4Aqe3LIfBUcAHpLiKhGow">哔哩哔哩Android视频编辑页的架构升级</a></h3>
+<p>本文介绍了哔哩哔哩Android视频编辑页的架构升级项目。背景是旧版编辑页存在界面冗余、代码耦合和维护困难等问题，产品团队提出轻量化升级需求，聚焦界面布局、用户交互、功能优化和新增功能（如Redo/Undo）。解决方案采用MVVM+UDF架构，分层设计为UI层、业务层和数据层，实现模块化拆分和单向数据流，依赖注入框架Hilt管理对象。关键功能点包括兼容旧业务面板、统一管理底部功能面板、设计高性能视频轨道控件，以及基于备忘录模式的Redo/Undo功能。项目历时半年，代码修改量9万+，强调团队协作和架构设计原则，如重构时机选择与避免过度复杂化。</p>
+<p><img alt="" src="https://hub.gitmirror.com/raw.githubusercontent.com/RicardoJiang/resource/refs/heads/main/2025/september/p15.webp" /></p>
 
   <hr>
 <div class="md-source-file">
