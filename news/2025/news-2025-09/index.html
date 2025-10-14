@@ -2052,6 +2052,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#llvm" class="md-nav__link">
+    盘点近期LLVM加持的国内编译技术新趋势
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -2634,6 +2641,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#llvm" class="md-nav__link">
+    盘点近期LLVM加持的国内编译技术新趋势
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -2695,6 +2709,16 @@
 <li>是Android测试创新尝试，降低UI测试门槛，团队协作与早期验证场景价值显著，未来待Gemini AI迭代优化。</li>
 </ul>
 <p><img alt="" src="https://hub.gitmirror.com/raw.githubusercontent.com/RicardoJiang/resource/refs/heads/main/2025/september/p13.webp" /></p>
+<h3 id="llvm"><a href="https://mp.weixin.qq.com/s/hFbVSM1czsFJdE5NGPs3pA">盘点近期LLVM加持的国内编译技术新趋势</a></h3>
+<p>近期国内编译界热点频出，字节发布 KMP 运行时与 GC 相关文章、开源 Lynx RN 跨平台引擎；华为在 HDC 2025 开源仓颉编程语言及其编译器、运行时与标准库；蚂蚁开源基于 LLVM 的 JVM JIT 编译器 Jeandle；OPPO 发布 “繁星编译器”。这些技术大多复用 LLVM 编译优化能力，避免了从零自研的巨大工作量，利用开源技术在有限人力下达成业务目标。随着 LLVM 技术发展，编译技术将在更多业务场景发挥作用。</p>
+<ul>
+<li><strong>仓颉语言开源</strong>：2025年7月30日华为在HDC 2025开源仓颉语言，涵盖编译器、运行时与标准库。编译器前端含LLVM IR代码生成器，中后端改进适配LLVM以减少工作量。运行时以高性能、轻量化为目标，提供自动内存管理等功能，且继承方舟编译器成果，体现技术传承。</li>
+<li><strong>字节Lynx RN跨平台引擎</strong>：今年3月字节开源Lynx引擎，其中JS引擎基于QuickJS改进，在解释器、JIT和内存管理方面有优化。其PrimJS也已开源。同时字节发表KMP相关文章，介绍在GC方面的问题与解决方法。</li>
+<li><strong>KMP适配鸿蒙</strong>：安卓应用适配鸿蒙，因Kotlin与Java可自由转换，KMP结合Compose成为较优选择。通过提供K/N Runtime支撑Kotlin Native二进制运行，编译Kotlin代码为LLVM IR并添加支撑函数，再由LLVM后端编译成iOS或鸿蒙二进制，实现代码复用，但KMP在GC性能等方面仍需完善。</li>
+<li><strong>蚂蚁开源Jeandle</strong>：8月蚂蚁开源基于LLVM的JVM JIT编译器Jeandle，该技术原是Azul公司强项，蚂蚁开源运作开发并给出明确Roadmap，预计2026年底有较大进展，致力于融合JVM和LLVM两套系统。</li>
+<li><strong>OPPO繁星编译器</strong>：9月OPPO发布“繁星编译器”，通过将dex转换为LLVM IR复用其编译优化能力，但引入编译时长和codesize问题，后续可能需大量工程工作来解决以推动技术推广。 </li>
+</ul>
+<p><img alt="" src="https://hub.gitmirror.com/raw.githubusercontent.com/RicardoJiang/resource/refs/heads/main/2025/september/p14.webp" /></p>
 
   <hr>
 <div class="md-source-file">
