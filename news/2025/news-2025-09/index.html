@@ -2628,6 +2628,15 @@
 <p><img alt="" src="https://hub.gitmirror.com/raw.githubusercontent.com/RicardoJiang/resource/refs/heads/main/2025/september/p14.webp" /></p>
 <h3 id="android"><a href="https://mp.weixin.qq.com/s/p4Aqe3LIfBUcAHpLiKhGow">哔哩哔哩Android视频编辑页的架构升级</a></h3>
 <p>本文介绍了哔哩哔哩Android视频编辑页的架构升级项目。背景是旧版编辑页存在界面冗余、代码耦合和维护困难等问题，产品团队提出轻量化升级需求，聚焦界面布局、用户交互、功能优化和新增功能（如Redo/Undo）。解决方案采用MVVM+UDF架构，分层设计为UI层、业务层和数据层，实现模块化拆分和单向数据流，依赖注入框架Hilt管理对象。关键功能点包括兼容旧业务面板、统一管理底部功能面板、设计高性能视频轨道控件，以及基于备忘录模式的Redo/Undo功能。项目历时半年，代码修改量9万+，强调团队协作和架构设计原则，如重构时机选择与避免过度复杂化。</p>
+<ul>
+<li>（1）整体采用MVVM进行架构设计。</li>
+<li>（2）遵循数据模型（UiState）驱动界面的原则。</li>
+<li>（3）基本遵循单一可信数据源的原则。（SSOT：Single Source of Truth）</li>
+<li>（4）遵循单向数据流原则。（UDF：Unidirectional Data Flow）</li>
+<li>（5）对业务进行模块拆分，提高模块内的代码内聚，降低模块间的代码耦合。</li>
+<li>（6）使用依赖注入，提高代码复用性，解决对象依赖问题。</li>
+</ul>
+<p><img alt="" src="https://hub.gitmirror.com/raw.githubusercontent.com/RicardoJiang/resource/refs/heads/main/2025/september/p16.webp" /></p>
 <p><img alt="" src="https://hub.gitmirror.com/raw.githubusercontent.com/RicardoJiang/resource/refs/heads/main/2025/september/p15.webp" /></p>
 
   <hr>
@@ -2635,7 +2644,7 @@
   <small>
     
       最后更新:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">October 14, 2025</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">October 15, 2025</span>
       
     
   </small>
