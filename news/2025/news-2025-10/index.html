@@ -2628,11 +2628,12 @@
 <p><img alt="" src="https://hub.gitmirror.com/raw.githubusercontent.com/RicardoJiang/resource/refs/heads/main/2025/november/p3.webp" /></p>
 <p>### <a href="https://juejin.cn/post/7560986017034616875">穿越二十年：Android Native 内存泄漏检测的进化之路</a>
 过去二十年，Android Native（C/C++）内存泄漏检测方案不断发展。从Valgrind开启先河，到LSan改进性能，再到libmemunreachable实现零开销运行，平台侧方案不断演进。同时，App侧方案也因应不同的内存泄漏理解分为语义泄漏和业务泄漏两类。Valgrind作为初代工具，是宿主进程加虚拟执行框架，通过运行时拦截和检测实现泄漏检测，但性能较差。LSan借助LLVM在编译期插桩，提升了性能。libmemunreachable则针对Android系统native组件泄漏问题，通过独特方式实现零开销检测。App侧方案中，KOOM类似平台侧进行可达性分析检测语义泄漏，MemoryLeakDetector和Matrix通过统计分析检测业务泄漏。这二十年的发展是系统软件工程在可见性与代价间的博弈，体现了系统复杂性与工程现实的平衡艺术。</p>
-<p><strong>重要亮点</strong>
-- <strong>Valgrind的原理与意义</strong>：诞生于2000年，旨在为Linux搭建通用动态分析框架。它并非普通调试器，而是通过将原生机器码翻译为VEX IR并插入检测逻辑，再编译回机器码执行。泄漏检测分运行时记录分配信息，检测时构建可达性根集并扫描标记，确立了内存泄漏检测核心范式。例如运行时记录malloc/new及对应free/delete信息，检测时冻结程序状态构建根集。
-- <strong>LSan对Valgrind的改进</strong>：因Valgrind性能问题，随着LLVM兴起，LSan应运而生。它在编译期插桩，取代运行时虚拟执行，性能大幅提升。如AddressSanitizer将检测逻辑嵌入编译指令流，LSan借助其基础检测泄漏。不过，两者在分配追踪和根集合获取方式上有分歧，LSan虽性能好但有部分泄漏默认不报告。
-- <strong>libmemunreachable的创新</strong>：2016年为解决Android系统native组件泄漏检测难题诞生。它不依赖编译器，不追踪分配，检测时向分配器索取活跃分配表，并将标记扫描移到子进程，实现零开销。例如检测时创建collector和sweeper进程，collector采集信息后fork出sweeper分析，主进程不受干扰。
-- <strong>App侧方案的分类依据</strong>：因对内存泄漏理解不同分为两类。语义泄漏以KOOM为代表，类似平台侧进行可达性分析；业务泄漏以MemoryLeakDetector和Matrix为代表，通过记录存活对象、栈聚合和趋势分析定位泄漏热点。语义泄漏关注对象是否可达，业务泄漏关注对象存在是否合理。 </p>
+<ul>
+<li><strong>Valgrind的原理与意义</strong>：诞生于2000年，旨在为Linux搭建通用动态分析框架。它并非普通调试器，而是通过将原生机器码翻译为VEX IR并插入检测逻辑，再编译回机器码执行。泄漏检测分运行时记录分配信息，检测时构建可达性根集并扫描标记，确立了内存泄漏检测核心范式。例如运行时记录malloc/new及对应free/delete信息，检测时冻结程序状态构建根集。</li>
+<li><strong>LSan对Valgrind的改进</strong>：因Valgrind性能问题，随着LLVM兴起，LSan应运而生。它在编译期插桩，取代运行时虚拟执行，性能大幅提升。如AddressSanitizer将检测逻辑嵌入编译指令流，LSan借助其基础检测泄漏。不过，两者在分配追踪和根集合获取方式上有分歧，LSan虽性能好但有部分泄漏默认不报告。</li>
+<li><strong>libmemunreachable的创新</strong>：2016年为解决Android系统native组件泄漏检测难题诞生。它不依赖编译器，不追踪分配，检测时向分配器索取活跃分配表，并将标记扫描移到子进程，实现零开销。例如检测时创建collector和sweeper进程，collector采集信息后fork出sweeper分析，主进程不受干扰。</li>
+<li><strong>App侧方案的分类依据</strong>：因对内存泄漏理解不同分为两类。语义泄漏以KOOM为代表，类似平台侧进行可达性分析；业务泄漏以MemoryLeakDetector和Matrix为代表，通过记录存活对象、栈聚合和趋势分析定位泄漏热点。语义泄漏关注对象是否可达，业务泄漏关注对象存在是否合理。 </li>
+</ul>
 <p><img alt="" src="https://hub.gitmirror.com/raw.githubusercontent.com/RicardoJiang/resource/refs/heads/main/2025/november/p4.webp" /></p>
 
   <hr>
