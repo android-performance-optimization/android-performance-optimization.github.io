@@ -2019,6 +2019,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#android-native" class="md-nav__link">
+    穿越二十年：Android Native 内存泄漏检测的进化之路
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -2580,6 +2587,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#android-native" class="md-nav__link">
+    穿越二十年：Android Native 内存泄漏检测的进化之路
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -2626,8 +2640,8 @@
 <li><strong>未来优化方向</strong>：目前工作流是原型版本，需持续优化。测试能力升级方面，要自动生成测试用例、处理复杂入参等；强化bug诊断能力，结合多种日志和文档完善复杂场景错误诊断修复；提升任务拆分能力，将复杂需求拆分以提高自驱修复成功率；提高部署效率，接入热部署api并自动化修复部署错误；把关代码质量，在后置链路引入代码评审和性能优化agent等。 </li>
 </ul>
 <p><img alt="" src="https://hub.gitmirror.com/raw.githubusercontent.com/RicardoJiang/resource/refs/heads/main/2025/november/p3.webp" /></p>
-<p>### <a href="https://juejin.cn/post/7560986017034616875">穿越二十年：Android Native 内存泄漏检测的进化之路</a>
-过去二十年，Android Native（C/C++）内存泄漏检测方案不断发展。从Valgrind开启先河，到LSan改进性能，再到libmemunreachable实现零开销运行，平台侧方案不断演进。同时，App侧方案也因应不同的内存泄漏理解分为语义泄漏和业务泄漏两类。Valgrind作为初代工具，是宿主进程加虚拟执行框架，通过运行时拦截和检测实现泄漏检测，但性能较差。LSan借助LLVM在编译期插桩，提升了性能。libmemunreachable则针对Android系统native组件泄漏问题，通过独特方式实现零开销检测。App侧方案中，KOOM类似平台侧进行可达性分析检测语义泄漏，MemoryLeakDetector和Matrix通过统计分析检测业务泄漏。这二十年的发展是系统软件工程在可见性与代价间的博弈，体现了系统复杂性与工程现实的平衡艺术。</p>
+<h3 id="android-native"><a href="https://juejin.cn/post/7560986017034616875">穿越二十年：Android Native 内存泄漏检测的进化之路</a></h3>
+<p>过去二十年，Android Native（C/C++）内存泄漏检测方案不断发展。从Valgrind开启先河，到LSan改进性能，再到libmemunreachable实现零开销运行，平台侧方案不断演进。同时，App侧方案也因应不同的内存泄漏理解分为语义泄漏和业务泄漏两类。Valgrind作为初代工具，是宿主进程加虚拟执行框架，通过运行时拦截和检测实现泄漏检测，但性能较差。LSan借助LLVM在编译期插桩，提升了性能。libmemunreachable则针对Android系统native组件泄漏问题，通过独特方式实现零开销检测。App侧方案中，KOOM类似平台侧进行可达性分析检测语义泄漏，MemoryLeakDetector和Matrix通过统计分析检测业务泄漏。这二十年的发展是系统软件工程在可见性与代价间的博弈，体现了系统复杂性与工程现实的平衡艺术。</p>
 <ul>
 <li><strong>Valgrind的原理与意义</strong>：诞生于2000年，旨在为Linux搭建通用动态分析框架。它并非普通调试器，而是通过将原生机器码翻译为VEX IR并插入检测逻辑，再编译回机器码执行。泄漏检测分运行时记录分配信息，检测时构建可达性根集并扫描标记，确立了内存泄漏检测核心范式。例如运行时记录malloc/new及对应free/delete信息，检测时冻结程序状态构建根集。</li>
 <li><strong>LSan对Valgrind的改进</strong>：因Valgrind性能问题，随着LLVM兴起，LSan应运而生。它在编译期插桩，取代运行时虚拟执行，性能大幅提升。如AddressSanitizer将检测逻辑嵌入编译指令流，LSan借助其基础检测泄漏。不过，两者在分配追踪和根集合获取方式上有分歧，LSan虽性能好但有部分泄漏默认不报告。</li>
@@ -2641,7 +2655,7 @@
   <small>
     
       最后更新:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">November 9, 2025</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">November 12, 2025</span>
       
     
   </small>
